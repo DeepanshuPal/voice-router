@@ -1,0 +1,39 @@
+{
+  "scores": {
+    "stt": {
+      "mock-stt": {
+        "en": 1.0
+      }
+    }
+  },
+  "runs": [
+    {
+      "sample": "sample-1.wav",
+      "provider": "mock-stt",
+      "model": "mock-transcribe-1",
+      "latency_ms": 0.0,
+      "cost_usd": 0.0,
+      "wer": null,
+      "status": "ok"
+    },
+    {
+      "sample": "sample-2.wav",
+      "provider": "mock-stt",
+      "model": "mock-transcribe-1",
+      "latency_ms": 0.0,
+      "cost_usd": 0.0,
+      "wer": null,
+      "status": "ok"
+    },
+    {
+      "sample": "sample-3.wav",
+      "provider": "mock-stt",
+      "model": "mock-transcribe-1",
+      "latency_ms": 0.0,
+      "cost_usd": 0.0,
+      "wer": null,
+      "status": "ok"
+    }
+  ],
+  "note": "regenerate with: python -m benchmarks.harness --samples benchmarks/samples"
+}
