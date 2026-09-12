@@ -278,6 +278,9 @@ def render_methodology(sample: bool, generated_at: str) -> str:
     --references benchmarks/references --language en</pre>
 <p style="margin-top:8px">Results land in <code>benchmarks/results.json</code>; this site is regenerated from that file. Nothing is hand-edited: if a number is on the leaderboard, it came out of a harness run.</p>
 </div>
+<div class="card"><h2>Where the audio comes from</h2>
+<p>The current sample set is real human speech from Google's public FLEURS evaluation corpus (CC-BY-4.0) - 4 test-split clips per language for English (en_us), Spanish (es_419), and Hindi (hi_in), normalized to 16 kHz mono PCM. Reference transcripts are FLEURS' normalized transcriptions. No synthetic or TTS-generated audio is used. Clips and references are committed in <code>benchmarks/samples/</code> and <code>benchmarks/references/</code> so anyone can rerun the exact matrix.</p>
+</div>
 <div class="card"><h2>Refresh cadence</h2>
 <p>A GitHub Action regenerates the site on every push that touches <code>benchmarks/</code> and on a weekly schedule, because provider quality drifts. Anyone can reproduce the numbers: clone the repo, add provider keys, run the harness.</p>
 </div>

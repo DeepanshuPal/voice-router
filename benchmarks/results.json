@@ -1,45 +1,146 @@
 {
   "sample_data": false,
-  "generated_at": "2026-09-12T00:47:02+00:00",
+  "generated_at": "2026-09-12T12:54:59+00:00",
   "scores": {
     "stt": {
-      "mock-stt": {
-        "en": 1.0
+      "groq-whisper": {
+        "en": 0.843,
+        "es": 0.8544,
+        "hi": 0.6824
       }
     }
   },
   "runs": [
     {
-      "sample": "sample-1.wav",
-      "provider": "mock-stt",
-      "model": "mock-transcribe-1",
+      "sample": "en-1.wav",
+      "provider": "groq-whisper",
+      "model": "whisper-large-v3",
       "language": "en",
-      "audio_s": 1.5,
-      "latency_ms": 0.0,
-      "cost_usd": 0.0,
-      "wer": null,
+      "audio_s": 10.56,
+      "latency_ms": 660.3,
+      "cost_usd": 0.00047530968750000006,
+      "wer": 0.1579,
       "status": "ok"
     },
     {
-      "sample": "sample-2.wav",
-      "provider": "mock-stt",
-      "model": "mock-transcribe-1",
+      "sample": "en-2.wav",
+      "provider": "groq-whisper",
+      "model": "whisper-large-v3",
       "language": "en",
-      "audio_s": 1.5,
-      "latency_ms": 0.0,
-      "cost_usd": 0.0,
-      "wer": null,
+      "audio_s": 8.76,
+      "latency_ms": 341.8,
+      "cost_usd": 0.00039430968750000004,
+      "wer": 0.1429,
       "status": "ok"
     },
     {
-      "sample": "sample-3.wav",
-      "provider": "mock-stt",
-      "model": "mock-transcribe-1",
+      "sample": "en-3.wav",
+      "provider": "groq-whisper",
+      "model": "whisper-large-v3",
       "language": "en",
-      "audio_s": 1.5,
-      "latency_ms": 0.0,
-      "cost_usd": 0.0,
-      "wer": null,
+      "audio_s": 11.46,
+      "latency_ms": 439.4,
+      "cost_usd": 0.0005158096875,
+      "wer": 0.0606,
+      "status": "ok"
+    },
+    {
+      "sample": "en-4.wav",
+      "provider": "groq-whisper",
+      "model": "whisper-large-v3",
+      "language": "en",
+      "audio_s": 5.76,
+      "latency_ms": 383.7,
+      "cost_usd": 0.0002593096875,
+      "wer": 0.2667,
+      "status": "ok"
+    },
+    {
+      "sample": "es-1.wav",
+      "provider": "groq-whisper",
+      "model": "whisper-large-v3",
+      "language": "es",
+      "audio_s": 7.44,
+      "latency_ms": 420.5,
+      "cost_usd": 0.0003349096875,
+      "wer": 0.1333,
+      "status": "ok"
+    },
+    {
+      "sample": "es-2.wav",
+      "provider": "groq-whisper",
+      "model": "whisper-large-v3",
+      "language": "es",
+      "audio_s": 8.58,
+      "latency_ms": 352.7,
+      "cost_usd": 0.00038620968750000006,
+      "wer": 0.1333,
+      "status": "ok"
+    },
+    {
+      "sample": "es-3.wav",
+      "provider": "groq-whisper",
+      "model": "whisper-large-v3",
+      "language": "es",
+      "audio_s": 9.12,
+      "latency_ms": 385.9,
+      "cost_usd": 0.00041050968750000005,
+      "wer": 0.2105,
+      "status": "ok"
+    },
+    {
+      "sample": "es-4.wav",
+      "provider": "groq-whisper",
+      "model": "whisper-large-v3",
+      "language": "es",
+      "audio_s": 7.32,
+      "latency_ms": 433.5,
+      "cost_usd": 0.00032950968750000004,
+      "wer": 0.1053,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-1.wav",
+      "provider": "groq-whisper",
+      "model": "whisper-large-v3",
+      "language": "hi",
+      "audio_s": 8.64,
+      "latency_ms": 468.1,
+      "cost_usd": 0.0003889096875,
+      "wer": 0.5833,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-2.wav",
+      "provider": "groq-whisper",
+      "model": "whisper-large-v3",
+      "language": "hi",
+      "audio_s": 6.66,
+      "latency_ms": 516.4,
+      "cost_usd": 0.0002998096875,
+      "wer": 0.3333,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-3.wav",
+      "provider": "groq-whisper",
+      "model": "whisper-large-v3",
+      "language": "hi",
+      "audio_s": 8.28,
+      "latency_ms": 473.0,
+      "cost_usd": 0.0003727096875,
+      "wer": 0.2667,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-4.wav",
+      "provider": "groq-whisper",
+      "model": "whisper-large-v3",
+      "language": "hi",
+      "audio_s": 8.4,
+      "latency_ms": 597.7,
+      "cost_usd": 0.0003781096875,
+      "wer": 0.087,
       "status": "ok"
     }
   ],
