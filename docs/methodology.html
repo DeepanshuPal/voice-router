@@ -65,7 +65,7 @@ nav{margin-top:8px;font-size:.85rem}
 <p style="margin-top:8px">Results land in <code>benchmarks/results.json</code>; this site is regenerated from that file. Nothing is hand-edited: if a number is on the leaderboard, it came out of a harness run.</p>
 </div>
 <div class="card"><h2>Where the audio comes from</h2>
-<p>The current sample set is real human speech from Google's public FLEURS evaluation corpus (CC-BY-4.0) - 4 test-split clips per language for English (en_us), Spanish (es_419), and Hindi (hi_in), normalized to 16 kHz mono PCM. Reference transcripts are FLEURS' normalized transcriptions. No synthetic or TTS-generated audio is used. Clips and references are committed in <code>benchmarks/samples/</code> and <code>benchmarks/references/</code> so anyone can rerun the exact matrix.</p>
+<p>The current sample set is real human speech from Google's public FLEURS evaluation corpus (CC-BY-4.0) - 15 test-split clips per language for English (en_us), Spanish (es_419), Hindi (hi_in), French (fr_fr), German (de_de), and Japanese (ja_jp), normalized to 16 kHz mono PCM. Clips are 4-14 seconds long, picked at even intervals across the test split for speaker diversity. Reference transcripts are FLEURS' normalized transcriptions. No synthetic or TTS-generated audio is used. Clips and references are committed in <code>benchmarks/samples/</code> and <code>benchmarks/references/</code> so anyone can rerun the exact matrix.</p>
 </div>
 <div class="card"><h2>Refresh cadence</h2>
 <p>A GitHub Action regenerates the site on every push that touches <code>benchmarks/</code> and on a weekly schedule, because provider quality drifts. Anyone can reproduce the numbers: clone the repo, add provider keys, run the harness.</p>
@@ -73,7 +73,7 @@ nav{margin-top:8px;font-size:.85rem}
 <div class="card"><h2>Sample data policy</h2>
 <p>Before the first real multi-provider run, the site renders <code>benchmarks/sample_results.json</code> - synthetic numbers that exist only to demonstrate the format. Sample data is always shown behind a visible SAMPLE DATA banner and is never presented as a real measurement. The moment a real run lands in <code>benchmarks/results.json</code>, it replaces the sample data automatically.</p>
 </div>
-<footer>Generated 2026-09-12T16:15:59+00:00 &middot; <a href="index.html">back to the leaderboard</a></footer>
+<footer>Generated 2026-09-12T17:42:32+00:00 &middot; <a href="index.html">back to the leaderboard</a></footer>
 
 </div></body>
 </html>
