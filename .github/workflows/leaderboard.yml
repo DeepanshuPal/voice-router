@@ -28,13 +28,12 @@ jobs:
           python-version: "3.12"
       - run: pip install -r requirements.txt
 
-      - name: Run benchmark harness
-        # With no provider secrets this runs the built-in mock providers, so the
-        # full loop works on a fork with zero keys. Add DEEPGRAM_API_KEY /
-        # OPENAI_API_KEY / GROQ_API_KEY as repo secrets for real measurements.
-        run: |
-          python scripts/make_samples.py
-          python -m benchmarks.harness --samples benchmarks/samples
+      - name: Run benchmark matrix
+        # Samples + references are committed (FLEURS clips). With no provider
+        # secrets the matrix produces mock-only results and the site generator
+        # keeps the SAMPLE DATA banner; add DEEPGRAM_API_KEY / GROQ_API_KEY /
+        # OPENAI_API_KEY as repo secrets for real measurements.
+        run: python scripts/run_matrix.py
         env:
           DEEPGRAM_API_KEY: ${{ secrets.DEEPGRAM_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -42,6 +41,22 @@ jobs:
 
       - name: Generate leaderboard site
         run: python scripts/generate_leaderboard.py
+
+      - name: Guard against clobbering real results
+        # If this run produced no real (non-mock) provider rows, keep the
+        # committed results.json and site as they were - never overwrite real
+        # measurements with mock/sample output.
+        run: |
+          if ! python3 -c "
+          import json, sys
+          d = json.load(open('benchmarks/results.json'))
+          ok = [r for r in d.get('runs', []) if r.get('status') == 'ok']
+          real = any(not r.get('provider', '').startswith('mock') for r in ok)
+          sys.exit(0 if (real and not d.get('sample_data')) else 1)
+          "; then
+            echo "no real provider runs - keeping committed results"
+            git checkout -- docs benchmarks/results.json
+          fi
 
       - name: Commit refreshed results and site
         run: |
