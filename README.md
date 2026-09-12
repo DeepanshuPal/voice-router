@@ -79,6 +79,16 @@ python -m benchmarks.harness --samples benchmarks/samples --references benchmark
 
 Results land in `benchmarks/results.json` and power the `benchmark` strategy. Re-run monthly - provider quality drifts.
 
+## Public leaderboard
+
+Harness results are rendered into a static leaderboard: **https://deepanshupal.github.io/voice-router/** - WER, p50 latency, and effective cost per minute, per provider, per language, with the [methodology](https://deepanshupal.github.io/voice-router/methodology.html) published alongside. Until the first real multi-provider run, it shows clearly-labeled sample data so the format is visible.
+
+The site is plain HTML in `docs/`, served by GitHub Pages from the `main` branch - no build step and no separate `gh-pages` branch to drift away from the data that generates it. Regenerate after any harness run (a GitHub Action also does this on every `benchmarks/` push and weekly):
+
+```bash
+python scripts/generate_leaderboard.py
+```
+
 ## Use it with Pipecat
 
 Point Pipecat's OpenAI-compatible services at the router and your existing agent inherits routing with zero pipeline changes - see `examples/pipecat_agent.py`.
@@ -100,7 +110,6 @@ GET  /v1/telemetry              per-call latency/cost/outcome stats
 - WebSocket realtime endpoint (streaming STT/TTS in one socket)
 - Telephony leg (Twilio / Plivo / Exotel)
 - Usage metering + per-key budgets
-- Hosted leaderboard page generated from `results.json`
 
 ## License
 
