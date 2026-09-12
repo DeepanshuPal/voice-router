@@ -15,6 +15,7 @@ import argparse
 import asyncio
 import json
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 from voice_router.config import load_config
@@ -62,6 +63,8 @@ async def run(samples: Path, references: Path | None, language: str, out: Path) 
                 latency = (time.perf_counter() - start) * 1000
                 runs.append({
                     "sample": wav.name, "provider": name, "model": model,
+                    "language": language,
+                    "audio_s": round(len(audio) / (16000 * 2), 2),
                     "latency_ms": round(latency, 1),
                     "cost_usd": adapter.spec.unit_cost(len(audio) / (16000 * 2 * 60)),
                     "wer": round(wer(ref, text), 4) if ref else None,
@@ -69,6 +72,7 @@ async def run(samples: Path, references: Path | None, language: str, out: Path) 
                 })
             except ProviderError as e:
                 runs.append({"sample": wav.name, "provider": name, "model": model,
+                             "language": language,
                              "status": "error", "detail": str(e)[:200]})
 
     # Score per provider: 1 - WER when references exist, else inverse latency.
@@ -83,7 +87,9 @@ async def run(samples: Path, references: Path | None, language: str, out: Path) 
             score = 1 / (1 + sum(r["latency_ms"] for r in ok) / len(ok) / 1000)
         scores["stt"][name] = {language: round(score, 4)}
 
-    payload = {"scores": scores, "runs": runs,
+    payload = {"sample_data": False,
+               "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+               "scores": scores, "runs": runs,
                "note": "regenerate with: python -m benchmarks.harness --samples benchmarks/samples"}
     out.write_text(json.dumps(payload, indent=2))
     return payload
