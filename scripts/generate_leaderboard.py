@@ -96,6 +96,7 @@ table{width:100%;border-collapse:collapse;font-size:.9rem}
 th,td{padding:8px 10px;text-align:right;border-bottom:1px solid #21262d;white-space:nowrap}
 th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:left}
 th{color:#8b949e;font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+table.defs td{white-space:normal;vertical-align:top}
 tr:last-child td{border-bottom:none}
 .pill{display:inline-block;background:#1f6feb33;border:1px solid #1f6feb;color:#58a6ff;border-radius:999px;padding:1px 9px;font-size:.75rem;font-weight:600}
 .best{color:#3fb950;font-weight:700}
@@ -262,7 +263,7 @@ def render_methodology(sample: bool, generated_at: str) -> str:
 {note}
 <div class="card"><h2>What we measure</h2>
 <p style="margin-bottom:8px">Every run pushes the same audio samples through each configured STT provider and records, per sample:</p>
-<table>
+<table class="defs">
 <thead><tr><th style="text-align:left">Metric</th><th style="text-align:left">Definition</th></tr></thead>
 <tbody>
 <tr><td style="text-align:left">WER</td><td style="text-align:left">Word error rate against a reference transcript (edit distance on word sequences). CER for character-based languages is on the roadmap.</td></tr>
