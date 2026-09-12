@@ -38,6 +38,10 @@ jobs:
           DEEPGRAM_API_KEY: ${{ secrets.DEEPGRAM_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          ASSEMBLYAI_API_KEY: ${{ secrets.ASSEMBLYAI_API_KEY }}
+          GLADIA_API_KEY: ${{ secrets.GLADIA_API_KEY }}
+          SPEECHMATICS_API_KEY: ${{ secrets.SPEECHMATICS_API_KEY }}
+          REV_API_KEY: ${{ secrets.REV_API_KEY }}
 
       - name: Generate leaderboard site
         run: python scripts/generate_leaderboard.py

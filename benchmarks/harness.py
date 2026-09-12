@@ -46,22 +46,24 @@ async def run(samples: Path, references: Path | None, language: str, out: Path) 
         raise SystemExit(f"no .wav samples in {samples} - drop real clips there, "
                          "or run scripts/make_samples.py for synthetic ones")
 
-    runs = []
-    for wav in wavs:
+    # Several providers here are async job APIs (upload, submit, poll), so a
+    # strictly serial matrix takes hours. Run sample x provider pairs with a
+    # small semaphore; latency is still measured per call, wall clock.
+    sem = asyncio.Semaphore(6)
+
+    async def one(wav: Path, name: str, adapter) -> dict:
         audio = wav.read_bytes()
         ref = None
         if references:
             ref_file = references / (wav.stem + ".txt")
             ref = ref_file.read_text().strip() if ref_file.exists() else None
-        for name, adapter in providers.items():
-            if not adapter.supports(language):
-                continue
-            model = adapter.spec.models[0]
+        model = adapter.spec.models[0]
+        async with sem:
             start = time.perf_counter()
             try:
                 text = await adapter.transcribe(audio, model, language)
                 latency = (time.perf_counter() - start) * 1000
-                runs.append({
+                return {
                     "sample": wav.name, "provider": name, "model": model,
                     "language": language,
                     "audio_s": round(len(audio) / (16000 * 2), 2),
@@ -69,11 +71,17 @@ async def run(samples: Path, references: Path | None, language: str, out: Path) 
                     "cost_usd": adapter.spec.unit_cost(len(audio) / (16000 * 2 * 60)),
                     "wer": round(wer(ref, text), 4) if ref else None,
                     "status": "ok",
-                })
+                }
             except ProviderError as e:
-                runs.append({"sample": wav.name, "provider": name, "model": model,
-                             "language": language,
-                             "status": "error", "detail": str(e)[:200]})
+                return {"sample": wav.name, "provider": name, "model": model,
+                        "language": language,
+                        "status": "error", "detail": str(e)[:200]}
+
+    tasks = [one(wav, name, adapter)
+             for wav in wavs
+             for name, adapter in providers.items()
+             if adapter.supports(language)]
+    runs = list(await asyncio.gather(*tasks))
 
     # Score per provider: 1 - WER when references exist, else inverse latency.
     scores: dict[str, dict[str, float]] = {"stt": {}}

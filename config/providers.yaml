@@ -26,6 +26,30 @@ stt:
     languages: [en, es, hi, fr, de, pt, ja, ko, zh, it, nl, ru]
     env_key: GROQ_API_KEY
 
+  assemblyai:
+    models: [universal-3-5-pro]
+    cost_per_minute_usd: 0.0035
+    default_latency_ms: 15000
+    languages: [en, es, hi, fr, de, ja]
+    env_key: ASSEMBLYAI_API_KEY
+  gladia:
+    models: [v2]
+    cost_per_minute_usd: 0.0102
+    default_latency_ms: 15000
+    languages: [en, es, hi, fr, de, ja]
+    env_key: GLADIA_API_KEY
+  speechmatics:
+    models: [enhanced]
+    cost_per_minute_usd: 0.0092
+    default_latency_ms: 15000
+    languages: [en, es, hi, fr, de, ja]
+    env_key: SPEECHMATICS_API_KEY
+  rev:
+    models: [machine]
+    cost_per_minute_usd: 0.0042
+    default_latency_ms: 15000
+    languages: [en, es, hi, fr, de, ja]
+    env_key: REV_API_KEY
 tts:
   elevenlabs:
     models: [eleven_multilingual_v2, eleven_flash_v2_5]
