@@ -1,0 +1,423 @@
+{
+  "sample_data": true,
+  "label": "SAMPLE DATA - synthetic numbers that demonstrate the leaderboard format. Not real measurements.",
+  "generated_at": "2026-09-12T00:00:00Z",
+  "scores": {
+    "stt": {
+      "deepgram": {
+        "en": 0.94,
+        "es": 0.917,
+        "hi": 0.883
+      },
+      "openai": {
+        "en": 0.942,
+        "es": 0.918,
+        "hi": 0.873
+      },
+      "groq": {
+        "en": 0.929,
+        "es": 0.906,
+        "hi": 0.861
+      }
+    }
+  },
+  "runs": [
+    {
+      "sample": "en-sample-1.wav",
+      "provider": "deepgram",
+      "model": "nova-3",
+      "language": "en",
+      "audio_s": 5.0,
+      "latency_ms": 261.0,
+      "cost_usd": 0.000358,
+      "wer": 0.053,
+      "status": "ok"
+    },
+    {
+      "sample": "en-sample-1.wav",
+      "provider": "openai",
+      "model": "whisper-1",
+      "language": "en",
+      "audio_s": 5.0,
+      "latency_ms": 722.0,
+      "cost_usd": 0.0005,
+      "wer": 0.061,
+      "status": "ok"
+    },
+    {
+      "sample": "en-sample-1.wav",
+      "provider": "groq",
+      "model": "whisper-large-v3",
+      "language": "en",
+      "audio_s": 5.0,
+      "latency_ms": 213.0,
+      "cost_usd": 0.000154,
+      "wer": 0.069,
+      "status": "ok"
+    },
+    {
+      "sample": "en-sample-2.wav",
+      "provider": "deepgram",
+      "model": "nova-3",
+      "language": "en",
+      "audio_s": 5.0,
+      "latency_ms": 285.0,
+      "cost_usd": 0.000358,
+      "wer": 0.061,
+      "status": "ok"
+    },
+    {
+      "sample": "en-sample-2.wav",
+      "provider": "openai",
+      "model": "whisper-1",
+      "language": "en",
+      "audio_s": 5.0,
+      "latency_ms": 686.0,
+      "cost_usd": 0.0005,
+      "wer": 0.049,
+      "status": "ok"
+    },
+    {
+      "sample": "en-sample-2.wav",
+      "provider": "groq",
+      "model": "whisper-large-v3",
+      "language": "en",
+      "audio_s": 5.0,
+      "latency_ms": 237.0,
+      "cost_usd": 0.000154,
+      "wer": 0.077,
+      "status": "ok"
+    },
+    {
+      "sample": "en-sample-3.wav",
+      "provider": "deepgram",
+      "model": "nova-3",
+      "language": "en",
+      "audio_s": 5.0,
+      "latency_ms": 309.0,
+      "cost_usd": 0.000358,
+      "wer": 0.069,
+      "status": "ok"
+    },
+    {
+      "sample": "en-sample-3.wav",
+      "provider": "openai",
+      "model": "whisper-1",
+      "language": "en",
+      "audio_s": 5.0,
+      "latency_ms": 710.0,
+      "cost_usd": 0.0005,
+      "wer": 0.057,
+      "status": "ok"
+    },
+    {
+      "sample": "en-sample-3.wav",
+      "provider": "groq",
+      "model": "whisper-large-v3",
+      "language": "en",
+      "audio_s": 5.0,
+      "latency_ms": 201.0,
+      "cost_usd": 0.000154,
+      "wer": 0.065,
+      "status": "ok"
+    },
+    {
+      "sample": "en-sample-4.wav",
+      "provider": "deepgram",
+      "model": "nova-3",
+      "language": "en",
+      "audio_s": 5.0,
+      "latency_ms": 273.0,
+      "cost_usd": 0.000358,
+      "wer": 0.057,
+      "status": "ok"
+    },
+    {
+      "sample": "en-sample-4.wav",
+      "provider": "openai",
+      "model": "whisper-1",
+      "language": "en",
+      "audio_s": 5.0,
+      "latency_ms": 734.0,
+      "cost_usd": 0.0005,
+      "wer": 0.065,
+      "status": "ok"
+    },
+    {
+      "sample": "en-sample-4.wav",
+      "provider": "groq",
+      "model": "whisper-large-v3",
+      "language": "en",
+      "audio_s": 5.0,
+      "latency_ms": 225.0,
+      "cost_usd": 0.000154,
+      "wer": 0.073,
+      "status": "ok"
+    },
+    {
+      "sample": "es-sample-1.wav",
+      "provider": "deepgram",
+      "model": "nova-3",
+      "language": "es",
+      "audio_s": 5.0,
+      "latency_ms": 306.0,
+      "cost_usd": 0.000358,
+      "wer": 0.076,
+      "status": "ok"
+    },
+    {
+      "sample": "es-sample-1.wav",
+      "provider": "openai",
+      "model": "whisper-1",
+      "language": "es",
+      "audio_s": 5.0,
+      "latency_ms": 797.0,
+      "cost_usd": 0.0005,
+      "wer": 0.085,
+      "status": "ok"
+    },
+    {
+      "sample": "es-sample-1.wav",
+      "provider": "groq",
+      "model": "whisper-large-v3",
+      "language": "es",
+      "audio_s": 5.0,
+      "latency_ms": 253.0,
+      "cost_usd": 0.000154,
+      "wer": 0.092,
+      "status": "ok"
+    },
+    {
+      "sample": "es-sample-2.wav",
+      "provider": "deepgram",
+      "model": "nova-3",
+      "language": "es",
+      "audio_s": 5.0,
+      "latency_ms": 330.0,
+      "cost_usd": 0.000358,
+      "wer": 0.084,
+      "status": "ok"
+    },
+    {
+      "sample": "es-sample-2.wav",
+      "provider": "openai",
+      "model": "whisper-1",
+      "language": "es",
+      "audio_s": 5.0,
+      "latency_ms": 761.0,
+      "cost_usd": 0.0005,
+      "wer": 0.073,
+      "status": "ok"
+    },
+    {
+      "sample": "es-sample-2.wav",
+      "provider": "groq",
+      "model": "whisper-large-v3",
+      "language": "es",
+      "audio_s": 5.0,
+      "latency_ms": 277.0,
+      "cost_usd": 0.000154,
+      "wer": 0.1,
+      "status": "ok"
+    },
+    {
+      "sample": "es-sample-3.wav",
+      "provider": "deepgram",
+      "model": "nova-3",
+      "language": "es",
+      "audio_s": 5.0,
+      "latency_ms": 354.0,
+      "cost_usd": 0.000358,
+      "wer": 0.092,
+      "status": "ok"
+    },
+    {
+      "sample": "es-sample-3.wav",
+      "provider": "openai",
+      "model": "whisper-1",
+      "language": "es",
+      "audio_s": 5.0,
+      "latency_ms": 785.0,
+      "cost_usd": 0.0005,
+      "wer": 0.081,
+      "status": "ok"
+    },
+    {
+      "sample": "es-sample-3.wav",
+      "provider": "groq",
+      "model": "whisper-large-v3",
+      "language": "es",
+      "audio_s": 5.0,
+      "latency_ms": 241.0,
+      "cost_usd": 0.000154,
+      "wer": 0.088,
+      "status": "ok"
+    },
+    {
+      "sample": "es-sample-4.wav",
+      "provider": "deepgram",
+      "model": "nova-3",
+      "language": "es",
+      "audio_s": 5.0,
+      "latency_ms": 318.0,
+      "cost_usd": 0.000358,
+      "wer": 0.08,
+      "status": "ok"
+    },
+    {
+      "sample": "es-sample-4.wav",
+      "provider": "openai",
+      "model": "whisper-1",
+      "language": "es",
+      "audio_s": 5.0,
+      "latency_ms": 809.0,
+      "cost_usd": 0.0005,
+      "wer": 0.089,
+      "status": "ok"
+    },
+    {
+      "sample": "es-sample-4.wav",
+      "provider": "groq",
+      "model": "whisper-large-v3",
+      "language": "es",
+      "audio_s": 5.0,
+      "latency_ms": 265.0,
+      "cost_usd": 0.000154,
+      "wer": 0.096,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-sample-1.wav",
+      "provider": "deepgram",
+      "model": "nova-3",
+      "language": "hi",
+      "audio_s": 5.0,
+      "latency_ms": 341.0,
+      "cost_usd": 0.000358,
+      "wer": 0.11,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-sample-1.wav",
+      "provider": "openai",
+      "model": "whisper-1",
+      "language": "hi",
+      "audio_s": 5.0,
+      "latency_ms": 872.0,
+      "cost_usd": 0.0005,
+      "wer": 0.13,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-sample-1.wav",
+      "provider": "groq",
+      "model": "whisper-large-v3",
+      "language": "hi",
+      "audio_s": 5.0,
+      "latency_ms": 293.0,
+      "cost_usd": 0.000154,
+      "wer": 0.137,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-sample-2.wav",
+      "provider": "deepgram",
+      "model": "nova-3",
+      "language": "hi",
+      "audio_s": 5.0,
+      "latency_ms": 365.0,
+      "cost_usd": 0.000358,
+      "wer": 0.118,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-sample-2.wav",
+      "provider": "openai",
+      "model": "whisper-1",
+      "language": "hi",
+      "audio_s": 5.0,
+      "latency_ms": 836.0,
+      "cost_usd": 0.0005,
+      "wer": 0.118,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-sample-2.wav",
+      "provider": "groq",
+      "model": "whisper-large-v3",
+      "language": "hi",
+      "audio_s": 5.0,
+      "latency_ms": 317.0,
+      "cost_usd": 0.000154,
+      "wer": 0.145,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-sample-3.wav",
+      "provider": "deepgram",
+      "model": "nova-3",
+      "language": "hi",
+      "audio_s": 5.0,
+      "latency_ms": 389.0,
+      "cost_usd": 0.000358,
+      "wer": 0.126,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-sample-3.wav",
+      "provider": "openai",
+      "model": "whisper-1",
+      "language": "hi",
+      "audio_s": 5.0,
+      "latency_ms": 860.0,
+      "cost_usd": 0.0005,
+      "wer": 0.126,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-sample-3.wav",
+      "provider": "groq",
+      "model": "whisper-large-v3",
+      "language": "hi",
+      "audio_s": 5.0,
+      "latency_ms": 281.0,
+      "cost_usd": 0.000154,
+      "wer": 0.133,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-sample-4.wav",
+      "provider": "deepgram",
+      "model": "nova-3",
+      "language": "hi",
+      "audio_s": 5.0,
+      "latency_ms": 353.0,
+      "cost_usd": 0.000358,
+      "wer": 0.114,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-sample-4.wav",
+      "provider": "openai",
+      "model": "whisper-1",
+      "language": "hi",
+      "audio_s": 5.0,
+      "latency_ms": 884.0,
+      "cost_usd": 0.0005,
+      "wer": 0.134,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-sample-4.wav",
+      "provider": "groq",
+      "model": "whisper-large-v3",
+      "language": "hi",
+      "audio_s": 5.0,
+      "latency_ms": 305.0,
+      "cost_usd": 0.000154,
+      "wer": 0.141,
+      "status": "ok"
+    }
+  ],
+  "note": "regenerate with: python -m benchmarks.harness --samples benchmarks/samples --references benchmarks/references"
+}
