@@ -1,6 +1,6 @@
 {
   "sample_data": false,
-  "generated_at": "2026-09-12T17:42:32+00:00",
+  "generated_at": "2026-09-12T17:57:18+00:00",
   "scores": {
     "stt": {
       "deepgram": {
@@ -13,10 +13,43 @@
       },
       "groq-whisper": {
         "de": 0.83,
-        "en": 0.8252,
-        "fr": 0.931,
-        "hi": 0.8235,
+        "en": 0.8463,
+        "es": 0.9004,
+        "fr": 0.8339,
+        "hi": 0.6857,
         "ja": 0.0
+      },
+      "assemblyai": {
+        "de": 0.8508,
+        "en": 0.8609,
+        "es": 0.8942,
+        "fr": 0.8652,
+        "hi": 0.7524,
+        "ja": 0.0
+      },
+      "gladia": {
+        "de": 0.83,
+        "en": 0.8304,
+        "es": 0.9004,
+        "fr": 0.8282,
+        "hi": 0.6525,
+        "ja": 0.0
+      },
+      "speechmatics": {
+        "de": 0.8392,
+        "en": 0.8528,
+        "es": 0.8843,
+        "fr": 0.8422,
+        "hi": 0.8076,
+        "ja": 0.0
+      },
+      "rev": {
+        "de": 0.862,
+        "en": 0.7912,
+        "es": 0.8781,
+        "fr": 0.8143,
+        "hi": 0.6935,
+        "ja": 0.2
       }
     }
   },
@@ -27,7 +60,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 22.44,
-      "latency_ms": 907.0,
+      "latency_ms": 741.9,
       "cost_usd": 0.0016083298958333334,
       "wer": 0.0,
       "status": "ok"
@@ -38,9 +71,53 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 22.44,
-      "latency_ms": 995.4,
+      "latency_ms": 527.5,
       "cost_usd": 0.0010098815625000002,
       "wer": 0.1538,
+      "status": "ok"
+    },
+    {
+      "sample": "de-1.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "de",
+      "audio_s": 22.44,
+      "latency_ms": 4553.4,
+      "cost_usd": 0.0013091057291666668,
+      "wer": 0.1538,
+      "status": "ok"
+    },
+    {
+      "sample": "de-1.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "de",
+      "audio_s": 22.44,
+      "latency_ms": 6371.6,
+      "cost_usd": 0.003815108125,
+      "wer": 0.1538,
+      "status": "ok"
+    },
+    {
+      "sample": "de-1.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "de",
+      "audio_s": 22.44,
+      "latency_ms": 6093.5,
+      "cost_usd": 0.0034410779166666665,
+      "wer": 0.1923,
+      "status": "ok"
+    },
+    {
+      "sample": "de-1.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "de",
+      "audio_s": 22.44,
+      "latency_ms": 8507.0,
+      "cost_usd": 0.0015709268749999998,
+      "wer": 0.0769,
       "status": "ok"
     },
     {
@@ -49,7 +126,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 15.12,
-      "latency_ms": 811.4,
+      "latency_ms": 567.8,
       "cost_usd": 0.0010837298958333334,
       "wer": 0.0625,
       "status": "ok"
@@ -60,8 +137,52 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 15.12,
-      "latency_ms": 525.0,
+      "latency_ms": 316.9,
       "cost_usd": 0.0006804815625000001,
+      "wer": 0.0625,
+      "status": "ok"
+    },
+    {
+      "sample": "de-10.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "de",
+      "audio_s": 15.12,
+      "latency_ms": 5534.3,
+      "cost_usd": 0.0008821057291666667,
+      "wer": 0.0625,
+      "status": "ok"
+    },
+    {
+      "sample": "de-10.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "de",
+      "audio_s": 15.12,
+      "latency_ms": 5760.6,
+      "cost_usd": 0.002570708125,
+      "wer": 0.0625,
+      "status": "ok"
+    },
+    {
+      "sample": "de-10.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "de",
+      "audio_s": 15.12,
+      "latency_ms": 5974.1,
+      "cost_usd": 0.0023186779166666665,
+      "wer": 0.0625,
+      "status": "ok"
+    },
+    {
+      "sample": "de-10.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "de",
+      "audio_s": 15.12,
+      "latency_ms": 8444.0,
+      "cost_usd": 0.001058526875,
       "wer": 0.0625,
       "status": "ok"
     },
@@ -71,7 +192,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 19.92,
-      "latency_ms": 366.7,
+      "latency_ms": 565.2,
       "cost_usd": 0.0014277298958333335,
       "wer": 0.1765,
       "status": "ok"
@@ -82,8 +203,52 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 19.92,
-      "latency_ms": 479.9,
+      "latency_ms": 308.4,
       "cost_usd": 0.0008964815625000001,
+      "wer": 0.1765,
+      "status": "ok"
+    },
+    {
+      "sample": "de-11.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "de",
+      "audio_s": 19.92,
+      "latency_ms": 4437.7,
+      "cost_usd": 0.0011621057291666668,
+      "wer": 0.1176,
+      "status": "ok"
+    },
+    {
+      "sample": "de-11.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "de",
+      "audio_s": 19.92,
+      "latency_ms": 6026.1,
+      "cost_usd": 0.0033867081250000004,
+      "wer": 0.1765,
+      "status": "ok"
+    },
+    {
+      "sample": "de-11.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "de",
+      "audio_s": 19.92,
+      "latency_ms": 6385.4,
+      "cost_usd": 0.0030546779166666666,
+      "wer": 0.1765,
+      "status": "ok"
+    },
+    {
+      "sample": "de-11.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "de",
+      "audio_s": 19.92,
+      "latency_ms": 8375.0,
+      "cost_usd": 0.001394526875,
       "wer": 0.1765,
       "status": "ok"
     },
@@ -93,7 +258,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 23.16,
-      "latency_ms": 817.2,
+      "latency_ms": 167.9,
       "cost_usd": 0.0016599298958333334,
       "wer": 0.0,
       "status": "ok"
@@ -104,8 +269,52 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 23.16,
-      "latency_ms": 482.5,
+      "latency_ms": 373.0,
       "cost_usd": 0.0010422815625,
+      "wer": 0.1,
+      "status": "ok"
+    },
+    {
+      "sample": "de-12.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "de",
+      "audio_s": 23.16,
+      "latency_ms": 4401.1,
+      "cost_usd": 0.0013511057291666667,
+      "wer": 0.1,
+      "status": "ok"
+    },
+    {
+      "sample": "de-12.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "de",
+      "audio_s": 23.16,
+      "latency_ms": 6161.2,
+      "cost_usd": 0.003937508125,
+      "wer": 0.1,
+      "status": "ok"
+    },
+    {
+      "sample": "de-12.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "de",
+      "audio_s": 23.16,
+      "latency_ms": 6024.6,
+      "cost_usd": 0.0035514779166666666,
+      "wer": 0.1,
+      "status": "ok"
+    },
+    {
+      "sample": "de-12.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "de",
+      "audio_s": 23.16,
+      "latency_ms": 8380.3,
+      "cost_usd": 0.001621326875,
       "wer": 0.1,
       "status": "ok"
     },
@@ -115,7 +324,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 13.2,
-      "latency_ms": 692.7,
+      "latency_ms": 518.7,
       "cost_usd": 0.0009461298958333334,
       "wer": 0.0526,
       "status": "ok"
@@ -126,9 +335,53 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 13.2,
-      "latency_ms": 385.5,
+      "latency_ms": 371.5,
       "cost_usd": 0.0005940815625,
       "wer": 0.1579,
+      "status": "ok"
+    },
+    {
+      "sample": "de-13.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "de",
+      "audio_s": 13.2,
+      "latency_ms": 4716.2,
+      "cost_usd": 0.0007701057291666667,
+      "wer": 0.1579,
+      "status": "ok"
+    },
+    {
+      "sample": "de-13.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "de",
+      "audio_s": 13.2,
+      "latency_ms": 6303.0,
+      "cost_usd": 0.0022443081250000003,
+      "wer": 0.1579,
+      "status": "ok"
+    },
+    {
+      "sample": "de-13.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "de",
+      "audio_s": 13.2,
+      "latency_ms": 5913.9,
+      "cost_usd": 0.0020242779166666667,
+      "wer": 0.1579,
+      "status": "ok"
+    },
+    {
+      "sample": "de-13.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "de",
+      "audio_s": 13.2,
+      "latency_ms": 8361.8,
+      "cost_usd": 0.0009241268749999999,
+      "wer": 0.0526,
       "status": "ok"
     },
     {
@@ -137,7 +390,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 10.8,
-      "latency_ms": 310.1,
+      "latency_ms": 521.5,
       "cost_usd": 0.0007741298958333333,
       "wer": 0.0,
       "status": "ok"
@@ -148,8 +401,52 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 10.8,
-      "latency_ms": 909.3,
+      "latency_ms": 338.7,
       "cost_usd": 0.0004860815625,
+      "wer": 0.1538,
+      "status": "ok"
+    },
+    {
+      "sample": "de-14.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "de",
+      "audio_s": 10.8,
+      "latency_ms": 4492.0,
+      "cost_usd": 0.0006301057291666667,
+      "wer": 0.1538,
+      "status": "ok"
+    },
+    {
+      "sample": "de-14.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "de",
+      "audio_s": 10.8,
+      "latency_ms": 5763.6,
+      "cost_usd": 0.0018363081250000002,
+      "wer": 0.1538,
+      "status": "ok"
+    },
+    {
+      "sample": "de-14.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "de",
+      "audio_s": 10.8,
+      "latency_ms": 5964.6,
+      "cost_usd": 0.0016562779166666667,
+      "wer": 0.1538,
+      "status": "ok"
+    },
+    {
+      "sample": "de-14.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "de",
+      "audio_s": 10.8,
+      "latency_ms": 8391.4,
+      "cost_usd": 0.000756126875,
       "wer": 0.1538,
       "status": "ok"
     },
@@ -159,7 +456,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 12.96,
-      "latency_ms": 728.2,
+      "latency_ms": 555.3,
       "cost_usd": 0.0009289298958333333,
       "wer": 0.0,
       "status": "ok"
@@ -170,9 +467,53 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 12.96,
-      "latency_ms": 701.6,
+      "latency_ms": 363.2,
       "cost_usd": 0.0005832815625000001,
       "wer": 0.1579,
+      "status": "ok"
+    },
+    {
+      "sample": "de-15.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "de",
+      "audio_s": 12.96,
+      "latency_ms": 4404.2,
+      "cost_usd": 0.0007561057291666667,
+      "wer": 0.1579,
+      "status": "ok"
+    },
+    {
+      "sample": "de-15.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "de",
+      "audio_s": 12.96,
+      "latency_ms": 6750.7,
+      "cost_usd": 0.0022035081250000002,
+      "wer": 0.1579,
+      "status": "ok"
+    },
+    {
+      "sample": "de-15.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "de",
+      "audio_s": 12.96,
+      "latency_ms": 6142.5,
+      "cost_usd": 0.0019874779166666667,
+      "wer": 0.1579,
+      "status": "ok"
+    },
+    {
+      "sample": "de-15.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "de",
+      "audio_s": 12.96,
+      "latency_ms": 8394.7,
+      "cost_usd": 0.0009073268749999999,
+      "wer": 0.1053,
       "status": "ok"
     },
     {
@@ -181,7 +522,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 23.28,
-      "latency_ms": 327.9,
+      "latency_ms": 628.5,
       "cost_usd": 0.0016685298958333335,
       "wer": 0.2222,
       "status": "ok"
@@ -192,8 +533,52 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 23.28,
-      "latency_ms": 930.8,
+      "latency_ms": 435.6,
       "cost_usd": 0.0010476815625,
+      "wer": 0.1852,
+      "status": "ok"
+    },
+    {
+      "sample": "de-2.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "de",
+      "audio_s": 23.28,
+      "latency_ms": 4489.7,
+      "cost_usd": 0.0013581057291666668,
+      "wer": 0.1111,
+      "status": "ok"
+    },
+    {
+      "sample": "de-2.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "de",
+      "audio_s": 23.28,
+      "latency_ms": 5819.0,
+      "cost_usd": 0.003957908125,
+      "wer": 0.1852,
+      "status": "ok"
+    },
+    {
+      "sample": "de-2.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "de",
+      "audio_s": 23.28,
+      "latency_ms": 6046.0,
+      "cost_usd": 0.0035698779166666666,
+      "wer": 0.2593,
+      "status": "ok"
+    },
+    {
+      "sample": "de-2.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "de",
+      "audio_s": 23.28,
+      "latency_ms": 8378.8,
+      "cost_usd": 0.001629726875,
       "wer": 0.1852,
       "status": "ok"
     },
@@ -203,7 +588,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 24.84,
-      "latency_ms": 693.0,
+      "latency_ms": 609.4,
       "cost_usd": 0.0017803298958333333,
       "wer": 0.1429,
       "status": "ok"
@@ -214,9 +599,53 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 24.84,
-      "latency_ms": 495.7,
+      "latency_ms": 366.3,
       "cost_usd": 0.0011178815625,
       "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "de-3.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "de",
+      "audio_s": 24.84,
+      "latency_ms": 4493.9,
+      "cost_usd": 0.0014491057291666667,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "de-3.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "de",
+      "audio_s": 24.84,
+      "latency_ms": 5858.6,
+      "cost_usd": 0.0042231081250000005,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "de-3.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "de",
+      "audio_s": 24.84,
+      "latency_ms": 6167.8,
+      "cost_usd": 0.0038090779166666663,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "de-3.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "de",
+      "audio_s": 24.84,
+      "latency_ms": 8413.6,
+      "cost_usd": 0.0017389268749999998,
+      "wer": 0.1071,
       "status": "ok"
     },
     {
@@ -225,7 +654,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 14.4,
-      "latency_ms": 271.1,
+      "latency_ms": 165.2,
       "cost_usd": 0.0010321298958333334,
       "wer": 0.0,
       "status": "ok"
@@ -236,8 +665,52 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 14.4,
-      "latency_ms": 480.3,
+      "latency_ms": 598.1,
       "cost_usd": 0.0006480815625,
+      "wer": 0.125,
+      "status": "ok"
+    },
+    {
+      "sample": "de-4.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "de",
+      "audio_s": 14.4,
+      "latency_ms": 4403.2,
+      "cost_usd": 0.0008401057291666667,
+      "wer": 0.125,
+      "status": "ok"
+    },
+    {
+      "sample": "de-4.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "de",
+      "audio_s": 14.4,
+      "latency_ms": 6500.0,
+      "cost_usd": 0.002448308125,
+      "wer": 0.125,
+      "status": "ok"
+    },
+    {
+      "sample": "de-4.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "de",
+      "audio_s": 14.4,
+      "latency_ms": 5944.8,
+      "cost_usd": 0.0022082779166666664,
+      "wer": 0.125,
+      "status": "ok"
+    },
+    {
+      "sample": "de-4.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "de",
+      "audio_s": 14.4,
+      "latency_ms": 8376.7,
+      "cost_usd": 0.001008126875,
       "wer": 0.125,
       "status": "ok"
     },
@@ -247,7 +720,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 24.24,
-      "latency_ms": 811.3,
+      "latency_ms": 220.7,
       "cost_usd": 0.0017373298958333332,
       "wer": 0.0,
       "status": "ok"
@@ -258,9 +731,53 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 24.24,
-      "latency_ms": 952.1,
+      "latency_ms": 348.2,
       "cost_usd": 0.0010908815625,
       "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "de-5.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "de",
+      "audio_s": 24.24,
+      "latency_ms": 4503.4,
+      "cost_usd": 0.0014141057291666666,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "de-5.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "de",
+      "audio_s": 24.24,
+      "latency_ms": 6188.5,
+      "cost_usd": 0.004121108125,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "de-5.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "de",
+      "audio_s": 24.24,
+      "latency_ms": 6015.2,
+      "cost_usd": 0.0037170779166666662,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "de-5.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "de",
+      "audio_s": 24.24,
+      "latency_ms": 8396.8,
+      "cost_usd": 0.0016969268749999998,
+      "wer": 0.0714,
       "status": "ok"
     },
     {
@@ -269,7 +786,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 26.16,
-      "latency_ms": 288.3,
+      "latency_ms": 229.0,
       "cost_usd": 0.0018749298958333333,
       "wer": 0.0909,
       "status": "ok"
@@ -280,8 +797,52 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 26.16,
-      "latency_ms": 1040.1,
+      "latency_ms": 325.3,
       "cost_usd": 0.0011772815625,
+      "wer": 0.1818,
+      "status": "ok"
+    },
+    {
+      "sample": "de-6.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "de",
+      "audio_s": 26.16,
+      "latency_ms": 4584.9,
+      "cost_usd": 0.0015261057291666668,
+      "wer": 0.1818,
+      "status": "ok"
+    },
+    {
+      "sample": "de-6.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "de",
+      "audio_s": 26.16,
+      "latency_ms": 6179.6,
+      "cost_usd": 0.004447508125,
+      "wer": 0.1818,
+      "status": "ok"
+    },
+    {
+      "sample": "de-6.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "de",
+      "audio_s": 26.16,
+      "latency_ms": 6135.7,
+      "cost_usd": 0.0040114779166666665,
+      "wer": 0.0909,
+      "status": "ok"
+    },
+    {
+      "sample": "de-6.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "de",
+      "audio_s": 26.16,
+      "latency_ms": 8432.5,
+      "cost_usd": 0.0018313268749999998,
       "wer": 0.1818,
       "status": "ok"
     },
@@ -291,7 +852,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 20.4,
-      "latency_ms": 537.4,
+      "latency_ms": 391.8,
       "cost_usd": 0.0014621298958333332,
       "wer": 0.24,
       "status": "ok"
@@ -302,9 +863,53 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 20.4,
-      "latency_ms": 463.9,
+      "latency_ms": 814.4,
       "cost_usd": 0.0009180815625,
       "wer": 0.48,
+      "status": "ok"
+    },
+    {
+      "sample": "de-7.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "de",
+      "audio_s": 20.4,
+      "latency_ms": 4775.2,
+      "cost_usd": 0.0011901057291666666,
+      "wer": 0.36,
+      "status": "ok"
+    },
+    {
+      "sample": "de-7.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "de",
+      "audio_s": 20.4,
+      "latency_ms": 6547.4,
+      "cost_usd": 0.003468308125,
+      "wer": 0.48,
+      "status": "ok"
+    },
+    {
+      "sample": "de-7.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "de",
+      "audio_s": 20.4,
+      "latency_ms": 6045.2,
+      "cost_usd": 0.0031282779166666662,
+      "wer": 0.32,
+      "status": "ok"
+    },
+    {
+      "sample": "de-7.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "de",
+      "audio_s": 20.4,
+      "latency_ms": 8386.3,
+      "cost_usd": 0.0014281268749999998,
+      "wer": 0.4,
       "status": "ok"
     },
     {
@@ -313,7 +918,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 12.6,
-      "latency_ms": 500.6,
+      "latency_ms": 328.9,
       "cost_usd": 0.0009031298958333333,
       "wer": 0.0,
       "status": "ok"
@@ -324,8 +929,52 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 12.6,
-      "latency_ms": 628.4,
+      "latency_ms": 370.4,
       "cost_usd": 0.0005670815625,
+      "wer": 0.1538,
+      "status": "ok"
+    },
+    {
+      "sample": "de-8.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "de",
+      "audio_s": 12.6,
+      "latency_ms": 4867.0,
+      "cost_usd": 0.0007351057291666667,
+      "wer": 0.1538,
+      "status": "ok"
+    },
+    {
+      "sample": "de-8.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "de",
+      "audio_s": 12.6,
+      "latency_ms": 5978.8,
+      "cost_usd": 0.0021423081250000003,
+      "wer": 0.1538,
+      "status": "ok"
+    },
+    {
+      "sample": "de-8.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "de",
+      "audio_s": 12.6,
+      "latency_ms": 5889.9,
+      "cost_usd": 0.0019322779166666667,
+      "wer": 0.1538,
+      "status": "ok"
+    },
+    {
+      "sample": "de-8.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "de",
+      "audio_s": 12.6,
+      "latency_ms": 8362.9,
+      "cost_usd": 0.000882126875,
       "wer": 0.1538,
       "status": "ok"
     },
@@ -335,7 +984,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 20.64,
-      "latency_ms": 354.6,
+      "latency_ms": 249.1,
       "cost_usd": 0.0014793298958333332,
       "wer": 0.1176,
       "status": "ok"
@@ -346,9 +995,53 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 20.64,
-      "latency_ms": 832.6,
+      "latency_ms": 317.6,
       "cost_usd": 0.0009288815625,
       "wer": 0.1765,
+      "status": "ok"
+    },
+    {
+      "sample": "de-9.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "de",
+      "audio_s": 20.64,
+      "latency_ms": 4442.1,
+      "cost_usd": 0.0012041057291666665,
+      "wer": 0.1176,
+      "status": "ok"
+    },
+    {
+      "sample": "de-9.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "de",
+      "audio_s": 20.64,
+      "latency_ms": 5997.4,
+      "cost_usd": 0.003509108125,
+      "wer": 0.1765,
+      "status": "ok"
+    },
+    {
+      "sample": "de-9.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "de",
+      "audio_s": 20.64,
+      "latency_ms": 6059.4,
+      "cost_usd": 0.0031650779166666663,
+      "wer": 0.1765,
+      "status": "ok"
+    },
+    {
+      "sample": "de-9.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "de",
+      "audio_s": 20.64,
+      "latency_ms": 8373.0,
+      "cost_usd": 0.0014449268749999998,
+      "wer": 0.1176,
       "status": "ok"
     },
     {
@@ -357,7 +1050,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 21.12,
-      "latency_ms": 383.1,
+      "latency_ms": 211.2,
       "cost_usd": 0.0015137298958333332,
       "wer": 0.2105,
       "status": "ok"
@@ -368,8 +1061,52 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 21.12,
-      "latency_ms": 437.5,
+      "latency_ms": 433.8,
       "cost_usd": 0.0009504815625,
+      "wer": 0.1579,
+      "status": "ok"
+    },
+    {
+      "sample": "en-1.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "en",
+      "audio_s": 21.12,
+      "latency_ms": 4820.3,
+      "cost_usd": 0.0012321057291666665,
+      "wer": 0.1579,
+      "status": "ok"
+    },
+    {
+      "sample": "en-1.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "en",
+      "audio_s": 21.12,
+      "latency_ms": 6180.5,
+      "cost_usd": 0.003590708125,
+      "wer": 0.3158,
+      "status": "ok"
+    },
+    {
+      "sample": "en-1.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "en",
+      "audio_s": 21.12,
+      "latency_ms": 6131.2,
+      "cost_usd": 0.0032386779166666663,
+      "wer": 0.1579,
+      "status": "ok"
+    },
+    {
+      "sample": "en-1.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "en",
+      "audio_s": 21.12,
+      "latency_ms": 12474.0,
+      "cost_usd": 0.001478526875,
       "wer": 0.1579,
       "status": "ok"
     },
@@ -379,7 +1116,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 16.56,
-      "latency_ms": 303.3,
+      "latency_ms": 114.5,
       "cost_usd": 0.0011869298958333335,
       "wer": 0.125,
       "status": "ok"
@@ -390,8 +1127,52 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 16.56,
-      "latency_ms": 793.7,
+      "latency_ms": 397.1,
       "cost_usd": 0.0007452815625000001,
+      "wer": 0.2083,
+      "status": "ok"
+    },
+    {
+      "sample": "en-10.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "en",
+      "audio_s": 16.56,
+      "latency_ms": 4882.4,
+      "cost_usd": 0.0009661057291666668,
+      "wer": 0.1667,
+      "status": "ok"
+    },
+    {
+      "sample": "en-10.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "en",
+      "audio_s": 16.56,
+      "latency_ms": 6178.3,
+      "cost_usd": 0.0028155081250000004,
+      "wer": 0.1667,
+      "status": "ok"
+    },
+    {
+      "sample": "en-10.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "en",
+      "audio_s": 16.56,
+      "latency_ms": 5989.7,
+      "cost_usd": 0.0025394779166666667,
+      "wer": 0.1667,
+      "status": "ok"
+    },
+    {
+      "sample": "en-10.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "en",
+      "audio_s": 16.56,
+      "latency_ms": 12456.5,
+      "cost_usd": 0.001159326875,
       "wer": 0.2083,
       "status": "ok"
     },
@@ -401,7 +1182,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 21.92,
-      "latency_ms": 438.3,
+      "latency_ms": 160.2,
       "cost_usd": 0.0015710632291666667,
       "wer": 0.0909,
       "status": "ok"
@@ -412,9 +1193,53 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 21.92,
-      "latency_ms": 828.3,
+      "latency_ms": 474.3,
       "cost_usd": 0.0009864815625000001,
       "wer": 0.0909,
+      "status": "ok"
+    },
+    {
+      "sample": "en-11.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "en",
+      "audio_s": 21.92,
+      "latency_ms": 5149.1,
+      "cost_usd": 0.0012787723958333334,
+      "wer": 0.0909,
+      "status": "ok"
+    },
+    {
+      "sample": "en-11.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "en",
+      "audio_s": 21.92,
+      "latency_ms": 6853.6,
+      "cost_usd": 0.0037267081250000004,
+      "wer": 0.0909,
+      "status": "ok"
+    },
+    {
+      "sample": "en-11.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "en",
+      "audio_s": 21.92,
+      "latency_ms": 5774.9,
+      "cost_usd": 0.0033613445833333335,
+      "wer": 0.0909,
+      "status": "ok"
+    },
+    {
+      "sample": "en-11.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "en",
+      "audio_s": 21.92,
+      "latency_ms": 12433.1,
+      "cost_usd": 0.001534526875,
+      "wer": 0.1818,
       "status": "ok"
     },
     {
@@ -423,7 +1248,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 14.16,
-      "latency_ms": 274.9,
+      "latency_ms": 574.1,
       "cost_usd": 0.0010149298958333332,
       "wer": 0.1667,
       "status": "ok"
@@ -434,9 +1259,53 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 14.16,
-      "latency_ms": 633.4,
+      "latency_ms": 294.5,
       "cost_usd": 0.0006372815625,
       "wer": 0.1667,
+      "status": "ok"
+    },
+    {
+      "sample": "en-12.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "en",
+      "audio_s": 14.16,
+      "latency_ms": 4467.0,
+      "cost_usd": 0.0008261057291666667,
+      "wer": 0.1667,
+      "status": "ok"
+    },
+    {
+      "sample": "en-12.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "en",
+      "audio_s": 14.16,
+      "latency_ms": 5889.3,
+      "cost_usd": 0.002407508125,
+      "wer": 0.1667,
+      "status": "ok"
+    },
+    {
+      "sample": "en-12.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "en",
+      "audio_s": 14.16,
+      "latency_ms": 5705.9,
+      "cost_usd": 0.0021714779166666664,
+      "wer": 0.1667,
+      "status": "ok"
+    },
+    {
+      "sample": "en-12.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "en",
+      "audio_s": 14.16,
+      "latency_ms": 8367.5,
+      "cost_usd": 0.0009913268749999998,
+      "wer": 0.6667,
       "status": "ok"
     },
     {
@@ -445,7 +1314,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 14.64,
-      "latency_ms": 486.5,
+      "latency_ms": 580.8,
       "cost_usd": 0.0010493298958333334,
       "wer": 0.0833,
       "status": "ok"
@@ -456,8 +1325,52 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 14.64,
-      "latency_ms": 692.1,
+      "latency_ms": 442.2,
       "cost_usd": 0.0006588815625000001,
+      "wer": 0.25,
+      "status": "ok"
+    },
+    {
+      "sample": "en-13.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "en",
+      "audio_s": 14.64,
+      "latency_ms": 4831.1,
+      "cost_usd": 0.0008541057291666667,
+      "wer": 0.1667,
+      "status": "ok"
+    },
+    {
+      "sample": "en-13.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "en",
+      "audio_s": 14.64,
+      "latency_ms": 5885.9,
+      "cost_usd": 0.0024891081250000002,
+      "wer": 0.25,
+      "status": "ok"
+    },
+    {
+      "sample": "en-13.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "en",
+      "audio_s": 14.64,
+      "latency_ms": 5935.5,
+      "cost_usd": 0.0022450779166666665,
+      "wer": 0.25,
+      "status": "ok"
+    },
+    {
+      "sample": "en-13.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "en",
+      "audio_s": 14.64,
+      "latency_ms": 8380.8,
+      "cost_usd": 0.001024926875,
       "wer": 0.25,
       "status": "ok"
     },
@@ -467,7 +1380,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 16.92,
-      "latency_ms": 251.7,
+      "latency_ms": 106.7,
       "cost_usd": 0.0012127298958333331,
       "wer": 0.0,
       "status": "ok"
@@ -477,8 +1390,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "en",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 16.92,
+      "latency_ms": 292.4,
+      "cost_usd": 0.0007614815625,
+      "wer": 0.0526,
+      "status": "ok"
+    },
+    {
+      "sample": "en-14.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "en",
+      "audio_s": 16.92,
+      "latency_ms": 6604.2,
+      "cost_usd": 0.0009871057291666666,
+      "wer": 0.0526,
+      "status": "ok"
+    },
+    {
+      "sample": "en-14.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "en",
+      "audio_s": 16.92,
+      "latency_ms": 6367.1,
+      "cost_usd": 0.002876708125,
+      "wer": 0.1053,
+      "status": "ok"
+    },
+    {
+      "sample": "en-14.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "en",
+      "audio_s": 16.92,
+      "latency_ms": 6308.4,
+      "cost_usd": 0.0025946779166666663,
+      "wer": 0.0526,
+      "status": "ok"
+    },
+    {
+      "sample": "en-14.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "en",
+      "audio_s": 16.92,
+      "latency_ms": 8362.7,
+      "cost_usd": 0.0011845268749999997,
+      "wer": 0.0526,
+      "status": "ok"
     },
     {
       "sample": "en-15.wav",
@@ -486,7 +1446,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 10.44,
-      "latency_ms": 401.5,
+      "latency_ms": 561.9,
       "cost_usd": 0.0007483298958333333,
       "wer": 0.1429,
       "status": "ok"
@@ -496,8 +1456,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "en",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 10.44,
+      "latency_ms": 332.0,
+      "cost_usd": 0.0004698815625,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "en-15.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "en",
+      "audio_s": 10.44,
+      "latency_ms": 4881.7,
+      "cost_usd": 0.0006091057291666667,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "en-15.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "en",
+      "audio_s": 10.44,
+      "latency_ms": 6168.7,
+      "cost_usd": 0.001775108125,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "en-15.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "en",
+      "audio_s": 10.44,
+      "latency_ms": 5887.7,
+      "cost_usd": 0.0016010779166666666,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "en-15.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "en",
+      "audio_s": 10.44,
+      "latency_ms": 8360.5,
+      "cost_usd": 0.0007309268749999999,
+      "wer": 0.1429,
+      "status": "ok"
     },
     {
       "sample": "en-2.wav",
@@ -505,7 +1512,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 25.56,
-      "latency_ms": 270.3,
+      "latency_ms": 581.0,
       "cost_usd": 0.0018319298958333332,
       "wer": 0.0,
       "status": "ok"
@@ -515,8 +1522,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "en",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 25.56,
+      "latency_ms": 384.3,
+      "cost_usd": 0.0011502815625,
+      "wer": 0.1071,
+      "status": "ok"
+    },
+    {
+      "sample": "en-2.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "en",
+      "audio_s": 25.56,
+      "latency_ms": 4623.2,
+      "cost_usd": 0.0014911057291666667,
+      "wer": 0.1071,
+      "status": "ok"
+    },
+    {
+      "sample": "en-2.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "en",
+      "audio_s": 25.56,
+      "latency_ms": 6286.8,
+      "cost_usd": 0.0043455081250000005,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "en-2.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "en",
+      "audio_s": 25.56,
+      "latency_ms": 6037.1,
+      "cost_usd": 0.003919477916666666,
+      "wer": 0.1071,
+      "status": "ok"
+    },
+    {
+      "sample": "en-2.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "en",
+      "audio_s": 25.56,
+      "latency_ms": 8380.8,
+      "cost_usd": 0.001789326875,
+      "wer": 0.1429,
+      "status": "ok"
     },
     {
       "sample": "en-3.wav",
@@ -524,7 +1578,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 23.28,
-      "latency_ms": 244.8,
+      "latency_ms": 575.0,
       "cost_usd": 0.0016685298958333335,
       "wer": 0.0,
       "status": "ok"
@@ -534,8 +1588,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "en",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 23.28,
+      "latency_ms": 343.7,
+      "cost_usd": 0.0010476815625,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "en-3.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "en",
+      "audio_s": 23.28,
+      "latency_ms": 4390.9,
+      "cost_usd": 0.0013581057291666668,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "en-3.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "en",
+      "audio_s": 23.28,
+      "latency_ms": 5987.4,
+      "cost_usd": 0.003957908125,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "en-3.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "en",
+      "audio_s": 23.28,
+      "latency_ms": 6038.5,
+      "cost_usd": 0.0035698779166666666,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "en-3.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "en",
+      "audio_s": 23.28,
+      "latency_ms": 12398.0,
+      "cost_usd": 0.001629726875,
+      "wer": 0.1429,
+      "status": "ok"
     },
     {
       "sample": "en-4.wav",
@@ -543,7 +1644,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 14.88,
-      "latency_ms": 342.9,
+      "latency_ms": 580.6,
       "cost_usd": 0.0010665298958333334,
       "wer": 0.0,
       "status": "ok"
@@ -553,8 +1654,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "en",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 14.88,
+      "latency_ms": 382.2,
+      "cost_usd": 0.0006696815625,
+      "wer": 0.0714,
+      "status": "ok"
+    },
+    {
+      "sample": "en-4.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "en",
+      "audio_s": 14.88,
+      "latency_ms": 4425.7,
+      "cost_usd": 0.0008681057291666667,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "en-4.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "en",
+      "audio_s": 14.88,
+      "latency_ms": 5946.4,
+      "cost_usd": 0.0025299081250000004,
+      "wer": 0.0714,
+      "status": "ok"
+    },
+    {
+      "sample": "en-4.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "en",
+      "audio_s": 14.88,
+      "latency_ms": 6014.9,
+      "cost_usd": 0.0022818779166666665,
+      "wer": 0.0714,
+      "status": "ok"
+    },
+    {
+      "sample": "en-4.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "en",
+      "audio_s": 14.88,
+      "latency_ms": 8363.5,
+      "cost_usd": 0.001041726875,
+      "wer": 0.0714,
+      "status": "ok"
     },
     {
       "sample": "en-5.wav",
@@ -562,7 +1710,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 22.2,
-      "latency_ms": 335.8,
+      "latency_ms": 681.9,
       "cost_usd": 0.0015911298958333332,
       "wer": 0.0625,
       "status": "ok"
@@ -572,8 +1720,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "en",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 22.2,
+      "latency_ms": 421.4,
+      "cost_usd": 0.0009990815625000001,
+      "wer": 0.0625,
+      "status": "ok"
+    },
+    {
+      "sample": "en-5.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "en",
+      "audio_s": 22.2,
+      "latency_ms": 4465.5,
+      "cost_usd": 0.0012951057291666667,
+      "wer": 0.0625,
+      "status": "ok"
+    },
+    {
+      "sample": "en-5.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "en",
+      "audio_s": 22.2,
+      "latency_ms": 5944.1,
+      "cost_usd": 0.0037743081250000005,
+      "wer": 0.0625,
+      "status": "ok"
+    },
+    {
+      "sample": "en-5.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "en",
+      "audio_s": 22.2,
+      "latency_ms": 6058.9,
+      "cost_usd": 0.0034042779166666664,
+      "wer": 0.0938,
+      "status": "ok"
+    },
+    {
+      "sample": "en-5.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "en",
+      "audio_s": 22.2,
+      "latency_ms": 12441.6,
+      "cost_usd": 0.0015541268749999998,
+      "wer": 0.0625,
+      "status": "ok"
     },
     {
       "sample": "en-6.wav",
@@ -581,7 +1776,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 13.32,
-      "latency_ms": 230.5,
+      "latency_ms": 105.9,
       "cost_usd": 0.0009547298958333334,
       "wer": 0.2222,
       "status": "ok"
@@ -591,8 +1786,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "en",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 13.32,
+      "latency_ms": 290.7,
+      "cost_usd": 0.0005994815625,
+      "wer": 0.2222,
+      "status": "ok"
+    },
+    {
+      "sample": "en-6.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "en",
+      "audio_s": 13.32,
+      "latency_ms": 4391.5,
+      "cost_usd": 0.0007771057291666667,
+      "wer": 0.2222,
+      "status": "ok"
+    },
+    {
+      "sample": "en-6.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "en",
+      "audio_s": 13.32,
+      "latency_ms": 5900.5,
+      "cost_usd": 0.002264708125,
+      "wer": 0.2778,
+      "status": "ok"
+    },
+    {
+      "sample": "en-6.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "en",
+      "audio_s": 13.32,
+      "latency_ms": 5907.0,
+      "cost_usd": 0.0020426779166666667,
+      "wer": 0.2778,
+      "status": "ok"
+    },
+    {
+      "sample": "en-6.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "en",
+      "audio_s": 13.32,
+      "latency_ms": 8391.1,
+      "cost_usd": 0.000932526875,
+      "wer": 0.2778,
+      "status": "ok"
     },
     {
       "sample": "en-7.wav",
@@ -600,7 +1842,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 15.08,
-      "latency_ms": 311.8,
+      "latency_ms": 119.5,
       "cost_usd": 0.0010808632291666668,
       "wer": 0.0,
       "status": "ok"
@@ -610,8 +1852,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "en",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 15.08,
+      "latency_ms": 291.0,
+      "cost_usd": 0.0006786815625000001,
+      "wer": 0.3,
+      "status": "ok"
+    },
+    {
+      "sample": "en-7.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "en",
+      "audio_s": 15.08,
+      "latency_ms": 4803.5,
+      "cost_usd": 0.0008797723958333335,
+      "wer": 0.3,
+      "status": "ok"
+    },
+    {
+      "sample": "en-7.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "en",
+      "audio_s": 15.08,
+      "latency_ms": 5933.7,
+      "cost_usd": 0.0025639081250000005,
+      "wer": 0.3,
+      "status": "ok"
+    },
+    {
+      "sample": "en-7.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "en",
+      "audio_s": 15.08,
+      "latency_ms": 5600.9,
+      "cost_usd": 0.0023125445833333336,
+      "wer": 0.3,
+      "status": "ok"
+    },
+    {
+      "sample": "en-7.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "en",
+      "audio_s": 15.08,
+      "latency_ms": 8399.8,
+      "cost_usd": 0.001055726875,
+      "wer": 0.4,
+      "status": "ok"
     },
     {
       "sample": "en-8.wav",
@@ -619,7 +1908,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 11.44,
-      "latency_ms": 254.2,
+      "latency_ms": 117.6,
       "cost_usd": 0.0008199965625,
       "wer": 0.3,
       "status": "ok"
@@ -629,8 +1918,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "en",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 11.44,
+      "latency_ms": 293.8,
+      "cost_usd": 0.0005148815625,
+      "wer": 0.2,
+      "status": "ok"
+    },
+    {
+      "sample": "en-8.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "en",
+      "audio_s": 11.44,
+      "latency_ms": 4456.3,
+      "cost_usd": 0.0006674390625,
+      "wer": 0.1,
+      "status": "ok"
+    },
+    {
+      "sample": "en-8.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "en",
+      "audio_s": 11.44,
+      "latency_ms": 5840.9,
+      "cost_usd": 0.001945108125,
+      "wer": 0.2,
+      "status": "ok"
+    },
+    {
+      "sample": "en-8.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "en",
+      "audio_s": 11.44,
+      "latency_ms": 5884.8,
+      "cost_usd": 0.0017544112499999999,
+      "wer": 0.1,
+      "status": "ok"
+    },
+    {
+      "sample": "en-8.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "en",
+      "audio_s": 11.44,
+      "latency_ms": 8386.3,
+      "cost_usd": 0.0008009268749999998,
+      "wer": 0.2,
+      "status": "ok"
     },
     {
       "sample": "en-9.wav",
@@ -638,7 +1974,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 27.6,
-      "latency_ms": 360.4,
+      "latency_ms": 156.9,
       "cost_usd": 0.0019781298958333336,
       "wer": 0.1304,
       "status": "ok"
@@ -648,8 +1984,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "en",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 27.6,
+      "latency_ms": 422.2,
+      "cost_usd": 0.0012420815625,
+      "wer": 0.1304,
+      "status": "ok"
+    },
+    {
+      "sample": "en-9.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "en",
+      "audio_s": 27.6,
+      "latency_ms": 4513.4,
+      "cost_usd": 0.0016101057291666668,
+      "wer": 0.0652,
+      "status": "ok"
+    },
+    {
+      "sample": "en-9.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "en",
+      "audio_s": 27.6,
+      "latency_ms": 6206.0,
+      "cost_usd": 0.004692308125000001,
+      "wer": 0.1087,
+      "status": "ok"
+    },
+    {
+      "sample": "en-9.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "en",
+      "audio_s": 27.6,
+      "latency_ms": 5456.9,
+      "cost_usd": 0.004232277916666667,
+      "wer": 0.087,
+      "status": "ok"
+    },
+    {
+      "sample": "en-9.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "en",
+      "audio_s": 27.6,
+      "latency_ms": 12417.2,
+      "cost_usd": 0.001932126875,
+      "wer": 0.1739,
+      "status": "ok"
     },
     {
       "sample": "es-1.wav",
@@ -657,7 +2040,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 15.36,
-      "latency_ms": 383.5,
+      "latency_ms": 237.9,
       "cost_usd": 0.0011009298958333334,
       "wer": 0.0667,
       "status": "ok"
@@ -667,8 +2050,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "es",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 15.36,
+      "latency_ms": 475.0,
+      "cost_usd": 0.0006912815625000001,
+      "wer": 0.1333,
+      "status": "ok"
+    },
+    {
+      "sample": "es-1.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "es",
+      "audio_s": 15.36,
+      "latency_ms": 4462.1,
+      "cost_usd": 0.0008961057291666667,
+      "wer": 0.1333,
+      "status": "ok"
+    },
+    {
+      "sample": "es-1.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "es",
+      "audio_s": 15.36,
+      "latency_ms": 6029.7,
+      "cost_usd": 0.002611508125,
+      "wer": 0.1333,
+      "status": "ok"
+    },
+    {
+      "sample": "es-1.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "es",
+      "audio_s": 15.36,
+      "latency_ms": 5837.9,
+      "cost_usd": 0.0023554779166666665,
+      "wer": 0.2,
+      "status": "ok"
+    },
+    {
+      "sample": "es-1.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "es",
+      "audio_s": 15.36,
+      "latency_ms": 8401.9,
+      "cost_usd": 0.001075326875,
+      "wer": 0.2,
+      "status": "ok"
     },
     {
       "sample": "es-10.wav",
@@ -676,7 +2106,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 24.96,
-      "latency_ms": 379.2,
+      "latency_ms": 644.3,
       "cost_usd": 0.0017889298958333332,
       "wer": 0.0357,
       "status": "ok"
@@ -686,8 +2116,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "es",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 24.96,
+      "latency_ms": 484.6,
+      "cost_usd": 0.0011232815625,
+      "wer": 0.0357,
+      "status": "ok"
+    },
+    {
+      "sample": "es-10.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "es",
+      "audio_s": 24.96,
+      "latency_ms": 6193.3,
+      "cost_usd": 0.0014561057291666666,
+      "wer": 0.0357,
+      "status": "ok"
+    },
+    {
+      "sample": "es-10.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "es",
+      "audio_s": 24.96,
+      "latency_ms": 6313.8,
+      "cost_usd": 0.004243508125,
+      "wer": 0.0357,
+      "status": "ok"
+    },
+    {
+      "sample": "es-10.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "es",
+      "audio_s": 24.96,
+      "latency_ms": 6570.2,
+      "cost_usd": 0.0038274779166666663,
+      "wer": 0.0357,
+      "status": "ok"
+    },
+    {
+      "sample": "es-10.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "es",
+      "audio_s": 24.96,
+      "latency_ms": 8440.8,
+      "cost_usd": 0.0017473268749999998,
+      "wer": 0.0357,
+      "status": "ok"
     },
     {
       "sample": "es-11.wav",
@@ -695,7 +2172,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 22.68,
-      "latency_ms": 745.7,
+      "latency_ms": 166.6,
       "cost_usd": 0.0016255298958333334,
       "wer": 0.0,
       "status": "ok"
@@ -705,8 +2182,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "es",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 22.68,
+      "latency_ms": 384.3,
+      "cost_usd": 0.0010206815625,
+      "wer": 0.1,
+      "status": "ok"
+    },
+    {
+      "sample": "es-11.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "es",
+      "audio_s": 22.68,
+      "latency_ms": 4514.2,
+      "cost_usd": 0.0013231057291666667,
+      "wer": 0.1,
+      "status": "ok"
+    },
+    {
+      "sample": "es-11.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "es",
+      "audio_s": 22.68,
+      "latency_ms": 6113.5,
+      "cost_usd": 0.0038559081250000003,
+      "wer": 0.1,
+      "status": "ok"
+    },
+    {
+      "sample": "es-11.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "es",
+      "audio_s": 22.68,
+      "latency_ms": 6950.2,
+      "cost_usd": 0.0034778779166666665,
+      "wer": 0.1,
+      "status": "ok"
+    },
+    {
+      "sample": "es-11.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "es",
+      "audio_s": 22.68,
+      "latency_ms": 8398.2,
+      "cost_usd": 0.001587726875,
+      "wer": 0.05,
+      "status": "ok"
     },
     {
       "sample": "es-12.wav",
@@ -714,7 +2238,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 23.16,
-      "latency_ms": 341.5,
+      "latency_ms": 245.5,
       "cost_usd": 0.0016599298958333334,
       "wer": 0.1667,
       "status": "ok"
@@ -724,8 +2248,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "es",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 23.16,
+      "latency_ms": 391.5,
+      "cost_usd": 0.0010422815625,
+      "wer": 0.125,
+      "status": "ok"
+    },
+    {
+      "sample": "es-12.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "es",
+      "audio_s": 23.16,
+      "latency_ms": 6914.5,
+      "cost_usd": 0.0013511057291666667,
+      "wer": 0.125,
+      "status": "ok"
+    },
+    {
+      "sample": "es-12.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "es",
+      "audio_s": 23.16,
+      "latency_ms": 6249.0,
+      "cost_usd": 0.003937508125,
+      "wer": 0.125,
+      "status": "ok"
+    },
+    {
+      "sample": "es-12.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "es",
+      "audio_s": 23.16,
+      "latency_ms": 6706.9,
+      "cost_usd": 0.0035514779166666666,
+      "wer": 0.125,
+      "status": "ok"
+    },
+    {
+      "sample": "es-12.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "es",
+      "audio_s": 23.16,
+      "latency_ms": 8412.4,
+      "cost_usd": 0.001621326875,
+      "wer": 0.25,
+      "status": "ok"
     },
     {
       "sample": "es-13.wav",
@@ -733,7 +2304,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 16.44,
-      "latency_ms": 693.7,
+      "latency_ms": 198.1,
       "cost_usd": 0.0011783298958333334,
       "wer": 0.1,
       "status": "ok"
@@ -743,8 +2314,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "es",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 16.44,
+      "latency_ms": 345.2,
+      "cost_usd": 0.0007398815625000001,
+      "wer": 0.05,
+      "status": "ok"
+    },
+    {
+      "sample": "es-13.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "es",
+      "audio_s": 16.44,
+      "latency_ms": 4373.6,
+      "cost_usd": 0.0009591057291666667,
+      "wer": 0.05,
+      "status": "ok"
+    },
+    {
+      "sample": "es-13.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "es",
+      "audio_s": 16.44,
+      "latency_ms": 5817.5,
+      "cost_usd": 0.0027951081250000005,
+      "wer": 0.05,
+      "status": "ok"
+    },
+    {
+      "sample": "es-13.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "es",
+      "audio_s": 16.44,
+      "latency_ms": 6675.0,
+      "cost_usd": 0.0025210779166666667,
+      "wer": 0.05,
+      "status": "ok"
+    },
+    {
+      "sample": "es-13.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "es",
+      "audio_s": 16.44,
+      "latency_ms": 8378.5,
+      "cost_usd": 0.001150926875,
+      "wer": 0.2,
+      "status": "ok"
     },
     {
       "sample": "es-14.wav",
@@ -752,7 +2370,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 16.92,
-      "latency_ms": 308.8,
+      "latency_ms": 277.7,
       "cost_usd": 0.0012127298958333331,
       "wer": 0.0,
       "status": "ok"
@@ -762,8 +2380,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "es",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 16.92,
+      "latency_ms": 292.0,
+      "cost_usd": 0.0007614815625,
+      "wer": 0.0769,
+      "status": "ok"
+    },
+    {
+      "sample": "es-14.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "es",
+      "audio_s": 16.92,
+      "latency_ms": 4412.3,
+      "cost_usd": 0.0009871057291666666,
+      "wer": 0.0769,
+      "status": "ok"
+    },
+    {
+      "sample": "es-14.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "es",
+      "audio_s": 16.92,
+      "latency_ms": 6094.8,
+      "cost_usd": 0.002876708125,
+      "wer": 0.0769,
+      "status": "ok"
+    },
+    {
+      "sample": "es-14.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "es",
+      "audio_s": 16.92,
+      "latency_ms": 5994.8,
+      "cost_usd": 0.0025946779166666663,
+      "wer": 0.0769,
+      "status": "ok"
+    },
+    {
+      "sample": "es-14.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "es",
+      "audio_s": 16.92,
+      "latency_ms": 8418.9,
+      "cost_usd": 0.0011845268749999997,
+      "wer": 0.0769,
+      "status": "ok"
     },
     {
       "sample": "es-15.wav",
@@ -771,7 +2436,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 25.2,
-      "latency_ms": 276.5,
+      "latency_ms": 1533.4,
       "cost_usd": 0.0018061298958333334,
       "wer": 0.0,
       "status": "ok"
@@ -781,8 +2446,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "es",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 25.2,
+      "latency_ms": 481.5,
+      "cost_usd": 0.0011340815625,
+      "wer": 0.16,
+      "status": "ok"
+    },
+    {
+      "sample": "es-15.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "es",
+      "audio_s": 25.2,
+      "latency_ms": 4504.6,
+      "cost_usd": 0.0014701057291666667,
+      "wer": 0.16,
+      "status": "ok"
+    },
+    {
+      "sample": "es-15.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "es",
+      "audio_s": 25.2,
+      "latency_ms": 6212.6,
+      "cost_usd": 0.0042843081250000005,
+      "wer": 0.16,
+      "status": "ok"
+    },
+    {
+      "sample": "es-15.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "es",
+      "audio_s": 25.2,
+      "latency_ms": 6067.4,
+      "cost_usd": 0.0038642779166666663,
+      "wer": 0.16,
+      "status": "ok"
+    },
+    {
+      "sample": "es-15.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "es",
+      "audio_s": 25.2,
+      "latency_ms": 8426.0,
+      "cost_usd": 0.001764126875,
+      "wer": 0.16,
+      "status": "ok"
     },
     {
       "sample": "es-2.wav",
@@ -790,7 +2502,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 17.04,
-      "latency_ms": 416.9,
+      "latency_ms": 209.1,
       "cost_usd": 0.0012213298958333332,
       "wer": 0.0,
       "status": "ok"
@@ -800,8 +2512,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "es",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 17.04,
+      "latency_ms": 390.2,
+      "cost_usd": 0.0007668815625,
+      "wer": 0.1333,
+      "status": "ok"
+    },
+    {
+      "sample": "es-2.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "es",
+      "audio_s": 17.04,
+      "latency_ms": 4644.4,
+      "cost_usd": 0.0009941057291666666,
+      "wer": 0.1333,
+      "status": "ok"
+    },
+    {
+      "sample": "es-2.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "es",
+      "audio_s": 17.04,
+      "latency_ms": 6148.2,
+      "cost_usd": 0.002897108125,
+      "wer": 0.1333,
+      "status": "ok"
+    },
+    {
+      "sample": "es-2.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "es",
+      "audio_s": 17.04,
+      "latency_ms": 6016.9,
+      "cost_usd": 0.0026130779166666663,
+      "wer": 0.1333,
+      "status": "ok"
+    },
+    {
+      "sample": "es-2.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "es",
+      "audio_s": 17.04,
+      "latency_ms": 8604.2,
+      "cost_usd": 0.001192926875,
+      "wer": 0.1333,
+      "status": "ok"
     },
     {
       "sample": "es-3.wav",
@@ -809,7 +2568,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 26.16,
-      "latency_ms": 283.2,
+      "latency_ms": 213.5,
       "cost_usd": 0.0018749298958333333,
       "wer": 0.0,
       "status": "ok"
@@ -819,8 +2578,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "es",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 26.16,
+      "latency_ms": 431.6,
+      "cost_usd": 0.0011772815625,
+      "wer": 0.1364,
+      "status": "ok"
+    },
+    {
+      "sample": "es-3.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "es",
+      "audio_s": 26.16,
+      "latency_ms": 4496.7,
+      "cost_usd": 0.0015261057291666668,
+      "wer": 0.1818,
+      "status": "ok"
+    },
+    {
+      "sample": "es-3.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "es",
+      "audio_s": 26.16,
+      "latency_ms": 6505.5,
+      "cost_usd": 0.004447508125,
+      "wer": 0.1364,
+      "status": "ok"
+    },
+    {
+      "sample": "es-3.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "es",
+      "audio_s": 26.16,
+      "latency_ms": 12226.3,
+      "cost_usd": 0.0040114779166666665,
+      "wer": 0.2273,
+      "status": "ok"
+    },
+    {
+      "sample": "es-3.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "es",
+      "audio_s": 26.16,
+      "latency_ms": 8408.7,
+      "cost_usd": 0.0018313268749999998,
+      "wer": 0.0909,
+      "status": "ok"
     },
     {
       "sample": "es-4.wav",
@@ -828,7 +2634,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 18.96,
-      "latency_ms": 332.0,
+      "latency_ms": 186.8,
       "cost_usd": 0.0013589298958333333,
       "wer": 0.0,
       "status": "ok"
@@ -838,8 +2644,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "es",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 18.96,
+      "latency_ms": 425.1,
+      "cost_usd": 0.0008532815625,
+      "wer": 0.0952,
+      "status": "ok"
+    },
+    {
+      "sample": "es-4.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "es",
+      "audio_s": 18.96,
+      "latency_ms": 4527.6,
+      "cost_usd": 0.0011061057291666667,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "es-4.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "es",
+      "audio_s": 18.96,
+      "latency_ms": 6517.1,
+      "cost_usd": 0.0032235081250000003,
+      "wer": 0.0952,
+      "status": "ok"
+    },
+    {
+      "sample": "es-4.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "es",
+      "audio_s": 18.96,
+      "latency_ms": 6313.1,
+      "cost_usd": 0.0029074779166666665,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "es-4.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "es",
+      "audio_s": 18.96,
+      "latency_ms": 8472.0,
+      "cost_usd": 0.001327326875,
+      "wer": 0.0952,
+      "status": "ok"
     },
     {
       "sample": "es-5.wav",
@@ -847,7 +2700,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 21.48,
-      "latency_ms": 387.2,
+      "latency_ms": 151.6,
       "cost_usd": 0.0015395298958333333,
       "wer": 0.0,
       "status": "ok"
@@ -857,8 +2710,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "es",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 21.48,
+      "latency_ms": 462.3,
+      "cost_usd": 0.0009666815625,
+      "wer": 0.0714,
+      "status": "ok"
+    },
+    {
+      "sample": "es-5.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "es",
+      "audio_s": 21.48,
+      "latency_ms": 4609.3,
+      "cost_usd": 0.0012531057291666667,
+      "wer": 0.0714,
+      "status": "ok"
+    },
+    {
+      "sample": "es-5.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "es",
+      "audio_s": 21.48,
+      "latency_ms": 6004.6,
+      "cost_usd": 0.003651908125,
+      "wer": 0.0714,
+      "status": "ok"
+    },
+    {
+      "sample": "es-5.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "es",
+      "audio_s": 21.48,
+      "latency_ms": 6299.2,
+      "cost_usd": 0.0032938779166666664,
+      "wer": 0.1071,
+      "status": "ok"
+    },
+    {
+      "sample": "es-5.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "es",
+      "audio_s": 21.48,
+      "latency_ms": 8388.3,
+      "cost_usd": 0.001503726875,
+      "wer": 0.1071,
+      "status": "ok"
     },
     {
       "sample": "es-6.wav",
@@ -866,7 +2766,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 16.32,
-      "latency_ms": 562.4,
+      "latency_ms": 241.4,
       "cost_usd": 0.0011697298958333335,
       "wer": 0.0,
       "status": "ok"
@@ -876,8 +2776,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "es",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 16.32,
+      "latency_ms": 458.3,
+      "cost_usd": 0.0007344815625000001,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "es-6.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "es",
+      "audio_s": 16.32,
+      "latency_ms": 4473.4,
+      "cost_usd": 0.0009521057291666668,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "es-6.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "es",
+      "audio_s": 16.32,
+      "latency_ms": 5984.7,
+      "cost_usd": 0.0027747081250000002,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "es-6.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "es",
+      "audio_s": 16.32,
+      "latency_ms": 6273.2,
+      "cost_usd": 0.0025026779166666666,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "es-6.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "es",
+      "audio_s": 16.32,
+      "latency_ms": 12468.3,
+      "cost_usd": 0.001142526875,
+      "wer": 0.1429,
+      "status": "ok"
     },
     {
       "sample": "es-7.wav",
@@ -885,7 +2832,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 15.84,
-      "latency_ms": 489.3,
+      "latency_ms": 646.1,
       "cost_usd": 0.0011353298958333333,
       "wer": 0.0,
       "status": "ok"
@@ -895,8 +2842,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "es",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 15.84,
+      "latency_ms": 352.5,
+      "cost_usd": 0.0007128815625000001,
+      "wer": 0.0526,
+      "status": "ok"
+    },
+    {
+      "sample": "es-7.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "es",
+      "audio_s": 15.84,
+      "latency_ms": 4365.8,
+      "cost_usd": 0.0009241057291666668,
+      "wer": 0.0526,
+      "status": "ok"
+    },
+    {
+      "sample": "es-7.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "es",
+      "audio_s": 15.84,
+      "latency_ms": 6006.5,
+      "cost_usd": 0.0026931081250000004,
+      "wer": 0.0526,
+      "status": "ok"
+    },
+    {
+      "sample": "es-7.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "es",
+      "audio_s": 15.84,
+      "latency_ms": 6627.6,
+      "cost_usd": 0.0024290779166666666,
+      "wer": 0.0526,
+      "status": "ok"
+    },
+    {
+      "sample": "es-7.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "es",
+      "audio_s": 15.84,
+      "latency_ms": 12405.7,
+      "cost_usd": 0.001108926875,
+      "wer": 0.1053,
+      "status": "ok"
     },
     {
       "sample": "es-8.wav",
@@ -904,7 +2898,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 11.76,
-      "latency_ms": 662.6,
+      "latency_ms": 86.1,
       "cost_usd": 0.0008429298958333334,
       "wer": 0.0909,
       "status": "ok"
@@ -914,8 +2908,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "es",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 11.76,
+      "latency_ms": 379.4,
+      "cost_usd": 0.0005292815625000001,
+      "wer": 0.0909,
+      "status": "ok"
+    },
+    {
+      "sample": "es-8.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "es",
+      "audio_s": 11.76,
+      "latency_ms": 4373.6,
+      "cost_usd": 0.0006861057291666667,
+      "wer": 0.0909,
+      "status": "ok"
+    },
+    {
+      "sample": "es-8.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "es",
+      "audio_s": 11.76,
+      "latency_ms": 6070.4,
+      "cost_usd": 0.0019995081250000005,
+      "wer": 0.0909,
+      "status": "ok"
+    },
+    {
+      "sample": "es-8.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "es",
+      "audio_s": 11.76,
+      "latency_ms": 6237.9,
+      "cost_usd": 0.0018034779166666668,
+      "wer": 0.0909,
+      "status": "ok"
+    },
+    {
+      "sample": "es-8.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "es",
+      "audio_s": 11.76,
+      "latency_ms": 73001.2,
+      "cost_usd": 0.000823326875,
+      "wer": 0.0909,
+      "status": "ok"
     },
     {
       "sample": "es-9.wav",
@@ -923,7 +2964,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 19.68,
-      "latency_ms": 294.8,
+      "latency_ms": 206.0,
       "cost_usd": 0.0014105298958333335,
       "wer": 0.0455,
       "status": "ok"
@@ -933,8 +2974,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "es",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 19.68,
+      "latency_ms": 379.7,
+      "cost_usd": 0.0008856815625000001,
+      "wer": 0.0909,
+      "status": "ok"
+    },
+    {
+      "sample": "es-9.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "es",
+      "audio_s": 19.68,
+      "latency_ms": 4413.1,
+      "cost_usd": 0.0011481057291666667,
+      "wer": 0.0909,
+      "status": "ok"
+    },
+    {
+      "sample": "es-9.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "es",
+      "audio_s": 19.68,
+      "latency_ms": 6059.8,
+      "cost_usd": 0.0033459081250000002,
+      "wer": 0.0909,
+      "status": "ok"
+    },
+    {
+      "sample": "es-9.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "es",
+      "audio_s": 19.68,
+      "latency_ms": 6417.1,
+      "cost_usd": 0.0030178779166666666,
+      "wer": 0.0909,
+      "status": "ok"
+    },
+    {
+      "sample": "es-9.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "es",
+      "audio_s": 19.68,
+      "latency_ms": 68875.6,
+      "cost_usd": 0.0013777268749999999,
+      "wer": 0.0909,
+      "status": "ok"
     },
     {
       "sample": "fr-1.wav",
@@ -942,7 +3030,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 18.84,
-      "latency_ms": 567.2,
+      "latency_ms": 270.6,
       "cost_usd": 0.0013503298958333335,
       "wer": 0.0,
       "status": "ok"
@@ -953,8 +3041,52 @@
       "model": "whisper-large-v3",
       "language": "fr",
       "audio_s": 18.84,
-      "latency_ms": 462.7,
+      "latency_ms": 436.9,
       "cost_usd": 0.0008478815625,
+      "wer": 0.069,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-1.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "fr",
+      "audio_s": 18.84,
+      "latency_ms": 4485.8,
+      "cost_usd": 0.0010991057291666667,
+      "wer": 0.069,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-1.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "fr",
+      "audio_s": 18.84,
+      "latency_ms": 6149.5,
+      "cost_usd": 0.0032031081250000005,
+      "wer": 0.069,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-1.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "fr",
+      "audio_s": 18.84,
+      "latency_ms": 6393.8,
+      "cost_usd": 0.0028890779166666665,
+      "wer": 0.069,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-1.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "fr",
+      "audio_s": 18.84,
+      "latency_ms": 12511.5,
+      "cost_usd": 0.001318926875,
       "wer": 0.069,
       "status": "ok"
     },
@@ -964,7 +3096,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 14.16,
-      "latency_ms": 771.7,
+      "latency_ms": 283.1,
       "cost_usd": 0.0010149298958333332,
       "wer": 0.1579,
       "status": "ok"
@@ -974,8 +3106,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "fr",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 14.16,
+      "latency_ms": 314.9,
+      "cost_usd": 0.0006372815625,
+      "wer": 0.2105,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-10.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "fr",
+      "audio_s": 14.16,
+      "latency_ms": 4432.0,
+      "cost_usd": 0.0008261057291666667,
+      "wer": 0.1053,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-10.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "fr",
+      "audio_s": 14.16,
+      "latency_ms": 5976.2,
+      "cost_usd": 0.002407508125,
+      "wer": 0.2105,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-10.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "fr",
+      "audio_s": 14.16,
+      "latency_ms": 5685.4,
+      "cost_usd": 0.0021714779166666664,
+      "wer": 0.4737,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-10.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "fr",
+      "audio_s": 14.16,
+      "latency_ms": 8366.1,
+      "cost_usd": 0.0009913268749999998,
+      "wer": 0.4737,
+      "status": "ok"
     },
     {
       "sample": "fr-11.wav",
@@ -983,7 +3162,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 14.04,
-      "latency_ms": 408.0,
+      "latency_ms": 214.8,
       "cost_usd": 0.0010063298958333333,
       "wer": 0.0,
       "status": "ok"
@@ -993,8 +3172,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "fr",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 14.04,
+      "latency_ms": 378.1,
+      "cost_usd": 0.0006318815625,
+      "wer": 0.0714,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-11.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "fr",
+      "audio_s": 14.04,
+      "latency_ms": 4466.9,
+      "cost_usd": 0.0008191057291666666,
+      "wer": 0.0714,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-11.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "fr",
+      "audio_s": 14.04,
+      "latency_ms": 6001.1,
+      "cost_usd": 0.002387108125,
+      "wer": 0.0714,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-11.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "fr",
+      "audio_s": 14.04,
+      "latency_ms": 6261.9,
+      "cost_usd": 0.0021530779166666664,
+      "wer": 0.0714,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-11.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "fr",
+      "audio_s": 14.04,
+      "latency_ms": 44659.8,
+      "cost_usd": 0.0009829268749999998,
+      "wer": 0.0714,
+      "status": "ok"
     },
     {
       "sample": "fr-12.wav",
@@ -1002,7 +3228,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 13.08,
-      "latency_ms": 360.2,
+      "latency_ms": 616.4,
       "cost_usd": 0.0009375298958333334,
       "wer": 0.0,
       "status": "ok"
@@ -1012,8 +3238,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "fr",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 13.08,
+      "latency_ms": 286.4,
+      "cost_usd": 0.0005886815625,
+      "wer": 0.0625,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-12.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "fr",
+      "audio_s": 13.08,
+      "latency_ms": 5299.4,
+      "cost_usd": 0.0007631057291666666,
+      "wer": 0.0625,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-12.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "fr",
+      "audio_s": 13.08,
+      "latency_ms": 6062.7,
+      "cost_usd": 0.002223908125,
+      "wer": 0.0625,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-12.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "fr",
+      "audio_s": 13.08,
+      "latency_ms": 5940.0,
+      "cost_usd": 0.0020058779166666667,
+      "wer": 0.0625,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-12.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "fr",
+      "audio_s": 13.08,
+      "latency_ms": 44669.8,
+      "cost_usd": 0.0009157268749999999,
+      "wer": 0.0625,
+      "status": "ok"
     },
     {
       "sample": "fr-13.wav",
@@ -1021,7 +3294,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 21.84,
-      "latency_ms": 598.8,
+      "latency_ms": 608.7,
       "cost_usd": 0.0015653298958333334,
       "wer": 0.1875,
       "status": "ok"
@@ -1031,8 +3304,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "fr",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 21.84,
+      "latency_ms": 366.6,
+      "cost_usd": 0.0009828815625,
+      "wer": 0.375,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-13.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "fr",
+      "audio_s": 21.84,
+      "latency_ms": 4412.9,
+      "cost_usd": 0.0012741057291666667,
+      "wer": 0.3125,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-13.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "fr",
+      "audio_s": 21.84,
+      "latency_ms": 5989.3,
+      "cost_usd": 0.003713108125,
+      "wer": 0.3438,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-13.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "fr",
+      "audio_s": 21.84,
+      "latency_ms": 6075.8,
+      "cost_usd": 0.0033490779166666664,
+      "wer": 0.2812,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-13.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "fr",
+      "audio_s": 21.84,
+      "latency_ms": 44672.0,
+      "cost_usd": 0.0015289268749999999,
+      "wer": 0.3438,
+      "status": "ok"
     },
     {
       "sample": "fr-14.wav",
@@ -1040,7 +3360,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 15.6,
-      "latency_ms": 319.0,
+      "latency_ms": 623.0,
       "cost_usd": 0.0011181298958333333,
       "wer": 0.0,
       "status": "ok"
@@ -1050,8 +3370,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "fr",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 15.6,
+      "latency_ms": 370.2,
+      "cost_usd": 0.0007020815625,
+      "wer": 0.1579,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-14.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "fr",
+      "audio_s": 15.6,
+      "latency_ms": 4474.6,
+      "cost_usd": 0.0009101057291666667,
+      "wer": 0.0526,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-14.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "fr",
+      "audio_s": 15.6,
+      "latency_ms": 6024.4,
+      "cost_usd": 0.0026523081250000003,
+      "wer": 0.1579,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-14.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "fr",
+      "audio_s": 15.6,
+      "latency_ms": 6407.0,
+      "cost_usd": 0.0023922779166666666,
+      "wer": 0.1053,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-14.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "fr",
+      "audio_s": 15.6,
+      "latency_ms": 40765.1,
+      "cost_usd": 0.0010921268749999999,
+      "wer": 0.1579,
+      "status": "ok"
     },
     {
       "sample": "fr-15.wav",
@@ -1059,7 +3426,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 15.0,
-      "latency_ms": 747.1,
+      "latency_ms": 580.8,
       "cost_usd": 0.0010751298958333333,
       "wer": 0.1667,
       "status": "ok"
@@ -1069,8 +3436,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "fr",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 15.0,
+      "latency_ms": 327.7,
+      "cost_usd": 0.0006750815625,
+      "wer": 0.25,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-15.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "fr",
+      "audio_s": 15.0,
+      "latency_ms": 4380.6,
+      "cost_usd": 0.0008751057291666667,
+      "wer": 0.25,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-15.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "fr",
+      "audio_s": 15.0,
+      "latency_ms": 5971.7,
+      "cost_usd": 0.002550308125,
+      "wer": 0.25,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-15.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "fr",
+      "audio_s": 15.0,
+      "latency_ms": 5942.5,
+      "cost_usd": 0.0023002779166666665,
+      "wer": 0.1667,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-15.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "fr",
+      "audio_s": 15.0,
+      "latency_ms": 28517.6,
+      "cost_usd": 0.001050126875,
+      "wer": 0.25,
+      "status": "ok"
     },
     {
       "sample": "fr-2.wav",
@@ -1078,7 +3492,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 16.68,
-      "latency_ms": 347.6,
+      "latency_ms": 162.8,
       "cost_usd": 0.0011955298958333332,
       "wer": 0.04,
       "status": "ok"
@@ -1088,8 +3502,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "fr",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 16.68,
+      "latency_ms": 324.8,
+      "cost_usd": 0.0007506815624999999,
+      "wer": 0.28,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-2.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "fr",
+      "audio_s": 16.68,
+      "latency_ms": 4594.5,
+      "cost_usd": 0.0009731057291666665,
+      "wer": 0.2,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-2.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "fr",
+      "audio_s": 16.68,
+      "latency_ms": 5780.2,
+      "cost_usd": 0.0028359081249999998,
+      "wer": 0.24,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-2.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "fr",
+      "audio_s": 16.68,
+      "latency_ms": 5700.4,
+      "cost_usd": 0.0025578779166666663,
+      "wer": 0.16,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-2.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "fr",
+      "audio_s": 16.68,
+      "latency_ms": 12391.4,
+      "cost_usd": 0.0011677268749999998,
+      "wer": 0.2,
+      "status": "ok"
     },
     {
       "sample": "fr-3.wav",
@@ -1097,7 +3558,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 20.16,
-      "latency_ms": 302.7,
+      "latency_ms": 626.3,
       "cost_usd": 0.0014449298958333335,
       "wer": 0.0,
       "status": "ok"
@@ -1107,8 +3568,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "fr",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 20.16,
+      "latency_ms": 436.2,
+      "cost_usd": 0.0009072815625000002,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-3.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "fr",
+      "audio_s": 20.16,
+      "latency_ms": 4448.5,
+      "cost_usd": 0.0011761057291666667,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-3.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "fr",
+      "audio_s": 20.16,
+      "latency_ms": 6083.1,
+      "cost_usd": 0.0034275081250000005,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-3.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "fr",
+      "audio_s": 20.16,
+      "latency_ms": 6019.7,
+      "cost_usd": 0.0030914779166666666,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-3.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "fr",
+      "audio_s": 20.16,
+      "latency_ms": 8457.3,
+      "cost_usd": 0.001411326875,
+      "wer": 0.2,
+      "status": "ok"
     },
     {
       "sample": "fr-4.wav",
@@ -1116,7 +3624,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 19.56,
-      "latency_ms": 435.0,
+      "latency_ms": 989.6,
       "cost_usd": 0.0014019298958333334,
       "wer": 0.0,
       "status": "ok"
@@ -1126,8 +3634,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "fr",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 19.56,
+      "latency_ms": 283.4,
+      "cost_usd": 0.0008802815625,
+      "wer": 0.1333,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-4.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "fr",
+      "audio_s": 19.56,
+      "latency_ms": 4624.1,
+      "cost_usd": 0.0011411057291666668,
+      "wer": 0.1333,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-4.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "fr",
+      "audio_s": 19.56,
+      "latency_ms": 6010.7,
+      "cost_usd": 0.0033255081250000004,
+      "wer": 0.1333,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-4.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "fr",
+      "audio_s": 19.56,
+      "latency_ms": 6263.6,
+      "cost_usd": 0.0029994779166666666,
+      "wer": 0.1333,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-4.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "fr",
+      "audio_s": 19.56,
+      "latency_ms": 8416.5,
+      "cost_usd": 0.001369326875,
+      "wer": 0.1333,
+      "status": "ok"
     },
     {
       "sample": "fr-5.wav",
@@ -1135,7 +3690,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 20.16,
-      "latency_ms": 407.4,
+      "latency_ms": 601.0,
       "cost_usd": 0.0014449298958333335,
       "wer": 0.0,
       "status": "ok"
@@ -1145,8 +3700,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "fr",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 20.16,
+      "latency_ms": 377.8,
+      "cost_usd": 0.0009072815625000002,
+      "wer": 0.2083,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-5.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "fr",
+      "audio_s": 20.16,
+      "latency_ms": 4555.4,
+      "cost_usd": 0.0011761057291666667,
+      "wer": 0.2083,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-5.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "fr",
+      "audio_s": 20.16,
+      "latency_ms": 6228.3,
+      "cost_usd": 0.0034275081250000005,
+      "wer": 0.2083,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-5.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "fr",
+      "audio_s": 20.16,
+      "latency_ms": 6078.1,
+      "cost_usd": 0.0030914779166666666,
+      "wer": 0.25,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-5.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "fr",
+      "audio_s": 20.16,
+      "latency_ms": 8430.5,
+      "cost_usd": 0.001411326875,
+      "wer": 0.25,
+      "status": "ok"
     },
     {
       "sample": "fr-6.wav",
@@ -1154,7 +3756,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 21.84,
-      "latency_ms": 364.5,
+      "latency_ms": 627.4,
       "cost_usd": 0.0015653298958333334,
       "wer": 0.1304,
       "status": "ok"
@@ -1164,8 +3766,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "fr",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 21.84,
+      "latency_ms": 349.0,
+      "cost_usd": 0.0009828815625,
+      "wer": 0.1304,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-6.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "fr",
+      "audio_s": 21.84,
+      "latency_ms": 7010.9,
+      "cost_usd": 0.0012741057291666667,
+      "wer": 0.087,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-6.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "fr",
+      "audio_s": 21.84,
+      "latency_ms": 6320.1,
+      "cost_usd": 0.003713108125,
+      "wer": 0.1304,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-6.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "fr",
+      "audio_s": 21.84,
+      "latency_ms": 5045.3,
+      "cost_usd": 0.0033490779166666664,
+      "wer": 0.1304,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-6.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "fr",
+      "audio_s": 21.84,
+      "latency_ms": 8394.9,
+      "cost_usd": 0.0015289268749999999,
+      "wer": 0.1739,
+      "status": "ok"
     },
     {
       "sample": "fr-7.wav",
@@ -1173,7 +3822,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 16.2,
-      "latency_ms": 319.0,
+      "latency_ms": 602.7,
       "cost_usd": 0.0011611298958333334,
       "wer": 0.1579,
       "status": "ok"
@@ -1183,8 +3832,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "fr",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 16.2,
+      "latency_ms": 370.1,
+      "cost_usd": 0.0007290815625,
+      "wer": 0.1579,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-7.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "fr",
+      "audio_s": 16.2,
+      "latency_ms": 4393.7,
+      "cost_usd": 0.0009451057291666667,
+      "wer": 0.1579,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-7.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "fr",
+      "audio_s": 16.2,
+      "latency_ms": 6119.0,
+      "cost_usd": 0.0027543081250000004,
+      "wer": 0.1579,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-7.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "fr",
+      "audio_s": 16.2,
+      "latency_ms": 5978.9,
+      "cost_usd": 0.0024842779166666666,
+      "wer": 0.0526,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-7.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "fr",
+      "audio_s": 16.2,
+      "latency_ms": 101078.9,
+      "cost_usd": 0.001134126875,
+      "wer": 0.1579,
+      "status": "ok"
     },
     {
       "sample": "fr-8.wav",
@@ -1192,7 +3888,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 16.2,
-      "latency_ms": 252.9,
+      "latency_ms": 198.2,
       "cost_usd": 0.0011611298958333334,
       "wer": 0.0,
       "status": "ok"
@@ -1202,8 +3898,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "fr",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 16.2,
+      "latency_ms": 357.1,
+      "cost_usd": 0.0007290815625,
+      "wer": 0.1364,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-8.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "fr",
+      "audio_s": 16.2,
+      "latency_ms": 4384.8,
+      "cost_usd": 0.0009451057291666667,
+      "wer": 0.0909,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-8.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "fr",
+      "audio_s": 16.2,
+      "latency_ms": 5959.8,
+      "cost_usd": 0.0027543081250000004,
+      "wer": 0.1364,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-8.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "fr",
+      "audio_s": 16.2,
+      "latency_ms": 6025.3,
+      "cost_usd": 0.0024842779166666666,
+      "wer": 0.1364,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-8.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "fr",
+      "audio_s": 16.2,
+      "latency_ms": 97042.8,
+      "cost_usd": 0.001134126875,
+      "wer": 0.1364,
+      "status": "ok"
     },
     {
       "sample": "fr-9.wav",
@@ -1211,7 +3954,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 22.92,
-      "latency_ms": 422.0,
+      "latency_ms": 125.3,
       "cost_usd": 0.0016427298958333334,
       "wer": 0.1053,
       "status": "ok"
@@ -1221,8 +3964,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "fr",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 22.92,
+      "latency_ms": 402.2,
+      "cost_usd": 0.0010314815625,
+      "wer": 0.1053,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-9.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "fr",
+      "audio_s": 22.92,
+      "latency_ms": 4537.2,
+      "cost_usd": 0.0013371057291666668,
+      "wer": 0.0789,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-9.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "fr",
+      "audio_s": 22.92,
+      "latency_ms": 5916.9,
+      "cost_usd": 0.0038967081250000004,
+      "wer": 0.2632,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-9.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "fr",
+      "audio_s": 22.92,
+      "latency_ms": 6029.4,
+      "cost_usd": 0.0035146779166666665,
+      "wer": 0.1316,
+      "status": "ok"
+    },
+    {
+      "sample": "fr-9.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "fr",
+      "audio_s": 22.92,
+      "latency_ms": 89034.4,
+      "cost_usd": 0.001604526875,
+      "wer": 0.1053,
+      "status": "ok"
     },
     {
       "sample": "hi-1.wav",
@@ -1230,7 +4020,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 18.72,
-      "latency_ms": 585.4,
+      "latency_ms": 344.1,
       "cost_usd": 0.0013417298958333334,
       "wer": 0.25,
       "status": "ok"
@@ -1240,8 +4030,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "hi",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 18.72,
+      "latency_ms": 430.1,
+      "cost_usd": 0.0008424815625000001,
+      "wer": 0.25,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-1.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "hi",
+      "audio_s": 18.72,
+      "latency_ms": 4525.6,
+      "cost_usd": 0.0010921057291666666,
+      "wer": 0.1667,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-1.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "hi",
+      "audio_s": 18.72,
+      "latency_ms": 6430.4,
+      "cost_usd": 0.003182708125,
+      "wer": 0.3333,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-1.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "hi",
+      "audio_s": 18.72,
+      "latency_ms": 5987.9,
+      "cost_usd": 0.0028706779166666665,
+      "wer": 0.0833,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-1.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "hi",
+      "audio_s": 18.72,
+      "latency_ms": 12489.2,
+      "cost_usd": 0.001310526875,
+      "wer": 0.25,
+      "status": "ok"
     },
     {
       "sample": "hi-10.wav",
@@ -1249,7 +4086,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 11.88,
-      "latency_ms": 673.3,
+      "latency_ms": 151.6,
       "cost_usd": 0.0008515298958333334,
       "wer": 0.1111,
       "status": "ok"
@@ -1259,8 +4096,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "hi",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 11.88,
+      "latency_ms": 520.8,
+      "cost_usd": 0.0005346815625000001,
+      "wer": 0.3889,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-10.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "hi",
+      "audio_s": 11.88,
+      "latency_ms": 4378.2,
+      "cost_usd": 0.0006931057291666667,
+      "wer": 0.1667,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-10.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "hi",
+      "audio_s": 11.88,
+      "latency_ms": 6144.7,
+      "cost_usd": 0.0020199081250000003,
+      "wer": 0.3889,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-10.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "hi",
+      "audio_s": 11.88,
+      "latency_ms": 6219.3,
+      "cost_usd": 0.0018218779166666668,
+      "wer": 0.1667,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-10.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "hi",
+      "audio_s": 11.88,
+      "latency_ms": 8350.4,
+      "cost_usd": 0.000831726875,
+      "wer": 0.3889,
+      "status": "ok"
     },
     {
       "sample": "hi-11.wav",
@@ -1268,7 +4152,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 15.48,
-      "latency_ms": 378.6,
+      "latency_ms": 812.5,
       "cost_usd": 0.0011095298958333335,
       "wer": 0.1875,
       "status": "ok"
@@ -1278,8 +4162,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "hi",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 15.48,
+      "latency_ms": 436.3,
+      "cost_usd": 0.0006966815625,
+      "wer": 0.5,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-11.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "hi",
+      "audio_s": 15.48,
+      "latency_ms": 4482.1,
+      "cost_usd": 0.0009031057291666667,
+      "wer": 0.4375,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-11.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "hi",
+      "audio_s": 15.48,
+      "latency_ms": 6079.6,
+      "cost_usd": 0.0026319081250000004,
+      "wer": 0.5625,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-11.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "hi",
+      "audio_s": 15.48,
+      "latency_ms": 5949.9,
+      "cost_usd": 0.0023738779166666665,
+      "wer": 0.25,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-11.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "hi",
+      "audio_s": 15.48,
+      "latency_ms": 12413.3,
+      "cost_usd": 0.0010837268749999999,
+      "wer": 0.5,
+      "status": "ok"
     },
     {
       "sample": "hi-12.wav",
@@ -1287,7 +4218,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 19.8,
-      "latency_ms": 607.7,
+      "latency_ms": 251.2,
       "cost_usd": 0.0014191298958333334,
       "wer": 0.1176,
       "status": "ok"
@@ -1297,8 +4228,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "hi",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 19.8,
+      "latency_ms": 530.7,
+      "cost_usd": 0.0008910815625000001,
+      "wer": 0.3529,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-12.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "hi",
+      "audio_s": 19.8,
+      "latency_ms": 4842.9,
+      "cost_usd": 0.0011551057291666667,
+      "wer": 0.1765,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-12.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "hi",
+      "audio_s": 19.8,
+      "latency_ms": 5981.4,
+      "cost_usd": 0.0033663081250000005,
+      "wer": 0.3529,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-12.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "hi",
+      "audio_s": 19.8,
+      "latency_ms": 6032.5,
+      "cost_usd": 0.0030362779166666666,
+      "wer": 0.2941,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-12.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "hi",
+      "audio_s": 19.8,
+      "latency_ms": 12434.0,
+      "cost_usd": 0.001386126875,
+      "wer": 0.2941,
+      "status": "ok"
     },
     {
       "sample": "hi-13.wav",
@@ -1306,7 +4284,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 21.84,
-      "latency_ms": 1381.7,
+      "latency_ms": 273.0,
       "cost_usd": 0.0015653298958333334,
       "wer": 0.0952,
       "status": "ok"
@@ -1316,8 +4294,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "hi",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 21.84,
+      "latency_ms": 552.2,
+      "cost_usd": 0.0009828815625,
+      "wer": 0.381,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-13.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "hi",
+      "audio_s": 21.84,
+      "latency_ms": 4552.9,
+      "cost_usd": 0.0012741057291666667,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-13.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "hi",
+      "audio_s": 21.84,
+      "latency_ms": 5890.5,
+      "cost_usd": 0.003713108125,
+      "wer": 0.4762,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-13.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "hi",
+      "audio_s": 21.84,
+      "latency_ms": 6339.1,
+      "cost_usd": 0.0033490779166666664,
+      "wer": 0.1429,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-13.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "hi",
+      "audio_s": 21.84,
+      "latency_ms": 12410.1,
+      "cost_usd": 0.0015289268749999999,
+      "wer": 0.4286,
+      "status": "ok"
     },
     {
       "sample": "hi-14.wav",
@@ -1325,7 +4350,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 17.52,
-      "latency_ms": 980.3,
+      "latency_ms": 1043.3,
       "cost_usd": 0.0012557298958333332,
       "wer": 0.25,
       "status": "ok"
@@ -1335,8 +4360,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "hi",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 17.52,
+      "latency_ms": 491.4,
+      "cost_usd": 0.0007884815625,
+      "wer": 0.1875,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-14.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "hi",
+      "audio_s": 17.52,
+      "latency_ms": 4482.3,
+      "cost_usd": 0.0010221057291666666,
+      "wer": 0.25,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-14.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "hi",
+      "audio_s": 17.52,
+      "latency_ms": 5944.5,
+      "cost_usd": 0.002978708125,
+      "wer": 0.375,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-14.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "hi",
+      "audio_s": 17.52,
+      "latency_ms": 6566.0,
+      "cost_usd": 0.0026866779166666663,
+      "wer": 0.1875,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-14.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "hi",
+      "audio_s": 17.52,
+      "latency_ms": 8392.8,
+      "cost_usd": 0.0012265268749999999,
+      "wer": 0.1875,
+      "status": "ok"
     },
     {
       "sample": "hi-15.wav",
@@ -1344,7 +4416,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 19.8,
-      "latency_ms": 850.5,
+      "latency_ms": 222.0,
       "cost_usd": 0.0014191298958333334,
       "wer": 0.2857,
       "status": "ok"
@@ -1354,8 +4426,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "hi",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 19.8,
+      "latency_ms": 498.4,
+      "cost_usd": 0.0008910815625000001,
+      "wer": 0.2857,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-15.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "hi",
+      "audio_s": 19.8,
+      "latency_ms": 4394.2,
+      "cost_usd": 0.0011551057291666667,
+      "wer": 0.381,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-15.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "hi",
+      "audio_s": 19.8,
+      "latency_ms": 5905.2,
+      "cost_usd": 0.0033663081250000005,
+      "wer": 0.2857,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-15.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "hi",
+      "audio_s": 19.8,
+      "latency_ms": 5668.6,
+      "cost_usd": 0.0030362779166666666,
+      "wer": 0.1905,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-15.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "hi",
+      "audio_s": 19.8,
+      "latency_ms": 8422.7,
+      "cost_usd": 0.001386126875,
+      "wer": 0.2381,
+      "status": "ok"
     },
     {
       "sample": "hi-2.wav",
@@ -1363,7 +4482,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 22.68,
-      "latency_ms": 577.3,
+      "latency_ms": 222.4,
       "cost_usd": 0.0016255298958333334,
       "wer": 0.25,
       "status": "ok"
@@ -1373,8 +4492,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "hi",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 22.68,
+      "latency_ms": 433.9,
+      "cost_usd": 0.0010206815625,
+      "wer": 0.3,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-2.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "hi",
+      "audio_s": 22.68,
+      "latency_ms": 4453.3,
+      "cost_usd": 0.0013231057291666667,
+      "wer": 0.15,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-2.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "hi",
+      "audio_s": 22.68,
+      "latency_ms": 6043.2,
+      "cost_usd": 0.0038559081250000003,
+      "wer": 0.25,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-2.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "hi",
+      "audio_s": 22.68,
+      "latency_ms": 5991.3,
+      "cost_usd": 0.0034778779166666665,
+      "wer": 0.15,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-2.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "hi",
+      "audio_s": 22.68,
+      "latency_ms": 8425.5,
+      "cost_usd": 0.001587726875,
+      "wer": 0.25,
+      "status": "ok"
     },
     {
       "sample": "hi-3.wav",
@@ -1382,7 +4548,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 21.6,
-      "latency_ms": 538.8,
+      "latency_ms": 632.7,
       "cost_usd": 0.0015481298958333334,
       "wer": 0.08,
       "status": "ok"
@@ -1392,8 +4558,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "hi",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 21.6,
+      "latency_ms": 587.8,
+      "cost_usd": 0.0009720815625,
+      "wer": 0.28,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-3.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "hi",
+      "audio_s": 21.6,
+      "latency_ms": 4433.5,
+      "cost_usd": 0.0012601057291666666,
+      "wer": 0.24,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-3.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "hi",
+      "audio_s": 21.6,
+      "latency_ms": 5993.1,
+      "cost_usd": 0.0036723081250000004,
+      "wer": 0.24,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-3.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "hi",
+      "audio_s": 21.6,
+      "latency_ms": 6007.7,
+      "cost_usd": 0.0033122779166666664,
+      "wer": 0.12,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-3.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "hi",
+      "audio_s": 21.6,
+      "latency_ms": 8390.9,
+      "cost_usd": 0.001512126875,
+      "wer": 0.2,
+      "status": "ok"
     },
     {
       "sample": "hi-4.wav",
@@ -1401,7 +4614,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 18.0,
-      "latency_ms": 6312.0,
+      "latency_ms": 1070.8,
       "cost_usd": 0.0012901298958333334,
       "wer": 0.2778,
       "status": "ok"
@@ -1411,8 +4624,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "hi",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 18.0,
+      "latency_ms": 594.7,
+      "cost_usd": 0.0008100815625000001,
+      "wer": 0.1667,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-4.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "hi",
+      "audio_s": 18.0,
+      "latency_ms": 4412.6,
+      "cost_usd": 0.0010501057291666667,
+      "wer": 0.2778,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-4.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "hi",
+      "audio_s": 18.0,
+      "latency_ms": 5997.7,
+      "cost_usd": 0.0030603081250000002,
+      "wer": 0.1667,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-4.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "hi",
+      "audio_s": 18.0,
+      "latency_ms": 6276.2,
+      "cost_usd": 0.0027602779166666664,
+      "wer": 0.2778,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-4.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "hi",
+      "audio_s": 18.0,
+      "latency_ms": 8391.9,
+      "cost_usd": 0.0012601268749999998,
+      "wer": 0.1667,
+      "status": "ok"
     },
     {
       "sample": "hi-5.wav",
@@ -1420,7 +4680,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 17.52,
-      "latency_ms": 542.1,
+      "latency_ms": 636.0,
       "cost_usd": 0.0012557298958333332,
       "wer": 0.4375,
       "status": "ok"
@@ -1430,8 +4690,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "hi",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 17.52,
+      "latency_ms": 475.3,
+      "cost_usd": 0.0007884815625,
+      "wer": 0.5,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-5.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "hi",
+      "audio_s": 17.52,
+      "latency_ms": 4476.1,
+      "cost_usd": 0.0010221057291666666,
+      "wer": 0.3125,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-5.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "hi",
+      "audio_s": 17.52,
+      "latency_ms": 6043.0,
+      "cost_usd": 0.002978708125,
+      "wer": 0.5625,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-5.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "hi",
+      "audio_s": 17.52,
+      "latency_ms": 5690.5,
+      "cost_usd": 0.0026866779166666663,
+      "wer": 0.3125,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-5.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "hi",
+      "audio_s": 17.52,
+      "latency_ms": 8428.1,
+      "cost_usd": 0.0012265268749999999,
+      "wer": 0.5625,
+      "status": "ok"
     },
     {
       "sample": "hi-6.wav",
@@ -1439,7 +4746,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 14.64,
-      "latency_ms": 608.0,
+      "latency_ms": 617.0,
       "cost_usd": 0.0010493298958333334,
       "wer": 0.0588,
       "status": "ok"
@@ -1450,9 +4757,53 @@
       "model": "whisper-large-v3",
       "language": "hi",
       "audio_s": 14.64,
-      "latency_ms": 544.8,
+      "latency_ms": 480.1,
       "cost_usd": 0.0006588815625000001,
       "wer": 0.1765,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-6.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "hi",
+      "audio_s": 14.64,
+      "latency_ms": 4420.2,
+      "cost_usd": 0.0008541057291666667,
+      "wer": 0.1176,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-6.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "hi",
+      "audio_s": 14.64,
+      "latency_ms": 5939.8,
+      "cost_usd": 0.0024891081250000002,
+      "wer": 0.2353,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-6.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "hi",
+      "audio_s": 14.64,
+      "latency_ms": 5622.7,
+      "cost_usd": 0.0022450779166666665,
+      "wer": 0.2353,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-6.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "hi",
+      "audio_s": 14.64,
+      "latency_ms": 8387.9,
+      "cost_usd": 0.001024926875,
+      "wer": 0.2353,
       "status": "ok"
     },
     {
@@ -1461,7 +4812,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 18.24,
-      "latency_ms": 553.1,
+      "latency_ms": 247.4,
       "cost_usd": 0.0013073298958333334,
       "wer": 0.25,
       "status": "ok"
@@ -1471,8 +4822,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "hi",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 18.24,
+      "latency_ms": 448.7,
+      "cost_usd": 0.0008208815625,
+      "wer": 0.5,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-7.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "hi",
+      "audio_s": 18.24,
+      "latency_ms": 4846.9,
+      "cost_usd": 0.0010641057291666666,
+      "wer": 0.45,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-7.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "hi",
+      "audio_s": 18.24,
+      "latency_ms": 5854.5,
+      "cost_usd": 0.0031011081250000004,
+      "wer": 0.5,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-7.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "hi",
+      "audio_s": 18.24,
+      "latency_ms": 5706.0,
+      "cost_usd": 0.0027970779166666664,
+      "wer": 0.25,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-7.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "hi",
+      "audio_s": 18.24,
+      "latency_ms": 8383.8,
+      "cost_usd": 0.0012769268749999998,
+      "wer": 0.45,
+      "status": "ok"
     },
     {
       "sample": "hi-8.wav",
@@ -1480,7 +4878,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 22.92,
-      "latency_ms": 481.8,
+      "latency_ms": 389.9,
       "cost_usd": 0.0016427298958333334,
       "wer": 0.3077,
       "status": "ok"
@@ -1490,8 +4888,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "hi",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 22.92,
+      "latency_ms": 532.0,
+      "cost_usd": 0.0010314815625,
+      "wer": 0.2308,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-8.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "hi",
+      "audio_s": 22.92,
+      "latency_ms": 4487.4,
+      "cost_usd": 0.0013371057291666668,
+      "wer": 0.2308,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-8.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "hi",
+      "audio_s": 22.92,
+      "latency_ms": 6013.3,
+      "cost_usd": 0.0038967081250000004,
+      "wer": 0.2692,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-8.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "hi",
+      "audio_s": 22.92,
+      "latency_ms": 6376.4,
+      "cost_usd": 0.0035146779166666665,
+      "wer": 0.1538,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-8.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "hi",
+      "audio_s": 22.92,
+      "latency_ms": 8402.3,
+      "cost_usd": 0.001604526875,
+      "wer": 0.2308,
+      "status": "ok"
     },
     {
       "sample": "hi-9.wav",
@@ -1499,7 +4944,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 12.84,
-      "latency_ms": 513.5,
+      "latency_ms": 330.4,
       "cost_usd": 0.0009203298958333333,
       "wer": 0.0,
       "status": "ok"
@@ -1509,8 +4954,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "hi",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 12.84,
+      "latency_ms": 435.6,
+      "cost_usd": 0.0005778815625000001,
+      "wer": 0.2143,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-9.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "hi",
+      "audio_s": 12.84,
+      "latency_ms": 4571.5,
+      "cost_usd": 0.0007491057291666666,
+      "wer": 0.2143,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-9.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "hi",
+      "audio_s": 12.84,
+      "latency_ms": 6189.3,
+      "cost_usd": 0.002183108125,
+      "wer": 0.2143,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-9.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "hi",
+      "audio_s": 12.84,
+      "latency_ms": 5966.1,
+      "cost_usd": 0.0019690779166666667,
+      "wer": 0.0714,
+      "status": "ok"
+    },
+    {
+      "sample": "hi-9.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "hi",
+      "audio_s": 12.84,
+      "latency_ms": 8359.6,
+      "cost_usd": 0.000898926875,
+      "wer": 0.2143,
+      "status": "ok"
     },
     {
       "sample": "ja-1.wav",
@@ -1518,7 +5010,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 21.48,
-      "latency_ms": 629.6,
+      "latency_ms": 319.7,
       "cost_usd": 0.0015395298958333333,
       "wer": 1.0,
       "status": "ok"
@@ -1529,9 +5021,53 @@
       "model": "whisper-large-v3",
       "language": "ja",
       "audio_s": 21.48,
-      "latency_ms": 1015.9,
+      "latency_ms": 380.8,
       "cost_usd": 0.0009666815625,
       "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-1.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "ja",
+      "audio_s": 21.48,
+      "latency_ms": 4555.7,
+      "cost_usd": 0.0012531057291666667,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-1.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "ja",
+      "audio_s": 21.48,
+      "latency_ms": 6623.3,
+      "cost_usd": 0.003651908125,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-1.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "ja",
+      "audio_s": 21.48,
+      "latency_ms": 6044.6,
+      "cost_usd": 0.0032938779166666664,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-1.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "ja",
+      "audio_s": 21.48,
+      "latency_ms": 8415.8,
+      "cost_usd": 0.001503726875,
+      "wer": 0.6667,
       "status": "ok"
     },
     {
@@ -1540,7 +5076,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 26.16,
-      "latency_ms": 587.3,
+      "latency_ms": 324.2,
       "cost_usd": 0.0018749298958333333,
       "wer": 1.0,
       "status": "ok"
@@ -1550,8 +5086,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "ja",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 26.16,
+      "latency_ms": 420.0,
+      "cost_usd": 0.0011772815625,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-10.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "ja",
+      "audio_s": 26.16,
+      "latency_ms": 4464.0,
+      "cost_usd": 0.0015261057291666668,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-10.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "ja",
+      "audio_s": 26.16,
+      "latency_ms": 6002.2,
+      "cost_usd": 0.004447508125,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-10.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "ja",
+      "audio_s": 26.16,
+      "latency_ms": 5738.5,
+      "cost_usd": 0.0040114779166666665,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-10.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "ja",
+      "audio_s": 26.16,
+      "latency_ms": 8459.2,
+      "cost_usd": 0.0018313268749999998,
+      "wer": 1.0,
+      "status": "ok"
     },
     {
       "sample": "ja-11.wav",
@@ -1559,7 +5142,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 19.8,
-      "latency_ms": 576.1,
+      "latency_ms": 153.5,
       "cost_usd": 0.0014191298958333334,
       "wer": 1.0,
       "status": "ok"
@@ -1570,8 +5153,52 @@
       "model": "whisper-large-v3",
       "language": "ja",
       "audio_s": 19.8,
-      "latency_ms": 773.7,
+      "latency_ms": 368.5,
       "cost_usd": 0.0008910815625000001,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-11.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "ja",
+      "audio_s": 19.8,
+      "latency_ms": 5740.6,
+      "cost_usd": 0.0011551057291666667,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-11.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "ja",
+      "audio_s": 19.8,
+      "latency_ms": 5914.7,
+      "cost_usd": 0.0033663081250000005,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-11.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "ja",
+      "audio_s": 19.8,
+      "latency_ms": 6002.4,
+      "cost_usd": 0.0030362779166666666,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-11.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "ja",
+      "audio_s": 19.8,
+      "latency_ms": 8372.5,
+      "cost_usd": 0.001386126875,
       "wer": 1.0,
       "status": "ok"
     },
@@ -1581,7 +5208,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 22.68,
-      "latency_ms": 615.4,
+      "latency_ms": 654.0,
       "cost_usd": 0.0016255298958333334,
       "wer": 1.0,
       "status": "ok"
@@ -1591,8 +5218,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "ja",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 22.68,
+      "latency_ms": 340.0,
+      "cost_usd": 0.0010206815625,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-12.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "ja",
+      "audio_s": 22.68,
+      "latency_ms": 4429.3,
+      "cost_usd": 0.0013231057291666667,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-12.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "ja",
+      "audio_s": 22.68,
+      "latency_ms": 6024.5,
+      "cost_usd": 0.0038559081250000003,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-12.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "ja",
+      "audio_s": 22.68,
+      "latency_ms": 6048.2,
+      "cost_usd": 0.0034778779166666665,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-12.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "ja",
+      "audio_s": 22.68,
+      "latency_ms": 8374.1,
+      "cost_usd": 0.001587726875,
+      "wer": 0.0,
+      "status": "ok"
     },
     {
       "sample": "ja-13.wav",
@@ -1600,7 +5274,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 22.44,
-      "latency_ms": 541.3,
+      "latency_ms": 487.3,
       "cost_usd": 0.0016083298958333334,
       "wer": 1.0,
       "status": "ok"
@@ -1610,8 +5284,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "ja",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 22.44,
+      "latency_ms": 322.7,
+      "cost_usd": 0.0010098815625000002,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-13.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "ja",
+      "audio_s": 22.44,
+      "latency_ms": 4625.6,
+      "cost_usd": 0.0013091057291666668,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-13.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "ja",
+      "audio_s": 22.44,
+      "latency_ms": 6145.9,
+      "cost_usd": 0.003815108125,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-13.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "ja",
+      "audio_s": 22.44,
+      "latency_ms": 6023.2,
+      "cost_usd": 0.0034410779166666665,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-13.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "ja",
+      "audio_s": 22.44,
+      "latency_ms": 8402.3,
+      "cost_usd": 0.0015709268749999998,
+      "wer": 1.0,
+      "status": "ok"
     },
     {
       "sample": "ja-14.wav",
@@ -1619,7 +5340,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 20.64,
-      "latency_ms": 534.1,
+      "latency_ms": 360.8,
       "cost_usd": 0.0014793298958333332,
       "wer": 1.0,
       "status": "ok"
@@ -1629,8 +5350,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "ja",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 20.64,
+      "latency_ms": 422.6,
+      "cost_usd": 0.0009288815625,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-14.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "ja",
+      "audio_s": 20.64,
+      "latency_ms": 4439.0,
+      "cost_usd": 0.0012041057291666665,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-14.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "ja",
+      "audio_s": 20.64,
+      "latency_ms": 6080.1,
+      "cost_usd": 0.003509108125,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-14.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "ja",
+      "audio_s": 20.64,
+      "latency_ms": 6325.1,
+      "cost_usd": 0.0031650779166666663,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-14.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "ja",
+      "audio_s": 20.64,
+      "latency_ms": 8444.5,
+      "cost_usd": 0.0014449268749999998,
+      "wer": 0.6667,
+      "status": "ok"
     },
     {
       "sample": "ja-15.wav",
@@ -1638,7 +5406,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 24.0,
-      "latency_ms": 535.8,
+      "latency_ms": 736.3,
       "cost_usd": 0.0017201298958333334,
       "wer": 1.0,
       "status": "ok"
@@ -1648,8 +5416,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "ja",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 24.0,
+      "latency_ms": 410.0,
+      "cost_usd": 0.0010800815625000002,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-15.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "ja",
+      "audio_s": 24.0,
+      "latency_ms": 4702.9,
+      "cost_usd": 0.0014001057291666667,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-15.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "ja",
+      "audio_s": 24.0,
+      "latency_ms": 6048.3,
+      "cost_usd": 0.004080308125,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-15.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "ja",
+      "audio_s": 24.0,
+      "latency_ms": 5746.5,
+      "cost_usd": 0.0036802779166666666,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-15.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "ja",
+      "audio_s": 24.0,
+      "latency_ms": 8436.7,
+      "cost_usd": 0.001680126875,
+      "wer": 0.6667,
+      "status": "ok"
     },
     {
       "sample": "ja-2.wav",
@@ -1657,7 +5472,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 21.12,
-      "latency_ms": 506.0,
+      "latency_ms": 616.6,
       "cost_usd": 0.0015137298958333332,
       "wer": 1.0,
       "status": "ok"
@@ -1667,8 +5482,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "ja",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 21.12,
+      "latency_ms": 387.9,
+      "cost_usd": 0.0009504815625,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-2.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "ja",
+      "audio_s": 21.12,
+      "latency_ms": 5143.5,
+      "cost_usd": 0.0012321057291666665,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-2.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "ja",
+      "audio_s": 21.12,
+      "latency_ms": 6407.1,
+      "cost_usd": 0.003590708125,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-2.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "ja",
+      "audio_s": 21.12,
+      "latency_ms": 6054.7,
+      "cost_usd": 0.0032386779166666663,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-2.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "ja",
+      "audio_s": 21.12,
+      "latency_ms": 8374.2,
+      "cost_usd": 0.001478526875,
+      "wer": 1.0,
+      "status": "ok"
     },
     {
       "sample": "ja-3.wav",
@@ -1676,7 +5538,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 27.0,
-      "latency_ms": 6295.4,
+      "latency_ms": 6271.5,
       "cost_usd": 0.0019351298958333334,
       "wer": 1.0,
       "status": "ok"
@@ -1686,8 +5548,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "ja",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 27.0,
+      "latency_ms": 434.9,
+      "cost_usd": 0.0012150815625000002,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-3.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "ja",
+      "audio_s": 27.0,
+      "latency_ms": 4747.8,
+      "cost_usd": 0.0015751057291666668,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-3.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "ja",
+      "audio_s": 27.0,
+      "latency_ms": 6545.5,
+      "cost_usd": 0.004590308125,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-3.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "ja",
+      "audio_s": 27.0,
+      "latency_ms": 6072.5,
+      "cost_usd": 0.0041402779166666666,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-3.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "ja",
+      "audio_s": 27.0,
+      "latency_ms": 8390.6,
+      "cost_usd": 0.001890126875,
+      "wer": 0.6667,
+      "status": "ok"
     },
     {
       "sample": "ja-4.wav",
@@ -1695,7 +5604,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 21.6,
-      "latency_ms": 489.3,
+      "latency_ms": 649.6,
       "cost_usd": 0.0015481298958333334,
       "wer": 1.0,
       "status": "ok"
@@ -1705,8 +5614,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "ja",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 21.6,
+      "latency_ms": 340.3,
+      "cost_usd": 0.0009720815625,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-4.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "ja",
+      "audio_s": 21.6,
+      "latency_ms": 4422.5,
+      "cost_usd": 0.0012601057291666666,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-4.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "ja",
+      "audio_s": 21.6,
+      "latency_ms": 6065.4,
+      "cost_usd": 0.0036723081250000004,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-4.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "ja",
+      "audio_s": 21.6,
+      "latency_ms": 6021.9,
+      "cost_usd": 0.0033122779166666664,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-4.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "ja",
+      "audio_s": 21.6,
+      "latency_ms": 8441.5,
+      "cost_usd": 0.001512126875,
+      "wer": 1.0,
+      "status": "ok"
     },
     {
       "sample": "ja-5.wav",
@@ -1714,7 +5670,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 16.08,
-      "latency_ms": 6299.7,
+      "latency_ms": 806.7,
       "cost_usd": 0.0011525298958333335,
       "wer": 1.0,
       "status": "ok"
@@ -1724,8 +5680,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "ja",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 16.08,
+      "latency_ms": 347.8,
+      "cost_usd": 0.0007236815625000001,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-5.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "ja",
+      "audio_s": 16.08,
+      "latency_ms": 4391.4,
+      "cost_usd": 0.0009381057291666668,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-5.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "ja",
+      "audio_s": 16.08,
+      "latency_ms": 6335.9,
+      "cost_usd": 0.0027339081250000005,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-5.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "ja",
+      "audio_s": 16.08,
+      "latency_ms": 6018.8,
+      "cost_usd": 0.0024658779166666666,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-5.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "ja",
+      "audio_s": 16.08,
+      "latency_ms": 8369.9,
+      "cost_usd": 0.001125726875,
+      "wer": 1.0,
+      "status": "ok"
     },
     {
       "sample": "ja-6.wav",
@@ -1733,7 +5736,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 19.56,
-      "latency_ms": 535.3,
+      "latency_ms": 678.6,
       "cost_usd": 0.0014019298958333334,
       "wer": 1.0,
       "status": "ok"
@@ -1743,8 +5746,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "ja",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 19.56,
+      "latency_ms": 361.3,
+      "cost_usd": 0.0008802815625,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-6.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "ja",
+      "audio_s": 19.56,
+      "latency_ms": 5028.5,
+      "cost_usd": 0.0011411057291666668,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-6.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "ja",
+      "audio_s": 19.56,
+      "latency_ms": 6095.5,
+      "cost_usd": 0.0033255081250000004,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-6.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "ja",
+      "audio_s": 19.56,
+      "latency_ms": 5722.3,
+      "cost_usd": 0.0029994779166666666,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-6.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "ja",
+      "audio_s": 19.56,
+      "latency_ms": 8446.3,
+      "cost_usd": 0.001369326875,
+      "wer": 1.0,
+      "status": "ok"
     },
     {
       "sample": "ja-7.wav",
@@ -1752,7 +5802,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 23.28,
-      "latency_ms": 499.4,
+      "latency_ms": 320.6,
       "cost_usd": 0.0016685298958333335,
       "wer": 1.0,
       "status": "ok"
@@ -1762,8 +5812,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "ja",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 23.28,
+      "latency_ms": 385.9,
+      "cost_usd": 0.0010476815625,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-7.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "ja",
+      "audio_s": 23.28,
+      "latency_ms": 4651.2,
+      "cost_usd": 0.0013581057291666668,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-7.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "ja",
+      "audio_s": 23.28,
+      "latency_ms": 6384.0,
+      "cost_usd": 0.003957908125,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-7.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "ja",
+      "audio_s": 23.28,
+      "latency_ms": 6077.0,
+      "cost_usd": 0.0035698779166666666,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-7.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "ja",
+      "audio_s": 23.28,
+      "latency_ms": 8453.2,
+      "cost_usd": 0.001629726875,
+      "wer": 0.6667,
+      "status": "ok"
     },
     {
       "sample": "ja-8.wav",
@@ -1771,7 +5868,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 25.32,
-      "latency_ms": 583.5,
+      "latency_ms": 631.4,
       "cost_usd": 0.0018147298958333332,
       "wer": 1.0,
       "status": "ok"
@@ -1781,8 +5878,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "ja",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 25.32,
+      "latency_ms": 356.7,
+      "cost_usd": 0.0011394815625,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-8.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "ja",
+      "audio_s": 25.32,
+      "latency_ms": 8511.0,
+      "cost_usd": 0.0014771057291666668,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-8.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "ja",
+      "audio_s": 25.32,
+      "latency_ms": 6294.6,
+      "cost_usd": 0.004304708125,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-8.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "ja",
+      "audio_s": 25.32,
+      "latency_ms": 6374.7,
+      "cost_usd": 0.0038826779166666664,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-8.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "ja",
+      "audio_s": 25.32,
+      "latency_ms": 8368.7,
+      "cost_usd": 0.001772526875,
+      "wer": 1.0,
+      "status": "ok"
     },
     {
       "sample": "ja-9.wav",
@@ -1790,7 +5934,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 24.84,
-      "latency_ms": 554.2,
+      "latency_ms": 591.5,
       "cost_usd": 0.0017803298958333333,
       "wer": 1.0,
       "status": "ok"
@@ -1800,8 +5944,55 @@
       "provider": "groq-whisper",
       "model": "whisper-large-v3",
       "language": "ja",
-      "status": "error",
-      "detail": "groq 429: {\"error\":{\"message\":\"Rate limit reached for model `whisper-large-v3` in organization `org_01kmdg400df4k9mr54326xy70s` service tier `on_demand` on requests per minute (RPM): Limit 20, Used 20"
+      "audio_s": 24.84,
+      "latency_ms": 403.1,
+      "cost_usd": 0.0011178815625,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-9.wav",
+      "provider": "assemblyai",
+      "model": "universal-3-5-pro",
+      "language": "ja",
+      "audio_s": 24.84,
+      "latency_ms": 4635.6,
+      "cost_usd": 0.0014491057291666667,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-9.wav",
+      "provider": "gladia",
+      "model": "v2",
+      "language": "ja",
+      "audio_s": 24.84,
+      "latency_ms": 5919.2,
+      "cost_usd": 0.0042231081250000005,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-9.wav",
+      "provider": "speechmatics",
+      "model": "enhanced",
+      "language": "ja",
+      "audio_s": 24.84,
+      "latency_ms": 6325.9,
+      "cost_usd": 0.0038090779166666663,
+      "wer": 1.0,
+      "status": "ok"
+    },
+    {
+      "sample": "ja-9.wav",
+      "provider": "rev",
+      "model": "machine",
+      "language": "ja",
+      "audio_s": 24.84,
+      "latency_ms": 8426.5,
+      "cost_usd": 0.0017389268749999998,
+      "wer": 0.6667,
+      "status": "ok"
     }
   ],
   "note": "regenerate with: python scripts/run_matrix.py"
