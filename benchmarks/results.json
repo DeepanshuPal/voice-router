@@ -1,6 +1,6 @@
 {
   "sample_data": false,
-  "generated_at": "2026-09-12T13:35:41+00:00",
+  "generated_at": "2026-09-12T14:09:57+00:00",
   "scores": {
     "stt": {
       "groq-whisper": {
@@ -17,7 +17,7 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 10.56,
-      "latency_ms": 470.0,
+      "latency_ms": 422.8,
       "cost_usd": 0.00047530968750000006,
       "wer": 0.1579,
       "status": "ok"
@@ -28,7 +28,7 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 8.76,
-      "latency_ms": 352.6,
+      "latency_ms": 370.1,
       "cost_usd": 0.00039430968750000004,
       "wer": 0.1429,
       "status": "ok"
@@ -39,7 +39,7 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 11.46,
-      "latency_ms": 489.8,
+      "latency_ms": 427.4,
       "cost_usd": 0.0005158096875,
       "wer": 0.0606,
       "status": "ok"
@@ -50,7 +50,7 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 5.76,
-      "latency_ms": 431.5,
+      "latency_ms": 374.8,
       "cost_usd": 0.0002593096875,
       "wer": 0.2667,
       "status": "ok"
@@ -61,7 +61,7 @@
       "model": "whisper-large-v3",
       "language": "es",
       "audio_s": 7.44,
-      "latency_ms": 518.8,
+      "latency_ms": 374.2,
       "cost_usd": 0.0003349096875,
       "wer": 0.1333,
       "status": "ok"
@@ -72,7 +72,7 @@
       "model": "whisper-large-v3",
       "language": "es",
       "audio_s": 8.58,
-      "latency_ms": 440.8,
+      "latency_ms": 313.6,
       "cost_usd": 0.00038620968750000006,
       "wer": 0.1333,
       "status": "ok"
@@ -83,7 +83,7 @@
       "model": "whisper-large-v3",
       "language": "es",
       "audio_s": 9.12,
-      "latency_ms": 657.6,
+      "latency_ms": 387.1,
       "cost_usd": 0.00041050968750000005,
       "wer": 0.2105,
       "status": "ok"
@@ -94,7 +94,7 @@
       "model": "whisper-large-v3",
       "language": "es",
       "audio_s": 7.32,
-      "latency_ms": 562.4,
+      "latency_ms": 311.6,
       "cost_usd": 0.00032950968750000004,
       "wer": 0.1053,
       "status": "ok"
@@ -105,7 +105,7 @@
       "model": "whisper-large-v3",
       "language": "hi",
       "audio_s": 8.64,
-      "latency_ms": 622.5,
+      "latency_ms": 378.7,
       "cost_usd": 0.0003889096875,
       "wer": 0.5833,
       "status": "ok"
@@ -116,7 +116,7 @@
       "model": "whisper-large-v3",
       "language": "hi",
       "audio_s": 6.66,
-      "latency_ms": 567.1,
+      "latency_ms": 453.4,
       "cost_usd": 0.0002998096875,
       "wer": 0.3333,
       "status": "ok"
@@ -127,7 +127,7 @@
       "model": "whisper-large-v3",
       "language": "hi",
       "audio_s": 8.28,
-      "latency_ms": 591.1,
+      "latency_ms": 463.2,
       "cost_usd": 0.0003727096875,
       "wer": 0.2667,
       "status": "ok"
@@ -138,7 +138,7 @@
       "model": "whisper-large-v3",
       "language": "hi",
       "audio_s": 8.4,
-      "latency_ms": 579.7,
+      "latency_ms": 568.9,
       "cost_usd": 0.0003781096875,
       "wer": 0.087,
       "status": "ok"
