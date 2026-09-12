@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology - voice-router benchmarks</title>
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d1117;color:#e6edf3;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;line-height:1.55;padding:0 16px 64px}
+a{color:#58a6ff;text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:960px;margin:0 auto}
+header{padding:32px 0 8px}
+h1{font-size:1.6rem;letter-spacing:-.01em}
+h1 a{color:#e6edf3}
+.sub{color:#8b949e;font-size:.95rem;margin-top:4px}
+.banner{background:#3d2e00;border:1px solid #9e6a03;color:#f0b72f;border-radius:8px;padding:10px 14px;margin:16px 0;font-size:.9rem;font-weight:600}
+.card{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:18px;margin-top:20px}
+.card h2{font-size:1.05rem;margin-bottom:12px;color:#c9d1d9}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th,td{padding:8px 10px;text-align:right;border-bottom:1px solid #21262d;white-space:nowrap}
+th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:left}
+th{color:#8b949e;font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+tr:last-child td{border-bottom:none}
+.pill{display:inline-block;background:#1f6feb33;border:1px solid #1f6feb;color:#58a6ff;border-radius:999px;padding:1px 9px;font-size:.75rem;font-weight:600}
+.best{color:#3fb950;font-weight:700}
+.bar-row{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:.85rem}
+.bar-label{width:170px;color:#c9d1d9;flex:none;overflow:hidden;text-overflow:ellipsis}
+.bar-track{flex:1;background:#21262d;border-radius:4px;height:16px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px}
+.bar-val{width:110px;text-align:right;color:#8b949e;flex:none;font-variant-numeric:tabular-nums}
+footer{margin-top:32px;color:#8b949e;font-size:.8rem;border-top:1px solid #21262d;padding-top:16px}
+nav{margin-top:8px;font-size:.85rem}
+@media(max-width:640px){
+  th:nth-child(3),td:nth-child(3){display:none}
+  .bar-label{width:110px}.bar-val{width:84px;font-size:.78rem}
+  .card{padding:14px}
+}
+</style>
+</head>
+<body><div class="wrap">
+
+<header>
+  <h1>Methodology</h1>
+  <div class="sub">How the voice-router benchmark numbers are produced.</div>
+  <nav><a href="index.html">Leaderboard</a> &middot; <b>Methodology</b> &middot; <a href="https://github.com/DeepanshuPal/voice-router">GitHub</a></nav>
+</header>
+<div class="banner">The current leaderboard shows SAMPLE DATA - synthetic numbers demonstrating the format while real provider runs are being collected.</div>
+<div class="card"><h2>What we measure</h2>
+<p style="margin-bottom:8px">Every run pushes the same audio samples through each configured STT provider and records, per sample:</p>
+<table>
+<thead><tr><th style="text-align:left">Metric</th><th style="text-align:left">Definition</th></tr></thead>
+<tbody>
+<tr><td style="text-align:left">WER</td><td style="text-align:left">Word error rate against a reference transcript (edit distance on word sequences). CER for character-based languages is on the roadmap.</td></tr>
+<tr><td style="text-align:left">p50 latency</td><td style="text-align:left">Median wall-clock time per transcription call, in milliseconds.</td></tr>
+<tr><td style="text-align:left">Cost/min</td><td style="text-align:left">Effective USD per audio minute, from the provider's metered pricing over the audio actually processed.</td></tr>
+<tr><td style="text-align:left">Score</td><td style="text-align:left">1 - WER when reference transcripts exist, otherwise inverse latency. This is the score the router's <code>benchmark</code> strategy routes on.</td></tr>
+</tbody></table>
+</div>
+<div class="card"><h2>How samples are run</h2>
+<p style="margin-bottom:8px">Samples are short <code>.wav</code> clips per language in <code>benchmarks/samples/</code>, with same-named reference transcripts in <code>benchmarks/references/</code>. The harness (<code>benchmarks/harness.py</code>) sends every sample to every provider that supports the language, in the same process, back to back:</p>
+<pre style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:12px;font-size:.85rem;overflow-x:auto">python -m benchmarks.harness --samples benchmarks/samples \
+    --references benchmarks/references --language en</pre>
+<p style="margin-top:8px">Results land in <code>benchmarks/results.json</code>; this site is regenerated from that file. Nothing is hand-edited: if a number is on the leaderboard, it came out of a harness run.</p>
+</div>
+<div class="card"><h2>Refresh cadence</h2>
+<p>A GitHub Action regenerates the site on every push that touches <code>benchmarks/</code> and on a weekly schedule, because provider quality drifts. Anyone can reproduce the numbers: clone the repo, add provider keys, run the harness.</p>
+</div>
+<div class="card"><h2>Sample data policy</h2>
+<p>Before the first real multi-provider run, the site renders <code>benchmarks/sample_results.json</code> - synthetic numbers that exist only to demonstrate the format. Sample data is always shown behind a visible SAMPLE DATA banner and is never presented as a real measurement. The moment a real run lands in <code>benchmarks/results.json</code>, it replaces the sample data automatically.</p>
+</div>
+<footer>Generated 2026-09-12T00:00:00Z &middot; <a href="index.html">back to the leaderboard</a></footer>
+
+</div></body>
+</html>
