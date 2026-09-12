@@ -1,0 +1,52 @@
+# Provider registry. A provider with no API key in the environment is skipped
+# at startup, so ship this file as-is and let env vars decide what's live.
+
+routing:
+  default_strategy: benchmark   # benchmark | cost | latency | round_robin
+  fallback: true                # try the next candidate when one fails
+  request_timeout_s: 30
+
+stt:
+  deepgram:
+    models: [nova-3, nova-2]
+    cost_per_minute_usd: 0.0043
+    default_latency_ms: 300
+    languages: [en, es, hi, fr, de, pt, ja, ko, zh, it, nl, ru]
+    env_key: DEEPGRAM_API_KEY
+  openai-whisper:
+    models: [whisper-1, gpt-4o-transcribe]
+    cost_per_minute_usd: 0.006
+    default_latency_ms: 900
+    languages: [en, es, hi, fr, de, pt, ja, ko, zh, it, nl, ru]
+    env_key: OPENAI_API_KEY
+  groq-whisper:
+    models: [whisper-large-v3, whisper-large-v3-turbo]
+    cost_per_minute_usd: 0.0027
+    default_latency_ms: 400
+    languages: [en, es, hi, fr, de, pt, ja, ko, zh, it, nl, ru]
+    env_key: GROQ_API_KEY
+
+tts:
+  elevenlabs:
+    models: [eleven_multilingual_v2, eleven_flash_v2_5]
+    cost_per_1k_chars_usd: 0.15
+    default_latency_ms: 500
+    languages: [en, es, hi, fr, de, pt, ja, ko, zh, it, nl, ru]
+    env_key: ELEVENLABS_API_KEY
+  openai-tts:
+    models: [tts-1, tts-1-hd, gpt-4o-mini-tts]
+    cost_per_1k_chars_usd: 0.015
+    default_latency_ms: 700
+    languages: [en, es, hi, fr, de, pt, ja, ko, zh, it, nl, ru]
+    env_key: OPENAI_API_KEY
+  cartesia:
+    models: [sonic-2, sonic-turbo]
+    cost_per_1k_chars_usd: 0.037
+    default_latency_ms: 250
+    languages: [en, es, hi, fr, de, pt, ja, ko, zh, it, nl, ru]
+    env_key: CARTESIA_API_KEY
+
+# Mock providers are always available so the router runs with zero keys.
+# Remove them for production deploys.
+mock:
+  enabled: true
