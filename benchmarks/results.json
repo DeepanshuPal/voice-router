@@ -1,4 +1,6 @@
 {
+  "sample_data": false,
+  "generated_at": "2026-09-12T00:35:26+00:00",
   "scores": {
     "stt": {
       "mock-stt": {
@@ -11,6 +13,8 @@
       "sample": "sample-1.wav",
       "provider": "mock-stt",
       "model": "mock-transcribe-1",
+      "language": "en",
+      "audio_s": 1.5,
       "latency_ms": 0.0,
       "cost_usd": 0.0,
       "wer": null,
@@ -20,6 +24,8 @@
       "sample": "sample-2.wav",
       "provider": "mock-stt",
       "model": "mock-transcribe-1",
+      "language": "en",
+      "audio_s": 1.5,
       "latency_ms": 0.0,
       "cost_usd": 0.0,
       "wer": null,
@@ -29,6 +35,8 @@
       "sample": "sample-3.wav",
       "provider": "mock-stt",
       "model": "mock-transcribe-1",
+      "language": "en",
+      "audio_s": 1.5,
       "latency_ms": 0.0,
       "cost_usd": 0.0,
       "wer": null,
