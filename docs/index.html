@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leaderboard - voice-router benchmarks</title>
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d1117;color:#e6edf3;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;line-height:1.55;padding:0 16px 64px}
+a{color:#58a6ff;text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:960px;margin:0 auto}
+header{padding:32px 0 8px}
+h1{font-size:1.6rem;letter-spacing:-.01em}
+h1 a{color:#e6edf3}
+.sub{color:#8b949e;font-size:.95rem;margin-top:4px}
+.banner{background:#3d2e00;border:1px solid #9e6a03;color:#f0b72f;border-radius:8px;padding:10px 14px;margin:16px 0;font-size:.9rem;font-weight:600}
+.card{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:18px;margin-top:20px}
+.card h2{font-size:1.05rem;margin-bottom:12px;color:#c9d1d9}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th,td{padding:8px 10px;text-align:right;border-bottom:1px solid #21262d;white-space:nowrap}
+th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:left}
+th{color:#8b949e;font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+tr:last-child td{border-bottom:none}
+.pill{display:inline-block;background:#1f6feb33;border:1px solid #1f6feb;color:#58a6ff;border-radius:999px;padding:1px 9px;font-size:.75rem;font-weight:600}
+.best{color:#3fb950;font-weight:700}
+.bar-row{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:.85rem}
+.bar-label{width:170px;color:#c9d1d9;flex:none;overflow:hidden;text-overflow:ellipsis}
+.bar-track{flex:1;background:#21262d;border-radius:4px;height:16px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px}
+.bar-val{width:110px;text-align:right;color:#8b949e;flex:none;font-variant-numeric:tabular-nums}
+footer{margin-top:32px;color:#8b949e;font-size:.8rem;border-top:1px solid #21262d;padding-top:16px}
+nav{margin-top:8px;font-size:.85rem}
+@media(max-width:640px){
+  th:nth-child(3),td:nth-child(3){display:none}
+  .bar-label{width:110px}.bar-val{width:84px;font-size:.78rem}
+  .card{padding:14px}
+}
+</style>
+</head>
+<body><div class="wrap">
+
+<header>
+  <h1><a href="https://github.com/DeepanshuPal/voice-router">voice-router</a> benchmarks</h1>
+  <div class="sub">STT providers ranked by accuracy, latency, and cost - measured, not marketed.</div>
+  <nav><b>Leaderboard</b> &middot; <a href="methodology.html">Methodology</a> &middot; <a href="https://github.com/DeepanshuPal/voice-router">GitHub</a></nav>
+</header>
+<div class="banner">SAMPLE DATA - these numbers are synthetic and exist to demonstrate the format. They are not real measurements. See <a href="methodology.html">methodology</a>.</div>
+<div class="card"><h2>Leaderboard</h2><table><thead><tr><th>Provider</th><th>Model</th><th>Lang</th><th>Score</th><th>WER</th><th>p50 latency</th><th>Cost/min</th><th>Samples</th></tr></thead><tbody><tr><td>openai</td><td>whisper-1</td><td><span class="pill">en</span></td><td class="best">0.942</td><td>5.8%</td><td>716 ms</td><td>$0.0060</td><td>4</td></tr><tr><td>deepgram</td><td>nova-3</td><td><span class="pill">en</span></td><td>0.940</td><td>6.0%</td><td>279 ms</td><td>$0.0043</td><td>4</td></tr><tr><td>groq</td><td>whisper-large-v3</td><td><span class="pill">en</span></td><td>0.929</td><td>7.1%</td><td>219 ms</td><td>$0.0018</td><td>4</td></tr><tr><td>openai</td><td>whisper-1</td><td><span class="pill">es</span></td><td class="best">0.918</td><td>8.2%</td><td>791 ms</td><td>$0.0060</td><td>4</td></tr><tr><td>deepgram</td><td>nova-3</td><td><span class="pill">es</span></td><td>0.917</td><td>8.3%</td><td>324 ms</td><td>$0.0043</td><td>4</td></tr><tr><td>groq</td><td>whisper-large-v3</td><td><span class="pill">es</span></td><td>0.906</td><td>9.4%</td><td>259 ms</td><td>$0.0018</td><td>4</td></tr><tr><td>deepgram</td><td>nova-3</td><td><span class="pill">hi</span></td><td class="best">0.883</td><td>11.7%</td><td>359 ms</td><td>$0.0043</td><td>4</td></tr><tr><td>openai</td><td>whisper-1</td><td><span class="pill">hi</span></td><td>0.873</td><td>12.7%</td><td>866 ms</td><td>$0.0060</td><td>4</td></tr><tr><td>groq</td><td>whisper-large-v3</td><td><span class="pill">hi</span></td><td>0.861</td><td>13.9%</td><td>299 ms</td><td>$0.0018</td><td>4</td></tr></tbody></table></div>
+<div class="card"><h2>Word error rate - English (lower is better)</h2><div class="bar-row"><div class="bar-label">openai (whisper-1)</div><div class="bar-track"><div class="bar-fill" style="width:81.7%;background:#58a6ff"></div></div><div class="bar-val">5.8%</div></div><div class="bar-row"><div class="bar-label">deepgram (nova-3)</div><div class="bar-track"><div class="bar-fill" style="width:84.5%;background:#3fb950"></div></div><div class="bar-val">6.0%</div></div><div class="bar-row"><div class="bar-label">groq (whisper-large-v3)</div><div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#f0b72f"></div></div><div class="bar-val">7.1%</div></div></div>
+<div class="card"><h2>p50 transcription latency - English (lower is better)</h2><div class="bar-row"><div class="bar-label">groq (whisper-large-v3)</div><div class="bar-track"><div class="bar-fill" style="width:30.6%;background:#f0b72f"></div></div><div class="bar-val">219 ms</div></div><div class="bar-row"><div class="bar-label">deepgram (nova-3)</div><div class="bar-track"><div class="bar-fill" style="width:39.0%;background:#f778ba"></div></div><div class="bar-val">279 ms</div></div><div class="bar-row"><div class="bar-label">openai (whisper-1)</div><div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#76e3ea"></div></div><div class="bar-val">716 ms</div></div></div>
+<footer>
+  Generated 2026-09-12T00:00:00Z from <code>sample_results.json</code> &middot;
+  refresh: <code>python scripts/generate_leaderboard.py</code> &middot;
+  how this is measured: <a href="methodology.html">methodology</a>
+</footer>
+
+</div></body>
+</html>
