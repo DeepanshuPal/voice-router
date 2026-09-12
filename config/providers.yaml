@@ -40,13 +40,13 @@ stt:
     env_key: GLADIA_API_KEY
   speechmatics:
     models: [enhanced]
-    cost_per_minute_usd: 0.0092
+    cost_per_minute_usd: 0.0067
     default_latency_ms: 15000
     languages: [en, es, hi, fr, de, ja]
     env_key: SPEECHMATICS_API_KEY
   rev:
     models: [machine]
-    cost_per_minute_usd: 0.0042
+    cost_per_minute_usd: 0.005
     default_latency_ms: 15000
     languages: [en, es, hi, fr, de, ja]
     env_key: REV_API_KEY

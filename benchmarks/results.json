@@ -105,7 +105,7 @@
       "language": "de",
       "audio_s": 22.44,
       "latency_ms": 6093.5,
-      "cost_usd": 0.0034410779166666665,
+      "cost_usd": 0.0025060023958333334,
       "wer": 0.1923,
       "status": "ok"
     },
@@ -116,7 +116,7 @@
       "language": "de",
       "audio_s": 22.44,
       "latency_ms": 8507.0,
-      "cost_usd": 0.0015709268749999998,
+      "cost_usd": 0.0018701510416666667,
       "wer": 0.0769,
       "status": "ok"
     },
@@ -171,7 +171,7 @@
       "language": "de",
       "audio_s": 15.12,
       "latency_ms": 5974.1,
-      "cost_usd": 0.0023186779166666665,
+      "cost_usd": 0.0016886023958333333,
       "wer": 0.0625,
       "status": "ok"
     },
@@ -182,7 +182,7 @@
       "language": "de",
       "audio_s": 15.12,
       "latency_ms": 8444.0,
-      "cost_usd": 0.001058526875,
+      "cost_usd": 0.0012601510416666668,
       "wer": 0.0625,
       "status": "ok"
     },
@@ -237,7 +237,7 @@
       "language": "de",
       "audio_s": 19.92,
       "latency_ms": 6385.4,
-      "cost_usd": 0.0030546779166666666,
+      "cost_usd": 0.0022246023958333336,
       "wer": 0.1765,
       "status": "ok"
     },
@@ -248,7 +248,7 @@
       "language": "de",
       "audio_s": 19.92,
       "latency_ms": 8375.0,
-      "cost_usd": 0.001394526875,
+      "cost_usd": 0.001660151041666667,
       "wer": 0.1765,
       "status": "ok"
     },
@@ -303,7 +303,7 @@
       "language": "de",
       "audio_s": 23.16,
       "latency_ms": 6024.6,
-      "cost_usd": 0.0035514779166666666,
+      "cost_usd": 0.0025864023958333334,
       "wer": 0.1,
       "status": "ok"
     },
@@ -314,7 +314,7 @@
       "language": "de",
       "audio_s": 23.16,
       "latency_ms": 8380.3,
-      "cost_usd": 0.001621326875,
+      "cost_usd": 0.0019301510416666666,
       "wer": 0.1,
       "status": "ok"
     },
@@ -369,7 +369,7 @@
       "language": "de",
       "audio_s": 13.2,
       "latency_ms": 5913.9,
-      "cost_usd": 0.0020242779166666667,
+      "cost_usd": 0.0014742023958333335,
       "wer": 0.1579,
       "status": "ok"
     },
@@ -380,7 +380,7 @@
       "language": "de",
       "audio_s": 13.2,
       "latency_ms": 8361.8,
-      "cost_usd": 0.0009241268749999999,
+      "cost_usd": 0.0011001510416666666,
       "wer": 0.0526,
       "status": "ok"
     },
@@ -435,7 +435,7 @@
       "language": "de",
       "audio_s": 10.8,
       "latency_ms": 5964.6,
-      "cost_usd": 0.0016562779166666667,
+      "cost_usd": 0.0012062023958333335,
       "wer": 0.1538,
       "status": "ok"
     },
@@ -446,7 +446,7 @@
       "language": "de",
       "audio_s": 10.8,
       "latency_ms": 8391.4,
-      "cost_usd": 0.000756126875,
+      "cost_usd": 0.0009001510416666666,
       "wer": 0.1538,
       "status": "ok"
     },
@@ -501,7 +501,7 @@
       "language": "de",
       "audio_s": 12.96,
       "latency_ms": 6142.5,
-      "cost_usd": 0.0019874779166666667,
+      "cost_usd": 0.0014474023958333333,
       "wer": 0.1579,
       "status": "ok"
     },
@@ -512,7 +512,7 @@
       "language": "de",
       "audio_s": 12.96,
       "latency_ms": 8394.7,
-      "cost_usd": 0.0009073268749999999,
+      "cost_usd": 0.0010801510416666668,
       "wer": 0.1053,
       "status": "ok"
     },
@@ -567,7 +567,7 @@
       "language": "de",
       "audio_s": 23.28,
       "latency_ms": 6046.0,
-      "cost_usd": 0.0035698779166666666,
+      "cost_usd": 0.0025998023958333336,
       "wer": 0.2593,
       "status": "ok"
     },
@@ -578,7 +578,7 @@
       "language": "de",
       "audio_s": 23.28,
       "latency_ms": 8378.8,
-      "cost_usd": 0.001629726875,
+      "cost_usd": 0.0019401510416666668,
       "wer": 0.1852,
       "status": "ok"
     },
@@ -633,7 +633,7 @@
       "language": "de",
       "audio_s": 24.84,
       "latency_ms": 6167.8,
-      "cost_usd": 0.0038090779166666663,
+      "cost_usd": 0.002774002395833333,
       "wer": 0.1429,
       "status": "ok"
     },
@@ -644,7 +644,7 @@
       "language": "de",
       "audio_s": 24.84,
       "latency_ms": 8413.6,
-      "cost_usd": 0.0017389268749999998,
+      "cost_usd": 0.0020701510416666668,
       "wer": 0.1071,
       "status": "ok"
     },
@@ -699,7 +699,7 @@
       "language": "de",
       "audio_s": 14.4,
       "latency_ms": 5944.8,
-      "cost_usd": 0.0022082779166666664,
+      "cost_usd": 0.0016082023958333333,
       "wer": 0.125,
       "status": "ok"
     },
@@ -710,7 +710,7 @@
       "language": "de",
       "audio_s": 14.4,
       "latency_ms": 8376.7,
-      "cost_usd": 0.001008126875,
+      "cost_usd": 0.0012001510416666669,
       "wer": 0.125,
       "status": "ok"
     },
@@ -765,7 +765,7 @@
       "language": "de",
       "audio_s": 24.24,
       "latency_ms": 6015.2,
-      "cost_usd": 0.0037170779166666662,
+      "cost_usd": 0.002707002395833333,
       "wer": 0.1429,
       "status": "ok"
     },
@@ -776,7 +776,7 @@
       "language": "de",
       "audio_s": 24.24,
       "latency_ms": 8396.8,
-      "cost_usd": 0.0016969268749999998,
+      "cost_usd": 0.0020201510416666666,
       "wer": 0.0714,
       "status": "ok"
     },
@@ -831,7 +831,7 @@
       "language": "de",
       "audio_s": 26.16,
       "latency_ms": 6135.7,
-      "cost_usd": 0.0040114779166666665,
+      "cost_usd": 0.0029214023958333336,
       "wer": 0.0909,
       "status": "ok"
     },
@@ -842,7 +842,7 @@
       "language": "de",
       "audio_s": 26.16,
       "latency_ms": 8432.5,
-      "cost_usd": 0.0018313268749999998,
+      "cost_usd": 0.0021801510416666666,
       "wer": 0.1818,
       "status": "ok"
     },
@@ -897,7 +897,7 @@
       "language": "de",
       "audio_s": 20.4,
       "latency_ms": 6045.2,
-      "cost_usd": 0.0031282779166666662,
+      "cost_usd": 0.002278202395833333,
       "wer": 0.32,
       "status": "ok"
     },
@@ -908,7 +908,7 @@
       "language": "de",
       "audio_s": 20.4,
       "latency_ms": 8386.3,
-      "cost_usd": 0.0014281268749999998,
+      "cost_usd": 0.0017001510416666664,
       "wer": 0.4,
       "status": "ok"
     },
@@ -963,7 +963,7 @@
       "language": "de",
       "audio_s": 12.6,
       "latency_ms": 5889.9,
-      "cost_usd": 0.0019322779166666667,
+      "cost_usd": 0.0014072023958333333,
       "wer": 0.1538,
       "status": "ok"
     },
@@ -974,7 +974,7 @@
       "language": "de",
       "audio_s": 12.6,
       "latency_ms": 8362.9,
-      "cost_usd": 0.000882126875,
+      "cost_usd": 0.0010501510416666667,
       "wer": 0.1538,
       "status": "ok"
     },
@@ -1029,7 +1029,7 @@
       "language": "de",
       "audio_s": 20.64,
       "latency_ms": 6059.4,
-      "cost_usd": 0.0031650779166666663,
+      "cost_usd": 0.002305002395833333,
       "wer": 0.1765,
       "status": "ok"
     },
@@ -1040,7 +1040,7 @@
       "language": "de",
       "audio_s": 20.64,
       "latency_ms": 8373.0,
-      "cost_usd": 0.0014449268749999998,
+      "cost_usd": 0.0017201510416666667,
       "wer": 0.1176,
       "status": "ok"
     },
@@ -1095,7 +1095,7 @@
       "language": "en",
       "audio_s": 21.12,
       "latency_ms": 6131.2,
-      "cost_usd": 0.0032386779166666663,
+      "cost_usd": 0.002358602395833333,
       "wer": 0.1579,
       "status": "ok"
     },
@@ -1106,7 +1106,7 @@
       "language": "en",
       "audio_s": 21.12,
       "latency_ms": 12474.0,
-      "cost_usd": 0.001478526875,
+      "cost_usd": 0.0017601510416666668,
       "wer": 0.1579,
       "status": "ok"
     },
@@ -1161,7 +1161,7 @@
       "language": "en",
       "audio_s": 16.56,
       "latency_ms": 5989.7,
-      "cost_usd": 0.0025394779166666667,
+      "cost_usd": 0.0018494023958333335,
       "wer": 0.1667,
       "status": "ok"
     },
@@ -1172,7 +1172,7 @@
       "language": "en",
       "audio_s": 16.56,
       "latency_ms": 12456.5,
-      "cost_usd": 0.001159326875,
+      "cost_usd": 0.001380151041666667,
       "wer": 0.2083,
       "status": "ok"
     },
@@ -1227,7 +1227,7 @@
       "language": "en",
       "audio_s": 21.92,
       "latency_ms": 5774.9,
-      "cost_usd": 0.0033613445833333335,
+      "cost_usd": 0.002447935729166667,
       "wer": 0.0909,
       "status": "ok"
     },
@@ -1238,7 +1238,7 @@
       "language": "en",
       "audio_s": 21.92,
       "latency_ms": 12433.1,
-      "cost_usd": 0.001534526875,
+      "cost_usd": 0.0018268177083333335,
       "wer": 0.1818,
       "status": "ok"
     },
@@ -1293,7 +1293,7 @@
       "language": "en",
       "audio_s": 14.16,
       "latency_ms": 5705.9,
-      "cost_usd": 0.0021714779166666664,
+      "cost_usd": 0.001581402395833333,
       "wer": 0.1667,
       "status": "ok"
     },
@@ -1304,7 +1304,7 @@
       "language": "en",
       "audio_s": 14.16,
       "latency_ms": 8367.5,
-      "cost_usd": 0.0009913268749999998,
+      "cost_usd": 0.0011801510416666666,
       "wer": 0.6667,
       "status": "ok"
     },
@@ -1359,7 +1359,7 @@
       "language": "en",
       "audio_s": 14.64,
       "latency_ms": 5935.5,
-      "cost_usd": 0.0022450779166666665,
+      "cost_usd": 0.0016350023958333333,
       "wer": 0.25,
       "status": "ok"
     },
@@ -1370,7 +1370,7 @@
       "language": "en",
       "audio_s": 14.64,
       "latency_ms": 8380.8,
-      "cost_usd": 0.001024926875,
+      "cost_usd": 0.0012201510416666667,
       "wer": 0.25,
       "status": "ok"
     },
@@ -1425,7 +1425,7 @@
       "language": "en",
       "audio_s": 16.92,
       "latency_ms": 6308.4,
-      "cost_usd": 0.0025946779166666663,
+      "cost_usd": 0.0018896023958333333,
       "wer": 0.0526,
       "status": "ok"
     },
@@ -1436,7 +1436,7 @@
       "language": "en",
       "audio_s": 16.92,
       "latency_ms": 8362.7,
-      "cost_usd": 0.0011845268749999997,
+      "cost_usd": 0.0014101510416666665,
       "wer": 0.0526,
       "status": "ok"
     },
@@ -1491,7 +1491,7 @@
       "language": "en",
       "audio_s": 10.44,
       "latency_ms": 5887.7,
-      "cost_usd": 0.0016010779166666666,
+      "cost_usd": 0.0011660023958333333,
       "wer": 0.1429,
       "status": "ok"
     },
@@ -1502,7 +1502,7 @@
       "language": "en",
       "audio_s": 10.44,
       "latency_ms": 8360.5,
-      "cost_usd": 0.0007309268749999999,
+      "cost_usd": 0.0008701510416666666,
       "wer": 0.1429,
       "status": "ok"
     },
@@ -1557,7 +1557,7 @@
       "language": "en",
       "audio_s": 25.56,
       "latency_ms": 6037.1,
-      "cost_usd": 0.003919477916666666,
+      "cost_usd": 0.0028544023958333334,
       "wer": 0.1071,
       "status": "ok"
     },
@@ -1568,7 +1568,7 @@
       "language": "en",
       "audio_s": 25.56,
       "latency_ms": 8380.8,
-      "cost_usd": 0.001789326875,
+      "cost_usd": 0.002130151041666667,
       "wer": 0.1429,
       "status": "ok"
     },
@@ -1623,7 +1623,7 @@
       "language": "en",
       "audio_s": 23.28,
       "latency_ms": 6038.5,
-      "cost_usd": 0.0035698779166666666,
+      "cost_usd": 0.0025998023958333336,
       "wer": 0.1429,
       "status": "ok"
     },
@@ -1634,7 +1634,7 @@
       "language": "en",
       "audio_s": 23.28,
       "latency_ms": 12398.0,
-      "cost_usd": 0.001629726875,
+      "cost_usd": 0.0019401510416666668,
       "wer": 0.1429,
       "status": "ok"
     },
@@ -1689,7 +1689,7 @@
       "language": "en",
       "audio_s": 14.88,
       "latency_ms": 6014.9,
-      "cost_usd": 0.0022818779166666665,
+      "cost_usd": 0.0016618023958333335,
       "wer": 0.0714,
       "status": "ok"
     },
@@ -1700,7 +1700,7 @@
       "language": "en",
       "audio_s": 14.88,
       "latency_ms": 8363.5,
-      "cost_usd": 0.001041726875,
+      "cost_usd": 0.0012401510416666667,
       "wer": 0.0714,
       "status": "ok"
     },
@@ -1755,7 +1755,7 @@
       "language": "en",
       "audio_s": 22.2,
       "latency_ms": 6058.9,
-      "cost_usd": 0.0034042779166666664,
+      "cost_usd": 0.0024792023958333334,
       "wer": 0.0938,
       "status": "ok"
     },
@@ -1766,7 +1766,7 @@
       "language": "en",
       "audio_s": 22.2,
       "latency_ms": 12441.6,
-      "cost_usd": 0.0015541268749999998,
+      "cost_usd": 0.0018501510416666666,
       "wer": 0.0625,
       "status": "ok"
     },
@@ -1821,7 +1821,7 @@
       "language": "en",
       "audio_s": 13.32,
       "latency_ms": 5907.0,
-      "cost_usd": 0.0020426779166666667,
+      "cost_usd": 0.0014876023958333335,
       "wer": 0.2778,
       "status": "ok"
     },
@@ -1832,7 +1832,7 @@
       "language": "en",
       "audio_s": 13.32,
       "latency_ms": 8391.1,
-      "cost_usd": 0.000932526875,
+      "cost_usd": 0.0011101510416666666,
       "wer": 0.2778,
       "status": "ok"
     },
@@ -1887,7 +1887,7 @@
       "language": "en",
       "audio_s": 15.08,
       "latency_ms": 5600.9,
-      "cost_usd": 0.0023125445833333336,
+      "cost_usd": 0.0016841357291666667,
       "wer": 0.3,
       "status": "ok"
     },
@@ -1898,7 +1898,7 @@
       "language": "en",
       "audio_s": 15.08,
       "latency_ms": 8399.8,
-      "cost_usd": 0.001055726875,
+      "cost_usd": 0.0012568177083333335,
       "wer": 0.4,
       "status": "ok"
     },
@@ -1953,7 +1953,7 @@
       "language": "en",
       "audio_s": 11.44,
       "latency_ms": 5884.8,
-      "cost_usd": 0.0017544112499999999,
+      "cost_usd": 0.0012776690625,
       "wer": 0.1,
       "status": "ok"
     },
@@ -1964,7 +1964,7 @@
       "language": "en",
       "audio_s": 11.44,
       "latency_ms": 8386.3,
-      "cost_usd": 0.0008009268749999998,
+      "cost_usd": 0.000953484375,
       "wer": 0.2,
       "status": "ok"
     },
@@ -2019,7 +2019,7 @@
       "language": "en",
       "audio_s": 27.6,
       "latency_ms": 5456.9,
-      "cost_usd": 0.004232277916666667,
+      "cost_usd": 0.003082202395833333,
       "wer": 0.087,
       "status": "ok"
     },
@@ -2030,7 +2030,7 @@
       "language": "en",
       "audio_s": 27.6,
       "latency_ms": 12417.2,
-      "cost_usd": 0.001932126875,
+      "cost_usd": 0.002300151041666667,
       "wer": 0.1739,
       "status": "ok"
     },
@@ -2085,7 +2085,7 @@
       "language": "es",
       "audio_s": 15.36,
       "latency_ms": 5837.9,
-      "cost_usd": 0.0023554779166666665,
+      "cost_usd": 0.0017154023958333333,
       "wer": 0.2,
       "status": "ok"
     },
@@ -2096,7 +2096,7 @@
       "language": "es",
       "audio_s": 15.36,
       "latency_ms": 8401.9,
-      "cost_usd": 0.001075326875,
+      "cost_usd": 0.0012801510416666666,
       "wer": 0.2,
       "status": "ok"
     },
@@ -2151,7 +2151,7 @@
       "language": "es",
       "audio_s": 24.96,
       "latency_ms": 6570.2,
-      "cost_usd": 0.0038274779166666663,
+      "cost_usd": 0.002787402395833333,
       "wer": 0.0357,
       "status": "ok"
     },
@@ -2162,7 +2162,7 @@
       "language": "es",
       "audio_s": 24.96,
       "latency_ms": 8440.8,
-      "cost_usd": 0.0017473268749999998,
+      "cost_usd": 0.0020801510416666663,
       "wer": 0.0357,
       "status": "ok"
     },
@@ -2217,7 +2217,7 @@
       "language": "es",
       "audio_s": 22.68,
       "latency_ms": 6950.2,
-      "cost_usd": 0.0034778779166666665,
+      "cost_usd": 0.0025328023958333334,
       "wer": 0.1,
       "status": "ok"
     },
@@ -2228,7 +2228,7 @@
       "language": "es",
       "audio_s": 22.68,
       "latency_ms": 8398.2,
-      "cost_usd": 0.001587726875,
+      "cost_usd": 0.001890151041666667,
       "wer": 0.05,
       "status": "ok"
     },
@@ -2283,7 +2283,7 @@
       "language": "es",
       "audio_s": 23.16,
       "latency_ms": 6706.9,
-      "cost_usd": 0.0035514779166666666,
+      "cost_usd": 0.0025864023958333334,
       "wer": 0.125,
       "status": "ok"
     },
@@ -2294,7 +2294,7 @@
       "language": "es",
       "audio_s": 23.16,
       "latency_ms": 8412.4,
-      "cost_usd": 0.001621326875,
+      "cost_usd": 0.0019301510416666666,
       "wer": 0.25,
       "status": "ok"
     },
@@ -2349,7 +2349,7 @@
       "language": "es",
       "audio_s": 16.44,
       "latency_ms": 6675.0,
-      "cost_usd": 0.0025210779166666667,
+      "cost_usd": 0.0018360023958333335,
       "wer": 0.05,
       "status": "ok"
     },
@@ -2360,7 +2360,7 @@
       "language": "es",
       "audio_s": 16.44,
       "latency_ms": 8378.5,
-      "cost_usd": 0.001150926875,
+      "cost_usd": 0.0013701510416666667,
       "wer": 0.2,
       "status": "ok"
     },
@@ -2415,7 +2415,7 @@
       "language": "es",
       "audio_s": 16.92,
       "latency_ms": 5994.8,
-      "cost_usd": 0.0025946779166666663,
+      "cost_usd": 0.0018896023958333333,
       "wer": 0.0769,
       "status": "ok"
     },
@@ -2426,7 +2426,7 @@
       "language": "es",
       "audio_s": 16.92,
       "latency_ms": 8418.9,
-      "cost_usd": 0.0011845268749999997,
+      "cost_usd": 0.0014101510416666665,
       "wer": 0.0769,
       "status": "ok"
     },
@@ -2481,7 +2481,7 @@
       "language": "es",
       "audio_s": 25.2,
       "latency_ms": 6067.4,
-      "cost_usd": 0.0038642779166666663,
+      "cost_usd": 0.002814202395833333,
       "wer": 0.16,
       "status": "ok"
     },
@@ -2492,7 +2492,7 @@
       "language": "es",
       "audio_s": 25.2,
       "latency_ms": 8426.0,
-      "cost_usd": 0.001764126875,
+      "cost_usd": 0.002100151041666667,
       "wer": 0.16,
       "status": "ok"
     },
@@ -2547,7 +2547,7 @@
       "language": "es",
       "audio_s": 17.04,
       "latency_ms": 6016.9,
-      "cost_usd": 0.0026130779166666663,
+      "cost_usd": 0.0019030023958333331,
       "wer": 0.1333,
       "status": "ok"
     },
@@ -2558,7 +2558,7 @@
       "language": "es",
       "audio_s": 17.04,
       "latency_ms": 8604.2,
-      "cost_usd": 0.001192926875,
+      "cost_usd": 0.0014201510416666666,
       "wer": 0.1333,
       "status": "ok"
     },
@@ -2613,7 +2613,7 @@
       "language": "es",
       "audio_s": 26.16,
       "latency_ms": 12226.3,
-      "cost_usd": 0.0040114779166666665,
+      "cost_usd": 0.0029214023958333336,
       "wer": 0.2273,
       "status": "ok"
     },
@@ -2624,7 +2624,7 @@
       "language": "es",
       "audio_s": 26.16,
       "latency_ms": 8408.7,
-      "cost_usd": 0.0018313268749999998,
+      "cost_usd": 0.0021801510416666666,
       "wer": 0.0909,
       "status": "ok"
     },
@@ -2679,7 +2679,7 @@
       "language": "es",
       "audio_s": 18.96,
       "latency_ms": 6313.1,
-      "cost_usd": 0.0029074779166666665,
+      "cost_usd": 0.0021174023958333336,
       "wer": 0.1429,
       "status": "ok"
     },
@@ -2690,7 +2690,7 @@
       "language": "es",
       "audio_s": 18.96,
       "latency_ms": 8472.0,
-      "cost_usd": 0.001327326875,
+      "cost_usd": 0.0015801510416666668,
       "wer": 0.0952,
       "status": "ok"
     },
@@ -2745,7 +2745,7 @@
       "language": "es",
       "audio_s": 21.48,
       "latency_ms": 6299.2,
-      "cost_usd": 0.0032938779166666664,
+      "cost_usd": 0.002398802395833333,
       "wer": 0.1071,
       "status": "ok"
     },
@@ -2756,7 +2756,7 @@
       "language": "es",
       "audio_s": 21.48,
       "latency_ms": 8388.3,
-      "cost_usd": 0.001503726875,
+      "cost_usd": 0.0017901510416666667,
       "wer": 0.1071,
       "status": "ok"
     },
@@ -2811,7 +2811,7 @@
       "language": "es",
       "audio_s": 16.32,
       "latency_ms": 6273.2,
-      "cost_usd": 0.0025026779166666666,
+      "cost_usd": 0.0018226023958333333,
       "wer": 0.1429,
       "status": "ok"
     },
@@ -2822,7 +2822,7 @@
       "language": "es",
       "audio_s": 16.32,
       "latency_ms": 12468.3,
-      "cost_usd": 0.001142526875,
+      "cost_usd": 0.0013601510416666668,
       "wer": 0.1429,
       "status": "ok"
     },
@@ -2877,7 +2877,7 @@
       "language": "es",
       "audio_s": 15.84,
       "latency_ms": 6627.6,
-      "cost_usd": 0.0024290779166666666,
+      "cost_usd": 0.0017690023958333335,
       "wer": 0.0526,
       "status": "ok"
     },
@@ -2888,7 +2888,7 @@
       "language": "es",
       "audio_s": 15.84,
       "latency_ms": 12405.7,
-      "cost_usd": 0.001108926875,
+      "cost_usd": 0.0013201510416666667,
       "wer": 0.1053,
       "status": "ok"
     },
@@ -2943,7 +2943,7 @@
       "language": "es",
       "audio_s": 11.76,
       "latency_ms": 6237.9,
-      "cost_usd": 0.0018034779166666668,
+      "cost_usd": 0.0013134023958333335,
       "wer": 0.0909,
       "status": "ok"
     },
@@ -2954,7 +2954,7 @@
       "language": "es",
       "audio_s": 11.76,
       "latency_ms": 73001.2,
-      "cost_usd": 0.000823326875,
+      "cost_usd": 0.0009801510416666667,
       "wer": 0.0909,
       "status": "ok"
     },
@@ -3009,7 +3009,7 @@
       "language": "es",
       "audio_s": 19.68,
       "latency_ms": 6417.1,
-      "cost_usd": 0.0030178779166666666,
+      "cost_usd": 0.002197802395833333,
       "wer": 0.0909,
       "status": "ok"
     },
@@ -3020,7 +3020,7 @@
       "language": "es",
       "audio_s": 19.68,
       "latency_ms": 68875.6,
-      "cost_usd": 0.0013777268749999999,
+      "cost_usd": 0.0016401510416666667,
       "wer": 0.0909,
       "status": "ok"
     },
@@ -3075,7 +3075,7 @@
       "language": "fr",
       "audio_s": 18.84,
       "latency_ms": 6393.8,
-      "cost_usd": 0.0028890779166666665,
+      "cost_usd": 0.0021040023958333333,
       "wer": 0.069,
       "status": "ok"
     },
@@ -3086,7 +3086,7 @@
       "language": "fr",
       "audio_s": 18.84,
       "latency_ms": 12511.5,
-      "cost_usd": 0.001318926875,
+      "cost_usd": 0.0015701510416666667,
       "wer": 0.069,
       "status": "ok"
     },
@@ -3141,7 +3141,7 @@
       "language": "fr",
       "audio_s": 14.16,
       "latency_ms": 5685.4,
-      "cost_usd": 0.0021714779166666664,
+      "cost_usd": 0.001581402395833333,
       "wer": 0.4737,
       "status": "ok"
     },
@@ -3152,7 +3152,7 @@
       "language": "fr",
       "audio_s": 14.16,
       "latency_ms": 8366.1,
-      "cost_usd": 0.0009913268749999998,
+      "cost_usd": 0.0011801510416666666,
       "wer": 0.4737,
       "status": "ok"
     },
@@ -3207,7 +3207,7 @@
       "language": "fr",
       "audio_s": 14.04,
       "latency_ms": 6261.9,
-      "cost_usd": 0.0021530779166666664,
+      "cost_usd": 0.001568002395833333,
       "wer": 0.0714,
       "status": "ok"
     },
@@ -3218,7 +3218,7 @@
       "language": "fr",
       "audio_s": 14.04,
       "latency_ms": 44659.8,
-      "cost_usd": 0.0009829268749999998,
+      "cost_usd": 0.0011701510416666666,
       "wer": 0.0714,
       "status": "ok"
     },
@@ -3273,7 +3273,7 @@
       "language": "fr",
       "audio_s": 13.08,
       "latency_ms": 5940.0,
-      "cost_usd": 0.0020058779166666667,
+      "cost_usd": 0.0014608023958333333,
       "wer": 0.0625,
       "status": "ok"
     },
@@ -3284,7 +3284,7 @@
       "language": "fr",
       "audio_s": 13.08,
       "latency_ms": 44669.8,
-      "cost_usd": 0.0009157268749999999,
+      "cost_usd": 0.0010901510416666666,
       "wer": 0.0625,
       "status": "ok"
     },
@@ -3339,7 +3339,7 @@
       "language": "fr",
       "audio_s": 21.84,
       "latency_ms": 6075.8,
-      "cost_usd": 0.0033490779166666664,
+      "cost_usd": 0.002439002395833333,
       "wer": 0.2812,
       "status": "ok"
     },
@@ -3350,7 +3350,7 @@
       "language": "fr",
       "audio_s": 21.84,
       "latency_ms": 44672.0,
-      "cost_usd": 0.0015289268749999999,
+      "cost_usd": 0.0018201510416666667,
       "wer": 0.3438,
       "status": "ok"
     },
@@ -3405,7 +3405,7 @@
       "language": "fr",
       "audio_s": 15.6,
       "latency_ms": 6407.0,
-      "cost_usd": 0.0023922779166666666,
+      "cost_usd": 0.0017422023958333331,
       "wer": 0.1053,
       "status": "ok"
     },
@@ -3416,7 +3416,7 @@
       "language": "fr",
       "audio_s": 15.6,
       "latency_ms": 40765.1,
-      "cost_usd": 0.0010921268749999999,
+      "cost_usd": 0.0013001510416666667,
       "wer": 0.1579,
       "status": "ok"
     },
@@ -3471,7 +3471,7 @@
       "language": "fr",
       "audio_s": 15.0,
       "latency_ms": 5942.5,
-      "cost_usd": 0.0023002779166666665,
+      "cost_usd": 0.0016752023958333333,
       "wer": 0.1667,
       "status": "ok"
     },
@@ -3482,7 +3482,7 @@
       "language": "fr",
       "audio_s": 15.0,
       "latency_ms": 28517.6,
-      "cost_usd": 0.001050126875,
+      "cost_usd": 0.0012501510416666668,
       "wer": 0.25,
       "status": "ok"
     },
@@ -3537,7 +3537,7 @@
       "language": "fr",
       "audio_s": 16.68,
       "latency_ms": 5700.4,
-      "cost_usd": 0.0025578779166666663,
+      "cost_usd": 0.001862802395833333,
       "wer": 0.16,
       "status": "ok"
     },
@@ -3548,7 +3548,7 @@
       "language": "fr",
       "audio_s": 16.68,
       "latency_ms": 12391.4,
-      "cost_usd": 0.0011677268749999998,
+      "cost_usd": 0.0013901510416666665,
       "wer": 0.2,
       "status": "ok"
     },
@@ -3603,7 +3603,7 @@
       "language": "fr",
       "audio_s": 20.16,
       "latency_ms": 6019.7,
-      "cost_usd": 0.0030914779166666666,
+      "cost_usd": 0.0022514023958333336,
       "wer": 0.1429,
       "status": "ok"
     },
@@ -3614,7 +3614,7 @@
       "language": "fr",
       "audio_s": 20.16,
       "latency_ms": 8457.3,
-      "cost_usd": 0.001411326875,
+      "cost_usd": 0.0016801510416666668,
       "wer": 0.2,
       "status": "ok"
     },
@@ -3669,7 +3669,7 @@
       "language": "fr",
       "audio_s": 19.56,
       "latency_ms": 6263.6,
-      "cost_usd": 0.0029994779166666666,
+      "cost_usd": 0.0021844023958333333,
       "wer": 0.1333,
       "status": "ok"
     },
@@ -3680,7 +3680,7 @@
       "language": "fr",
       "audio_s": 19.56,
       "latency_ms": 8416.5,
-      "cost_usd": 0.001369326875,
+      "cost_usd": 0.0016301510416666667,
       "wer": 0.1333,
       "status": "ok"
     },
@@ -3735,7 +3735,7 @@
       "language": "fr",
       "audio_s": 20.16,
       "latency_ms": 6078.1,
-      "cost_usd": 0.0030914779166666666,
+      "cost_usd": 0.0022514023958333336,
       "wer": 0.25,
       "status": "ok"
     },
@@ -3746,7 +3746,7 @@
       "language": "fr",
       "audio_s": 20.16,
       "latency_ms": 8430.5,
-      "cost_usd": 0.001411326875,
+      "cost_usd": 0.0016801510416666668,
       "wer": 0.25,
       "status": "ok"
     },
@@ -3801,7 +3801,7 @@
       "language": "fr",
       "audio_s": 21.84,
       "latency_ms": 5045.3,
-      "cost_usd": 0.0033490779166666664,
+      "cost_usd": 0.002439002395833333,
       "wer": 0.1304,
       "status": "ok"
     },
@@ -3812,7 +3812,7 @@
       "language": "fr",
       "audio_s": 21.84,
       "latency_ms": 8394.9,
-      "cost_usd": 0.0015289268749999999,
+      "cost_usd": 0.0018201510416666667,
       "wer": 0.1739,
       "status": "ok"
     },
@@ -3867,7 +3867,7 @@
       "language": "fr",
       "audio_s": 16.2,
       "latency_ms": 5978.9,
-      "cost_usd": 0.0024842779166666666,
+      "cost_usd": 0.0018092023958333335,
       "wer": 0.0526,
       "status": "ok"
     },
@@ -3878,7 +3878,7 @@
       "language": "fr",
       "audio_s": 16.2,
       "latency_ms": 101078.9,
-      "cost_usd": 0.001134126875,
+      "cost_usd": 0.0013501510416666668,
       "wer": 0.1579,
       "status": "ok"
     },
@@ -3933,7 +3933,7 @@
       "language": "fr",
       "audio_s": 16.2,
       "latency_ms": 6025.3,
-      "cost_usd": 0.0024842779166666666,
+      "cost_usd": 0.0018092023958333335,
       "wer": 0.1364,
       "status": "ok"
     },
@@ -3944,7 +3944,7 @@
       "language": "fr",
       "audio_s": 16.2,
       "latency_ms": 97042.8,
-      "cost_usd": 0.001134126875,
+      "cost_usd": 0.0013501510416666668,
       "wer": 0.1364,
       "status": "ok"
     },
@@ -3999,7 +3999,7 @@
       "language": "fr",
       "audio_s": 22.92,
       "latency_ms": 6029.4,
-      "cost_usd": 0.0035146779166666665,
+      "cost_usd": 0.0025596023958333334,
       "wer": 0.1316,
       "status": "ok"
     },
@@ -4010,7 +4010,7 @@
       "language": "fr",
       "audio_s": 22.92,
       "latency_ms": 89034.4,
-      "cost_usd": 0.001604526875,
+      "cost_usd": 0.0019101510416666668,
       "wer": 0.1053,
       "status": "ok"
     },
@@ -4065,7 +4065,7 @@
       "language": "hi",
       "audio_s": 18.72,
       "latency_ms": 5987.9,
-      "cost_usd": 0.0028706779166666665,
+      "cost_usd": 0.002090602395833333,
       "wer": 0.0833,
       "status": "ok"
     },
@@ -4076,7 +4076,7 @@
       "language": "hi",
       "audio_s": 18.72,
       "latency_ms": 12489.2,
-      "cost_usd": 0.001310526875,
+      "cost_usd": 0.001560151041666667,
       "wer": 0.25,
       "status": "ok"
     },
@@ -4131,7 +4131,7 @@
       "language": "hi",
       "audio_s": 11.88,
       "latency_ms": 6219.3,
-      "cost_usd": 0.0018218779166666668,
+      "cost_usd": 0.0013268023958333333,
       "wer": 0.1667,
       "status": "ok"
     },
@@ -4142,7 +4142,7 @@
       "language": "hi",
       "audio_s": 11.88,
       "latency_ms": 8350.4,
-      "cost_usd": 0.000831726875,
+      "cost_usd": 0.0009901510416666667,
       "wer": 0.3889,
       "status": "ok"
     },
@@ -4197,7 +4197,7 @@
       "language": "hi",
       "audio_s": 15.48,
       "latency_ms": 5949.9,
-      "cost_usd": 0.0023738779166666665,
+      "cost_usd": 0.0017288023958333333,
       "wer": 0.25,
       "status": "ok"
     },
@@ -4208,7 +4208,7 @@
       "language": "hi",
       "audio_s": 15.48,
       "latency_ms": 12413.3,
-      "cost_usd": 0.0010837268749999999,
+      "cost_usd": 0.0012901510416666667,
       "wer": 0.5,
       "status": "ok"
     },
@@ -4263,7 +4263,7 @@
       "language": "hi",
       "audio_s": 19.8,
       "latency_ms": 6032.5,
-      "cost_usd": 0.0030362779166666666,
+      "cost_usd": 0.0022112023958333333,
       "wer": 0.2941,
       "status": "ok"
     },
@@ -4274,7 +4274,7 @@
       "language": "hi",
       "audio_s": 19.8,
       "latency_ms": 12434.0,
-      "cost_usd": 0.001386126875,
+      "cost_usd": 0.001650151041666667,
       "wer": 0.2941,
       "status": "ok"
     },
@@ -4329,7 +4329,7 @@
       "language": "hi",
       "audio_s": 21.84,
       "latency_ms": 6339.1,
-      "cost_usd": 0.0033490779166666664,
+      "cost_usd": 0.002439002395833333,
       "wer": 0.1429,
       "status": "ok"
     },
@@ -4340,7 +4340,7 @@
       "language": "hi",
       "audio_s": 21.84,
       "latency_ms": 12410.1,
-      "cost_usd": 0.0015289268749999999,
+      "cost_usd": 0.0018201510416666667,
       "wer": 0.4286,
       "status": "ok"
     },
@@ -4395,7 +4395,7 @@
       "language": "hi",
       "audio_s": 17.52,
       "latency_ms": 6566.0,
-      "cost_usd": 0.0026866779166666663,
+      "cost_usd": 0.001956602395833333,
       "wer": 0.1875,
       "status": "ok"
     },
@@ -4406,7 +4406,7 @@
       "language": "hi",
       "audio_s": 17.52,
       "latency_ms": 8392.8,
-      "cost_usd": 0.0012265268749999999,
+      "cost_usd": 0.0014601510416666667,
       "wer": 0.1875,
       "status": "ok"
     },
@@ -4461,7 +4461,7 @@
       "language": "hi",
       "audio_s": 19.8,
       "latency_ms": 5668.6,
-      "cost_usd": 0.0030362779166666666,
+      "cost_usd": 0.0022112023958333333,
       "wer": 0.1905,
       "status": "ok"
     },
@@ -4472,7 +4472,7 @@
       "language": "hi",
       "audio_s": 19.8,
       "latency_ms": 8422.7,
-      "cost_usd": 0.001386126875,
+      "cost_usd": 0.001650151041666667,
       "wer": 0.2381,
       "status": "ok"
     },
@@ -4527,7 +4527,7 @@
       "language": "hi",
       "audio_s": 22.68,
       "latency_ms": 5991.3,
-      "cost_usd": 0.0034778779166666665,
+      "cost_usd": 0.0025328023958333334,
       "wer": 0.15,
       "status": "ok"
     },
@@ -4538,7 +4538,7 @@
       "language": "hi",
       "audio_s": 22.68,
       "latency_ms": 8425.5,
-      "cost_usd": 0.001587726875,
+      "cost_usd": 0.001890151041666667,
       "wer": 0.25,
       "status": "ok"
     },
@@ -4593,7 +4593,7 @@
       "language": "hi",
       "audio_s": 21.6,
       "latency_ms": 6007.7,
-      "cost_usd": 0.0033122779166666664,
+      "cost_usd": 0.002412202395833333,
       "wer": 0.12,
       "status": "ok"
     },
@@ -4604,7 +4604,7 @@
       "language": "hi",
       "audio_s": 21.6,
       "latency_ms": 8390.9,
-      "cost_usd": 0.001512126875,
+      "cost_usd": 0.0018001510416666667,
       "wer": 0.2,
       "status": "ok"
     },
@@ -4659,7 +4659,7 @@
       "language": "hi",
       "audio_s": 18.0,
       "latency_ms": 6276.2,
-      "cost_usd": 0.0027602779166666664,
+      "cost_usd": 0.002010202395833333,
       "wer": 0.2778,
       "status": "ok"
     },
@@ -4670,7 +4670,7 @@
       "language": "hi",
       "audio_s": 18.0,
       "latency_ms": 8391.9,
-      "cost_usd": 0.0012601268749999998,
+      "cost_usd": 0.0015001510416666666,
       "wer": 0.1667,
       "status": "ok"
     },
@@ -4725,7 +4725,7 @@
       "language": "hi",
       "audio_s": 17.52,
       "latency_ms": 5690.5,
-      "cost_usd": 0.0026866779166666663,
+      "cost_usd": 0.001956602395833333,
       "wer": 0.3125,
       "status": "ok"
     },
@@ -4736,7 +4736,7 @@
       "language": "hi",
       "audio_s": 17.52,
       "latency_ms": 8428.1,
-      "cost_usd": 0.0012265268749999999,
+      "cost_usd": 0.0014601510416666667,
       "wer": 0.5625,
       "status": "ok"
     },
@@ -4791,7 +4791,7 @@
       "language": "hi",
       "audio_s": 14.64,
       "latency_ms": 5622.7,
-      "cost_usd": 0.0022450779166666665,
+      "cost_usd": 0.0016350023958333333,
       "wer": 0.2353,
       "status": "ok"
     },
@@ -4802,7 +4802,7 @@
       "language": "hi",
       "audio_s": 14.64,
       "latency_ms": 8387.9,
-      "cost_usd": 0.001024926875,
+      "cost_usd": 0.0012201510416666667,
       "wer": 0.2353,
       "status": "ok"
     },
@@ -4857,7 +4857,7 @@
       "language": "hi",
       "audio_s": 18.24,
       "latency_ms": 5706.0,
-      "cost_usd": 0.0027970779166666664,
+      "cost_usd": 0.0020370023958333336,
       "wer": 0.25,
       "status": "ok"
     },
@@ -4868,7 +4868,7 @@
       "language": "hi",
       "audio_s": 18.24,
       "latency_ms": 8383.8,
-      "cost_usd": 0.0012769268749999998,
+      "cost_usd": 0.0015201510416666664,
       "wer": 0.45,
       "status": "ok"
     },
@@ -4923,7 +4923,7 @@
       "language": "hi",
       "audio_s": 22.92,
       "latency_ms": 6376.4,
-      "cost_usd": 0.0035146779166666665,
+      "cost_usd": 0.0025596023958333334,
       "wer": 0.1538,
       "status": "ok"
     },
@@ -4934,7 +4934,7 @@
       "language": "hi",
       "audio_s": 22.92,
       "latency_ms": 8402.3,
-      "cost_usd": 0.001604526875,
+      "cost_usd": 0.0019101510416666668,
       "wer": 0.2308,
       "status": "ok"
     },
@@ -4989,7 +4989,7 @@
       "language": "hi",
       "audio_s": 12.84,
       "latency_ms": 5966.1,
-      "cost_usd": 0.0019690779166666667,
+      "cost_usd": 0.0014340023958333335,
       "wer": 0.0714,
       "status": "ok"
     },
@@ -5000,7 +5000,7 @@
       "language": "hi",
       "audio_s": 12.84,
       "latency_ms": 8359.6,
-      "cost_usd": 0.000898926875,
+      "cost_usd": 0.0010701510416666667,
       "wer": 0.2143,
       "status": "ok"
     },
@@ -5055,7 +5055,7 @@
       "language": "ja",
       "audio_s": 21.48,
       "latency_ms": 6044.6,
-      "cost_usd": 0.0032938779166666664,
+      "cost_usd": 0.002398802395833333,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5066,7 +5066,7 @@
       "language": "ja",
       "audio_s": 21.48,
       "latency_ms": 8415.8,
-      "cost_usd": 0.001503726875,
+      "cost_usd": 0.0017901510416666667,
       "wer": 0.6667,
       "status": "ok"
     },
@@ -5121,7 +5121,7 @@
       "language": "ja",
       "audio_s": 26.16,
       "latency_ms": 5738.5,
-      "cost_usd": 0.0040114779166666665,
+      "cost_usd": 0.0029214023958333336,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5132,7 +5132,7 @@
       "language": "ja",
       "audio_s": 26.16,
       "latency_ms": 8459.2,
-      "cost_usd": 0.0018313268749999998,
+      "cost_usd": 0.0021801510416666666,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5187,7 +5187,7 @@
       "language": "ja",
       "audio_s": 19.8,
       "latency_ms": 6002.4,
-      "cost_usd": 0.0030362779166666666,
+      "cost_usd": 0.0022112023958333333,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5198,7 +5198,7 @@
       "language": "ja",
       "audio_s": 19.8,
       "latency_ms": 8372.5,
-      "cost_usd": 0.001386126875,
+      "cost_usd": 0.001650151041666667,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5253,7 +5253,7 @@
       "language": "ja",
       "audio_s": 22.68,
       "latency_ms": 6048.2,
-      "cost_usd": 0.0034778779166666665,
+      "cost_usd": 0.0025328023958333334,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5264,7 +5264,7 @@
       "language": "ja",
       "audio_s": 22.68,
       "latency_ms": 8374.1,
-      "cost_usd": 0.001587726875,
+      "cost_usd": 0.001890151041666667,
       "wer": 0.0,
       "status": "ok"
     },
@@ -5319,7 +5319,7 @@
       "language": "ja",
       "audio_s": 22.44,
       "latency_ms": 6023.2,
-      "cost_usd": 0.0034410779166666665,
+      "cost_usd": 0.0025060023958333334,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5330,7 +5330,7 @@
       "language": "ja",
       "audio_s": 22.44,
       "latency_ms": 8402.3,
-      "cost_usd": 0.0015709268749999998,
+      "cost_usd": 0.0018701510416666667,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5385,7 +5385,7 @@
       "language": "ja",
       "audio_s": 20.64,
       "latency_ms": 6325.1,
-      "cost_usd": 0.0031650779166666663,
+      "cost_usd": 0.002305002395833333,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5396,7 +5396,7 @@
       "language": "ja",
       "audio_s": 20.64,
       "latency_ms": 8444.5,
-      "cost_usd": 0.0014449268749999998,
+      "cost_usd": 0.0017201510416666667,
       "wer": 0.6667,
       "status": "ok"
     },
@@ -5451,7 +5451,7 @@
       "language": "ja",
       "audio_s": 24.0,
       "latency_ms": 5746.5,
-      "cost_usd": 0.0036802779166666666,
+      "cost_usd": 0.0026802023958333336,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5462,7 +5462,7 @@
       "language": "ja",
       "audio_s": 24.0,
       "latency_ms": 8436.7,
-      "cost_usd": 0.001680126875,
+      "cost_usd": 0.002000151041666667,
       "wer": 0.6667,
       "status": "ok"
     },
@@ -5517,7 +5517,7 @@
       "language": "ja",
       "audio_s": 21.12,
       "latency_ms": 6054.7,
-      "cost_usd": 0.0032386779166666663,
+      "cost_usd": 0.002358602395833333,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5528,7 +5528,7 @@
       "language": "ja",
       "audio_s": 21.12,
       "latency_ms": 8374.2,
-      "cost_usd": 0.001478526875,
+      "cost_usd": 0.0017601510416666668,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5583,7 +5583,7 @@
       "language": "ja",
       "audio_s": 27.0,
       "latency_ms": 6072.5,
-      "cost_usd": 0.0041402779166666666,
+      "cost_usd": 0.0030152023958333334,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5594,7 +5594,7 @@
       "language": "ja",
       "audio_s": 27.0,
       "latency_ms": 8390.6,
-      "cost_usd": 0.001890126875,
+      "cost_usd": 0.002250151041666667,
       "wer": 0.6667,
       "status": "ok"
     },
@@ -5649,7 +5649,7 @@
       "language": "ja",
       "audio_s": 21.6,
       "latency_ms": 6021.9,
-      "cost_usd": 0.0033122779166666664,
+      "cost_usd": 0.002412202395833333,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5660,7 +5660,7 @@
       "language": "ja",
       "audio_s": 21.6,
       "latency_ms": 8441.5,
-      "cost_usd": 0.001512126875,
+      "cost_usd": 0.0018001510416666667,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5715,7 +5715,7 @@
       "language": "ja",
       "audio_s": 16.08,
       "latency_ms": 6018.8,
-      "cost_usd": 0.0024658779166666666,
+      "cost_usd": 0.0017958023958333333,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5726,7 +5726,7 @@
       "language": "ja",
       "audio_s": 16.08,
       "latency_ms": 8369.9,
-      "cost_usd": 0.001125726875,
+      "cost_usd": 0.0013401510416666668,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5781,7 +5781,7 @@
       "language": "ja",
       "audio_s": 19.56,
       "latency_ms": 5722.3,
-      "cost_usd": 0.0029994779166666666,
+      "cost_usd": 0.0021844023958333333,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5792,7 +5792,7 @@
       "language": "ja",
       "audio_s": 19.56,
       "latency_ms": 8446.3,
-      "cost_usd": 0.001369326875,
+      "cost_usd": 0.0016301510416666667,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5847,7 +5847,7 @@
       "language": "ja",
       "audio_s": 23.28,
       "latency_ms": 6077.0,
-      "cost_usd": 0.0035698779166666666,
+      "cost_usd": 0.0025998023958333336,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5858,7 +5858,7 @@
       "language": "ja",
       "audio_s": 23.28,
       "latency_ms": 8453.2,
-      "cost_usd": 0.001629726875,
+      "cost_usd": 0.0019401510416666668,
       "wer": 0.6667,
       "status": "ok"
     },
@@ -5913,7 +5913,7 @@
       "language": "ja",
       "audio_s": 25.32,
       "latency_ms": 6374.7,
-      "cost_usd": 0.0038826779166666664,
+      "cost_usd": 0.0028276023958333334,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5924,7 +5924,7 @@
       "language": "ja",
       "audio_s": 25.32,
       "latency_ms": 8368.7,
-      "cost_usd": 0.001772526875,
+      "cost_usd": 0.002110151041666667,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5979,7 +5979,7 @@
       "language": "ja",
       "audio_s": 24.84,
       "latency_ms": 6325.9,
-      "cost_usd": 0.0038090779166666663,
+      "cost_usd": 0.002774002395833333,
       "wer": 1.0,
       "status": "ok"
     },
@@ -5990,7 +5990,7 @@
       "language": "ja",
       "audio_s": 24.84,
       "latency_ms": 8426.5,
-      "cost_usd": 0.0017389268749999998,
+      "cost_usd": 0.0020701510416666668,
       "wer": 0.6667,
       "status": "ok"
     }
