@@ -1,0 +1,47 @@
+name: leaderboard
+
+on:
+  push:
+    paths:
+      - "benchmarks/**"
+      - "scripts/generate_leaderboard.py"
+  schedule:
+    # Weekly refresh - provider quality drifts.
+    - cron: "17 4 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+
+      - name: Run benchmark harness
+        # With no provider secrets this runs the built-in mock providers, so the
+        # full loop works on a fork with zero keys. Add DEEPGRAM_API_KEY /
+        # OPENAI_API_KEY / GROQ_API_KEY as repo secrets for real measurements.
+        run: |
+          python scripts/make_samples.py
+          python -m benchmarks.harness --samples benchmarks/samples
+        env:
+          DEEPGRAM_API_KEY: ${{ secrets.DEEPGRAM_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+
+      - name: Generate leaderboard site
+        run: python scripts/generate_leaderboard.py
+
+      - name: Commit refreshed results and site
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs benchmarks/results.json
+          git diff --cached --quiet || git commit -m "chore: refresh benchmark leaderboard"
+          git push
