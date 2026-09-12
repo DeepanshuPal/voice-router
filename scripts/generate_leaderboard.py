@@ -44,21 +44,26 @@ def has_real_runs(payload: dict) -> bool:
 
 
 def aggregate(payload: dict) -> list[dict]:
-    """One leaderboard row per (provider, language)."""
+    """One leaderboard row per (provider, model); languages as per-language
+    submetrics rendered side by side."""
     rows: dict[tuple[str, str], dict] = {}
     scores = payload.get("scores", {}).get("stt", {})
     for run in payload.get("runs", []):
         if run.get("status") != "ok":
             continue
-        key = (run["provider"], run.get("language") or "en")
+        key = (run["provider"], run.get("model", ""))
         row = rows.setdefault(key, {
-            "provider": run["provider"], "model": run.get("model", ""),
-            "language": key[1], "samples": 0, "wers": [], "latencies": [],
-            "cost": 0.0, "audio_s": 0.0,
+            "provider": run["provider"], "model": key[1],
+            "samples": 0, "wers": [], "latencies": [],
+            "cost": 0.0, "audio_s": 0.0, "langs": {},
         })
+        lang = run.get("language") or "en"
+        lrow = row["langs"].setdefault(lang, {"samples": 0, "wers": [], "score": None})
         row["samples"] += 1
+        lrow["samples"] += 1
         if run.get("wer") is not None:
             row["wers"].append(run["wer"])
+            lrow["wers"].append(run["wer"])
         if run.get("latency_ms") is not None:
             row["latencies"].append(run["latency_ms"])
         row["cost"] += run.get("cost_usd") or 0.0
@@ -69,11 +74,18 @@ def aggregate(payload: dict) -> list[dict]:
         row["avg_wer"] = (sum(row["wers"]) / len(row["wers"])) if row["wers"] else None
         row["p50_ms"] = statistics.median(row["latencies"]) if row["latencies"] else None
         row["cost_per_min"] = (row["cost"] / row["audio_s"] * 60) if row["audio_s"] else None
-        row["score"] = scores.get(row["provider"], {}).get(row["language"])
-        if row["score"] is None and row["avg_wer"] is not None:
-            row["score"] = round(1 - row["avg_wer"], 4)
+        lang_scores = []
+        for lang, lrow in row["langs"].items():
+            lrow["avg_wer"] = (sum(lrow["wers"]) / len(lrow["wers"])) if lrow["wers"] else None
+            lrow["score"] = scores.get(row["provider"], {}).get(lang)
+            if lrow["score"] is None and lrow["avg_wer"] is not None:
+                lrow["score"] = round(1 - lrow["avg_wer"], 4)
+            if lrow["score"] is not None:
+                lang_scores.append(lrow["score"])
+            del lrow["wers"]
+        row["score"] = round(sum(lang_scores) / len(lang_scores), 4) if lang_scores else None
         out.append(row)
-    out.sort(key=lambda r: (r["language"], -(r["score"] or 0)))
+    out.sort(key=lambda r: -(r["score"] or 0))
     return out
 
 
@@ -108,7 +120,7 @@ tr:last-child td{border-bottom:none}
 footer{margin-top:32px;color:#8b949e;font-size:.8rem;border-top:1px solid #21262d;padding-top:16px}
 nav{margin-top:8px;font-size:.85rem}
 @media(max-width:640px){
-  th:nth-child(3),td:nth-child(3){display:none}
+  .optcol{display:none}
   .bar-label{width:110px}.bar-val{width:84px;font-size:.78rem}
   .card{padding:14px}
 }
@@ -154,37 +166,49 @@ def fmt_cost(c) -> str:
 
 
 def render_table(rows: list[dict]) -> str:
-    langs = sorted({r["language"] for r in rows})
+    langs = sorted({lang for r in rows for lang in r["langs"]})
+    best_score = max((r["score"] for r in rows if r["score"] is not None), default=None)
     best_by_lang = {}
     for lang in langs:
-        lang_rows = [r for r in rows if r["language"] == lang and r["score"] is not None]
-        if lang_rows:
-            best_by_lang[lang] = max(r["score"] for r in lang_rows)
+        vals = [r["langs"][lang]["score"] for r in rows
+                if lang in r["langs"] and r["langs"][lang]["score"] is not None]
+        if vals:
+            best_by_lang[lang] = max(vals)
 
     body_rows = []
     for r in rows:
-        lang = r["language"]
         score = r["score"]
-        cls = ' class="best"' if score is not None and score == best_by_lang.get(lang) else ""
+        cls = ' class="best"' if score is not None and score == best_score else ""
         score_cell = "&mdash;" if score is None else f"{score:.3f}"
         p50 = r["p50_ms"]
         p50_cell = "&mdash;" if p50 is None else f"{p50:.0f} ms"
+        lang_cells = []
+        for lang in langs:
+            lrow = r["langs"].get(lang)
+            if not lrow or lrow["avg_wer"] is None:
+                lang_cells.append("<td>&mdash;</td>")
+            else:
+                lcls = ' class="best"' if lrow["score"] is not None and lrow["score"] == best_by_lang.get(lang) else ""
+                lang_cells.append(f"<td{lcls}>{fmt_wer(lrow['avg_wer'])}</td>")
         body_rows.append(
             "<tr>"
             f"<td>{esc(r['provider'])}</td>"
             f"<td>{esc(r['model'])}</td>"
-            f"<td><span class=\"pill\">{esc(lang)}</span></td>"
             f"<td{cls}>{score_cell}</td>"
             f"<td>{fmt_wer(r['avg_wer'])}</td>"
             f"<td>{p50_cell}</td>"
-            f"<td>{fmt_cost(r['cost_per_min'])}</td>"
-            f"<td>{r['samples']}</td>"
+            f'<td class="optcol">{fmt_cost(r["cost_per_min"])}</td>'
+            f'<td class="optcol">{r["samples"]}</td>'
+            + "".join(lang_cells) +
             "</tr>"
         )
+    lang_headers = "".join(f"<th>{esc(lang)} WER</th>" for lang in langs)
     return (
         "<table><thead><tr>"
-        "<th>Provider</th><th>Model</th><th>Lang</th><th>Score</th>"
-        "<th>WER</th><th>p50 latency</th><th>Cost/min</th><th>Samples</th>"
+        "<th>Provider</th><th>Model</th><th>Score</th>"
+        "<th>WER</th><th>p50 latency</th>"
+        '<th class="optcol">Cost/min</th><th class="optcol">Samples</th>'
+        + lang_headers +
         "</tr></thead><tbody>" + "".join(body_rows) + "</tbody></table>"
     )
 
@@ -208,27 +232,26 @@ def bar_chart(title: str, items: list[tuple[str, float, str]], color_offset: int
 
 
 def render_index(rows: list[dict], sample: bool, generated_at: str, source: str) -> str:
-    langs = sorted({r["language"] for r in rows})
-    primary = "en" if "en" in langs else (langs[0] if langs else "en")
-
     banner = ""
     if sample:
         banner = ('<div class="banner">SAMPLE DATA - these numbers are synthetic and exist '
                   "to demonstrate the format. They are not real measurements. "
                   'See <a href="methodology.html">methodology</a>.</div>')
 
-    # Charts use the primary language, one row per provider.
-    prim = [r for r in rows if r["language"] == primary]
+    # Charts compare providers on aggregate metrics - one bar per provider+model.
     wer_items = sorted(
         [(f"{r['provider']} ({r['model']})", r["avg_wer"], fmt_wer(r["avg_wer"]).replace("&mdash;", "n/a"))
-         for r in prim if r["avg_wer"] is not None],
+         for r in rows if r["avg_wer"] is not None],
         key=lambda x: x[1])
     lat_items = sorted(
         [(f"{r['provider']} ({r['model']})", r["p50_ms"], f"{r['p50_ms']:.0f} ms")
-         for r in prim if r["p50_ms"] is not None],
+         for r in rows if r["p50_ms"] is not None],
         key=lambda x: x[1])
+    score_items = sorted(
+        [(f"{r['provider']} ({r['model']})", r["score"], f"{r['score']:.3f}")
+         for r in rows if r["score"] is not None],
+        key=lambda x: -x[1])
 
-    lang_label = LANG_NAMES.get(primary, primary)
     body = f"""
 <header>
   <h1><a href="https://github.com/DeepanshuPal/voice-router">voice-router</a> benchmarks</h1>
@@ -236,9 +259,10 @@ def render_index(rows: list[dict], sample: bool, generated_at: str, source: str)
   {nav("index")}
 </header>
 {banner}
-<div class="card"><h2>Leaderboard</h2>{render_table(rows)}</div>
-{bar_chart(f"Word error rate - {lang_label} (lower is better)", wer_items)}
-{bar_chart(f"p50 transcription latency - {lang_label} (lower is better)", lat_items, 2)}
+<div class="card"><h2>Leaderboard - one row per provider/model, WER per language</h2>{render_table(rows)}</div>
+{bar_chart("Overall score - all languages (higher is better)", score_items, 3)}
+{bar_chart("Word error rate - all languages (lower is better)", wer_items)}
+{bar_chart("p50 transcription latency - all languages (lower is better)", lat_items, 2)}
 <footer>
   Generated {esc(generated_at)} from <code>{esc(source)}</code> &middot;
   refresh: <code>python scripts/generate_leaderboard.py</code> &middot;
