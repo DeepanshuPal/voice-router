@@ -340,7 +340,9 @@ def render_table(rows: list[dict]) -> str:
             + "".join(lang_cells) +
             "</tr>"
         )
-    lang_headers = "".join(f"<th>{esc(lang)} WER</th>" for lang in langs)
+    cer_langs = {"ja", "zh", "ko", "th"}
+    lang_headers = "".join(
+        f"<th>{esc(lang)} {'CER' if lang in cer_langs else 'WER'}</th>" for lang in langs)
     return (
         "<table><thead><tr>"
         "<th>Provider</th><th>Model</th><th>Score</th>"
@@ -435,7 +437,7 @@ def render_index(rows: list[dict], sample: bool, generated_at: str, source: str)
 <section>
   <div class="sec-head">
     <p class="type-label">leaderboard</p>
-    <h2>One row per provider, WER per language</h2>
+    <h2>One row per provider, WER per language (CER for ja)</h2>
     <p>Score blends per-language accuracy into the number the router's benchmark strategy routes on. Green marks the best in each column.</p>
   </div>
   <div class="card">{render_table(rows)}</div>
@@ -482,7 +484,7 @@ def render_methodology(sample: bool, generated_at: str) -> str:
   <div class="card"><table class="defs">
 <thead><tr><th style="text-align:left">Metric</th><th style="text-align:left">Definition</th></tr></thead>
 <tbody>
-<tr><td style="text-align:left">WER</td><td style="text-align:left">Word error rate against a reference transcript (edit distance on word sequences). CER for character-based languages is on the roadmap.</td></tr>
+<tr><td style="text-align:left">WER / CER</td><td style="text-align:left">Word error rate against a reference transcript (edit distance on word sequences). Languages without whitespace-delimited words (ja, zh, ko, th) are scored with character error rate instead - word error rate is meaningless there.</td></tr>
 <tr><td style="text-align:left">p50 latency</td><td style="text-align:left">Median wall-clock time per transcription call, in milliseconds.</td></tr>
 <tr><td style="text-align:left">Cost/min</td><td style="text-align:left">Effective USD per audio minute, from the provider's metered pricing over the audio actually processed.</td></tr>
 <tr><td style="text-align:left">Score</td><td style="text-align:left">1 - WER when reference transcripts exist, otherwise inverse latency. This is the score the router's <code>benchmark</code> strategy routes on.</td></tr>

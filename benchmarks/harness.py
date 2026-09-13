@@ -25,9 +25,8 @@ from voice_router.providers.registry import build_providers
 RESULTS_PATH = Path(__file__).resolve().parent / "results.json"
 
 
-def wer(reference: str, hypothesis: str) -> float:
-    """Classic word error rate via edit distance on word sequences."""
-    ref, hyp = reference.lower().split(), hypothesis.lower().split()
+def _edit_rate(ref: list, hyp: list) -> float:
+    """Edit distance over sequences (words or characters), normalized by ref length."""
     if not ref:
         return 0.0
     d = list(range(len(hyp) + 1))
@@ -36,6 +35,28 @@ def wer(reference: str, hypothesis: str) -> float:
         for j, h in enumerate(hyp, 1):
             prev, d[j] = d[j], min(d[j] + 1, d[j - 1] + 1, prev + (r != h))
     return d[len(hyp)] / len(ref)
+
+
+def wer(reference: str, hypothesis: str) -> float:
+    """Classic word error rate via edit distance on word sequences."""
+    return _edit_rate(reference.lower().split(), hypothesis.lower().split())
+
+
+def cer(reference: str, hypothesis: str) -> float:
+    """Character error rate: edit distance on characters, whitespace stripped.
+
+    Word error rate is meaningless for scripts that are not segmented into
+    whitespace-delimited words (Japanese, Chinese, Korean, Thai): a correct
+    transcript with different phrase spacing scores WER 1.0. CER is the
+    standard metric there.
+    """
+    ref = list("".join(reference.lower().split()))
+    hyp = list("".join(hypothesis.lower().split()))
+    return _edit_rate(ref, hyp)
+
+
+# Languages scored with CER instead of WER (no whitespace word segmentation).
+CHAR_ERROR_LANGS = {"ja", "zh", "ko", "th"}
 
 
 async def run(samples: Path, references: Path | None, language: str, out: Path) -> dict:
@@ -63,13 +84,16 @@ async def run(samples: Path, references: Path | None, language: str, out: Path) 
             try:
                 text = await adapter.transcribe(audio, model, language)
                 latency = (time.perf_counter() - start) * 1000
+                metric = "cer" if language in CHAR_ERROR_LANGS else "wer"
+                err = cer(ref, text) if metric == "cer" else wer(ref, text)
                 return {
                     "sample": wav.name, "provider": name, "model": model,
                     "language": language,
                     "audio_s": round(len(audio) / (16000 * 2), 2),
                     "latency_ms": round(latency, 1),
                     "cost_usd": adapter.spec.unit_cost(len(audio) / (16000 * 2 * 60)),
-                    "wer": round(wer(ref, text), 4) if ref else None,
+                    "wer": round(err, 4) if ref else None,
+                    "metric": metric,
                     "status": "ok",
                 }
             except ProviderError as e:
