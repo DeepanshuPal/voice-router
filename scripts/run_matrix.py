@@ -46,6 +46,16 @@ def disable_mock() -> None:
     os.environ["ROUTER_CONFIG"] = str(tmp)
 
 
+def ci_run_url() -> str | None:
+    """Link back to the GitHub Actions run that produced these numbers."""
+    server = os.environ.get("GITHUB_SERVER_URL")
+    repo = os.environ.get("GITHUB_REPOSITORY")
+    run_id = os.environ.get("GITHUB_RUN_ID")
+    if server and repo and run_id:
+        return f"{server}/{repo}/actions/runs/{run_id}"
+    return None
+
+
 def main() -> None:
     disable_mock()
     runs, scores = [], {}
@@ -75,6 +85,9 @@ def main() -> None:
               "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
               "scores": {"stt": scores}, "runs": runs,
               "note": "regenerate with: python scripts/run_matrix.py"}
+    url = ci_run_url()
+    if url:
+        merged["run_url"] = url
     RESULTS.write_text(json.dumps(merged, indent=2))
     ok = sum(1 for r in runs if r["status"] == "ok")
     print(f"wrote {RESULTS} ({ok}/{len(runs)} ok runs)")

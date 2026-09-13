@@ -160,6 +160,7 @@ tbody tr{transition:background .12s}
 tbody tr:hover{background:#fafafa}
 tbody tr:last-child td{border-bottom:none}
 td .best,span.best{color:var(--good);font-weight:600}
+.cellsub{font-family:'Geist Mono',ui-monospace,monospace;font-size:10.5px;color:var(--faint);margin-top:2px}
 table.defs td{white-space:normal;vertical-align:top;line-height:1.6}
 table.defs td:first-child{font-family:'Geist Mono',ui-monospace,monospace;font-size:12.5px;font-weight:400;color:var(--ink)}
 
@@ -327,7 +328,7 @@ def render_table(rows: list[dict]) -> str:
                 cell = fmt_wer(lrow["avg_wer"])
                 if lrow["score"] is not None and lrow["score"] == best_by_lang.get(lang):
                     cell = f'<span class="best">{cell}</span>'
-                lang_cells.append(f"<td>{cell}</td>")
+                lang_cells.append(f'<td>{cell}<div class="cellsub">n={lrow["samples"]}</div></td>')
         body_rows.append(
             "<tr>"
             f"<td>{esc(r['provider'])}</td>"
@@ -347,7 +348,7 @@ def render_table(rows: list[dict]) -> str:
         "<table><thead><tr>"
         "<th>Provider</th><th>Model</th><th>Score</th>"
         "<th>WER</th><th>p50 latency</th>"
-        '<th class="optcol">Cost/min</th><th class="optcol">Samples</th>'
+        '<th class="optcol">Cost/min</th><th class="optcol">Runs</th>'
         + lang_headers +
         "</tr></thead><tbody>" + "".join(body_rows) + "</tbody></table>"
     )
@@ -372,7 +373,7 @@ def bar_chart(title: str, hint: str, items: list[tuple[str, float, str]]) -> str
             f'<div class="hint">{esc(hint)}</div>{"".join(rows)}</div>')
 
 
-def render_index(rows: list[dict], sample: bool, generated_at: str, source: str) -> str:
+def render_index(rows: list[dict], sample: bool, generated_at: str, source: str, run_url: str | None = None) -> str:
     banner = ""
     if sample:
         banner = ('<div class="banner">SAMPLE DATA - these numbers are synthetic and exist '
@@ -382,6 +383,8 @@ def render_index(rows: list[dict], sample: bool, generated_at: str, source: str)
     total_samples = sum(r["samples"] for r in rows)
     n_providers = len(rows)
     n_langs = len({lang for r in rows for lang in r["langs"]})
+    run_link = (f' &middot; <a class="link-quiet" style="text-decoration:underline;text-decoration-color:#d4d4d4;text-underline-offset:3px" '
+                f'href="{esc(run_url)}" target="_blank" rel="noreferrer">action run</a>' if run_url else "")
 
     def best(key, reverse=False):
         vals = [r for r in rows if r[key] is not None]
@@ -428,8 +431,9 @@ def render_index(rows: list[dict], sample: bool, generated_at: str, source: str)
     <p class="hero-sub">Speech-to-text providers ranked by accuracy, latency and cost - every number out of a harness run on real audio. Full rules on the <a class="link-quiet" style="text-decoration:underline;text-decoration-color:#d4d4d4;text-underline-offset:3px" href="methodology.html">methodology page</a>.</p>
   </div>
   <div class="hero-meta">
-    <p>last run {esc(generated_at[:10])}</p>
+    <p>last run {esc(generated_at[:10])}{run_link}</p>
     <p>{total_samples} runs &middot; {n_providers} providers &middot; {n_langs} languages</p>
+    <p>dataset: <a class="link-quiet" style="text-decoration:underline;text-decoration-color:#d4d4d4;text-underline-offset:3px" href="https://huggingface.co/datasets/google/fleurs" target="_blank" rel="noreferrer">Google FLEURS</a> &middot; 15 clips/language</p>
   </div>
 </div>
 {banner}
@@ -438,7 +442,7 @@ def render_index(rows: list[dict], sample: bool, generated_at: str, source: str)
   <div class="sec-head">
     <p class="type-label">leaderboard</p>
     <h2>One row per provider, WER per language (CER for ja)</h2>
-    <p>Score blends per-language accuracy into the number the router's benchmark strategy routes on. Green marks the best in each column.</p>
+    <p>Score blends per-language accuracy into the number the router's benchmark strategy routes on. Green marks the best in each column. Every language cell averages 15 real FLEURS clips (n=15 under each number); the runs column is the provider total. Receipts on the <a class="link-quiet" style="text-decoration:underline;text-decoration-color:#d4d4d4;text-underline-offset:3px" href="methodology.html">methodology page</a>.</p>
   </div>
   <div class="card">{render_table(rows)}</div>
 </section>
@@ -455,13 +459,13 @@ def render_index(rows: list[dict], sample: bool, generated_at: str, source: str)
 </section>
 <div class="note">
   <p class="type-label">read these numbers like this</p>
-  <p>Every run pushes the same clips through each provider and records WER, latency and metered cost per sample - nothing is hand-edited or self-reported. A provider that does not support a language simply has no column entry. Re-run it yourself: clone the repo, add keys, run the harness.</p>
+  <p>Every run pushes the same FLEURS clips through each provider and records WER, latency and metered cost per sample - nothing is hand-edited or self-reported. A provider that does not support a language simply has no column entry. Clips, references, harness and raw <code>results.json</code> are all in the <a href="https://github.com/DeepanshuPal/voice-router" target="_blank" rel="noreferrer">repo</a>. Re-run it yourself: clone, add keys, run the harness.</p>
 </div>
 """
     return page("Leaderboard", "index", body, generated_at, source)
 
 
-def render_methodology(sample: bool, generated_at: str) -> str:
+def render_methodology(sample: bool, generated_at: str, run_url: str | None = None) -> str:
     note = (
         '<div class="banner">The current leaderboard shows SAMPLE DATA - synthetic numbers '
         "demonstrating the format while real provider runs are being collected.</div>"
@@ -509,7 +513,9 @@ def render_methodology(sample: bool, generated_at: str) -> str:
     <h2>Where the audio comes from</h2>
   </div>
   <div class="card card-pad prose">
-<p>The current sample set is real human speech from Google's public FLEURS evaluation corpus (CC-BY-4.0) - 15 test-split clips per language for English (en_us), Spanish (es_419), Hindi (hi_in), French (fr_fr), German (de_de), and Japanese (ja_jp), normalized to 16 kHz mono PCM. Clips are 4-14 seconds long, picked at even intervals across the test split for speaker diversity. Reference transcripts are FLEURS' normalized transcriptions. No synthetic or TTS-generated audio is used. Clips and references are committed in <code>benchmarks/samples/</code> and <code>benchmarks/references/</code> so anyone can rerun the exact matrix.</p>
+<p>The sample set is real human speech from <a href="https://huggingface.co/datasets/google/fleurs" target="_blank" rel="noreferrer">FLEURS</a> (CC-BY-4.0) - Google's Few-shot Learning Evaluation of Universal Representations of Speech corpus (<a href="https://arxiv.org/abs/2205.12446" target="_blank" rel="noreferrer">paper</a>). FLEURS is the standard open benchmark for multilingual speech: 102 languages, roughly 12 hours of speech per language, n-way parallel sentences built on the FLoRes-101 translation set. It is the evaluation OpenAI's Whisper paper reported its multilingual numbers on, which is what makes it the common ruler here.</p>
+<p>We use 15 test-split clips per language for English (en_us), Spanish (es_419), Hindi (hi_in), French (fr_fr), German (de_de) and Japanese (ja_jp) - 90 clips per provider, 540 runs per full board. Clips are 4-14 seconds, picked at even intervals across the test split for speaker diversity, normalized to 16 kHz mono PCM. Reference transcripts are FLEURS' normalized transcriptions. No synthetic or TTS-generated audio. Clips and references are committed in <code>benchmarks/samples/</code> and <code>benchmarks/references/</code> so anyone can rerun the exact matrix.</p>
+<p>Know the limits: FLEURS is clean, read speech - single speakers, quiet conditions, short utterances. That makes it the right common ruler, but it does not measure telephony noise, heavy accents, crosstalk or bad microphones. Every provider scores worse on real call audio than on this board. Treat these numbers as a ranking, not a promise.</p>
   </div>
 </section>
 <section>
@@ -518,7 +524,7 @@ def render_methodology(sample: bool, generated_at: str) -> str:
     <h2>Refresh cadence</h2>
   </div>
   <div class="card card-pad prose">
-<p>A GitHub Action regenerates the site on every push that touches <code>benchmarks/</code> and on a weekly schedule, because provider quality drifts. Anyone can reproduce the numbers: clone the repo, add provider keys, run the harness.</p>
+<p>A GitHub Action regenerates the site on every push that touches <code>benchmarks/</code> and on a weekly schedule, because provider quality drifts. The leaderboard links the exact Action run that produced its current numbers. Anyone can reproduce them: clone the repo, add provider keys, run the harness.</p>
   </div>
 </section>
 <section>
@@ -556,11 +562,12 @@ def main() -> None:
 
     sample = bool(payload.get("sample_data"))
     rows = aggregate(payload)
+    run_url = payload.get("run_url")
     generated_at = payload.get("generated_at") or datetime.now(timezone.utc).isoformat(timespec="seconds")
 
     args.out.mkdir(parents=True, exist_ok=True)
-    (args.out / "index.html").write_text(render_index(rows, sample, generated_at, source.name))
-    (args.out / "methodology.html").write_text(render_methodology(sample, generated_at))
+    (args.out / "index.html").write_text(render_index(rows, sample, generated_at, source.name, run_url))
+    (args.out / "methodology.html").write_text(render_methodology(sample, generated_at, run_url))
     print(f"wrote {args.out}/index.html and {args.out}/methodology.html "
           f"({len(rows)} rows, sample_data={sample})")
 

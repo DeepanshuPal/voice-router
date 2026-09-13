@@ -67,6 +67,7 @@ tbody tr{transition:background .12s}
 tbody tr:hover{background:#fafafa}
 tbody tr:last-child td{border-bottom:none}
 td .best,span.best{color:var(--good);font-weight:600}
+.cellsub{font-family:'Geist Mono',ui-monospace,monospace;font-size:10.5px;color:var(--faint);margin-top:2px}
 table.defs td{white-space:normal;vertical-align:top;line-height:1.6}
 table.defs td:first-child{font-family:'Geist Mono',ui-monospace,monospace;font-size:12.5px;font-weight:400;color:var(--ink)}
 
@@ -174,7 +175,9 @@ footer{margin-top:80px;border-top:1px solid var(--hairline)}
     <h2>Where the audio comes from</h2>
   </div>
   <div class="card card-pad prose">
-<p>The current sample set is real human speech from Google's public FLEURS evaluation corpus (CC-BY-4.0) - 15 test-split clips per language for English (en_us), Spanish (es_419), Hindi (hi_in), French (fr_fr), German (de_de), and Japanese (ja_jp), normalized to 16 kHz mono PCM. Clips are 4-14 seconds long, picked at even intervals across the test split for speaker diversity. Reference transcripts are FLEURS' normalized transcriptions. No synthetic or TTS-generated audio is used. Clips and references are committed in <code>benchmarks/samples/</code> and <code>benchmarks/references/</code> so anyone can rerun the exact matrix.</p>
+<p>The sample set is real human speech from <a href="https://huggingface.co/datasets/google/fleurs" target="_blank" rel="noreferrer">FLEURS</a> (CC-BY-4.0) - Google's Few-shot Learning Evaluation of Universal Representations of Speech corpus (<a href="https://arxiv.org/abs/2205.12446" target="_blank" rel="noreferrer">paper</a>). FLEURS is the standard open benchmark for multilingual speech: 102 languages, roughly 12 hours of speech per language, n-way parallel sentences built on the FLoRes-101 translation set. It is the evaluation OpenAI's Whisper paper reported its multilingual numbers on, which is what makes it the common ruler here.</p>
+<p>We use 15 test-split clips per language for English (en_us), Spanish (es_419), Hindi (hi_in), French (fr_fr), German (de_de) and Japanese (ja_jp) - 90 clips per provider, 540 runs per full board. Clips are 4-14 seconds, picked at even intervals across the test split for speaker diversity, normalized to 16 kHz mono PCM. Reference transcripts are FLEURS' normalized transcriptions. No synthetic or TTS-generated audio. Clips and references are committed in <code>benchmarks/samples/</code> and <code>benchmarks/references/</code> so anyone can rerun the exact matrix.</p>
+<p>Know the limits: FLEURS is clean, read speech - single speakers, quiet conditions, short utterances. That makes it the right common ruler, but it does not measure telephony noise, heavy accents, crosstalk or bad microphones. Every provider scores worse on real call audio than on this board. Treat these numbers as a ranking, not a promise.</p>
   </div>
 </section>
 <section>
@@ -183,7 +186,7 @@ footer{margin-top:80px;border-top:1px solid var(--hairline)}
     <h2>Refresh cadence</h2>
   </div>
   <div class="card card-pad prose">
-<p>A GitHub Action regenerates the site on every push that touches <code>benchmarks/</code> and on a weekly schedule, because provider quality drifts. Anyone can reproduce the numbers: clone the repo, add provider keys, run the harness.</p>
+<p>A GitHub Action regenerates the site on every push that touches <code>benchmarks/</code> and on a weekly schedule, because provider quality drifts. The leaderboard links the exact Action run that produced its current numbers. Anyone can reproduce them: clone the repo, add provider keys, run the harness.</p>
   </div>
 </section>
 <section>

@@ -79,9 +79,17 @@ python -m benchmarks.harness --samples benchmarks/samples --references benchmark
 
 Results land in `benchmarks/results.json` and power the `benchmark` strategy. Re-run monthly - provider quality drifts.
 
+### How the numbers are made
+
+Every number on the public board traces back to a file in this repo:
+
+1. `benchmarks/harness.py` pushes real audio through every configured provider - 15 test-split clips per language from Google's [FLEURS](https://huggingface.co/datasets/google/fleurs) corpus, committed in `benchmarks/samples/` with reference transcripts in `benchmarks/references/` - and records WER (CER for ja/zh/ko/th), p50 latency and metered cost per clip.
+2. `scripts/run_matrix.py` runs that matrix for every language and merges it into `benchmarks/results.json`. Nothing is hand-edited; when a provider can't run, the cell is empty instead of estimated.
+3. A GitHub Action (`.github/workflows/leaderboard.yml`) re-runs the matrix on every `benchmarks/` push and weekly, then `scripts/generate_leaderboard.py` renders the site. The board links the exact Action run that produced its current numbers.
+
 ## Public leaderboard
 
-Harness results are rendered into a static leaderboard: **https://deepanshupal.github.io/voice-router/** - WER, p50 latency, and effective cost per minute, per provider, per language, with the [methodology](https://deepanshupal.github.io/voice-router/methodology.html) published alongside. Until the first real multi-provider run, it shows clearly-labeled sample data so the format is visible.
+Harness results are rendered into a static leaderboard: **https://deepanshupal.github.io/voice-router/** - WER, p50 latency, and effective cost per minute, per provider, per language, measured on 90 FLEURS clips per provider, with the [methodology](https://deepanshupal.github.io/voice-router/methodology.html) published alongside. Until the first real multi-provider run, it shows clearly-labeled sample data so the format is visible.
 
 The site is plain HTML in `docs/`, served by GitHub Pages from the `main` branch - no build step and no separate `gh-pages` branch to drift away from the data that generates it. Regenerate after any harness run (a GitHub Action also does this on every `benchmarks/` push and weekly):
 
