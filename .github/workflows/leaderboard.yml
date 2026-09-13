@@ -5,6 +5,7 @@ on:
     paths:
       - "benchmarks/**"
       - "scripts/generate_leaderboard.py"
+      - "voice_router/providers/**"
   schedule:
     # Weekly refresh - provider quality drifts.
     - cron: "17 4 * * 1"
