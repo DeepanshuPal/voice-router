@@ -22,7 +22,7 @@ from voice_router.providers.registry import build_providers
 ROOT = Path(__file__).resolve().parent.parent
 REFERENCES = ROOT / "benchmarks" / "references"
 OUT = ROOT / "docs" / "arena" / "audio"
-LANGUAGE = "en"
+LANGUAGE = "en"  # en is the one language every wired TTS provider shares
 
 
 def ext_for(data: bytes) -> str:
