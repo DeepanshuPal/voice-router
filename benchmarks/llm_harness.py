@@ -31,8 +31,8 @@ PROMPTS = {
 
 # (provider label, model id, env key, $/1M input tokens, $/1M output tokens)
 MODELS = [
-    ("groq", "llama-3.3-70b-versatile", "GROQ_API_KEY", 0.59, 0.79),
-    ("groq", "llama-3.1-8b-instant", "GROQ_API_KEY", 0.05, 0.08),
+    ("groq", "openai/gpt-oss-120b", "GROQ_API_KEY", 0.15, 0.60),
+    ("groq", "openai/gpt-oss-20b", "GROQ_API_KEY", 0.075, 0.30),
 ]
 
 MAX_TOKENS = 120
