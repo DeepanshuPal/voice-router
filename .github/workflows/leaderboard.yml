@@ -68,5 +68,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs benchmarks/results.json
           git diff --cached --quiet || git commit -m "chore: refresh benchmark leaderboard"
-          git pull --rebase origin main
+          git pull --rebase -X theirs origin main
           git push
