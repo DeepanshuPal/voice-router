@@ -1,4 +1,4 @@
-"""Generate the static benchmark leaderboard site from harness results.
+"""Generate the static benchmark leaderboard site from harness results.  # adapter-aware triggers
 
 Reads benchmarks/results.json (produced by benchmarks/harness.py) and renders a
 dependency-free static site into docs/ (served by GitHub Pages):
