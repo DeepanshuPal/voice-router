@@ -53,7 +53,8 @@ def fit_elo(votes: list[dict], players: list[str], iters: int) -> dict[str, floa
 def main() -> None:
     req = urllib.request.Request(
         os.environ["ARENA_EXPORT_URL"],
-        headers={"X-Export-Token": os.environ["ARENA_EXPORT_TOKEN"]},
+        headers={"X-Export-Token": os.environ["ARENA_EXPORT_TOKEN"],
+                "User-Agent": "voice-router-arena/1.0 (+https://github.com/DeepanshuPal/voice-router)"},
     )
     votes = json.load(urllib.request.urlopen(req, timeout=30))["votes"]
 
