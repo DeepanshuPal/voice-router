@@ -28,7 +28,7 @@ LANGUAGE = "en"  # en is the one language every wired TTS provider shares
 def ext_for(data: bytes) -> str:
     if data[:4] == b"RIFF":
         return "wav"
-    if data[:3] == b"ID3" or data[:2] == b"\xff\xfb":
+    if data[:3] == b"ID3" or (len(data) > 1 and data[0] == 0xFF and (data[1] & 0xE0) == 0xE0):
         return "mp3"
     if data[:4] == b"OggS":
         return "ogg"
@@ -44,9 +44,14 @@ async def main() -> None:
     if not texts:
         raise SystemExit(f"no reference texts for {LANGUAGE}")
 
+    if OUT.exists():
+        import shutil
+        shutil.rmtree(OUT)
     manifest = {"generated_at": datetime.now(timezone.utc).isoformat(),
                 "language": LANGUAGE, "clips": []}
     for name, adapter in providers.items():
+        if name == "mock-tts":
+            continue  # a sine wave is not a voice; never enters a listening test
         model = adapter.model_for(LANGUAGE)
         for stem, text in texts:
             try:
