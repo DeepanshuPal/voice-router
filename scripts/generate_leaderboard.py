@@ -318,6 +318,7 @@ def nav(active: str) -> str:
   <div class="nav-links">
     {link("index.html", "Leaderboard", "index")}
     {link("methodology.html", "Methodology", "methodology")}
+    {link("arena/", "Arena", "arena")}
     <a class="gh-btn" href="{REPO_URL}" target="_blank" rel="noreferrer">{GITHUB_MARK}<span>Star</span></a>
   </div>
 </div></div>"""

@@ -83,6 +83,16 @@ async function boot(){
   try{ manifest = await (await fetch("manifest.json")).json(); }
   catch(e){ document.getElementById("roundMeta").textContent="No arena clips generated yet."; return; }
   newRound();
+  loadRatings();
+}
+async function loadRatings(){
+  let r;
+  try{ r = await (await fetch("data/ratings.json")).json(); }catch(e){ return; }
+  const box=document.getElementById("rankings");
+  if(!r || r.state!=="rated"){ box.innerHTML="<p>Collecting votes - "+(r?r.votes:0)+" of "+(r?r.min_votes:30)+" needed before rankings publish. No estimates shown before that.</p>"; return; }
+  let h="<table><tr><th>#</th><th>Provider</th><th>Elo</th><th>95% interval</th><th>Games</th></tr>";
+  r.ratings.forEach((row,i)=>{ h+="<tr><td>"+(i+1)+"</td><td>"+row.provider+"</td><td class=\"mono\">"+row.elo+"</td><td class=\"mono\">"+row.ci95[0]+" - "+row.ci95[1]+"</td><td class=\"mono\">"+row.games+"</td></tr>"; });
+  box.innerHTML=h+"</table><p class=\"note\">"+r.votes+" votes · field mean 1500 · read the interval, not the point</p>";
 }
 function pick(a){ return a[Math.floor(Math.random()*a.length)]; }
 function newRound(){

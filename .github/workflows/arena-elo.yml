@@ -1,0 +1,36 @@
+name: arena elo
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 4 * * *'  # nightly, off the hour
+
+permissions:
+  contents: write
+
+concurrency:
+  group: leaderboard
+  cancel-in-progress: false
+
+jobs:
+  recompute:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recompute arena ratings
+        env:
+          ARENA_EXPORT_URL: ${{ secrets.ARENA_EXPORT_URL }}
+          ARENA_EXPORT_TOKEN: ${{ secrets.ARENA_EXPORT_TOKEN }}
+        run: python scripts/arena_elo.py
+      - name: Commit ratings
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add docs/arena/data
+          git diff --cached --quiet && exit 0
+          git commit -m 'chore: refresh arena ratings'
+          git pull --rebase -X theirs origin main
+          git push
