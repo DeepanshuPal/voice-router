@@ -100,7 +100,11 @@ function newRound(){
   const clips=manifest.clips;
   const provs=[...new Set(clips.map(c=>c.provider))];
   if(provs.length<2){ document.getElementById("roundMeta").textContent="Need clips from at least two providers - only one wired so far."; return; }
-  const sample=pick([...new Set(clips.map(c=>c.sample))]);
+  const playable=[...new Set(clips.map(c=>c.sample))].filter(smp=>{
+    return new Set(clips.filter(c=>c.sample===smp).map(c=>c.provider)).size>=2;
+  });
+  if(!playable.length){ document.getElementById("roundMeta").textContent="No sentence has clips from two providers yet."; return; }
+  const sample=pick(playable);
   const inSample=clips.filter(c=>c.sample===sample);
   const a=pick(inSample);
   let b=pick(inSample.filter(c=>c.provider!==a.provider));
