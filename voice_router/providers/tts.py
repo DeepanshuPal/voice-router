@@ -12,7 +12,7 @@ from .base import ProviderError, ProviderUnavailable, TTSProvider, sine_wav
 VOICE_MAP = {
     "elevenlabs": "21m00Tcm4TlvDq8ikWAM",  # Rachel
     "openai-tts": "alloy",
-    "cartesia": "79a125e8-cd45-4c13-8a67-188112f4c8",
+    "cartesia": "9626c31c-bec5-4cca-baa8-f8ba9e84c8bc",
 }
 
 
