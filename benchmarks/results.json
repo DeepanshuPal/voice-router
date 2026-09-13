@@ -1,6 +1,6 @@
 {
   "sample_data": false,
-  "generated_at": "2026-09-12T18:15:48+00:00",
+  "generated_at": "2026-09-13T20:43:32+00:00",
   "scores": {
     "stt": {
       "deepgram": {
@@ -20,11 +20,11 @@
         "ja": 0.0
       },
       "assemblyai": {
-        "de": 0.8508,
+        "de": 0.8468,
         "en": 0.8609,
         "es": 0.8942,
         "fr": 0.8652,
-        "hi": 0.7524,
+        "hi": 0.7487,
         "ja": 0.0
       },
       "gladia": {
@@ -60,7 +60,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 22.44,
-      "latency_ms": 875.8,
+      "latency_ms": 703.4,
       "cost_usd": 0.0016083298958333334,
       "wer": 0.0,
       "status": "ok"
@@ -71,7 +71,7 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 22.44,
-      "latency_ms": 1517.5,
+      "latency_ms": 479.3,
       "cost_usd": 0.0010098815625000002,
       "wer": 0.1538,
       "status": "ok"
@@ -82,7 +82,7 @@
       "model": "universal-3-5-pro",
       "language": "de",
       "audio_s": 22.44,
-      "latency_ms": 5170.7,
+      "latency_ms": 4899.7,
       "cost_usd": 0.0013091057291666668,
       "wer": 0.1538,
       "status": "ok"
@@ -93,7 +93,7 @@
       "model": "v2",
       "language": "de",
       "audio_s": 22.44,
-      "latency_ms": 5964.1,
+      "latency_ms": 6168.1,
       "cost_usd": 0.003815108125,
       "wer": 0.1538,
       "status": "ok"
@@ -104,7 +104,7 @@
       "model": "enhanced",
       "language": "de",
       "audio_s": 22.44,
-      "latency_ms": 11646.7,
+      "latency_ms": 5515.4,
       "cost_usd": 0.0025060023958333334,
       "wer": 0.1923,
       "status": "ok"
@@ -115,7 +115,7 @@
       "model": "machine",
       "language": "de",
       "audio_s": 22.44,
-      "latency_ms": 46160.0,
+      "latency_ms": 118996.1,
       "cost_usd": 0.0018701510416666667,
       "wer": 0.0769,
       "status": "ok"
@@ -126,7 +126,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 15.12,
-      "latency_ms": 642.5,
+      "latency_ms": 511.8,
       "cost_usd": 0.0010837298958333334,
       "wer": 0.0625,
       "status": "ok"
@@ -137,7 +137,7 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 15.12,
-      "latency_ms": 269.3,
+      "latency_ms": 438.2,
       "cost_usd": 0.0006804815625000001,
       "wer": 0.0625,
       "status": "ok"
@@ -148,7 +148,7 @@
       "model": "universal-3-5-pro",
       "language": "de",
       "audio_s": 15.12,
-      "latency_ms": 5104.7,
+      "latency_ms": 4795.8,
       "cost_usd": 0.0008821057291666667,
       "wer": 0.0625,
       "status": "ok"
@@ -159,7 +159,7 @@
       "model": "v2",
       "language": "de",
       "audio_s": 15.12,
-      "latency_ms": 5692.9,
+      "latency_ms": 5341.8,
       "cost_usd": 0.002570708125,
       "wer": 0.0625,
       "status": "ok"
@@ -170,7 +170,7 @@
       "model": "enhanced",
       "language": "de",
       "audio_s": 15.12,
-      "latency_ms": 6286.0,
+      "latency_ms": 5333.1,
       "cost_usd": 0.0016886023958333333,
       "wer": 0.0625,
       "status": "ok"
@@ -181,7 +181,7 @@
       "model": "machine",
       "language": "de",
       "audio_s": 15.12,
-      "latency_ms": 41991.6,
+      "latency_ms": 110816.6,
       "cost_usd": 0.0012601510416666668,
       "wer": 0.0625,
       "status": "ok"
@@ -192,7 +192,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 19.92,
-      "latency_ms": 667.3,
+      "latency_ms": 271.5,
       "cost_usd": 0.0014277298958333335,
       "wer": 0.1765,
       "status": "ok"
@@ -203,7 +203,7 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 19.92,
-      "latency_ms": 376.1,
+      "latency_ms": 926.5,
       "cost_usd": 0.0008964815625000001,
       "wer": 0.1765,
       "status": "ok"
@@ -214,9 +214,9 @@
       "model": "universal-3-5-pro",
       "language": "de",
       "audio_s": 19.92,
-      "latency_ms": 4997.6,
+      "latency_ms": 9333.4,
       "cost_usd": 0.0011621057291666668,
-      "wer": 0.1176,
+      "wer": 0.1765,
       "status": "ok"
     },
     {
@@ -225,7 +225,7 @@
       "model": "v2",
       "language": "de",
       "audio_s": 19.92,
-      "latency_ms": 5205.5,
+      "latency_ms": 5736.5,
       "cost_usd": 0.0033867081250000004,
       "wer": 0.1765,
       "status": "ok"
@@ -236,7 +236,7 @@
       "model": "enhanced",
       "language": "de",
       "audio_s": 19.92,
-      "latency_ms": 11160.0,
+      "latency_ms": 5612.7,
       "cost_usd": 0.0022246023958333336,
       "wer": 0.1765,
       "status": "ok"
@@ -247,7 +247,7 @@
       "model": "machine",
       "language": "de",
       "audio_s": 19.92,
-      "latency_ms": 29575.9,
+      "latency_ms": 94420.3,
       "cost_usd": 0.0016601510416666668,
       "wer": 0.1765,
       "status": "ok"
@@ -258,7 +258,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 23.16,
-      "latency_ms": 909.8,
+      "latency_ms": 712.0,
       "cost_usd": 0.0016599298958333334,
       "wer": 0.0,
       "status": "ok"
@@ -269,7 +269,7 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 23.16,
-      "latency_ms": 1122.1,
+      "latency_ms": 457.9,
       "cost_usd": 0.0010422815625,
       "wer": 0.1,
       "status": "ok"
@@ -280,7 +280,7 @@
       "model": "universal-3-5-pro",
       "language": "de",
       "audio_s": 23.16,
-      "latency_ms": 5109.8,
+      "latency_ms": 4818.8,
       "cost_usd": 0.0013511057291666667,
       "wer": 0.1,
       "status": "ok"
@@ -291,7 +291,7 @@
       "model": "v2",
       "language": "de",
       "audio_s": 23.16,
-      "latency_ms": 5659.0,
+      "latency_ms": 5754.6,
       "cost_usd": 0.003937508125,
       "wer": 0.1,
       "status": "ok"
@@ -302,7 +302,7 @@
       "model": "enhanced",
       "language": "de",
       "audio_s": 23.16,
-      "latency_ms": 5719.8,
+      "latency_ms": 5420.2,
       "cost_usd": 0.0025864023958333334,
       "wer": 0.1,
       "status": "ok"
@@ -313,7 +313,7 @@
       "model": "machine",
       "language": "de",
       "audio_s": 23.16,
-      "latency_ms": 29598.3,
+      "latency_ms": 90626.1,
       "cost_usd": 0.0019301510416666668,
       "wer": 0.1,
       "status": "ok"
@@ -324,7 +324,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 13.2,
-      "latency_ms": 642.1,
+      "latency_ms": 225.8,
       "cost_usd": 0.0009461298958333334,
       "wer": 0.0526,
       "status": "ok"
@@ -335,7 +335,7 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 13.2,
-      "latency_ms": 1034.7,
+      "latency_ms": 424.9,
       "cost_usd": 0.0005940815625,
       "wer": 0.1579,
       "status": "ok"
@@ -346,7 +346,7 @@
       "model": "universal-3-5-pro",
       "language": "de",
       "audio_s": 13.2,
-      "latency_ms": 4880.7,
+      "latency_ms": 4800.1,
       "cost_usd": 0.0007701057291666667,
       "wer": 0.1579,
       "status": "ok"
@@ -357,7 +357,7 @@
       "model": "v2",
       "language": "de",
       "audio_s": 13.2,
-      "latency_ms": 5680.1,
+      "latency_ms": 5812.5,
       "cost_usd": 0.0022443081250000003,
       "wer": 0.1579,
       "status": "ok"
@@ -368,7 +368,7 @@
       "model": "enhanced",
       "language": "de",
       "audio_s": 13.2,
-      "latency_ms": 4835.7,
+      "latency_ms": 5441.4,
       "cost_usd": 0.0014742023958333333,
       "wer": 0.1579,
       "status": "ok"
@@ -379,7 +379,7 @@
       "model": "machine",
       "language": "de",
       "audio_s": 13.2,
-      "latency_ms": 21387.0,
+      "latency_ms": 98371.3,
       "cost_usd": 0.0011001510416666668,
       "wer": 0.0526,
       "status": "ok"
@@ -390,7 +390,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 10.8,
-      "latency_ms": 736.2,
+      "latency_ms": 317.7,
       "cost_usd": 0.0007741298958333333,
       "wer": 0.0,
       "status": "ok"
@@ -401,7 +401,7 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 10.8,
-      "latency_ms": 328.8,
+      "latency_ms": 604.8,
       "cost_usd": 0.0004860815625,
       "wer": 0.1538,
       "status": "ok"
@@ -412,7 +412,7 @@
       "model": "universal-3-5-pro",
       "language": "de",
       "audio_s": 10.8,
-      "latency_ms": 5671.2,
+      "latency_ms": 5922.4,
       "cost_usd": 0.0006301057291666667,
       "wer": 0.1538,
       "status": "ok"
@@ -423,7 +423,7 @@
       "model": "v2",
       "language": "de",
       "audio_s": 10.8,
-      "latency_ms": 5222.5,
+      "latency_ms": 6027.9,
       "cost_usd": 0.0018363081250000002,
       "wer": 0.1538,
       "status": "ok"
@@ -434,7 +434,7 @@
       "model": "enhanced",
       "language": "de",
       "audio_s": 10.8,
-      "latency_ms": 5226.1,
+      "latency_ms": 5370.4,
       "cost_usd": 0.0012062023958333333,
       "wer": 0.1538,
       "status": "ok"
@@ -445,7 +445,7 @@
       "model": "machine",
       "language": "de",
       "audio_s": 10.8,
-      "latency_ms": 8996.5,
+      "latency_ms": 74036.6,
       "cost_usd": 0.0009001510416666667,
       "wer": 0.1538,
       "status": "ok"
@@ -456,7 +456,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 12.96,
-      "latency_ms": 703.4,
+      "latency_ms": 518.7,
       "cost_usd": 0.0009289298958333333,
       "wer": 0.0,
       "status": "ok"
@@ -467,7 +467,7 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 12.96,
-      "latency_ms": 333.6,
+      "latency_ms": 545.8,
       "cost_usd": 0.0005832815625000001,
       "wer": 0.1579,
       "status": "ok"
@@ -478,7 +478,7 @@
       "model": "universal-3-5-pro",
       "language": "de",
       "audio_s": 12.96,
-      "latency_ms": 4987.5,
+      "latency_ms": 4909.3,
       "cost_usd": 0.0007561057291666667,
       "wer": 0.1579,
       "status": "ok"
@@ -489,7 +489,7 @@
       "model": "v2",
       "language": "de",
       "audio_s": 12.96,
-      "latency_ms": 6050.9,
+      "latency_ms": 5560.5,
       "cost_usd": 0.0022035081250000002,
       "wer": 0.1579,
       "status": "ok"
@@ -500,7 +500,7 @@
       "model": "enhanced",
       "language": "de",
       "audio_s": 12.96,
-      "latency_ms": 5185.6,
+      "latency_ms": 5321.7,
       "cost_usd": 0.0014474023958333333,
       "wer": 0.1579,
       "status": "ok"
@@ -511,7 +511,7 @@
       "model": "machine",
       "language": "de",
       "audio_s": 12.96,
-      "latency_ms": 9122.0,
+      "latency_ms": 8885.6,
       "cost_usd": 0.0010801510416666668,
       "wer": 0.1053,
       "status": "ok"
@@ -522,7 +522,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 23.28,
-      "latency_ms": 734.9,
+      "latency_ms": 530.3,
       "cost_usd": 0.0016685298958333335,
       "wer": 0.2222,
       "status": "ok"
@@ -533,7 +533,7 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 23.28,
-      "latency_ms": 1021.1,
+      "latency_ms": 419.9,
       "cost_usd": 0.0010476815625,
       "wer": 0.1852,
       "status": "ok"
@@ -544,7 +544,7 @@
       "model": "universal-3-5-pro",
       "language": "de",
       "audio_s": 23.28,
-      "latency_ms": 5088.6,
+      "latency_ms": 4828.4,
       "cost_usd": 0.0013581057291666668,
       "wer": 0.1111,
       "status": "ok"
@@ -555,7 +555,7 @@
       "model": "v2",
       "language": "de",
       "audio_s": 23.28,
-      "latency_ms": 5398.8,
+      "latency_ms": 5571.0,
       "cost_usd": 0.003957908125,
       "wer": 0.1852,
       "status": "ok"
@@ -566,7 +566,7 @@
       "model": "enhanced",
       "language": "de",
       "audio_s": 23.28,
-      "latency_ms": 5544.2,
+      "latency_ms": 5636.0,
       "cost_usd": 0.0025998023958333336,
       "wer": 0.2593,
       "status": "ok"
@@ -577,7 +577,7 @@
       "model": "machine",
       "language": "de",
       "audio_s": 23.28,
-      "latency_ms": 9075.7,
+      "latency_ms": 8956.8,
       "cost_usd": 0.0019401510416666668,
       "wer": 0.1852,
       "status": "ok"
@@ -588,7 +588,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 24.84,
-      "latency_ms": 613.7,
+      "latency_ms": 583.0,
       "cost_usd": 0.0017803298958333333,
       "wer": 0.1429,
       "status": "ok"
@@ -599,7 +599,7 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 24.84,
-      "latency_ms": 746.8,
+      "latency_ms": 445.9,
       "cost_usd": 0.0011178815625,
       "wer": 0.1429,
       "status": "ok"
@@ -610,7 +610,7 @@
       "model": "universal-3-5-pro",
       "language": "de",
       "audio_s": 24.84,
-      "latency_ms": 5189.0,
+      "latency_ms": 5025.2,
       "cost_usd": 0.0014491057291666667,
       "wer": 0.1429,
       "status": "ok"
@@ -621,7 +621,7 @@
       "model": "v2",
       "language": "de",
       "audio_s": 24.84,
-      "latency_ms": 5514.0,
+      "latency_ms": 5725.9,
       "cost_usd": 0.0042231081250000005,
       "wer": 0.1429,
       "status": "ok"
@@ -632,7 +632,7 @@
       "model": "enhanced",
       "language": "de",
       "audio_s": 24.84,
-      "latency_ms": 5361.5,
+      "latency_ms": 5507.2,
       "cost_usd": 0.0027740023958333334,
       "wer": 0.1429,
       "status": "ok"
@@ -643,7 +643,7 @@
       "model": "machine",
       "language": "de",
       "audio_s": 24.84,
-      "latency_ms": 9150.4,
+      "latency_ms": 13006.4,
       "cost_usd": 0.0020701510416666668,
       "wer": 0.1071,
       "status": "ok"
@@ -654,7 +654,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 14.4,
-      "latency_ms": 133.4,
+      "latency_ms": 493.5,
       "cost_usd": 0.0010321298958333334,
       "wer": 0.0,
       "status": "ok"
@@ -665,7 +665,7 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 14.4,
-      "latency_ms": 340.4,
+      "latency_ms": 444.8,
       "cost_usd": 0.0006480815625,
       "wer": 0.125,
       "status": "ok"
@@ -676,7 +676,7 @@
       "model": "universal-3-5-pro",
       "language": "de",
       "audio_s": 14.4,
-      "latency_ms": 4986.2,
+      "latency_ms": 4798.6,
       "cost_usd": 0.0008401057291666667,
       "wer": 0.125,
       "status": "ok"
@@ -687,7 +687,7 @@
       "model": "v2",
       "language": "de",
       "audio_s": 14.4,
-      "latency_ms": 5450.3,
+      "latency_ms": 5725.3,
       "cost_usd": 0.002448308125,
       "wer": 0.125,
       "status": "ok"
@@ -698,7 +698,7 @@
       "model": "enhanced",
       "language": "de",
       "audio_s": 14.4,
-      "latency_ms": 5122.7,
+      "latency_ms": 5228.1,
       "cost_usd": 0.0016082023958333333,
       "wer": 0.125,
       "status": "ok"
@@ -709,7 +709,7 @@
       "model": "machine",
       "language": "de",
       "audio_s": 14.4,
-      "latency_ms": 9182.4,
+      "latency_ms": 8932.1,
       "cost_usd": 0.0012001510416666666,
       "wer": 0.125,
       "status": "ok"
@@ -720,7 +720,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 24.24,
-      "latency_ms": 156.7,
+      "latency_ms": 432.1,
       "cost_usd": 0.0017373298958333332,
       "wer": 0.0,
       "status": "ok"
@@ -731,7 +731,7 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 24.24,
-      "latency_ms": 719.0,
+      "latency_ms": 584.3,
       "cost_usd": 0.0010908815625,
       "wer": 0.1429,
       "status": "ok"
@@ -742,7 +742,7 @@
       "model": "universal-3-5-pro",
       "language": "de",
       "audio_s": 24.24,
-      "latency_ms": 5103.7,
+      "latency_ms": 4846.0,
       "cost_usd": 0.0014141057291666666,
       "wer": 0.1429,
       "status": "ok"
@@ -753,7 +753,7 @@
       "model": "v2",
       "language": "de",
       "audio_s": 24.24,
-      "latency_ms": 5883.9,
+      "latency_ms": 5672.7,
       "cost_usd": 0.004121108125,
       "wer": 0.1429,
       "status": "ok"
@@ -764,7 +764,7 @@
       "model": "enhanced",
       "language": "de",
       "audio_s": 24.24,
-      "latency_ms": 5247.4,
+      "latency_ms": 5397.3,
       "cost_usd": 0.002707002395833333,
       "wer": 0.1429,
       "status": "ok"
@@ -775,7 +775,7 @@
       "model": "machine",
       "language": "de",
       "audio_s": 24.24,
-      "latency_ms": 9298.8,
+      "latency_ms": 8963.2,
       "cost_usd": 0.0020201510416666666,
       "wer": 0.0714,
       "status": "ok"
@@ -786,7 +786,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 26.16,
-      "latency_ms": 6120.6,
+      "latency_ms": 275.4,
       "cost_usd": 0.0018749298958333333,
       "wer": 0.0909,
       "status": "ok"
@@ -797,7 +797,7 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 26.16,
-      "latency_ms": 1424.1,
+      "latency_ms": 618.2,
       "cost_usd": 0.0011772815625,
       "wer": 0.1818,
       "status": "ok"
@@ -808,7 +808,7 @@
       "model": "universal-3-5-pro",
       "language": "de",
       "audio_s": 26.16,
-      "latency_ms": 5405.2,
+      "latency_ms": 4892.1,
       "cost_usd": 0.0015261057291666668,
       "wer": 0.1818,
       "status": "ok"
@@ -819,7 +819,7 @@
       "model": "v2",
       "language": "de",
       "audio_s": 26.16,
-      "latency_ms": 5438.0,
+      "latency_ms": 5822.7,
       "cost_usd": 0.004447508125,
       "wer": 0.1818,
       "status": "ok"
@@ -830,7 +830,7 @@
       "model": "enhanced",
       "language": "de",
       "audio_s": 26.16,
-      "latency_ms": 5331.0,
+      "latency_ms": 5657.8,
       "cost_usd": 0.0029214023958333336,
       "wer": 0.0909,
       "status": "ok"
@@ -841,7 +841,7 @@
       "model": "machine",
       "language": "de",
       "audio_s": 26.16,
-      "latency_ms": 13240.3,
+      "latency_ms": 8945.4,
       "cost_usd": 0.0021801510416666666,
       "wer": 0.1818,
       "status": "ok"
@@ -852,7 +852,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 20.4,
-      "latency_ms": 942.4,
+      "latency_ms": 245.5,
       "cost_usd": 0.0014621298958333332,
       "wer": 0.24,
       "status": "ok"
@@ -863,7 +863,7 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 20.4,
-      "latency_ms": 386.6,
+      "latency_ms": 373.8,
       "cost_usd": 0.0009180815625,
       "wer": 0.48,
       "status": "ok"
@@ -874,7 +874,7 @@
       "model": "universal-3-5-pro",
       "language": "de",
       "audio_s": 20.4,
-      "latency_ms": 4977.0,
+      "latency_ms": 4850.4,
       "cost_usd": 0.0011901057291666666,
       "wer": 0.36,
       "status": "ok"
@@ -885,7 +885,7 @@
       "model": "v2",
       "language": "de",
       "audio_s": 20.4,
-      "latency_ms": 6236.2,
+      "latency_ms": 5318.8,
       "cost_usd": 0.003468308125,
       "wer": 0.48,
       "status": "ok"
@@ -896,7 +896,7 @@
       "model": "enhanced",
       "language": "de",
       "audio_s": 20.4,
-      "latency_ms": 5048.8,
+      "latency_ms": 5573.1,
       "cost_usd": 0.002278202395833333,
       "wer": 0.32,
       "status": "ok"
@@ -907,7 +907,7 @@
       "model": "machine",
       "language": "de",
       "audio_s": 20.4,
-      "latency_ms": 21393.8,
+      "latency_ms": 8994.5,
       "cost_usd": 0.0017001510416666667,
       "wer": 0.4,
       "status": "ok"
@@ -918,7 +918,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 12.6,
-      "latency_ms": 138.9,
+      "latency_ms": 279.4,
       "cost_usd": 0.0009031298958333333,
       "wer": 0.0,
       "status": "ok"
@@ -929,7 +929,7 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 12.6,
-      "latency_ms": 1068.8,
+      "latency_ms": 401.7,
       "cost_usd": 0.0005670815625,
       "wer": 0.1538,
       "status": "ok"
@@ -940,7 +940,7 @@
       "model": "universal-3-5-pro",
       "language": "de",
       "audio_s": 12.6,
-      "latency_ms": 5481.5,
+      "latency_ms": 4767.4,
       "cost_usd": 0.0007351057291666667,
       "wer": 0.1538,
       "status": "ok"
@@ -951,7 +951,7 @@
       "model": "v2",
       "language": "de",
       "audio_s": 12.6,
-      "latency_ms": 5779.2,
+      "latency_ms": 5283.6,
       "cost_usd": 0.0021423081250000003,
       "wer": 0.1538,
       "status": "ok"
@@ -962,7 +962,7 @@
       "model": "enhanced",
       "language": "de",
       "audio_s": 12.6,
-      "latency_ms": 5230.5,
+      "latency_ms": 5381.7,
       "cost_usd": 0.0014072023958333333,
       "wer": 0.1538,
       "status": "ok"
@@ -973,7 +973,7 @@
       "model": "machine",
       "language": "de",
       "audio_s": 12.6,
-      "latency_ms": 25344.5,
+      "latency_ms": 8816.8,
       "cost_usd": 0.0010501510416666667,
       "wer": 0.1538,
       "status": "ok"
@@ -984,7 +984,7 @@
       "model": "nova-3",
       "language": "de",
       "audio_s": 20.64,
-      "latency_ms": 837.8,
+      "latency_ms": 254.7,
       "cost_usd": 0.0014793298958333332,
       "wer": 0.1176,
       "status": "ok"
@@ -995,7 +995,7 @@
       "model": "whisper-large-v3",
       "language": "de",
       "audio_s": 20.64,
-      "latency_ms": 670.3,
+      "latency_ms": 726.2,
       "cost_usd": 0.0009288815625,
       "wer": 0.1765,
       "status": "ok"
@@ -1006,7 +1006,7 @@
       "model": "universal-3-5-pro",
       "language": "de",
       "audio_s": 20.64,
-      "latency_ms": 5004.6,
+      "latency_ms": 4906.7,
       "cost_usd": 0.0012041057291666665,
       "wer": 0.1176,
       "status": "ok"
@@ -1017,7 +1017,7 @@
       "model": "v2",
       "language": "de",
       "audio_s": 20.64,
-      "latency_ms": 5611.3,
+      "latency_ms": 5511.2,
       "cost_usd": 0.003509108125,
       "wer": 0.1765,
       "status": "ok"
@@ -1028,7 +1028,7 @@
       "model": "enhanced",
       "language": "de",
       "audio_s": 20.64,
-      "latency_ms": 5328.4,
+      "latency_ms": 5466.9,
       "cost_usd": 0.002305002395833333,
       "wer": 0.1765,
       "status": "ok"
@@ -1039,7 +1039,7 @@
       "model": "machine",
       "language": "de",
       "audio_s": 20.64,
-      "latency_ms": 13357.1,
+      "latency_ms": 9144.4,
       "cost_usd": 0.0017201510416666665,
       "wer": 0.1176,
       "status": "ok"
@@ -1050,7 +1050,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 21.12,
-      "latency_ms": 906.2,
+      "latency_ms": 643.6,
       "cost_usd": 0.0015137298958333332,
       "wer": 0.2105,
       "status": "ok"
@@ -1061,7 +1061,7 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 21.12,
-      "latency_ms": 677.3,
+      "latency_ms": 754.0,
       "cost_usd": 0.0009504815625,
       "wer": 0.1579,
       "status": "ok"
@@ -1072,7 +1072,7 @@
       "model": "universal-3-5-pro",
       "language": "en",
       "audio_s": 21.12,
-      "latency_ms": 5206.9,
+      "latency_ms": 4878.7,
       "cost_usd": 0.0012321057291666665,
       "wer": 0.1579,
       "status": "ok"
@@ -1083,7 +1083,7 @@
       "model": "v2",
       "language": "en",
       "audio_s": 21.12,
-      "latency_ms": 5660.9,
+      "latency_ms": 5617.9,
       "cost_usd": 0.003590708125,
       "wer": 0.3158,
       "status": "ok"
@@ -1094,7 +1094,7 @@
       "model": "enhanced",
       "language": "en",
       "audio_s": 21.12,
-      "latency_ms": 5668.9,
+      "latency_ms": 5314.5,
       "cost_usd": 0.002358602395833333,
       "wer": 0.1579,
       "status": "ok"
@@ -1105,7 +1105,7 @@
       "model": "machine",
       "language": "en",
       "audio_s": 21.12,
-      "latency_ms": 98973.5,
+      "latency_ms": 8944.9,
       "cost_usd": 0.0017601510416666666,
       "wer": 0.1579,
       "status": "ok"
@@ -1116,7 +1116,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 16.56,
-      "latency_ms": 595.9,
+      "latency_ms": 191.5,
       "cost_usd": 0.0011869298958333335,
       "wer": 0.125,
       "status": "ok"
@@ -1127,7 +1127,7 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 16.56,
-      "latency_ms": 794.8,
+      "latency_ms": 436.1,
       "cost_usd": 0.0007452815625000001,
       "wer": 0.2083,
       "status": "ok"
@@ -1138,7 +1138,7 @@
       "model": "universal-3-5-pro",
       "language": "en",
       "audio_s": 16.56,
-      "latency_ms": 5101.2,
+      "latency_ms": 4802.3,
       "cost_usd": 0.0009661057291666668,
       "wer": 0.1667,
       "status": "ok"
@@ -1149,7 +1149,7 @@
       "model": "v2",
       "language": "en",
       "audio_s": 16.56,
-      "latency_ms": 5652.6,
+      "latency_ms": 5502.8,
       "cost_usd": 0.0028155081250000004,
       "wer": 0.1667,
       "status": "ok"
@@ -1160,7 +1160,7 @@
       "model": "enhanced",
       "language": "en",
       "audio_s": 16.56,
-      "latency_ms": 5119.2,
+      "latency_ms": 5347.1,
       "cost_usd": 0.0018494023958333335,
       "wer": 0.1667,
       "status": "ok"
@@ -1171,7 +1171,7 @@
       "model": "machine",
       "language": "en",
       "audio_s": 16.56,
-      "latency_ms": 91007.2,
+      "latency_ms": 8885.2,
       "cost_usd": 0.001380151041666667,
       "wer": 0.2083,
       "status": "ok"
@@ -1182,7 +1182,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 21.92,
-      "latency_ms": 319.9,
+      "latency_ms": 272.5,
       "cost_usd": 0.0015710632291666667,
       "wer": 0.0909,
       "status": "ok"
@@ -1193,7 +1193,7 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 21.92,
-      "latency_ms": 638.2,
+      "latency_ms": 872.5,
       "cost_usd": 0.0009864815625000001,
       "wer": 0.0909,
       "status": "ok"
@@ -1204,7 +1204,7 @@
       "model": "universal-3-5-pro",
       "language": "en",
       "audio_s": 21.92,
-      "latency_ms": 5041.5,
+      "latency_ms": 4823.2,
       "cost_usd": 0.0012787723958333334,
       "wer": 0.0909,
       "status": "ok"
@@ -1215,7 +1215,7 @@
       "model": "v2",
       "language": "en",
       "audio_s": 21.92,
-      "latency_ms": 5405.5,
+      "latency_ms": 6453.0,
       "cost_usd": 0.0037267081250000004,
       "wer": 0.0909,
       "status": "ok"
@@ -1226,7 +1226,7 @@
       "model": "enhanced",
       "language": "en",
       "audio_s": 21.92,
-      "latency_ms": 5076.9,
+      "latency_ms": 5018.3,
       "cost_usd": 0.0024479357291666668,
       "wer": 0.0909,
       "status": "ok"
@@ -1237,7 +1237,7 @@
       "model": "machine",
       "language": "en",
       "audio_s": 21.92,
-      "latency_ms": 87018.7,
+      "latency_ms": 13056.9,
       "cost_usd": 0.0018268177083333335,
       "wer": 0.1818,
       "status": "ok"
@@ -1248,7 +1248,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 14.16,
-      "latency_ms": 623.2,
+      "latency_ms": 466.2,
       "cost_usd": 0.0010149298958333332,
       "wer": 0.1667,
       "status": "ok"
@@ -1259,7 +1259,7 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 14.16,
-      "latency_ms": 1028.5,
+      "latency_ms": 876.4,
       "cost_usd": 0.0006372815625,
       "wer": 0.1667,
       "status": "ok"
@@ -1270,7 +1270,7 @@
       "model": "universal-3-5-pro",
       "language": "en",
       "audio_s": 14.16,
-      "latency_ms": 5188.1,
+      "latency_ms": 4809.0,
       "cost_usd": 0.0008261057291666667,
       "wer": 0.1667,
       "status": "ok"
@@ -1281,7 +1281,7 @@
       "model": "v2",
       "language": "en",
       "audio_s": 14.16,
-      "latency_ms": 5441.6,
+      "latency_ms": 5474.8,
       "cost_usd": 0.002407508125,
       "wer": 0.1667,
       "status": "ok"
@@ -1292,7 +1292,7 @@
       "model": "enhanced",
       "language": "en",
       "audio_s": 14.16,
-      "latency_ms": 5238.0,
+      "latency_ms": 5359.3,
       "cost_usd": 0.0015814023958333333,
       "wer": 0.1667,
       "status": "ok"
@@ -1303,7 +1303,7 @@
       "model": "machine",
       "language": "en",
       "audio_s": 14.16,
-      "latency_ms": 82660.3,
+      "latency_ms": 8926.3,
       "cost_usd": 0.0011801510416666666,
       "wer": 0.6667,
       "status": "ok"
@@ -1314,7 +1314,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 14.64,
-      "latency_ms": 726.6,
+      "latency_ms": 491.2,
       "cost_usd": 0.0010493298958333334,
       "wer": 0.0833,
       "status": "ok"
@@ -1325,7 +1325,7 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 14.64,
-      "latency_ms": 522.2,
+      "latency_ms": 777.3,
       "cost_usd": 0.0006588815625000001,
       "wer": 0.25,
       "status": "ok"
@@ -1336,7 +1336,7 @@
       "model": "universal-3-5-pro",
       "language": "en",
       "audio_s": 14.64,
-      "latency_ms": 4973.9,
+      "latency_ms": 4816.4,
       "cost_usd": 0.0008541057291666667,
       "wer": 0.1667,
       "status": "ok"
@@ -1347,7 +1347,7 @@
       "model": "v2",
       "language": "en",
       "audio_s": 14.64,
-      "latency_ms": 5490.6,
+      "latency_ms": 5541.2,
       "cost_usd": 0.0024891081250000002,
       "wer": 0.25,
       "status": "ok"
@@ -1358,7 +1358,7 @@
       "model": "enhanced",
       "language": "en",
       "audio_s": 14.64,
-      "latency_ms": 4822.5,
+      "latency_ms": 5348.6,
       "cost_usd": 0.0016350023958333333,
       "wer": 0.25,
       "status": "ok"
@@ -1369,7 +1369,7 @@
       "model": "machine",
       "language": "en",
       "audio_s": 14.64,
-      "latency_ms": 74494.6,
+      "latency_ms": 8895.6,
       "cost_usd": 0.0012201510416666667,
       "wer": 0.25,
       "status": "ok"
@@ -1380,7 +1380,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 16.92,
-      "latency_ms": 130.3,
+      "latency_ms": 208.4,
       "cost_usd": 0.0012127298958333331,
       "wer": 0.0,
       "status": "ok"
@@ -1391,7 +1391,7 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 16.92,
-      "latency_ms": 832.4,
+      "latency_ms": 445.9,
       "cost_usd": 0.0007614815625,
       "wer": 0.0526,
       "status": "ok"
@@ -1402,7 +1402,7 @@
       "model": "universal-3-5-pro",
       "language": "en",
       "audio_s": 16.92,
-      "latency_ms": 5000.7,
+      "latency_ms": 4839.7,
       "cost_usd": 0.0009871057291666666,
       "wer": 0.0526,
       "status": "ok"
@@ -1413,7 +1413,7 @@
       "model": "v2",
       "language": "en",
       "audio_s": 16.92,
-      "latency_ms": 5522.7,
+      "latency_ms": 5566.1,
       "cost_usd": 0.002876708125,
       "wer": 0.1053,
       "status": "ok"
@@ -1424,7 +1424,7 @@
       "model": "enhanced",
       "language": "en",
       "audio_s": 16.92,
-      "latency_ms": 5234.3,
+      "latency_ms": 5395.8,
       "cost_usd": 0.0018896023958333333,
       "wer": 0.0526,
       "status": "ok"
@@ -1435,7 +1435,7 @@
       "model": "machine",
       "language": "en",
       "audio_s": 16.92,
-      "latency_ms": 54173.6,
+      "latency_ms": 8939.9,
       "cost_usd": 0.0014101510416666665,
       "wer": 0.0526,
       "status": "ok"
@@ -1446,7 +1446,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 10.44,
-      "latency_ms": 264.1,
+      "latency_ms": 169.5,
       "cost_usd": 0.0007483298958333333,
       "wer": 0.1429,
       "status": "ok"
@@ -1457,7 +1457,7 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 10.44,
-      "latency_ms": 662.8,
+      "latency_ms": 426.1,
       "cost_usd": 0.0004698815625,
       "wer": 0.1429,
       "status": "ok"
@@ -1468,7 +1468,7 @@
       "model": "universal-3-5-pro",
       "language": "en",
       "audio_s": 10.44,
-      "latency_ms": 4935.4,
+      "latency_ms": 4726.6,
       "cost_usd": 0.0006091057291666667,
       "wer": 0.1429,
       "status": "ok"
@@ -1479,7 +1479,7 @@
       "model": "v2",
       "language": "en",
       "audio_s": 10.44,
-      "latency_ms": 5179.8,
+      "latency_ms": 5430.7,
       "cost_usd": 0.001775108125,
       "wer": 0.1429,
       "status": "ok"
@@ -1490,7 +1490,7 @@
       "model": "enhanced",
       "language": "en",
       "audio_s": 10.44,
-      "latency_ms": 5397.6,
+      "latency_ms": 5267.7,
       "cost_usd": 0.0011660023958333333,
       "wer": 0.1429,
       "status": "ok"
@@ -1501,7 +1501,7 @@
       "model": "machine",
       "language": "en",
       "audio_s": 10.44,
-      "latency_ms": 21263.6,
+      "latency_ms": 8839.3,
       "cost_usd": 0.0008701510416666666,
       "wer": 0.1429,
       "status": "ok"
@@ -1512,7 +1512,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 25.56,
-      "latency_ms": 740.7,
+      "latency_ms": 235.1,
       "cost_usd": 0.0018319298958333332,
       "wer": 0.0,
       "status": "ok"
@@ -1523,7 +1523,7 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 25.56,
-      "latency_ms": 1276.5,
+      "latency_ms": 527.3,
       "cost_usd": 0.0011502815625,
       "wer": 0.1071,
       "status": "ok"
@@ -1534,7 +1534,7 @@
       "model": "universal-3-5-pro",
       "language": "en",
       "audio_s": 25.56,
-      "latency_ms": 5731.8,
+      "latency_ms": 4827.9,
       "cost_usd": 0.0014911057291666667,
       "wer": 0.1071,
       "status": "ok"
@@ -1545,7 +1545,7 @@
       "model": "v2",
       "language": "en",
       "audio_s": 25.56,
-      "latency_ms": 5639.6,
+      "latency_ms": 5582.1,
       "cost_usd": 0.0043455081250000005,
       "wer": 0.1429,
       "status": "ok"
@@ -1556,7 +1556,7 @@
       "model": "enhanced",
       "language": "en",
       "audio_s": 25.56,
-      "latency_ms": 5289.0,
+      "latency_ms": 5465.5,
       "cost_usd": 0.0028544023958333334,
       "wer": 0.1071,
       "status": "ok"
@@ -1567,7 +1567,7 @@
       "model": "machine",
       "language": "en",
       "audio_s": 25.56,
-      "latency_ms": 9111.1,
+      "latency_ms": 13056.2,
       "cost_usd": 0.0021301510416666665,
       "wer": 0.1429,
       "status": "ok"
@@ -1578,7 +1578,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 23.28,
-      "latency_ms": 1788.5,
+      "latency_ms": 283.8,
       "cost_usd": 0.0016685298958333335,
       "wer": 0.0,
       "status": "ok"
@@ -1589,7 +1589,7 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 23.28,
-      "latency_ms": 1221.3,
+      "latency_ms": 695.6,
       "cost_usd": 0.0010476815625,
       "wer": 0.1429,
       "status": "ok"
@@ -1600,7 +1600,7 @@
       "model": "universal-3-5-pro",
       "language": "en",
       "audio_s": 23.28,
-      "latency_ms": 5035.3,
+      "latency_ms": 5023.6,
       "cost_usd": 0.0013581057291666668,
       "wer": 0.1429,
       "status": "ok"
@@ -1611,7 +1611,7 @@
       "model": "v2",
       "language": "en",
       "audio_s": 23.28,
-      "latency_ms": 5542.4,
+      "latency_ms": 5493.0,
       "cost_usd": 0.003957908125,
       "wer": 0.1429,
       "status": "ok"
@@ -1622,7 +1622,7 @@
       "model": "enhanced",
       "language": "en",
       "audio_s": 23.28,
-      "latency_ms": 5395.2,
+      "latency_ms": 5406.4,
       "cost_usd": 0.0025998023958333336,
       "wer": 0.1429,
       "status": "ok"
@@ -1633,7 +1633,7 @@
       "model": "machine",
       "language": "en",
       "audio_s": 23.28,
-      "latency_ms": 13182.2,
+      "latency_ms": 13033.4,
       "cost_usd": 0.0019401510416666668,
       "wer": 0.1429,
       "status": "ok"
@@ -1644,7 +1644,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 14.88,
-      "latency_ms": 627.0,
+      "latency_ms": 371.3,
       "cost_usd": 0.0010665298958333334,
       "wer": 0.0,
       "status": "ok"
@@ -1655,7 +1655,7 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 14.88,
-      "latency_ms": 771.7,
+      "latency_ms": 337.6,
       "cost_usd": 0.0006696815625,
       "wer": 0.0714,
       "status": "ok"
@@ -1666,7 +1666,7 @@
       "model": "universal-3-5-pro",
       "language": "en",
       "audio_s": 14.88,
-      "latency_ms": 5152.0,
+      "latency_ms": 4877.2,
       "cost_usd": 0.0008681057291666667,
       "wer": 0.1429,
       "status": "ok"
@@ -1677,7 +1677,7 @@
       "model": "v2",
       "language": "en",
       "audio_s": 14.88,
-      "latency_ms": 5366.7,
+      "latency_ms": 5297.9,
       "cost_usd": 0.0025299081250000004,
       "wer": 0.0714,
       "status": "ok"
@@ -1688,7 +1688,7 @@
       "model": "enhanced",
       "language": "en",
       "audio_s": 14.88,
-      "latency_ms": 5401.2,
+      "latency_ms": 5384.0,
       "cost_usd": 0.0016618023958333333,
       "wer": 0.0714,
       "status": "ok"
@@ -1699,7 +1699,7 @@
       "model": "machine",
       "language": "en",
       "audio_s": 14.88,
-      "latency_ms": 9065.5,
+      "latency_ms": 8901.3,
       "cost_usd": 0.0012401510416666667,
       "wer": 0.0714,
       "status": "ok"
@@ -1710,7 +1710,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 22.2,
-      "latency_ms": 603.3,
+      "latency_ms": 412.6,
       "cost_usd": 0.0015911298958333332,
       "wer": 0.0625,
       "status": "ok"
@@ -1721,7 +1721,7 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 22.2,
-      "latency_ms": 1150.8,
+      "latency_ms": 509.3,
       "cost_usd": 0.0009990815625000001,
       "wer": 0.0625,
       "status": "ok"
@@ -1732,7 +1732,7 @@
       "model": "universal-3-5-pro",
       "language": "en",
       "audio_s": 22.2,
-      "latency_ms": 5094.1,
+      "latency_ms": 4840.4,
       "cost_usd": 0.0012951057291666667,
       "wer": 0.0625,
       "status": "ok"
@@ -1743,7 +1743,7 @@
       "model": "v2",
       "language": "en",
       "audio_s": 22.2,
-      "latency_ms": 5352.9,
+      "latency_ms": 5773.3,
       "cost_usd": 0.0037743081250000005,
       "wer": 0.0625,
       "status": "ok"
@@ -1754,7 +1754,7 @@
       "model": "enhanced",
       "language": "en",
       "audio_s": 22.2,
-      "latency_ms": 5373.9,
+      "latency_ms": 5561.3,
       "cost_usd": 0.0024792023958333334,
       "wer": 0.0938,
       "status": "ok"
@@ -1765,7 +1765,7 @@
       "model": "machine",
       "language": "en",
       "audio_s": 22.2,
-      "latency_ms": 13178.8,
+      "latency_ms": 8918.7,
       "cost_usd": 0.0018501510416666666,
       "wer": 0.0625,
       "status": "ok"
@@ -1776,7 +1776,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 13.32,
-      "latency_ms": 505.4,
+      "latency_ms": 195.4,
       "cost_usd": 0.0009547298958333334,
       "wer": 0.2222,
       "status": "ok"
@@ -1787,7 +1787,7 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 13.32,
-      "latency_ms": 1279.5,
+      "latency_ms": 326.7,
       "cost_usd": 0.0005994815625,
       "wer": 0.2222,
       "status": "ok"
@@ -1798,7 +1798,7 @@
       "model": "universal-3-5-pro",
       "language": "en",
       "audio_s": 13.32,
-      "latency_ms": 5435.6,
+      "latency_ms": 4753.8,
       "cost_usd": 0.0007771057291666667,
       "wer": 0.2222,
       "status": "ok"
@@ -1809,7 +1809,7 @@
       "model": "v2",
       "language": "en",
       "audio_s": 13.32,
-      "latency_ms": 5398.1,
+      "latency_ms": 5809.3,
       "cost_usd": 0.002264708125,
       "wer": 0.2778,
       "status": "ok"
@@ -1820,7 +1820,7 @@
       "model": "enhanced",
       "language": "en",
       "audio_s": 13.32,
-      "latency_ms": 5177.7,
+      "latency_ms": 5533.9,
       "cost_usd": 0.0014876023958333333,
       "wer": 0.2778,
       "status": "ok"
@@ -1831,7 +1831,7 @@
       "model": "machine",
       "language": "en",
       "audio_s": 13.32,
-      "latency_ms": 9227.1,
+      "latency_ms": 8907.0,
       "cost_usd": 0.0011101510416666666,
       "wer": 0.2778,
       "status": "ok"
@@ -1842,7 +1842,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 15.08,
-      "latency_ms": 139.9,
+      "latency_ms": 217.9,
       "cost_usd": 0.0010808632291666668,
       "wer": 0.0,
       "status": "ok"
@@ -1853,7 +1853,7 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 15.08,
-      "latency_ms": 961.0,
+      "latency_ms": 573.6,
       "cost_usd": 0.0006786815625000001,
       "wer": 0.3,
       "status": "ok"
@@ -1864,7 +1864,7 @@
       "model": "universal-3-5-pro",
       "language": "en",
       "audio_s": 15.08,
-      "latency_ms": 5075.2,
+      "latency_ms": 4870.0,
       "cost_usd": 0.0008797723958333335,
       "wer": 0.3,
       "status": "ok"
@@ -1875,7 +1875,7 @@
       "model": "v2",
       "language": "en",
       "audio_s": 15.08,
-      "latency_ms": 5695.9,
+      "latency_ms": 6024.3,
       "cost_usd": 0.0025639081250000005,
       "wer": 0.3,
       "status": "ok"
@@ -1886,7 +1886,7 @@
       "model": "enhanced",
       "language": "en",
       "audio_s": 15.08,
-      "latency_ms": 5064.9,
+      "latency_ms": 4519.1,
       "cost_usd": 0.001684135729166667,
       "wer": 0.3,
       "status": "ok"
@@ -1897,7 +1897,7 @@
       "model": "machine",
       "language": "en",
       "audio_s": 15.08,
-      "latency_ms": 9073.9,
+      "latency_ms": 8875.0,
       "cost_usd": 0.0012568177083333335,
       "wer": 0.4,
       "status": "ok"
@@ -1908,7 +1908,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 11.44,
-      "latency_ms": 500.5,
+      "latency_ms": 213.3,
       "cost_usd": 0.0008199965625,
       "wer": 0.3,
       "status": "ok"
@@ -1919,7 +1919,7 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 11.44,
-      "latency_ms": 1801.3,
+      "latency_ms": 1045.5,
       "cost_usd": 0.0005148815625,
       "wer": 0.2,
       "status": "ok"
@@ -1930,7 +1930,7 @@
       "model": "universal-3-5-pro",
       "language": "en",
       "audio_s": 11.44,
-      "latency_ms": 5393.6,
+      "latency_ms": 4762.8,
       "cost_usd": 0.0006674390625,
       "wer": 0.1,
       "status": "ok"
@@ -1941,7 +1941,7 @@
       "model": "v2",
       "language": "en",
       "audio_s": 11.44,
-      "latency_ms": 5644.8,
+      "latency_ms": 5432.0,
       "cost_usd": 0.001945108125,
       "wer": 0.2,
       "status": "ok"
@@ -1952,7 +1952,7 @@
       "model": "enhanced",
       "language": "en",
       "audio_s": 11.44,
-      "latency_ms": 4979.7,
+      "latency_ms": 4479.1,
       "cost_usd": 0.0012776690625,
       "wer": 0.1,
       "status": "ok"
@@ -1963,7 +1963,7 @@
       "model": "machine",
       "language": "en",
       "audio_s": 11.44,
-      "latency_ms": 9029.7,
+      "latency_ms": 8901.7,
       "cost_usd": 0.000953484375,
       "wer": 0.2,
       "status": "ok"
@@ -1974,7 +1974,7 @@
       "model": "nova-3",
       "language": "en",
       "audio_s": 27.6,
-      "latency_ms": 613.1,
+      "latency_ms": 243.4,
       "cost_usd": 0.0019781298958333336,
       "wer": 0.1304,
       "status": "ok"
@@ -1985,7 +1985,7 @@
       "model": "whisper-large-v3",
       "language": "en",
       "audio_s": 27.6,
-      "latency_ms": 1795.5,
+      "latency_ms": 1911.7,
       "cost_usd": 0.0012420815625,
       "wer": 0.1304,
       "status": "ok"
@@ -1996,7 +1996,7 @@
       "model": "universal-3-5-pro",
       "language": "en",
       "audio_s": 27.6,
-      "latency_ms": 8318.1,
+      "latency_ms": 4834.2,
       "cost_usd": 0.0016101057291666668,
       "wer": 0.0652,
       "status": "ok"
@@ -2007,7 +2007,7 @@
       "model": "v2",
       "language": "en",
       "audio_s": 27.6,
-      "latency_ms": 5746.7,
+      "latency_ms": 5603.1,
       "cost_usd": 0.004692308125000001,
       "wer": 0.1087,
       "status": "ok"
@@ -2018,7 +2018,7 @@
       "model": "enhanced",
       "language": "en",
       "audio_s": 27.6,
-      "latency_ms": 5131.2,
+      "latency_ms": 5467.8,
       "cost_usd": 0.0030822023958333336,
       "wer": 0.087,
       "status": "ok"
@@ -2029,7 +2029,7 @@
       "model": "machine",
       "language": "en",
       "audio_s": 27.6,
-      "latency_ms": 13290.0,
+      "latency_ms": 13073.0,
       "cost_usd": 0.002300151041666667,
       "wer": 0.1739,
       "status": "ok"
@@ -2040,7 +2040,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 15.36,
-      "latency_ms": 974.6,
+      "latency_ms": 295.1,
       "cost_usd": 0.0011009298958333334,
       "wer": 0.0667,
       "status": "ok"
@@ -2051,7 +2051,7 @@
       "model": "whisper-large-v3",
       "language": "es",
       "audio_s": 15.36,
-      "latency_ms": 1026.3,
+      "latency_ms": 760.7,
       "cost_usd": 0.0006912815625000001,
       "wer": 0.1333,
       "status": "ok"
@@ -2062,7 +2062,7 @@
       "model": "universal-3-5-pro",
       "language": "es",
       "audio_s": 15.36,
-      "latency_ms": 5103.1,
+      "latency_ms": 4911.9,
       "cost_usd": 0.0008961057291666667,
       "wer": 0.1333,
       "status": "ok"
@@ -2073,7 +2073,7 @@
       "model": "v2",
       "language": "es",
       "audio_s": 15.36,
-      "latency_ms": 5674.1,
+      "latency_ms": 6431.5,
       "cost_usd": 0.002611508125,
       "wer": 0.1333,
       "status": "ok"
@@ -2084,7 +2084,7 @@
       "model": "enhanced",
       "language": "es",
       "audio_s": 15.36,
-      "latency_ms": 5382.6,
+      "latency_ms": 5434.6,
       "cost_usd": 0.0017154023958333335,
       "wer": 0.2,
       "status": "ok"
@@ -2095,7 +2095,7 @@
       "model": "machine",
       "language": "es",
       "audio_s": 15.36,
-      "latency_ms": 21608.8,
+      "latency_ms": 25231.8,
       "cost_usd": 0.0012801510416666666,
       "wer": 0.2,
       "status": "ok"
@@ -2106,7 +2106,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 24.96,
-      "latency_ms": 602.2,
+      "latency_ms": 284.6,
       "cost_usd": 0.0017889298958333332,
       "wer": 0.0357,
       "status": "ok"
@@ -2117,7 +2117,7 @@
       "model": "whisper-large-v3",
       "language": "es",
       "audio_s": 24.96,
-      "latency_ms": 1220.0,
+      "latency_ms": 824.2,
       "cost_usd": 0.0011232815625,
       "wer": 0.0357,
       "status": "ok"
@@ -2128,7 +2128,7 @@
       "model": "universal-3-5-pro",
       "language": "es",
       "audio_s": 24.96,
-      "latency_ms": 5154.5,
+      "latency_ms": 4851.6,
       "cost_usd": 0.0014561057291666666,
       "wer": 0.0357,
       "status": "ok"
@@ -2139,7 +2139,7 @@
       "model": "v2",
       "language": "es",
       "audio_s": 24.96,
-      "latency_ms": 6202.9,
+      "latency_ms": 5556.8,
       "cost_usd": 0.004243508125,
       "wer": 0.0357,
       "status": "ok"
@@ -2150,7 +2150,7 @@
       "model": "enhanced",
       "language": "es",
       "audio_s": 24.96,
-      "latency_ms": 5458.9,
+      "latency_ms": 4533.7,
       "cost_usd": 0.002787402395833333,
       "wer": 0.0357,
       "status": "ok"
@@ -2161,7 +2161,7 @@
       "model": "machine",
       "language": "es",
       "audio_s": 24.96,
-      "latency_ms": 17315.7,
+      "latency_ms": 17094.7,
       "cost_usd": 0.0020801510416666668,
       "wer": 0.0357,
       "status": "ok"
@@ -2172,7 +2172,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 22.68,
-      "latency_ms": 670.5,
+      "latency_ms": 261.6,
       "cost_usd": 0.0016255298958333334,
       "wer": 0.0,
       "status": "ok"
@@ -2183,7 +2183,7 @@
       "model": "whisper-large-v3",
       "language": "es",
       "audio_s": 22.68,
-      "latency_ms": 1142.9,
+      "latency_ms": 698.4,
       "cost_usd": 0.0010206815625,
       "wer": 0.1,
       "status": "ok"
@@ -2194,7 +2194,7 @@
       "model": "universal-3-5-pro",
       "language": "es",
       "audio_s": 22.68,
-      "latency_ms": 5045.7,
+      "latency_ms": 4857.4,
       "cost_usd": 0.0013231057291666667,
       "wer": 0.1,
       "status": "ok"
@@ -2205,7 +2205,7 @@
       "model": "v2",
       "language": "es",
       "audio_s": 22.68,
-      "latency_ms": 5495.8,
+      "latency_ms": 6212.4,
       "cost_usd": 0.0038559081250000003,
       "wer": 0.1,
       "status": "ok"
@@ -2216,7 +2216,7 @@
       "model": "enhanced",
       "language": "es",
       "audio_s": 22.68,
-      "latency_ms": 5231.5,
+      "latency_ms": 5370.2,
       "cost_usd": 0.0025328023958333334,
       "wer": 0.1,
       "status": "ok"
@@ -2227,7 +2227,7 @@
       "model": "machine",
       "language": "es",
       "audio_s": 22.68,
-      "latency_ms": 13245.2,
+      "latency_ms": 12989.2,
       "cost_usd": 0.0018901510416666667,
       "wer": 0.05,
       "status": "ok"
@@ -2238,7 +2238,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 23.16,
-      "latency_ms": 335.5,
+      "latency_ms": 220.4,
       "cost_usd": 0.0016599298958333334,
       "wer": 0.1667,
       "status": "ok"
@@ -2249,7 +2249,7 @@
       "model": "whisper-large-v3",
       "language": "es",
       "audio_s": 23.16,
-      "latency_ms": 2354.4,
+      "latency_ms": 562.3,
       "cost_usd": 0.0010422815625,
       "wer": 0.125,
       "status": "ok"
@@ -2260,7 +2260,7 @@
       "model": "universal-3-5-pro",
       "language": "es",
       "audio_s": 23.16,
-      "latency_ms": 5047.3,
+      "latency_ms": 4825.9,
       "cost_usd": 0.0013511057291666667,
       "wer": 0.125,
       "status": "ok"
@@ -2271,7 +2271,7 @@
       "model": "v2",
       "language": "es",
       "audio_s": 23.16,
-      "latency_ms": 5864.2,
+      "latency_ms": 5809.1,
       "cost_usd": 0.003937508125,
       "wer": 0.125,
       "status": "ok"
@@ -2282,7 +2282,7 @@
       "model": "enhanced",
       "language": "es",
       "audio_s": 23.16,
-      "latency_ms": 5050.3,
+      "latency_ms": 5506.8,
       "cost_usd": 0.0025864023958333334,
       "wer": 0.125,
       "status": "ok"
@@ -2293,7 +2293,7 @@
       "model": "machine",
       "language": "es",
       "audio_s": 23.16,
-      "latency_ms": 9093.8,
+      "latency_ms": 8939.1,
       "cost_usd": 0.0019301510416666668,
       "wer": 0.25,
       "status": "ok"
@@ -2304,7 +2304,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 16.44,
-      "latency_ms": 319.4,
+      "latency_ms": 233.6,
       "cost_usd": 0.0011783298958333334,
       "wer": 0.1,
       "status": "ok"
@@ -2315,7 +2315,7 @@
       "model": "whisper-large-v3",
       "language": "es",
       "audio_s": 16.44,
-      "latency_ms": 1172.2,
+      "latency_ms": 553.4,
       "cost_usd": 0.0007398815625000001,
       "wer": 0.05,
       "status": "ok"
@@ -2326,7 +2326,7 @@
       "model": "universal-3-5-pro",
       "language": "es",
       "audio_s": 16.44,
-      "latency_ms": 5057.4,
+      "latency_ms": 4802.8,
       "cost_usd": 0.0009591057291666667,
       "wer": 0.05,
       "status": "ok"
@@ -2337,7 +2337,7 @@
       "model": "v2",
       "language": "es",
       "audio_s": 16.44,
-      "latency_ms": 5597.7,
+      "latency_ms": 5762.0,
       "cost_usd": 0.0027951081250000005,
       "wer": 0.05,
       "status": "ok"
@@ -2348,7 +2348,7 @@
       "model": "enhanced",
       "language": "es",
       "audio_s": 16.44,
-      "latency_ms": 5029.8,
+      "latency_ms": 5542.9,
       "cost_usd": 0.0018360023958333335,
       "wer": 0.05,
       "status": "ok"
@@ -2359,7 +2359,7 @@
       "model": "machine",
       "language": "es",
       "audio_s": 16.44,
-      "latency_ms": 9108.8,
+      "latency_ms": 8935.4,
       "cost_usd": 0.0013701510416666669,
       "wer": 0.2,
       "status": "ok"
@@ -2370,7 +2370,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 16.92,
-      "latency_ms": 171.0,
+      "latency_ms": 491.0,
       "cost_usd": 0.0012127298958333331,
       "wer": 0.0,
       "status": "ok"
@@ -2381,7 +2381,7 @@
       "model": "whisper-large-v3",
       "language": "es",
       "audio_s": 16.92,
-      "latency_ms": 1783.9,
+      "latency_ms": 622.1,
       "cost_usd": 0.0007614815625,
       "wer": 0.0769,
       "status": "ok"
@@ -2392,7 +2392,7 @@
       "model": "universal-3-5-pro",
       "language": "es",
       "audio_s": 16.92,
-      "latency_ms": 5063.3,
+      "latency_ms": 5377.6,
       "cost_usd": 0.0009871057291666666,
       "wer": 0.0769,
       "status": "ok"
@@ -2403,7 +2403,7 @@
       "model": "v2",
       "language": "es",
       "audio_s": 16.92,
-      "latency_ms": 5353.1,
+      "latency_ms": 5940.6,
       "cost_usd": 0.002876708125,
       "wer": 0.0769,
       "status": "ok"
@@ -2414,7 +2414,7 @@
       "model": "enhanced",
       "language": "es",
       "audio_s": 16.92,
-      "latency_ms": 5578.9,
+      "latency_ms": 4927.0,
       "cost_usd": 0.0018896023958333333,
       "wer": 0.0769,
       "status": "ok"
@@ -2425,7 +2425,7 @@
       "model": "machine",
       "language": "es",
       "audio_s": 16.92,
-      "latency_ms": 9164.4,
+      "latency_ms": 8942.7,
       "cost_usd": 0.0014101510416666665,
       "wer": 0.0769,
       "status": "ok"
@@ -2436,7 +2436,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 25.2,
-      "latency_ms": 80.8,
+      "latency_ms": 269.3,
       "cost_usd": 0.0018061298958333334,
       "wer": 0.0,
       "status": "ok"
@@ -2447,7 +2447,7 @@
       "model": "whisper-large-v3",
       "language": "es",
       "audio_s": 25.2,
-      "latency_ms": 1582.6,
+      "latency_ms": 758.1,
       "cost_usd": 0.0011340815625,
       "wer": 0.16,
       "status": "ok"
@@ -2458,7 +2458,7 @@
       "model": "universal-3-5-pro",
       "language": "es",
       "audio_s": 25.2,
-      "latency_ms": 5326.3,
+      "latency_ms": 4840.1,
       "cost_usd": 0.0014701057291666667,
       "wer": 0.16,
       "status": "ok"
@@ -2469,7 +2469,7 @@
       "model": "v2",
       "language": "es",
       "audio_s": 25.2,
-      "latency_ms": 5653.6,
+      "latency_ms": 5494.1,
       "cost_usd": 0.0042843081250000005,
       "wer": 0.16,
       "status": "ok"
@@ -2480,7 +2480,7 @@
       "model": "enhanced",
       "language": "es",
       "audio_s": 25.2,
-      "latency_ms": 5296.4,
+      "latency_ms": 5234.9,
       "cost_usd": 0.002814202395833333,
       "wer": 0.16,
       "status": "ok"
@@ -2491,7 +2491,7 @@
       "model": "machine",
       "language": "es",
       "audio_s": 25.2,
-      "latency_ms": 13361.6,
+      "latency_ms": 8902.1,
       "cost_usd": 0.002100151041666667,
       "wer": 0.16,
       "status": "ok"
@@ -2502,7 +2502,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 17.04,
-      "latency_ms": 142.5,
+      "latency_ms": 269.4,
       "cost_usd": 0.0012213298958333332,
       "wer": 0.0,
       "status": "ok"
@@ -2513,7 +2513,7 @@
       "model": "whisper-large-v3",
       "language": "es",
       "audio_s": 17.04,
-      "latency_ms": 849.8,
+      "latency_ms": 4980.6,
       "cost_usd": 0.0007668815625,
       "wer": 0.1333,
       "status": "ok"
@@ -2524,7 +2524,7 @@
       "model": "universal-3-5-pro",
       "language": "es",
       "audio_s": 17.04,
-      "latency_ms": 5087.6,
+      "latency_ms": 4882.4,
       "cost_usd": 0.0009941057291666666,
       "wer": 0.1333,
       "status": "ok"
@@ -2535,7 +2535,7 @@
       "model": "v2",
       "language": "es",
       "audio_s": 17.04,
-      "latency_ms": 5408.5,
+      "latency_ms": 5458.2,
       "cost_usd": 0.002897108125,
       "wer": 0.1333,
       "status": "ok"
@@ -2546,7 +2546,7 @@
       "model": "enhanced",
       "language": "es",
       "audio_s": 17.04,
-      "latency_ms": 5045.2,
+      "latency_ms": 5570.0,
       "cost_usd": 0.0019030023958333333,
       "wer": 0.1333,
       "status": "ok"
@@ -2557,7 +2557,7 @@
       "model": "machine",
       "language": "es",
       "audio_s": 17.04,
-      "latency_ms": 9159.8,
+      "latency_ms": 8940.8,
       "cost_usd": 0.0014201510416666666,
       "wer": 0.1333,
       "status": "ok"
@@ -2568,7 +2568,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 26.16,
-      "latency_ms": 207.1,
+      "latency_ms": 525.4,
       "cost_usd": 0.0018749298958333333,
       "wer": 0.0,
       "status": "ok"
@@ -2579,7 +2579,7 @@
       "model": "whisper-large-v3",
       "language": "es",
       "audio_s": 26.16,
-      "latency_ms": 1124.6,
+      "latency_ms": 840.1,
       "cost_usd": 0.0011772815625,
       "wer": 0.1364,
       "status": "ok"
@@ -2590,7 +2590,7 @@
       "model": "universal-3-5-pro",
       "language": "es",
       "audio_s": 26.16,
-      "latency_ms": 5844.5,
+      "latency_ms": 4872.2,
       "cost_usd": 0.0015261057291666668,
       "wer": 0.1818,
       "status": "ok"
@@ -2601,7 +2601,7 @@
       "model": "v2",
       "language": "es",
       "audio_s": 26.16,
-      "latency_ms": 5739.0,
+      "latency_ms": 6008.6,
       "cost_usd": 0.004447508125,
       "wer": 0.1364,
       "status": "ok"
@@ -2612,7 +2612,7 @@
       "model": "enhanced",
       "language": "es",
       "audio_s": 26.16,
-      "latency_ms": 5250.6,
+      "latency_ms": 5655.3,
       "cost_usd": 0.0029214023958333336,
       "wer": 0.2273,
       "status": "ok"
@@ -2623,7 +2623,7 @@
       "model": "machine",
       "language": "es",
       "audio_s": 26.16,
-      "latency_ms": 13209.7,
+      "latency_ms": 8961.7,
       "cost_usd": 0.0021801510416666666,
       "wer": 0.0909,
       "status": "ok"
@@ -2634,7 +2634,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 18.96,
-      "latency_ms": 938.7,
+      "latency_ms": 563.7,
       "cost_usd": 0.0013589298958333333,
       "wer": 0.0,
       "status": "ok"
@@ -2645,7 +2645,7 @@
       "model": "whisper-large-v3",
       "language": "es",
       "audio_s": 18.96,
-      "latency_ms": 859.9,
+      "latency_ms": 617.7,
       "cost_usd": 0.0008532815625,
       "wer": 0.0952,
       "status": "ok"
@@ -2656,7 +2656,7 @@
       "model": "universal-3-5-pro",
       "language": "es",
       "audio_s": 18.96,
-      "latency_ms": 5048.3,
+      "latency_ms": 4789.5,
       "cost_usd": 0.0011061057291666667,
       "wer": 0.1429,
       "status": "ok"
@@ -2667,7 +2667,7 @@
       "model": "v2",
       "language": "es",
       "audio_s": 18.96,
-      "latency_ms": 5360.4,
+      "latency_ms": 5589.9,
       "cost_usd": 0.0032235081250000003,
       "wer": 0.0952,
       "status": "ok"
@@ -2678,7 +2678,7 @@
       "model": "enhanced",
       "language": "es",
       "audio_s": 18.96,
-      "latency_ms": 4509.2,
+      "latency_ms": 5467.3,
       "cost_usd": 0.0021174023958333336,
       "wer": 0.1429,
       "status": "ok"
@@ -2689,7 +2689,7 @@
       "model": "machine",
       "language": "es",
       "audio_s": 18.96,
-      "latency_ms": 9127.2,
+      "latency_ms": 8931.6,
       "cost_usd": 0.0015801510416666668,
       "wer": 0.0952,
       "status": "ok"
@@ -2700,7 +2700,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 21.48,
-      "latency_ms": 1576.7,
+      "latency_ms": 503.4,
       "cost_usd": 0.0015395298958333333,
       "wer": 0.0,
       "status": "ok"
@@ -2711,7 +2711,7 @@
       "model": "whisper-large-v3",
       "language": "es",
       "audio_s": 21.48,
-      "latency_ms": 1472.1,
+      "latency_ms": 635.5,
       "cost_usd": 0.0009666815625,
       "wer": 0.0714,
       "status": "ok"
@@ -2722,7 +2722,7 @@
       "model": "universal-3-5-pro",
       "language": "es",
       "audio_s": 21.48,
-      "latency_ms": 4970.0,
+      "latency_ms": 4838.0,
       "cost_usd": 0.0012531057291666667,
       "wer": 0.0714,
       "status": "ok"
@@ -2733,7 +2733,7 @@
       "model": "v2",
       "language": "es",
       "audio_s": 21.48,
-      "latency_ms": 5523.5,
+      "latency_ms": 5562.9,
       "cost_usd": 0.003651908125,
       "wer": 0.0714,
       "status": "ok"
@@ -2744,7 +2744,7 @@
       "model": "enhanced",
       "language": "es",
       "audio_s": 21.48,
-      "latency_ms": 5228.6,
+      "latency_ms": 4703.9,
       "cost_usd": 0.0023988023958333334,
       "wer": 0.1071,
       "status": "ok"
@@ -2755,7 +2755,7 @@
       "model": "machine",
       "language": "es",
       "audio_s": 21.48,
-      "latency_ms": 9236.2,
+      "latency_ms": 8904.5,
       "cost_usd": 0.0017901510416666667,
       "wer": 0.1071,
       "status": "ok"
@@ -2766,7 +2766,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 16.32,
-      "latency_ms": 390.7,
+      "latency_ms": 579.2,
       "cost_usd": 0.0011697298958333335,
       "wer": 0.0,
       "status": "ok"
@@ -2777,7 +2777,7 @@
       "model": "whisper-large-v3",
       "language": "es",
       "audio_s": 16.32,
-      "latency_ms": 791.7,
+      "latency_ms": 635.0,
       "cost_usd": 0.0007344815625000001,
       "wer": 0.1429,
       "status": "ok"
@@ -2788,7 +2788,7 @@
       "model": "universal-3-5-pro",
       "language": "es",
       "audio_s": 16.32,
-      "latency_ms": 4990.0,
+      "latency_ms": 4852.4,
       "cost_usd": 0.0009521057291666668,
       "wer": 0.1429,
       "status": "ok"
@@ -2799,7 +2799,7 @@
       "model": "v2",
       "language": "es",
       "audio_s": 16.32,
-      "latency_ms": 5569.7,
+      "latency_ms": 5526.5,
       "cost_usd": 0.0027747081250000002,
       "wer": 0.1429,
       "status": "ok"
@@ -2810,7 +2810,7 @@
       "model": "enhanced",
       "language": "es",
       "audio_s": 16.32,
-      "latency_ms": 5245.6,
+      "latency_ms": 5413.6,
       "cost_usd": 0.0018226023958333335,
       "wer": 0.1429,
       "status": "ok"
@@ -2821,7 +2821,7 @@
       "model": "machine",
       "language": "es",
       "audio_s": 16.32,
-      "latency_ms": 90927.0,
+      "latency_ms": 8939.0,
       "cost_usd": 0.0013601510416666668,
       "wer": 0.1429,
       "status": "ok"
@@ -2832,7 +2832,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 15.84,
-      "latency_ms": 661.6,
+      "latency_ms": 245.1,
       "cost_usd": 0.0011353298958333333,
       "wer": 0.0,
       "status": "ok"
@@ -2843,7 +2843,7 @@
       "model": "whisper-large-v3",
       "language": "es",
       "audio_s": 15.84,
-      "latency_ms": 986.9,
+      "latency_ms": 377.3,
       "cost_usd": 0.0007128815625000001,
       "wer": 0.0526,
       "status": "ok"
@@ -2854,7 +2854,7 @@
       "model": "universal-3-5-pro",
       "language": "es",
       "audio_s": 15.84,
-      "latency_ms": 5326.1,
+      "latency_ms": 4829.5,
       "cost_usd": 0.0009241057291666668,
       "wer": 0.0526,
       "status": "ok"
@@ -2865,7 +2865,7 @@
       "model": "v2",
       "language": "es",
       "audio_s": 15.84,
-      "latency_ms": 5417.7,
+      "latency_ms": 5754.1,
       "cost_usd": 0.0026931081250000004,
       "wer": 0.0526,
       "status": "ok"
@@ -2876,7 +2876,7 @@
       "model": "enhanced",
       "language": "es",
       "audio_s": 15.84,
-      "latency_ms": 5249.4,
+      "latency_ms": 4717.3,
       "cost_usd": 0.0017690023958333335,
       "wer": 0.0526,
       "status": "ok"
@@ -2887,7 +2887,7 @@
       "model": "machine",
       "language": "es",
       "audio_s": 15.84,
-      "latency_ms": 86836.3,
+      "latency_ms": 8886.9,
       "cost_usd": 0.0013201510416666667,
       "wer": 0.1053,
       "status": "ok"
@@ -2898,7 +2898,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 11.76,
-      "latency_ms": 601.7,
+      "latency_ms": 189.3,
       "cost_usd": 0.0008429298958333334,
       "wer": 0.0909,
       "status": "ok"
@@ -2909,7 +2909,7 @@
       "model": "whisper-large-v3",
       "language": "es",
       "audio_s": 11.76,
-      "latency_ms": 1940.3,
+      "latency_ms": 455.3,
       "cost_usd": 0.0005292815625000001,
       "wer": 0.0909,
       "status": "ok"
@@ -2920,7 +2920,7 @@
       "model": "universal-3-5-pro",
       "language": "es",
       "audio_s": 11.76,
-      "latency_ms": 5019.0,
+      "latency_ms": 4746.4,
       "cost_usd": 0.0006861057291666667,
       "wer": 0.0909,
       "status": "ok"
@@ -2931,7 +2931,7 @@
       "model": "v2",
       "language": "es",
       "audio_s": 11.76,
-      "latency_ms": 5529.4,
+      "latency_ms": 5412.9,
       "cost_usd": 0.0019995081250000005,
       "wer": 0.0909,
       "status": "ok"
@@ -2942,7 +2942,7 @@
       "model": "enhanced",
       "language": "es",
       "audio_s": 11.76,
-      "latency_ms": 4998.8,
+      "latency_ms": 5278.6,
       "cost_usd": 0.0013134023958333335,
       "wer": 0.0909,
       "status": "ok"
@@ -2953,7 +2953,7 @@
       "model": "machine",
       "language": "es",
       "audio_s": 11.76,
-      "latency_ms": 82631.1,
+      "latency_ms": 8854.4,
       "cost_usd": 0.0009801510416666667,
       "wer": 0.0909,
       "status": "ok"
@@ -2964,7 +2964,7 @@
       "model": "nova-3",
       "language": "es",
       "audio_s": 19.68,
-      "latency_ms": 845.4,
+      "latency_ms": 825.6,
       "cost_usd": 0.0014105298958333335,
       "wer": 0.0455,
       "status": "ok"
@@ -2975,7 +2975,7 @@
       "model": "whisper-large-v3",
       "language": "es",
       "audio_s": 19.68,
-      "latency_ms": 1067.9,
+      "latency_ms": 432.2,
       "cost_usd": 0.0008856815625000001,
       "wer": 0.0909,
       "status": "ok"
@@ -2986,7 +2986,7 @@
       "model": "universal-3-5-pro",
       "language": "es",
       "audio_s": 19.68,
-      "latency_ms": 4983.2,
+      "latency_ms": 4857.4,
       "cost_usd": 0.0011481057291666667,
       "wer": 0.0909,
       "status": "ok"
@@ -2997,7 +2997,7 @@
       "model": "v2",
       "language": "es",
       "audio_s": 19.68,
-      "latency_ms": 5676.4,
+      "latency_ms": 5468.0,
       "cost_usd": 0.0033459081250000002,
       "wer": 0.0909,
       "status": "ok"
@@ -3008,7 +3008,7 @@
       "model": "enhanced",
       "language": "es",
       "audio_s": 19.68,
-      "latency_ms": 5254.4,
+      "latency_ms": 5609.4,
       "cost_usd": 0.0021978023958333336,
       "wer": 0.0909,
       "status": "ok"
@@ -3019,7 +3019,7 @@
       "model": "machine",
       "language": "es",
       "audio_s": 19.68,
-      "latency_ms": 74584.3,
+      "latency_ms": 8994.4,
       "cost_usd": 0.0016401510416666667,
       "wer": 0.0909,
       "status": "ok"
@@ -3030,7 +3030,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 18.84,
-      "latency_ms": 956.8,
+      "latency_ms": 879.6,
       "cost_usd": 0.0013503298958333335,
       "wer": 0.0,
       "status": "ok"
@@ -3041,7 +3041,7 @@
       "model": "whisper-large-v3",
       "language": "fr",
       "audio_s": 18.84,
-      "latency_ms": 979.6,
+      "latency_ms": 545.7,
       "cost_usd": 0.0008478815625,
       "wer": 0.069,
       "status": "ok"
@@ -3052,7 +3052,7 @@
       "model": "universal-3-5-pro",
       "language": "fr",
       "audio_s": 18.84,
-      "latency_ms": 5040.6,
+      "latency_ms": 4904.8,
       "cost_usd": 0.0010991057291666667,
       "wer": 0.069,
       "status": "ok"
@@ -3063,7 +3063,7 @@
       "model": "v2",
       "language": "fr",
       "audio_s": 18.84,
-      "latency_ms": 5600.2,
+      "latency_ms": 5509.6,
       "cost_usd": 0.0032031081250000005,
       "wer": 0.069,
       "status": "ok"
@@ -3074,7 +3074,7 @@
       "model": "enhanced",
       "language": "fr",
       "audio_s": 18.84,
-      "latency_ms": 5193.9,
+      "latency_ms": 5189.1,
       "cost_usd": 0.0021040023958333333,
       "wer": 0.069,
       "status": "ok"
@@ -3085,7 +3085,7 @@
       "model": "machine",
       "language": "fr",
       "audio_s": 18.84,
-      "latency_ms": 9124.7,
+      "latency_ms": 12976.9,
       "cost_usd": 0.0015701510416666667,
       "wer": 0.069,
       "status": "ok"
@@ -3096,7 +3096,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 14.16,
-      "latency_ms": 535.0,
+      "latency_ms": 212.4,
       "cost_usd": 0.0010149298958333332,
       "wer": 0.1579,
       "status": "ok"
@@ -3107,7 +3107,7 @@
       "model": "whisper-large-v3",
       "language": "fr",
       "audio_s": 14.16,
-      "latency_ms": 1671.6,
+      "latency_ms": 527.7,
       "cost_usd": 0.0006372815625,
       "wer": 0.2105,
       "status": "ok"
@@ -3118,7 +3118,7 @@
       "model": "universal-3-5-pro",
       "language": "fr",
       "audio_s": 14.16,
-      "latency_ms": 5018.9,
+      "latency_ms": 4800.7,
       "cost_usd": 0.0008261057291666667,
       "wer": 0.1053,
       "status": "ok"
@@ -3129,7 +3129,7 @@
       "model": "v2",
       "language": "fr",
       "audio_s": 14.16,
-      "latency_ms": 5298.5,
+      "latency_ms": 5425.7,
       "cost_usd": 0.002407508125,
       "wer": 0.2105,
       "status": "ok"
@@ -3140,7 +3140,7 @@
       "model": "enhanced",
       "language": "fr",
       "audio_s": 14.16,
-      "latency_ms": 5399.8,
+      "latency_ms": 5338.4,
       "cost_usd": 0.0015814023958333333,
       "wer": 0.4737,
       "status": "ok"
@@ -3151,7 +3151,7 @@
       "model": "machine",
       "language": "fr",
       "audio_s": 14.16,
-      "latency_ms": 17354.4,
+      "latency_ms": 8910.2,
       "cost_usd": 0.0011801510416666666,
       "wer": 0.4737,
       "status": "ok"
@@ -3162,7 +3162,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 14.04,
-      "latency_ms": 333.5,
+      "latency_ms": 199.2,
       "cost_usd": 0.0010063298958333333,
       "wer": 0.0,
       "status": "ok"
@@ -3173,7 +3173,7 @@
       "model": "whisper-large-v3",
       "language": "fr",
       "audio_s": 14.04,
-      "latency_ms": 862.2,
+      "latency_ms": 1304.4,
       "cost_usd": 0.0006318815625,
       "wer": 0.0714,
       "status": "ok"
@@ -3184,7 +3184,7 @@
       "model": "universal-3-5-pro",
       "language": "fr",
       "audio_s": 14.04,
-      "latency_ms": 5174.6,
+      "latency_ms": 5093.9,
       "cost_usd": 0.0008191057291666666,
       "wer": 0.0714,
       "status": "ok"
@@ -3195,7 +3195,7 @@
       "model": "v2",
       "language": "fr",
       "audio_s": 14.04,
-      "latency_ms": 5799.4,
+      "latency_ms": 5651.4,
       "cost_usd": 0.002387108125,
       "wer": 0.0714,
       "status": "ok"
@@ -3206,7 +3206,7 @@
       "model": "enhanced",
       "language": "fr",
       "audio_s": 14.04,
-      "latency_ms": 5635.9,
+      "latency_ms": 5317.7,
       "cost_usd": 0.0015680023958333333,
       "wer": 0.0714,
       "status": "ok"
@@ -3217,7 +3217,7 @@
       "model": "machine",
       "language": "fr",
       "audio_s": 14.04,
-      "latency_ms": 9079.2,
+      "latency_ms": 8954.0,
       "cost_usd": 0.0011701510416666666,
       "wer": 0.0714,
       "status": "ok"
@@ -3228,7 +3228,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 13.08,
-      "latency_ms": 677.4,
+      "latency_ms": 813.1,
       "cost_usd": 0.0009375298958333334,
       "wer": 0.0,
       "status": "ok"
@@ -3239,7 +3239,7 @@
       "model": "whisper-large-v3",
       "language": "fr",
       "audio_s": 13.08,
-      "latency_ms": 867.2,
+      "latency_ms": 412.2,
       "cost_usd": 0.0005886815625,
       "wer": 0.0625,
       "status": "ok"
@@ -3250,7 +3250,7 @@
       "model": "universal-3-5-pro",
       "language": "fr",
       "audio_s": 13.08,
-      "latency_ms": 5249.8,
+      "latency_ms": 4739.6,
       "cost_usd": 0.0007631057291666666,
       "wer": 0.0625,
       "status": "ok"
@@ -3261,7 +3261,7 @@
       "model": "v2",
       "language": "fr",
       "audio_s": 13.08,
-      "latency_ms": 5748.1,
+      "latency_ms": 5318.5,
       "cost_usd": 0.002223908125,
       "wer": 0.0625,
       "status": "ok"
@@ -3272,7 +3272,7 @@
       "model": "enhanced",
       "language": "fr",
       "audio_s": 13.08,
-      "latency_ms": 5306.0,
+      "latency_ms": 5358.4,
       "cost_usd": 0.0014608023958333333,
       "wer": 0.0625,
       "status": "ok"
@@ -3283,7 +3283,7 @@
       "model": "machine",
       "language": "fr",
       "audio_s": 13.08,
-      "latency_ms": 9075.2,
+      "latency_ms": 8944.3,
       "cost_usd": 0.0010901510416666668,
       "wer": 0.0625,
       "status": "ok"
@@ -3294,7 +3294,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 21.84,
-      "latency_ms": 143.4,
+      "latency_ms": 304.0,
       "cost_usd": 0.0015653298958333334,
       "wer": 0.1875,
       "status": "ok"
@@ -3305,7 +3305,7 @@
       "model": "whisper-large-v3",
       "language": "fr",
       "audio_s": 21.84,
-      "latency_ms": 1904.2,
+      "latency_ms": 629.7,
       "cost_usd": 0.0009828815625,
       "wer": 0.375,
       "status": "ok"
@@ -3316,7 +3316,7 @@
       "model": "universal-3-5-pro",
       "language": "fr",
       "audio_s": 21.84,
-      "latency_ms": 5450.0,
+      "latency_ms": 4835.3,
       "cost_usd": 0.0012741057291666667,
       "wer": 0.3125,
       "status": "ok"
@@ -3327,7 +3327,7 @@
       "model": "v2",
       "language": "fr",
       "audio_s": 21.84,
-      "latency_ms": 5708.0,
+      "latency_ms": 5389.9,
       "cost_usd": 0.003713108125,
       "wer": 0.3438,
       "status": "ok"
@@ -3338,7 +3338,7 @@
       "model": "enhanced",
       "language": "fr",
       "audio_s": 21.84,
-      "latency_ms": 5490.2,
+      "latency_ms": 5605.1,
       "cost_usd": 0.0024390023958333336,
       "wer": 0.2812,
       "status": "ok"
@@ -3349,7 +3349,7 @@
       "model": "machine",
       "language": "fr",
       "audio_s": 21.84,
-      "latency_ms": 9108.4,
+      "latency_ms": 12994.5,
       "cost_usd": 0.0018201510416666667,
       "wer": 0.3438,
       "status": "ok"
@@ -3360,7 +3360,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 15.6,
-      "latency_ms": 761.6,
+      "latency_ms": 6124.4,
       "cost_usd": 0.0011181298958333333,
       "wer": 0.0,
       "status": "ok"
@@ -3371,7 +3371,7 @@
       "model": "whisper-large-v3",
       "language": "fr",
       "audio_s": 15.6,
-      "latency_ms": 1623.0,
+      "latency_ms": 354.6,
       "cost_usd": 0.0007020815625,
       "wer": 0.1579,
       "status": "ok"
@@ -3382,7 +3382,7 @@
       "model": "universal-3-5-pro",
       "language": "fr",
       "audio_s": 15.6,
-      "latency_ms": 5176.9,
+      "latency_ms": 4863.8,
       "cost_usd": 0.0009101057291666667,
       "wer": 0.0526,
       "status": "ok"
@@ -3393,7 +3393,7 @@
       "model": "v2",
       "language": "fr",
       "audio_s": 15.6,
-      "latency_ms": 5441.3,
+      "latency_ms": 5536.1,
       "cost_usd": 0.0026523081250000003,
       "wer": 0.1579,
       "status": "ok"
@@ -3404,7 +3404,7 @@
       "model": "enhanced",
       "language": "fr",
       "audio_s": 15.6,
-      "latency_ms": 5371.2,
+      "latency_ms": 5373.1,
       "cost_usd": 0.0017422023958333335,
       "wer": 0.1053,
       "status": "ok"
@@ -3415,7 +3415,7 @@
       "model": "machine",
       "language": "fr",
       "audio_s": 15.6,
-      "latency_ms": 9059.2,
+      "latency_ms": 8896.8,
       "cost_usd": 0.0013001510416666667,
       "wer": 0.1579,
       "status": "ok"
@@ -3426,7 +3426,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 15.0,
-      "latency_ms": 136.8,
+      "latency_ms": 620.9,
       "cost_usd": 0.0010751298958333333,
       "wer": 0.1667,
       "status": "ok"
@@ -3437,7 +3437,7 @@
       "model": "whisper-large-v3",
       "language": "fr",
       "audio_s": 15.0,
-      "latency_ms": 656.7,
+      "latency_ms": 349.8,
       "cost_usd": 0.0006750815625,
       "wer": 0.25,
       "status": "ok"
@@ -3448,7 +3448,7 @@
       "model": "universal-3-5-pro",
       "language": "fr",
       "audio_s": 15.0,
-      "latency_ms": 4979.4,
+      "latency_ms": 5001.3,
       "cost_usd": 0.0008751057291666667,
       "wer": 0.25,
       "status": "ok"
@@ -3459,7 +3459,7 @@
       "model": "v2",
       "language": "fr",
       "audio_s": 15.0,
-      "latency_ms": 5499.7,
+      "latency_ms": 5708.1,
       "cost_usd": 0.002550308125,
       "wer": 0.25,
       "status": "ok"
@@ -3470,7 +3470,7 @@
       "model": "enhanced",
       "language": "fr",
       "audio_s": 15.0,
-      "latency_ms": 5217.8,
+      "latency_ms": 5371.4,
       "cost_usd": 0.0016752023958333333,
       "wer": 0.1667,
       "status": "ok"
@@ -3481,7 +3481,7 @@
       "model": "machine",
       "language": "fr",
       "audio_s": 15.0,
-      "latency_ms": 9108.0,
+      "latency_ms": 8932.0,
       "cost_usd": 0.0012501510416666668,
       "wer": 0.25,
       "status": "ok"
@@ -3492,7 +3492,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 16.68,
-      "latency_ms": 76.7,
+      "latency_ms": 297.9,
       "cost_usd": 0.0011955298958333332,
       "wer": 0.04,
       "status": "ok"
@@ -3503,7 +3503,7 @@
       "model": "whisper-large-v3",
       "language": "fr",
       "audio_s": 16.68,
-      "latency_ms": 1261.7,
+      "latency_ms": 401.3,
       "cost_usd": 0.0007506815624999999,
       "wer": 0.28,
       "status": "ok"
@@ -3514,7 +3514,7 @@
       "model": "universal-3-5-pro",
       "language": "fr",
       "audio_s": 16.68,
-      "latency_ms": 5150.2,
+      "latency_ms": 4823.9,
       "cost_usd": 0.0009731057291666665,
       "wer": 0.2,
       "status": "ok"
@@ -3525,7 +3525,7 @@
       "model": "v2",
       "language": "fr",
       "audio_s": 16.68,
-      "latency_ms": 5439.1,
+      "latency_ms": 5660.2,
       "cost_usd": 0.0028359081249999998,
       "wer": 0.24,
       "status": "ok"
@@ -3536,7 +3536,7 @@
       "model": "enhanced",
       "language": "fr",
       "audio_s": 16.68,
-      "latency_ms": 5231.0,
+      "latency_ms": 5386.0,
       "cost_usd": 0.0018628023958333331,
       "wer": 0.16,
       "status": "ok"
@@ -3547,7 +3547,7 @@
       "model": "machine",
       "language": "fr",
       "audio_s": 16.68,
-      "latency_ms": 9230.4,
+      "latency_ms": 8939.7,
       "cost_usd": 0.0013901510416666665,
       "wer": 0.2,
       "status": "ok"
@@ -3558,7 +3558,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 20.16,
-      "latency_ms": 288.2,
+      "latency_ms": 204.9,
       "cost_usd": 0.0014449298958333335,
       "wer": 0.0,
       "status": "ok"
@@ -3569,7 +3569,7 @@
       "model": "whisper-large-v3",
       "language": "fr",
       "audio_s": 20.16,
-      "latency_ms": 1449.5,
+      "latency_ms": 519.0,
       "cost_usd": 0.0009072815625000002,
       "wer": 0.1429,
       "status": "ok"
@@ -3580,7 +3580,7 @@
       "model": "universal-3-5-pro",
       "language": "fr",
       "audio_s": 20.16,
-      "latency_ms": 5013.1,
+      "latency_ms": 4929.7,
       "cost_usd": 0.0011761057291666667,
       "wer": 0.1429,
       "status": "ok"
@@ -3591,7 +3591,7 @@
       "model": "v2",
       "language": "fr",
       "audio_s": 20.16,
-      "latency_ms": 5680.5,
+      "latency_ms": 5396.3,
       "cost_usd": 0.0034275081250000005,
       "wer": 0.1429,
       "status": "ok"
@@ -3602,7 +3602,7 @@
       "model": "enhanced",
       "language": "fr",
       "audio_s": 20.16,
-      "latency_ms": 5604.6,
+      "latency_ms": 5645.7,
       "cost_usd": 0.0022514023958333336,
       "wer": 0.1429,
       "status": "ok"
@@ -3613,7 +3613,7 @@
       "model": "machine",
       "language": "fr",
       "audio_s": 20.16,
-      "latency_ms": 13194.3,
+      "latency_ms": 12998.5,
       "cost_usd": 0.0016801510416666668,
       "wer": 0.2,
       "status": "ok"
@@ -3624,7 +3624,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 19.56,
-      "latency_ms": 699.4,
+      "latency_ms": 521.2,
       "cost_usd": 0.0014019298958333334,
       "wer": 0.0,
       "status": "ok"
@@ -3635,7 +3635,7 @@
       "model": "whisper-large-v3",
       "language": "fr",
       "audio_s": 19.56,
-      "latency_ms": 1083.3,
+      "latency_ms": 350.8,
       "cost_usd": 0.0008802815625,
       "wer": 0.1333,
       "status": "ok"
@@ -3646,7 +3646,7 @@
       "model": "universal-3-5-pro",
       "language": "fr",
       "audio_s": 19.56,
-      "latency_ms": 4966.4,
+      "latency_ms": 4812.9,
       "cost_usd": 0.0011411057291666668,
       "wer": 0.1333,
       "status": "ok"
@@ -3657,7 +3657,7 @@
       "model": "v2",
       "language": "fr",
       "audio_s": 19.56,
-      "latency_ms": 5506.0,
+      "latency_ms": 5637.3,
       "cost_usd": 0.0033255081250000004,
       "wer": 0.1333,
       "status": "ok"
@@ -3668,7 +3668,7 @@
       "model": "enhanced",
       "language": "fr",
       "audio_s": 19.56,
-      "latency_ms": 5281.0,
+      "latency_ms": 5158.4,
       "cost_usd": 0.0021844023958333333,
       "wer": 0.1333,
       "status": "ok"
@@ -3679,7 +3679,7 @@
       "model": "machine",
       "language": "fr",
       "audio_s": 19.56,
-      "latency_ms": 9093.8,
+      "latency_ms": 65895.7,
       "cost_usd": 0.0016301510416666667,
       "wer": 0.1333,
       "status": "ok"
@@ -3690,7 +3690,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 20.16,
-      "latency_ms": 558.6,
+      "latency_ms": 690.3,
       "cost_usd": 0.0014449298958333335,
       "wer": 0.0,
       "status": "ok"
@@ -3701,7 +3701,7 @@
       "model": "whisper-large-v3",
       "language": "fr",
       "audio_s": 20.16,
-      "latency_ms": 1368.8,
+      "latency_ms": 658.8,
       "cost_usd": 0.0009072815625000002,
       "wer": 0.2083,
       "status": "ok"
@@ -3712,7 +3712,7 @@
       "model": "universal-3-5-pro",
       "language": "fr",
       "audio_s": 20.16,
-      "latency_ms": 5199.1,
+      "latency_ms": 4907.5,
       "cost_usd": 0.0011761057291666667,
       "wer": 0.2083,
       "status": "ok"
@@ -3723,7 +3723,7 @@
       "model": "v2",
       "language": "fr",
       "audio_s": 20.16,
-      "latency_ms": 5748.3,
+      "latency_ms": 5538.8,
       "cost_usd": 0.0034275081250000005,
       "wer": 0.2083,
       "status": "ok"
@@ -3734,7 +3734,7 @@
       "model": "enhanced",
       "language": "fr",
       "audio_s": 20.16,
-      "latency_ms": 5548.9,
+      "latency_ms": 5426.0,
       "cost_usd": 0.0022514023958333336,
       "wer": 0.25,
       "status": "ok"
@@ -3745,7 +3745,7 @@
       "model": "machine",
       "language": "fr",
       "audio_s": 20.16,
-      "latency_ms": 9158.6,
+      "latency_ms": 61873.8,
       "cost_usd": 0.0016801510416666668,
       "wer": 0.25,
       "status": "ok"
@@ -3756,7 +3756,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 21.84,
-      "latency_ms": 99.2,
+      "latency_ms": 603.8,
       "cost_usd": 0.0015653298958333334,
       "wer": 0.1304,
       "status": "ok"
@@ -3767,7 +3767,7 @@
       "model": "whisper-large-v3",
       "language": "fr",
       "audio_s": 21.84,
-      "latency_ms": 1926.4,
+      "latency_ms": 916.5,
       "cost_usd": 0.0009828815625,
       "wer": 0.1304,
       "status": "ok"
@@ -3778,7 +3778,7 @@
       "model": "universal-3-5-pro",
       "language": "fr",
       "audio_s": 21.84,
-      "latency_ms": 5605.5,
+      "latency_ms": 4878.0,
       "cost_usd": 0.0012741057291666667,
       "wer": 0.087,
       "status": "ok"
@@ -3789,7 +3789,7 @@
       "model": "v2",
       "language": "fr",
       "audio_s": 21.84,
-      "latency_ms": 5412.8,
+      "latency_ms": 5590.4,
       "cost_usd": 0.003713108125,
       "wer": 0.1304,
       "status": "ok"
@@ -3800,7 +3800,7 @@
       "model": "enhanced",
       "language": "fr",
       "audio_s": 21.84,
-      "latency_ms": 5383.3,
+      "latency_ms": 5177.5,
       "cost_usd": 0.0024390023958333336,
       "wer": 0.1304,
       "status": "ok"
@@ -3811,7 +3811,7 @@
       "model": "machine",
       "language": "fr",
       "audio_s": 21.84,
-      "latency_ms": 9154.1,
+      "latency_ms": 57772.6,
       "cost_usd": 0.0018201510416666667,
       "wer": 0.1739,
       "status": "ok"
@@ -3822,7 +3822,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 16.2,
-      "latency_ms": 71.3,
+      "latency_ms": 351.1,
       "cost_usd": 0.0011611298958333334,
       "wer": 0.1579,
       "status": "ok"
@@ -3833,7 +3833,7 @@
       "model": "whisper-large-v3",
       "language": "fr",
       "audio_s": 16.2,
-      "latency_ms": 1367.7,
+      "latency_ms": 396.7,
       "cost_usd": 0.0007290815625,
       "wer": 0.1579,
       "status": "ok"
@@ -3844,7 +3844,7 @@
       "model": "universal-3-5-pro",
       "language": "fr",
       "audio_s": 16.2,
-      "latency_ms": 5171.8,
+      "latency_ms": 4810.6,
       "cost_usd": 0.0009451057291666667,
       "wer": 0.1579,
       "status": "ok"
@@ -3855,7 +3855,7 @@
       "model": "v2",
       "language": "fr",
       "audio_s": 16.2,
-      "latency_ms": 5358.4,
+      "latency_ms": 5557.0,
       "cost_usd": 0.0027543081250000004,
       "wer": 0.1579,
       "status": "ok"
@@ -3866,7 +3866,7 @@
       "model": "enhanced",
       "language": "fr",
       "audio_s": 16.2,
-      "latency_ms": 5050.6,
+      "latency_ms": 5521.9,
       "cost_usd": 0.0018092023958333335,
       "wer": 0.0526,
       "status": "ok"
@@ -3877,7 +3877,7 @@
       "model": "machine",
       "language": "fr",
       "audio_s": 16.2,
-      "latency_ms": 9071.9,
+      "latency_ms": 49687.6,
       "cost_usd": 0.0013501510416666668,
       "wer": 0.1579,
       "status": "ok"
@@ -3888,7 +3888,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 16.2,
-      "latency_ms": 6131.5,
+      "latency_ms": 245.3,
       "cost_usd": 0.0011611298958333334,
       "wer": 0.0,
       "status": "ok"
@@ -3899,7 +3899,7 @@
       "model": "whisper-large-v3",
       "language": "fr",
       "audio_s": 16.2,
-      "latency_ms": 711.6,
+      "latency_ms": 729.2,
       "cost_usd": 0.0007290815625,
       "wer": 0.1364,
       "status": "ok"
@@ -3910,7 +3910,7 @@
       "model": "universal-3-5-pro",
       "language": "fr",
       "audio_s": 16.2,
-      "latency_ms": 5032.8,
+      "latency_ms": 4787.1,
       "cost_usd": 0.0009451057291666667,
       "wer": 0.0909,
       "status": "ok"
@@ -3921,7 +3921,7 @@
       "model": "v2",
       "language": "fr",
       "audio_s": 16.2,
-      "latency_ms": 5847.6,
+      "latency_ms": 5581.1,
       "cost_usd": 0.0027543081250000004,
       "wer": 0.1364,
       "status": "ok"
@@ -3932,7 +3932,7 @@
       "model": "enhanced",
       "language": "fr",
       "audio_s": 16.2,
-      "latency_ms": 4863.2,
+      "latency_ms": 5408.1,
       "cost_usd": 0.0018092023958333335,
       "wer": 0.1364,
       "status": "ok"
@@ -3943,7 +3943,7 @@
       "model": "machine",
       "language": "fr",
       "audio_s": 16.2,
-      "latency_ms": 9064.7,
+      "latency_ms": 41557.7,
       "cost_usd": 0.0013501510416666668,
       "wer": 0.1364,
       "status": "ok"
@@ -3954,7 +3954,7 @@
       "model": "nova-3",
       "language": "fr",
       "audio_s": 22.92,
-      "latency_ms": 381.0,
+      "latency_ms": 602.3,
       "cost_usd": 0.0016427298958333334,
       "wer": 0.1053,
       "status": "ok"
@@ -3965,7 +3965,7 @@
       "model": "whisper-large-v3",
       "language": "fr",
       "audio_s": 22.92,
-      "latency_ms": 1290.2,
+      "latency_ms": 1308.8,
       "cost_usd": 0.0010314815625,
       "wer": 0.1053,
       "status": "ok"
@@ -3976,7 +3976,7 @@
       "model": "universal-3-5-pro",
       "language": "fr",
       "audio_s": 22.92,
-      "latency_ms": 5041.5,
+      "latency_ms": 4839.0,
       "cost_usd": 0.0013371057291666668,
       "wer": 0.0789,
       "status": "ok"
@@ -3987,7 +3987,7 @@
       "model": "v2",
       "language": "fr",
       "audio_s": 22.92,
-      "latency_ms": 5552.9,
+      "latency_ms": 5600.1,
       "cost_usd": 0.0038967081250000004,
       "wer": 0.2632,
       "status": "ok"
@@ -3998,7 +3998,7 @@
       "model": "enhanced",
       "language": "fr",
       "audio_s": 22.92,
-      "latency_ms": 5056.2,
+      "latency_ms": 5515.1,
       "cost_usd": 0.0025596023958333334,
       "wer": 0.1316,
       "status": "ok"
@@ -4009,7 +4009,7 @@
       "model": "machine",
       "language": "fr",
       "audio_s": 22.92,
-      "latency_ms": 13151.0,
+      "latency_ms": 21189.7,
       "cost_usd": 0.0019101510416666668,
       "wer": 0.1053,
       "status": "ok"
@@ -4020,7 +4020,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 18.72,
-      "latency_ms": 1757.2,
+      "latency_ms": 437.6,
       "cost_usd": 0.0013417298958333334,
       "wer": 0.25,
       "status": "ok"
@@ -4031,7 +4031,7 @@
       "model": "whisper-large-v3",
       "language": "hi",
       "audio_s": 18.72,
-      "latency_ms": 1539.6,
+      "latency_ms": 677.8,
       "cost_usd": 0.0008424815625000001,
       "wer": 0.25,
       "status": "ok"
@@ -4042,7 +4042,7 @@
       "model": "universal-3-5-pro",
       "language": "hi",
       "audio_s": 18.72,
-      "latency_ms": 6657.1,
+      "latency_ms": 5210.7,
       "cost_usd": 0.0010921057291666666,
       "wer": 0.1667,
       "status": "ok"
@@ -4053,7 +4053,7 @@
       "model": "v2",
       "language": "hi",
       "audio_s": 18.72,
-      "latency_ms": 5548.9,
+      "latency_ms": 5745.4,
       "cost_usd": 0.003182708125,
       "wer": 0.3333,
       "status": "ok"
@@ -4064,7 +4064,7 @@
       "model": "enhanced",
       "language": "hi",
       "audio_s": 18.72,
-      "latency_ms": 4789.2,
+      "latency_ms": 5515.1,
       "cost_usd": 0.0020906023958333336,
       "wer": 0.0833,
       "status": "ok"
@@ -4075,7 +4075,7 @@
       "model": "machine",
       "language": "hi",
       "audio_s": 18.72,
-      "latency_ms": 9207.4,
+      "latency_ms": 61905.2,
       "cost_usd": 0.0015601510416666667,
       "wer": 0.25,
       "status": "ok"
@@ -4086,7 +4086,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 11.88,
-      "latency_ms": 1541.0,
+      "latency_ms": 270.4,
       "cost_usd": 0.0008515298958333334,
       "wer": 0.1111,
       "status": "ok"
@@ -4097,7 +4097,7 @@
       "model": "whisper-large-v3",
       "language": "hi",
       "audio_s": 11.88,
-      "latency_ms": 754.5,
+      "latency_ms": 500.5,
       "cost_usd": 0.0005346815625000001,
       "wer": 0.3889,
       "status": "ok"
@@ -4108,7 +4108,7 @@
       "model": "universal-3-5-pro",
       "language": "hi",
       "audio_s": 11.88,
-      "latency_ms": 4927.8,
+      "latency_ms": 4903.9,
       "cost_usd": 0.0006931057291666667,
       "wer": 0.1667,
       "status": "ok"
@@ -4119,7 +4119,7 @@
       "model": "v2",
       "language": "hi",
       "audio_s": 11.88,
-      "latency_ms": 5576.9,
+      "latency_ms": 5467.8,
       "cost_usd": 0.0020199081250000003,
       "wer": 0.3889,
       "status": "ok"
@@ -4130,7 +4130,7 @@
       "model": "enhanced",
       "language": "hi",
       "audio_s": 11.88,
-      "latency_ms": 5375.9,
+      "latency_ms": 5350.3,
       "cost_usd": 0.0013268023958333335,
       "wer": 0.1667,
       "status": "ok"
@@ -4141,7 +4141,7 @@
       "model": "machine",
       "language": "hi",
       "audio_s": 11.88,
-      "latency_ms": 8993.5,
+      "latency_ms": 61782.9,
       "cost_usd": 0.0009901510416666667,
       "wer": 0.3889,
       "status": "ok"
@@ -4152,7 +4152,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 15.48,
-      "latency_ms": 381.7,
+      "latency_ms": 300.1,
       "cost_usd": 0.0011095298958333335,
       "wer": 0.1875,
       "status": "ok"
@@ -4163,7 +4163,7 @@
       "model": "whisper-large-v3",
       "language": "hi",
       "audio_s": 15.48,
-      "latency_ms": 1396.3,
+      "latency_ms": 574.9,
       "cost_usd": 0.0006966815625,
       "wer": 0.5,
       "status": "ok"
@@ -4174,7 +4174,7 @@
       "model": "universal-3-5-pro",
       "language": "hi",
       "audio_s": 15.48,
-      "latency_ms": 5977.1,
+      "latency_ms": 4898.5,
       "cost_usd": 0.0009031057291666667,
       "wer": 0.4375,
       "status": "ok"
@@ -4185,7 +4185,7 @@
       "model": "v2",
       "language": "hi",
       "audio_s": 15.48,
-      "latency_ms": 5336.6,
+      "latency_ms": 6131.2,
       "cost_usd": 0.0026319081250000004,
       "wer": 0.5625,
       "status": "ok"
@@ -4196,7 +4196,7 @@
       "model": "enhanced",
       "language": "hi",
       "audio_s": 15.48,
-      "latency_ms": 5190.9,
+      "latency_ms": 5474.4,
       "cost_usd": 0.0017288023958333335,
       "wer": 0.25,
       "status": "ok"
@@ -4207,7 +4207,7 @@
       "model": "machine",
       "language": "hi",
       "audio_s": 15.48,
-      "latency_ms": 9092.8,
+      "latency_ms": 33374.8,
       "cost_usd": 0.0012901510416666667,
       "wer": 0.5,
       "status": "ok"
@@ -4218,7 +4218,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 19.8,
-      "latency_ms": 164.2,
+      "latency_ms": 1039.1,
       "cost_usd": 0.0014191298958333334,
       "wer": 0.1176,
       "status": "ok"
@@ -4229,7 +4229,7 @@
       "model": "whisper-large-v3",
       "language": "hi",
       "audio_s": 19.8,
-      "latency_ms": 969.1,
+      "latency_ms": 800.0,
       "cost_usd": 0.0008910815625000001,
       "wer": 0.3529,
       "status": "ok"
@@ -4240,7 +4240,7 @@
       "model": "universal-3-5-pro",
       "language": "hi",
       "audio_s": 19.8,
-      "latency_ms": 5148.5,
+      "latency_ms": 4818.6,
       "cost_usd": 0.0011551057291666667,
       "wer": 0.1765,
       "status": "ok"
@@ -4251,7 +4251,7 @@
       "model": "v2",
       "language": "hi",
       "audio_s": 19.8,
-      "latency_ms": 5387.5,
+      "latency_ms": 6395.0,
       "cost_usd": 0.0033663081250000005,
       "wer": 0.3529,
       "status": "ok"
@@ -4262,7 +4262,7 @@
       "model": "enhanced",
       "language": "hi",
       "audio_s": 19.8,
-      "latency_ms": 5232.2,
+      "latency_ms": 5418.4,
       "cost_usd": 0.0022112023958333333,
       "wer": 0.2941,
       "status": "ok"
@@ -4273,7 +4273,7 @@
       "model": "machine",
       "language": "hi",
       "audio_s": 19.8,
-      "latency_ms": 9188.8,
+      "latency_ms": 49680.6,
       "cost_usd": 0.0016501510416666667,
       "wer": 0.2941,
       "status": "ok"
@@ -4284,7 +4284,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 21.84,
-      "latency_ms": 140.4,
+      "latency_ms": 1269.8,
       "cost_usd": 0.0015653298958333334,
       "wer": 0.0952,
       "status": "ok"
@@ -4295,7 +4295,7 @@
       "model": "whisper-large-v3",
       "language": "hi",
       "audio_s": 21.84,
-      "latency_ms": 1433.6,
+      "latency_ms": 735.6,
       "cost_usd": 0.0009828815625,
       "wer": 0.381,
       "status": "ok"
@@ -4306,7 +4306,7 @@
       "model": "universal-3-5-pro",
       "language": "hi",
       "audio_s": 21.84,
-      "latency_ms": 5117.1,
+      "latency_ms": 4864.2,
       "cost_usd": 0.0012741057291666667,
       "wer": 0.1429,
       "status": "ok"
@@ -4317,7 +4317,7 @@
       "model": "v2",
       "language": "hi",
       "audio_s": 21.84,
-      "latency_ms": 5461.9,
+      "latency_ms": 5389.1,
       "cost_usd": 0.003713108125,
       "wer": 0.4762,
       "status": "ok"
@@ -4328,7 +4328,7 @@
       "model": "enhanced",
       "language": "hi",
       "audio_s": 21.84,
-      "latency_ms": 5205.9,
+      "latency_ms": 5407.8,
       "cost_usd": 0.0024390023958333336,
       "wer": 0.1429,
       "status": "ok"
@@ -4339,7 +4339,7 @@
       "model": "machine",
       "language": "hi",
       "audio_s": 21.84,
-      "latency_ms": 9169.7,
+      "latency_ms": 37397.3,
       "cost_usd": 0.0018201510416666667,
       "wer": 0.4286,
       "status": "ok"
@@ -4350,7 +4350,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 17.52,
-      "latency_ms": 133.3,
+      "latency_ms": 1038.3,
       "cost_usd": 0.0012557298958333332,
       "wer": 0.25,
       "status": "ok"
@@ -4361,7 +4361,7 @@
       "model": "whisper-large-v3",
       "language": "hi",
       "audio_s": 17.52,
-      "latency_ms": 1484.0,
+      "latency_ms": 487.8,
       "cost_usd": 0.0007884815625,
       "wer": 0.1875,
       "status": "ok"
@@ -4372,7 +4372,7 @@
       "model": "universal-3-5-pro",
       "language": "hi",
       "audio_s": 17.52,
-      "latency_ms": 5110.1,
+      "latency_ms": 4817.4,
       "cost_usd": 0.0010221057291666666,
       "wer": 0.25,
       "status": "ok"
@@ -4383,7 +4383,7 @@
       "model": "v2",
       "language": "hi",
       "audio_s": 17.52,
-      "latency_ms": 5330.2,
+      "latency_ms": 5613.8,
       "cost_usd": 0.002978708125,
       "wer": 0.375,
       "status": "ok"
@@ -4394,7 +4394,7 @@
       "model": "enhanced",
       "language": "hi",
       "audio_s": 17.52,
-      "latency_ms": 4945.2,
+      "latency_ms": 5453.9,
       "cost_usd": 0.001956602395833333,
       "wer": 0.1875,
       "status": "ok"
@@ -4405,7 +4405,7 @@
       "model": "machine",
       "language": "hi",
       "audio_s": 17.52,
-      "latency_ms": 9280.9,
+      "latency_ms": 21167.5,
       "cost_usd": 0.0014601510416666667,
       "wer": 0.1875,
       "status": "ok"
@@ -4416,7 +4416,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 19.8,
-      "latency_ms": 703.1,
+      "latency_ms": 605.3,
       "cost_usd": 0.0014191298958333334,
       "wer": 0.2857,
       "status": "ok"
@@ -4427,7 +4427,7 @@
       "model": "whisper-large-v3",
       "language": "hi",
       "audio_s": 19.8,
-      "latency_ms": 1174.2,
+      "latency_ms": 819.5,
       "cost_usd": 0.0008910815625000001,
       "wer": 0.2857,
       "status": "ok"
@@ -4438,7 +4438,7 @@
       "model": "universal-3-5-pro",
       "language": "hi",
       "audio_s": 19.8,
-      "latency_ms": 5710.9,
+      "latency_ms": 4837.1,
       "cost_usd": 0.0011551057291666667,
       "wer": 0.381,
       "status": "ok"
@@ -4449,7 +4449,7 @@
       "model": "v2",
       "language": "hi",
       "audio_s": 19.8,
-      "latency_ms": 5715.5,
+      "latency_ms": 5563.3,
       "cost_usd": 0.0033663081250000005,
       "wer": 0.2857,
       "status": "ok"
@@ -4460,7 +4460,7 @@
       "model": "enhanced",
       "language": "hi",
       "audio_s": 19.8,
-      "latency_ms": 4920.7,
+      "latency_ms": 5613.7,
       "cost_usd": 0.0022112023958333333,
       "wer": 0.1905,
       "status": "ok"
@@ -4471,7 +4471,7 @@
       "model": "machine",
       "language": "hi",
       "audio_s": 19.8,
-      "latency_ms": 9072.7,
+      "latency_ms": 8964.2,
       "cost_usd": 0.0016501510416666667,
       "wer": 0.2381,
       "status": "ok"
@@ -4482,7 +4482,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 22.68,
-      "latency_ms": 1204.1,
+      "latency_ms": 335.9,
       "cost_usd": 0.0016255298958333334,
       "wer": 0.25,
       "status": "ok"
@@ -4493,7 +4493,7 @@
       "model": "whisper-large-v3",
       "language": "hi",
       "audio_s": 22.68,
-      "latency_ms": 1282.6,
+      "latency_ms": 566.3,
       "cost_usd": 0.0010206815625,
       "wer": 0.3,
       "status": "ok"
@@ -4504,7 +4504,7 @@
       "model": "universal-3-5-pro",
       "language": "hi",
       "audio_s": 22.68,
-      "latency_ms": 4985.5,
+      "latency_ms": 4860.1,
       "cost_usd": 0.0013231057291666667,
       "wer": 0.15,
       "status": "ok"
@@ -4515,7 +4515,7 @@
       "model": "v2",
       "language": "hi",
       "audio_s": 22.68,
-      "latency_ms": 5207.7,
+      "latency_ms": 5462.1,
       "cost_usd": 0.0038559081250000003,
       "wer": 0.25,
       "status": "ok"
@@ -4526,7 +4526,7 @@
       "model": "enhanced",
       "language": "hi",
       "audio_s": 22.68,
-      "latency_ms": 5065.5,
+      "latency_ms": 5189.7,
       "cost_usd": 0.0025328023958333334,
       "wer": 0.15,
       "status": "ok"
@@ -4537,7 +4537,7 @@
       "model": "machine",
       "language": "hi",
       "audio_s": 22.68,
-      "latency_ms": 9071.5,
+      "latency_ms": 8942.9,
       "cost_usd": 0.0018901510416666667,
       "wer": 0.25,
       "status": "ok"
@@ -4548,7 +4548,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 21.6,
-      "latency_ms": 651.4,
+      "latency_ms": 232.9,
       "cost_usd": 0.0015481298958333334,
       "wer": 0.08,
       "status": "ok"
@@ -4559,7 +4559,7 @@
       "model": "whisper-large-v3",
       "language": "hi",
       "audio_s": 21.6,
-      "latency_ms": 1519.1,
+      "latency_ms": 914.0,
       "cost_usd": 0.0009720815625,
       "wer": 0.28,
       "status": "ok"
@@ -4570,7 +4570,7 @@
       "model": "universal-3-5-pro",
       "language": "hi",
       "audio_s": 21.6,
-      "latency_ms": 11684.5,
+      "latency_ms": 4853.4,
       "cost_usd": 0.0012601057291666666,
       "wer": 0.24,
       "status": "ok"
@@ -4581,7 +4581,7 @@
       "model": "v2",
       "language": "hi",
       "audio_s": 21.6,
-      "latency_ms": 5549.4,
+      "latency_ms": 5569.2,
       "cost_usd": 0.0036723081250000004,
       "wer": 0.24,
       "status": "ok"
@@ -4592,7 +4592,7 @@
       "model": "enhanced",
       "language": "hi",
       "audio_s": 21.6,
-      "latency_ms": 5468.9,
+      "latency_ms": 5183.5,
       "cost_usd": 0.002412202395833333,
       "wer": 0.12,
       "status": "ok"
@@ -4603,7 +4603,7 @@
       "model": "machine",
       "language": "hi",
       "audio_s": 21.6,
-      "latency_ms": 9143.9,
+      "latency_ms": 8965.6,
       "cost_usd": 0.0018001510416666667,
       "wer": 0.2,
       "status": "ok"
@@ -4614,7 +4614,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 18.0,
-      "latency_ms": 3175.7,
+      "latency_ms": 189.5,
       "cost_usd": 0.0012901298958333334,
       "wer": 0.2778,
       "status": "ok"
@@ -4625,7 +4625,7 @@
       "model": "whisper-large-v3",
       "language": "hi",
       "audio_s": 18.0,
-      "latency_ms": 1045.8,
+      "latency_ms": 820.6,
       "cost_usd": 0.0008100815625000001,
       "wer": 0.1667,
       "status": "ok"
@@ -4636,9 +4636,9 @@
       "model": "universal-3-5-pro",
       "language": "hi",
       "audio_s": 18.0,
-      "latency_ms": 4960.2,
+      "latency_ms": 4803.1,
       "cost_usd": 0.0010501057291666667,
-      "wer": 0.2778,
+      "wer": 0.3333,
       "status": "ok"
     },
     {
@@ -4647,7 +4647,7 @@
       "model": "v2",
       "language": "hi",
       "audio_s": 18.0,
-      "latency_ms": 5540.3,
+      "latency_ms": 5666.3,
       "cost_usd": 0.0030603081250000002,
       "wer": 0.1667,
       "status": "ok"
@@ -4658,7 +4658,7 @@
       "model": "enhanced",
       "language": "hi",
       "audio_s": 18.0,
-      "latency_ms": 5236.5,
+      "latency_ms": 5416.4,
       "cost_usd": 0.0020102023958333336,
       "wer": 0.2778,
       "status": "ok"
@@ -4669,7 +4669,7 @@
       "model": "machine",
       "language": "hi",
       "audio_s": 18.0,
-      "latency_ms": 9093.0,
+      "latency_ms": 8935.4,
       "cost_usd": 0.0015001510416666666,
       "wer": 0.1667,
       "status": "ok"
@@ -4680,7 +4680,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 17.52,
-      "latency_ms": 634.7,
+      "latency_ms": 226.9,
       "cost_usd": 0.0012557298958333332,
       "wer": 0.4375,
       "status": "ok"
@@ -4691,7 +4691,7 @@
       "model": "whisper-large-v3",
       "language": "hi",
       "audio_s": 17.52,
-      "latency_ms": 884.4,
+      "latency_ms": 788.3,
       "cost_usd": 0.0007884815625,
       "wer": 0.5,
       "status": "ok"
@@ -4702,7 +4702,7 @@
       "model": "universal-3-5-pro",
       "language": "hi",
       "audio_s": 17.52,
-      "latency_ms": 4968.0,
+      "latency_ms": 4867.0,
       "cost_usd": 0.0010221057291666666,
       "wer": 0.3125,
       "status": "ok"
@@ -4713,7 +4713,7 @@
       "model": "v2",
       "language": "hi",
       "audio_s": 17.52,
-      "latency_ms": 5787.5,
+      "latency_ms": 5768.1,
       "cost_usd": 0.002978708125,
       "wer": 0.5,
       "status": "ok"
@@ -4724,7 +4724,7 @@
       "model": "enhanced",
       "language": "hi",
       "audio_s": 17.52,
-      "latency_ms": 5275.1,
+      "latency_ms": 5415.3,
       "cost_usd": 0.001956602395833333,
       "wer": 0.3125,
       "status": "ok"
@@ -4735,7 +4735,7 @@
       "model": "machine",
       "language": "hi",
       "audio_s": 17.52,
-      "latency_ms": 9084.1,
+      "latency_ms": 8924.1,
       "cost_usd": 0.0014601510416666667,
       "wer": 0.5625,
       "status": "ok"
@@ -4746,7 +4746,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 14.64,
-      "latency_ms": 683.0,
+      "latency_ms": 273.2,
       "cost_usd": 0.0010493298958333334,
       "wer": 0.0588,
       "status": "ok"
@@ -4757,7 +4757,7 @@
       "model": "whisper-large-v3",
       "language": "hi",
       "audio_s": 14.64,
-      "latency_ms": 1150.8,
+      "latency_ms": 465.9,
       "cost_usd": 0.0006588815625000001,
       "wer": 0.1765,
       "status": "ok"
@@ -4768,7 +4768,7 @@
       "model": "universal-3-5-pro",
       "language": "hi",
       "audio_s": 14.64,
-      "latency_ms": 5538.0,
+      "latency_ms": 4882.1,
       "cost_usd": 0.0008541057291666667,
       "wer": 0.1176,
       "status": "ok"
@@ -4779,7 +4779,7 @@
       "model": "v2",
       "language": "hi",
       "audio_s": 14.64,
-      "latency_ms": 5546.5,
+      "latency_ms": 5761.5,
       "cost_usd": 0.0024891081250000002,
       "wer": 0.2353,
       "status": "ok"
@@ -4790,7 +4790,7 @@
       "model": "enhanced",
       "language": "hi",
       "audio_s": 14.64,
-      "latency_ms": 5333.1,
+      "latency_ms": 5348.4,
       "cost_usd": 0.0016350023958333333,
       "wer": 0.2353,
       "status": "ok"
@@ -4801,7 +4801,7 @@
       "model": "machine",
       "language": "hi",
       "audio_s": 14.64,
-      "latency_ms": 9113.6,
+      "latency_ms": 8879.9,
       "cost_usd": 0.0012201510416666667,
       "wer": 0.2353,
       "status": "ok"
@@ -4812,7 +4812,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 18.24,
-      "latency_ms": 219.8,
+      "latency_ms": 308.7,
       "cost_usd": 0.0013073298958333334,
       "wer": 0.25,
       "status": "ok"
@@ -4823,7 +4823,7 @@
       "model": "whisper-large-v3",
       "language": "hi",
       "audio_s": 18.24,
-      "latency_ms": 1157.0,
+      "latency_ms": 1599.2,
       "cost_usd": 0.0008208815625,
       "wer": 0.5,
       "status": "ok"
@@ -4834,7 +4834,7 @@
       "model": "universal-3-5-pro",
       "language": "hi",
       "audio_s": 18.24,
-      "latency_ms": 8800.9,
+      "latency_ms": 4831.9,
       "cost_usd": 0.0010641057291666666,
       "wer": 0.45,
       "status": "ok"
@@ -4845,7 +4845,7 @@
       "model": "v2",
       "language": "hi",
       "audio_s": 18.24,
-      "latency_ms": 5440.0,
+      "latency_ms": 5429.2,
       "cost_usd": 0.0031011081250000004,
       "wer": 0.5,
       "status": "ok"
@@ -4856,7 +4856,7 @@
       "model": "enhanced",
       "language": "hi",
       "audio_s": 18.24,
-      "latency_ms": 5199.4,
+      "latency_ms": 5568.4,
       "cost_usd": 0.0020370023958333336,
       "wer": 0.25,
       "status": "ok"
@@ -4867,7 +4867,7 @@
       "model": "machine",
       "language": "hi",
       "audio_s": 18.24,
-      "latency_ms": 9089.2,
+      "latency_ms": 13036.6,
       "cost_usd": 0.0015201510416666666,
       "wer": 0.45,
       "status": "ok"
@@ -4878,7 +4878,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 22.92,
-      "latency_ms": 160.0,
+      "latency_ms": 885.8,
       "cost_usd": 0.0016427298958333334,
       "wer": 0.3077,
       "status": "ok"
@@ -4889,7 +4889,7 @@
       "model": "whisper-large-v3",
       "language": "hi",
       "audio_s": 22.92,
-      "latency_ms": 1282.1,
+      "latency_ms": 855.8,
       "cost_usd": 0.0010314815625,
       "wer": 0.2308,
       "status": "ok"
@@ -4900,7 +4900,7 @@
       "model": "universal-3-5-pro",
       "language": "hi",
       "audio_s": 22.92,
-      "latency_ms": 5006.9,
+      "latency_ms": 5088.6,
       "cost_usd": 0.0013371057291666668,
       "wer": 0.2308,
       "status": "ok"
@@ -4911,7 +4911,7 @@
       "model": "v2",
       "language": "hi",
       "audio_s": 22.92,
-      "latency_ms": 5910.0,
+      "latency_ms": 5477.3,
       "cost_usd": 0.0038967081250000004,
       "wer": 0.2692,
       "status": "ok"
@@ -4922,7 +4922,7 @@
       "model": "enhanced",
       "language": "hi",
       "audio_s": 22.92,
-      "latency_ms": 5470.0,
+      "latency_ms": 4983.1,
       "cost_usd": 0.0025596023958333334,
       "wer": 0.1538,
       "status": "ok"
@@ -4933,7 +4933,7 @@
       "model": "machine",
       "language": "hi",
       "audio_s": 22.92,
-      "latency_ms": 9111.2,
+      "latency_ms": 8965.6,
       "cost_usd": 0.0019101510416666668,
       "wer": 0.2308,
       "status": "ok"
@@ -4944,7 +4944,7 @@
       "model": "nova-3",
       "language": "hi",
       "audio_s": 12.84,
-      "latency_ms": 1050.9,
+      "latency_ms": 304.5,
       "cost_usd": 0.0009203298958333333,
       "wer": 0.0,
       "status": "ok"
@@ -4955,7 +4955,7 @@
       "model": "whisper-large-v3",
       "language": "hi",
       "audio_s": 12.84,
-      "latency_ms": 786.2,
+      "latency_ms": 701.5,
       "cost_usd": 0.0005778815625000001,
       "wer": 0.2143,
       "status": "ok"
@@ -4966,7 +4966,7 @@
       "model": "universal-3-5-pro",
       "language": "hi",
       "audio_s": 12.84,
-      "latency_ms": 5210.2,
+      "latency_ms": 4806.1,
       "cost_usd": 0.0007491057291666666,
       "wer": 0.2143,
       "status": "ok"
@@ -4977,7 +4977,7 @@
       "model": "v2",
       "language": "hi",
       "audio_s": 12.84,
-      "latency_ms": 5362.6,
+      "latency_ms": 5913.7,
       "cost_usd": 0.002183108125,
       "wer": 0.2143,
       "status": "ok"
@@ -4988,7 +4988,7 @@
       "model": "enhanced",
       "language": "hi",
       "audio_s": 12.84,
-      "latency_ms": 4844.5,
+      "latency_ms": 5557.5,
       "cost_usd": 0.0014340023958333333,
       "wer": 0.0714,
       "status": "ok"
@@ -4999,7 +4999,7 @@
       "model": "machine",
       "language": "hi",
       "audio_s": 12.84,
-      "latency_ms": 9142.6,
+      "latency_ms": 8844.9,
       "cost_usd": 0.0010701510416666667,
       "wer": 0.2143,
       "status": "ok"
@@ -5010,7 +5010,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 21.48,
-      "latency_ms": 1042.2,
+      "latency_ms": 874.4,
       "cost_usd": 0.0015395298958333333,
       "wer": 1.0,
       "status": "ok"
@@ -5021,7 +5021,7 @@
       "model": "whisper-large-v3",
       "language": "ja",
       "audio_s": 21.48,
-      "latency_ms": 1905.4,
+      "latency_ms": 828.1,
       "cost_usd": 0.0009666815625,
       "wer": 1.0,
       "status": "ok"
@@ -5032,7 +5032,7 @@
       "model": "universal-3-5-pro",
       "language": "ja",
       "audio_s": 21.48,
-      "latency_ms": 5172.1,
+      "latency_ms": 4886.0,
       "cost_usd": 0.0012531057291666667,
       "wer": 1.0,
       "status": "ok"
@@ -5043,7 +5043,7 @@
       "model": "v2",
       "language": "ja",
       "audio_s": 21.48,
-      "latency_ms": 5877.3,
+      "latency_ms": 5698.4,
       "cost_usd": 0.003651908125,
       "wer": 1.0,
       "status": "ok"
@@ -5054,7 +5054,7 @@
       "model": "enhanced",
       "language": "ja",
       "audio_s": 21.48,
-      "latency_ms": 5156.5,
+      "latency_ms": 5416.3,
       "cost_usd": 0.0023988023958333334,
       "wer": 1.0,
       "status": "ok"
@@ -5065,7 +5065,7 @@
       "model": "machine",
       "language": "ja",
       "audio_s": 21.48,
-      "latency_ms": 9184.3,
+      "latency_ms": 8938.5,
       "cost_usd": 0.0017901510416666667,
       "wer": 0.6667,
       "status": "ok"
@@ -5076,7 +5076,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 26.16,
-      "latency_ms": 709.0,
+      "latency_ms": 617.7,
       "cost_usd": 0.0018749298958333333,
       "wer": 1.0,
       "status": "ok"
@@ -5087,7 +5087,7 @@
       "model": "whisper-large-v3",
       "language": "ja",
       "audio_s": 26.16,
-      "latency_ms": 1087.4,
+      "latency_ms": 599.6,
       "cost_usd": 0.0011772815625,
       "wer": 1.0,
       "status": "ok"
@@ -5098,7 +5098,7 @@
       "model": "universal-3-5-pro",
       "language": "ja",
       "audio_s": 26.16,
-      "latency_ms": 5324.9,
+      "latency_ms": 4811.1,
       "cost_usd": 0.0015261057291666668,
       "wer": 1.0,
       "status": "ok"
@@ -5109,7 +5109,7 @@
       "model": "v2",
       "language": "ja",
       "audio_s": 26.16,
-      "latency_ms": 5466.2,
+      "latency_ms": 5745.8,
       "cost_usd": 0.004447508125,
       "wer": 1.0,
       "status": "ok"
@@ -5120,7 +5120,7 @@
       "model": "enhanced",
       "language": "ja",
       "audio_s": 26.16,
-      "latency_ms": 5304.9,
+      "latency_ms": 5624.3,
       "cost_usd": 0.0029214023958333336,
       "wer": 1.0,
       "status": "ok"
@@ -5131,7 +5131,7 @@
       "model": "machine",
       "language": "ja",
       "audio_s": 26.16,
-      "latency_ms": 9147.2,
+      "latency_ms": 8901.9,
       "cost_usd": 0.0021801510416666666,
       "wer": 1.0,
       "status": "ok"
@@ -5142,7 +5142,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 19.8,
-      "latency_ms": 628.6,
+      "latency_ms": 839.0,
       "cost_usd": 0.0014191298958333334,
       "wer": 1.0,
       "status": "ok"
@@ -5153,7 +5153,7 @@
       "model": "whisper-large-v3",
       "language": "ja",
       "audio_s": 19.8,
-      "latency_ms": 1451.6,
+      "latency_ms": 656.9,
       "cost_usd": 0.0008910815625000001,
       "wer": 1.0,
       "status": "ok"
@@ -5164,7 +5164,7 @@
       "model": "universal-3-5-pro",
       "language": "ja",
       "audio_s": 19.8,
-      "latency_ms": 5557.2,
+      "latency_ms": 4994.8,
       "cost_usd": 0.0011551057291666667,
       "wer": 1.0,
       "status": "ok"
@@ -5175,7 +5175,7 @@
       "model": "v2",
       "language": "ja",
       "audio_s": 19.8,
-      "latency_ms": 5335.1,
+      "latency_ms": 5489.3,
       "cost_usd": 0.0033663081250000005,
       "wer": 1.0,
       "status": "ok"
@@ -5186,7 +5186,7 @@
       "model": "enhanced",
       "language": "ja",
       "audio_s": 19.8,
-      "latency_ms": 5111.7,
+      "latency_ms": 5621.2,
       "cost_usd": 0.0022112023958333333,
       "wer": 1.0,
       "status": "ok"
@@ -5197,7 +5197,7 @@
       "model": "machine",
       "language": "ja",
       "audio_s": 19.8,
-      "latency_ms": 9213.8,
+      "latency_ms": 8922.6,
       "cost_usd": 0.0016501510416666667,
       "wer": 1.0,
       "status": "ok"
@@ -5208,7 +5208,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 22.68,
-      "latency_ms": 526.3,
+      "latency_ms": 927.9,
       "cost_usd": 0.0016255298958333334,
       "wer": 1.0,
       "status": "ok"
@@ -5219,7 +5219,7 @@
       "model": "whisper-large-v3",
       "language": "ja",
       "audio_s": 22.68,
-      "latency_ms": 1113.0,
+      "latency_ms": 715.2,
       "cost_usd": 0.0010206815625,
       "wer": 1.0,
       "status": "ok"
@@ -5230,7 +5230,7 @@
       "model": "universal-3-5-pro",
       "language": "ja",
       "audio_s": 22.68,
-      "latency_ms": 5109.7,
+      "latency_ms": 4789.4,
       "cost_usd": 0.0013231057291666667,
       "wer": 1.0,
       "status": "ok"
@@ -5241,7 +5241,7 @@
       "model": "v2",
       "language": "ja",
       "audio_s": 22.68,
-      "latency_ms": 5623.5,
+      "latency_ms": 5984.0,
       "cost_usd": 0.0038559081250000003,
       "wer": 1.0,
       "status": "ok"
@@ -5252,7 +5252,7 @@
       "model": "enhanced",
       "language": "ja",
       "audio_s": 22.68,
-      "latency_ms": 5214.2,
+      "latency_ms": 5286.7,
       "cost_usd": 0.0025328023958333334,
       "wer": 1.0,
       "status": "ok"
@@ -5263,7 +5263,7 @@
       "model": "machine",
       "language": "ja",
       "audio_s": 22.68,
-      "latency_ms": 9103.8,
+      "latency_ms": 8934.2,
       "cost_usd": 0.0018901510416666667,
       "wer": 0.0,
       "status": "ok"
@@ -5274,7 +5274,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 22.44,
-      "latency_ms": 332.5,
+      "latency_ms": 297.7,
       "cost_usd": 0.0016083298958333334,
       "wer": 1.0,
       "status": "ok"
@@ -5285,7 +5285,7 @@
       "model": "whisper-large-v3",
       "language": "ja",
       "audio_s": 22.44,
-      "latency_ms": 997.5,
+      "latency_ms": 473.5,
       "cost_usd": 0.0010098815625000002,
       "wer": 1.0,
       "status": "ok"
@@ -5296,7 +5296,7 @@
       "model": "universal-3-5-pro",
       "language": "ja",
       "audio_s": 22.44,
-      "latency_ms": 5045.1,
+      "latency_ms": 4826.2,
       "cost_usd": 0.0013091057291666668,
       "wer": 1.0,
       "status": "ok"
@@ -5307,7 +5307,7 @@
       "model": "v2",
       "language": "ja",
       "audio_s": 22.44,
-      "latency_ms": 5546.8,
+      "latency_ms": 5480.9,
       "cost_usd": 0.003815108125,
       "wer": 1.0,
       "status": "ok"
@@ -5318,7 +5318,7 @@
       "model": "enhanced",
       "language": "ja",
       "audio_s": 22.44,
-      "latency_ms": 4546.6,
+      "latency_ms": 5606.5,
       "cost_usd": 0.0025060023958333334,
       "wer": 1.0,
       "status": "ok"
@@ -5329,7 +5329,7 @@
       "model": "machine",
       "language": "ja",
       "audio_s": 22.44,
-      "latency_ms": 9162.3,
+      "latency_ms": 8996.4,
       "cost_usd": 0.0018701510416666667,
       "wer": 1.0,
       "status": "ok"
@@ -5340,7 +5340,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 20.64,
-      "latency_ms": 317.0,
+      "latency_ms": 260.5,
       "cost_usd": 0.0014793298958333332,
       "wer": 1.0,
       "status": "ok"
@@ -5351,7 +5351,7 @@
       "model": "whisper-large-v3",
       "language": "ja",
       "audio_s": 20.64,
-      "latency_ms": 812.6,
+      "latency_ms": 759.5,
       "cost_usd": 0.0009288815625,
       "wer": 1.0,
       "status": "ok"
@@ -5362,7 +5362,7 @@
       "model": "universal-3-5-pro",
       "language": "ja",
       "audio_s": 20.64,
-      "latency_ms": 5180.0,
+      "latency_ms": 4823.1,
       "cost_usd": 0.0012041057291666665,
       "wer": 1.0,
       "status": "ok"
@@ -5373,7 +5373,7 @@
       "model": "v2",
       "language": "ja",
       "audio_s": 20.64,
-      "latency_ms": 5457.0,
+      "latency_ms": 5965.5,
       "cost_usd": 0.003509108125,
       "wer": 1.0,
       "status": "ok"
@@ -5384,7 +5384,7 @@
       "model": "enhanced",
       "language": "ja",
       "audio_s": 20.64,
-      "latency_ms": 5279.9,
+      "latency_ms": 5662.5,
       "cost_usd": 0.002305002395833333,
       "wer": 1.0,
       "status": "ok"
@@ -5395,7 +5395,7 @@
       "model": "machine",
       "language": "ja",
       "audio_s": 20.64,
-      "latency_ms": 9142.8,
+      "latency_ms": 8916.3,
       "cost_usd": 0.0017201510416666665,
       "wer": 0.6667,
       "status": "ok"
@@ -5406,7 +5406,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 24.0,
-      "latency_ms": 167.5,
+      "latency_ms": 274.5,
       "cost_usd": 0.0017201298958333334,
       "wer": 1.0,
       "status": "ok"
@@ -5417,7 +5417,7 @@
       "model": "whisper-large-v3",
       "language": "ja",
       "audio_s": 24.0,
-      "latency_ms": 1049.6,
+      "latency_ms": 1351.5,
       "cost_usd": 0.0010800815625000002,
       "wer": 1.0,
       "status": "ok"
@@ -5428,7 +5428,7 @@
       "model": "universal-3-5-pro",
       "language": "ja",
       "audio_s": 24.0,
-      "latency_ms": 5462.2,
+      "latency_ms": 4802.0,
       "cost_usd": 0.0014001057291666667,
       "wer": 1.0,
       "status": "ok"
@@ -5439,7 +5439,7 @@
       "model": "v2",
       "language": "ja",
       "audio_s": 24.0,
-      "latency_ms": 5847.4,
+      "latency_ms": 5574.4,
       "cost_usd": 0.004080308125,
       "wer": 1.0,
       "status": "ok"
@@ -5450,7 +5450,7 @@
       "model": "enhanced",
       "language": "ja",
       "audio_s": 24.0,
-      "latency_ms": 5013.0,
+      "latency_ms": 5453.9,
       "cost_usd": 0.0026802023958333336,
       "wer": 1.0,
       "status": "ok"
@@ -5461,7 +5461,7 @@
       "model": "machine",
       "language": "ja",
       "audio_s": 24.0,
-      "latency_ms": 9083.4,
+      "latency_ms": 8941.6,
       "cost_usd": 0.002000151041666667,
       "wer": 0.6667,
       "status": "ok"
@@ -5472,7 +5472,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 21.12,
-      "latency_ms": 171.3,
+      "latency_ms": 337.5,
       "cost_usd": 0.0015137298958333332,
       "wer": 1.0,
       "status": "ok"
@@ -5483,7 +5483,7 @@
       "model": "whisper-large-v3",
       "language": "ja",
       "audio_s": 21.12,
-      "latency_ms": 1151.4,
+      "latency_ms": 736.8,
       "cost_usd": 0.0009504815625,
       "wer": 1.0,
       "status": "ok"
@@ -5494,7 +5494,7 @@
       "model": "universal-3-5-pro",
       "language": "ja",
       "audio_s": 21.12,
-      "latency_ms": 5007.5,
+      "latency_ms": 4861.6,
       "cost_usd": 0.0012321057291666665,
       "wer": 1.0,
       "status": "ok"
@@ -5505,7 +5505,7 @@
       "model": "v2",
       "language": "ja",
       "audio_s": 21.12,
-      "latency_ms": 5501.7,
+      "latency_ms": 5890.1,
       "cost_usd": 0.003590708125,
       "wer": 1.0,
       "status": "ok"
@@ -5516,7 +5516,7 @@
       "model": "enhanced",
       "language": "ja",
       "audio_s": 21.12,
-      "latency_ms": 4626.1,
+      "latency_ms": 5682.6,
       "cost_usd": 0.002358602395833333,
       "wer": 1.0,
       "status": "ok"
@@ -5527,7 +5527,7 @@
       "model": "machine",
       "language": "ja",
       "audio_s": 21.12,
-      "latency_ms": 9076.9,
+      "latency_ms": 8965.9,
       "cost_usd": 0.0017601510416666666,
       "wer": 1.0,
       "status": "ok"
@@ -5538,7 +5538,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 27.0,
-      "latency_ms": 97.5,
+      "latency_ms": 260.2,
       "cost_usd": 0.0019351298958333334,
       "wer": 1.0,
       "status": "ok"
@@ -5549,7 +5549,7 @@
       "model": "whisper-large-v3",
       "language": "ja",
       "audio_s": 27.0,
-      "latency_ms": 1725.1,
+      "latency_ms": 1435.6,
       "cost_usd": 0.0012150815625000002,
       "wer": 1.0,
       "status": "ok"
@@ -5560,7 +5560,7 @@
       "model": "universal-3-5-pro",
       "language": "ja",
       "audio_s": 27.0,
-      "latency_ms": 5018.2,
+      "latency_ms": 4850.0,
       "cost_usd": 0.0015751057291666668,
       "wer": 1.0,
       "status": "ok"
@@ -5571,7 +5571,7 @@
       "model": "v2",
       "language": "ja",
       "audio_s": 27.0,
-      "latency_ms": 5539.1,
+      "latency_ms": 5638.6,
       "cost_usd": 0.004590308125,
       "wer": 1.0,
       "status": "ok"
@@ -5582,7 +5582,7 @@
       "model": "enhanced",
       "language": "ja",
       "audio_s": 27.0,
-      "latency_ms": 5275.7,
+      "latency_ms": 5340.0,
       "cost_usd": 0.0030152023958333334,
       "wer": 1.0,
       "status": "ok"
@@ -5593,7 +5593,7 @@
       "model": "machine",
       "language": "ja",
       "audio_s": 27.0,
-      "latency_ms": 9401.2,
+      "latency_ms": 8899.2,
       "cost_usd": 0.002250151041666667,
       "wer": 0.6667,
       "status": "ok"
@@ -5604,7 +5604,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 21.6,
-      "latency_ms": 438.2,
+      "latency_ms": 358.0,
       "cost_usd": 0.0015481298958333334,
       "wer": 1.0,
       "status": "ok"
@@ -5615,7 +5615,7 @@
       "model": "whisper-large-v3",
       "language": "ja",
       "audio_s": 21.6,
-      "latency_ms": 966.8,
+      "latency_ms": 543.7,
       "cost_usd": 0.0009720815625,
       "wer": 1.0,
       "status": "ok"
@@ -5626,7 +5626,7 @@
       "model": "universal-3-5-pro",
       "language": "ja",
       "audio_s": 21.6,
-      "latency_ms": 5022.4,
+      "latency_ms": 4833.8,
       "cost_usd": 0.0012601057291666666,
       "wer": 1.0,
       "status": "ok"
@@ -5637,7 +5637,7 @@
       "model": "v2",
       "language": "ja",
       "audio_s": 21.6,
-      "latency_ms": 5775.5,
+      "latency_ms": 5786.1,
       "cost_usd": 0.0036723081250000004,
       "wer": 1.0,
       "status": "ok"
@@ -5648,7 +5648,7 @@
       "model": "enhanced",
       "language": "ja",
       "audio_s": 21.6,
-      "latency_ms": 5093.9,
+      "latency_ms": 5567.1,
       "cost_usd": 0.002412202395833333,
       "wer": 1.0,
       "status": "ok"
@@ -5659,7 +5659,7 @@
       "model": "machine",
       "language": "ja",
       "audio_s": 21.6,
-      "latency_ms": 9104.7,
+      "latency_ms": 8953.3,
       "cost_usd": 0.0018001510416666667,
       "wer": 1.0,
       "status": "ok"
@@ -5670,7 +5670,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 16.08,
-      "latency_ms": 127.4,
+      "latency_ms": 304.8,
       "cost_usd": 0.0011525298958333335,
       "wer": 1.0,
       "status": "ok"
@@ -5681,7 +5681,7 @@
       "model": "whisper-large-v3",
       "language": "ja",
       "audio_s": 16.08,
-      "latency_ms": 1235.9,
+      "latency_ms": 1373.9,
       "cost_usd": 0.0007236815625000001,
       "wer": 1.0,
       "status": "ok"
@@ -5692,7 +5692,7 @@
       "model": "universal-3-5-pro",
       "language": "ja",
       "audio_s": 16.08,
-      "latency_ms": 5017.1,
+      "latency_ms": 4830.4,
       "cost_usd": 0.0009381057291666668,
       "wer": 1.0,
       "status": "ok"
@@ -5703,7 +5703,7 @@
       "model": "v2",
       "language": "ja",
       "audio_s": 16.08,
-      "latency_ms": 5336.3,
+      "latency_ms": 5473.3,
       "cost_usd": 0.0027339081250000005,
       "wer": 1.0,
       "status": "ok"
@@ -5714,7 +5714,7 @@
       "model": "enhanced",
       "language": "ja",
       "audio_s": 16.08,
-      "latency_ms": 5094.2,
+      "latency_ms": 5596.7,
       "cost_usd": 0.0017958023958333335,
       "wer": 1.0,
       "status": "ok"
@@ -5725,7 +5725,7 @@
       "model": "machine",
       "language": "ja",
       "audio_s": 16.08,
-      "latency_ms": 9082.6,
+      "latency_ms": 8937.6,
       "cost_usd": 0.0013401510416666668,
       "wer": 1.0,
       "status": "ok"
@@ -5736,7 +5736,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 19.56,
-      "latency_ms": 134.8,
+      "latency_ms": 283.2,
       "cost_usd": 0.0014019298958333334,
       "wer": 1.0,
       "status": "ok"
@@ -5747,7 +5747,7 @@
       "model": "whisper-large-v3",
       "language": "ja",
       "audio_s": 19.56,
-      "latency_ms": 1222.3,
+      "latency_ms": 390.9,
       "cost_usd": 0.0008802815625,
       "wer": 1.0,
       "status": "ok"
@@ -5758,7 +5758,7 @@
       "model": "universal-3-5-pro",
       "language": "ja",
       "audio_s": 19.56,
-      "latency_ms": 5089.5,
+      "latency_ms": 4858.1,
       "cost_usd": 0.0011411057291666668,
       "wer": 1.0,
       "status": "ok"
@@ -5769,7 +5769,7 @@
       "model": "v2",
       "language": "ja",
       "audio_s": 19.56,
-      "latency_ms": 5422.1,
+      "latency_ms": 5458.5,
       "cost_usd": 0.0033255081250000004,
       "wer": 1.0,
       "status": "ok"
@@ -5780,7 +5780,7 @@
       "model": "enhanced",
       "language": "ja",
       "audio_s": 19.56,
-      "latency_ms": 4502.3,
+      "latency_ms": 5773.7,
       "cost_usd": 0.0021844023958333333,
       "wer": 1.0,
       "status": "ok"
@@ -5791,7 +5791,7 @@
       "model": "machine",
       "language": "ja",
       "audio_s": 19.56,
-      "latency_ms": 9159.7,
+      "latency_ms": 8917.3,
       "cost_usd": 0.0016301510416666667,
       "wer": 1.0,
       "status": "ok"
@@ -5802,7 +5802,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 23.28,
-      "latency_ms": 570.0,
+      "latency_ms": 249.1,
       "cost_usd": 0.0016685298958333335,
       "wer": 1.0,
       "status": "ok"
@@ -5813,7 +5813,7 @@
       "model": "whisper-large-v3",
       "language": "ja",
       "audio_s": 23.28,
-      "latency_ms": 677.4,
+      "latency_ms": 1943.5,
       "cost_usd": 0.0010476815625,
       "wer": 1.0,
       "status": "ok"
@@ -5824,7 +5824,7 @@
       "model": "universal-3-5-pro",
       "language": "ja",
       "audio_s": 23.28,
-      "latency_ms": 5067.4,
+      "latency_ms": 4809.8,
       "cost_usd": 0.0013581057291666668,
       "wer": 1.0,
       "status": "ok"
@@ -5835,7 +5835,7 @@
       "model": "v2",
       "language": "ja",
       "audio_s": 23.28,
-      "latency_ms": 5810.4,
+      "latency_ms": 5659.6,
       "cost_usd": 0.003957908125,
       "wer": 1.0,
       "status": "ok"
@@ -5846,7 +5846,7 @@
       "model": "enhanced",
       "language": "ja",
       "audio_s": 23.28,
-      "latency_ms": 4704.8,
+      "latency_ms": 5602.3,
       "cost_usd": 0.0025998023958333336,
       "wer": 1.0,
       "status": "ok"
@@ -5857,7 +5857,7 @@
       "model": "machine",
       "language": "ja",
       "audio_s": 23.28,
-      "latency_ms": 9151.0,
+      "latency_ms": 8898.8,
       "cost_usd": 0.0019401510416666668,
       "wer": 0.6667,
       "status": "ok"
@@ -5868,7 +5868,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 25.32,
-      "latency_ms": 91.0,
+      "latency_ms": 198.9,
       "cost_usd": 0.0018147298958333332,
       "wer": 1.0,
       "status": "ok"
@@ -5879,7 +5879,7 @@
       "model": "whisper-large-v3",
       "language": "ja",
       "audio_s": 25.32,
-      "latency_ms": 1693.9,
+      "latency_ms": 2005.2,
       "cost_usd": 0.0011394815625,
       "wer": 1.0,
       "status": "ok"
@@ -5890,7 +5890,7 @@
       "model": "universal-3-5-pro",
       "language": "ja",
       "audio_s": 25.32,
-      "latency_ms": 5445.2,
+      "latency_ms": 4801.1,
       "cost_usd": 0.0014771057291666668,
       "wer": 1.0,
       "status": "ok"
@@ -5901,7 +5901,7 @@
       "model": "v2",
       "language": "ja",
       "audio_s": 25.32,
-      "latency_ms": 6108.6,
+      "latency_ms": 5590.8,
       "cost_usd": 0.004304708125,
       "wer": 1.0,
       "status": "ok"
@@ -5912,7 +5912,7 @@
       "model": "enhanced",
       "language": "ja",
       "audio_s": 25.32,
-      "latency_ms": 5379.2,
+      "latency_ms": 5430.2,
       "cost_usd": 0.0028276023958333334,
       "wer": 1.0,
       "status": "ok"
@@ -5923,7 +5923,7 @@
       "model": "machine",
       "language": "ja",
       "audio_s": 25.32,
-      "latency_ms": 9128.4,
+      "latency_ms": 8910.9,
       "cost_usd": 0.002110151041666667,
       "wer": 1.0,
       "status": "ok"
@@ -5934,7 +5934,7 @@
       "model": "nova-3",
       "language": "ja",
       "audio_s": 24.84,
-      "latency_ms": 141.3,
+      "latency_ms": 257.8,
       "cost_usd": 0.0017803298958333333,
       "wer": 1.0,
       "status": "ok"
@@ -5945,7 +5945,7 @@
       "model": "whisper-large-v3",
       "language": "ja",
       "audio_s": 24.84,
-      "latency_ms": 2071.4,
+      "latency_ms": 1183.5,
       "cost_usd": 0.0011178815625,
       "wer": 1.0,
       "status": "ok"
@@ -5956,7 +5956,7 @@
       "model": "universal-3-5-pro",
       "language": "ja",
       "audio_s": 24.84,
-      "latency_ms": 5191.9,
+      "latency_ms": 4867.5,
       "cost_usd": 0.0014491057291666667,
       "wer": 1.0,
       "status": "ok"
@@ -5967,7 +5967,7 @@
       "model": "v2",
       "language": "ja",
       "audio_s": 24.84,
-      "latency_ms": 5637.9,
+      "latency_ms": 5726.1,
       "cost_usd": 0.0042231081250000005,
       "wer": 1.0,
       "status": "ok"
@@ -5978,7 +5978,7 @@
       "model": "enhanced",
       "language": "ja",
       "audio_s": 24.84,
-      "latency_ms": 4532.6,
+      "latency_ms": 5440.1,
       "cost_usd": 0.0027740023958333334,
       "wer": 1.0,
       "status": "ok"
@@ -5989,7 +5989,7 @@
       "model": "machine",
       "language": "ja",
       "audio_s": 24.84,
-      "latency_ms": 9116.0,
+      "latency_ms": 17081.0,
       "cost_usd": 0.0020701510416666668,
       "wer": 0.6667,
       "status": "ok"
