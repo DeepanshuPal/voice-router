@@ -2,6 +2,12 @@ name: arena audio
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'benchmarks/arena_audio.py'
+      - 'benchmarks/references/**'
+      - '.github/workflows/arena-audio.yml'
 
 permissions:
   contents: write
