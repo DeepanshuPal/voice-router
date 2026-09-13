@@ -1,4 +1,4 @@
-"""Arena ratings: Bradley-Terry Elo from raw votes, bootstrap 95% intervals.
+"""Arena ratings: Bradley-Terry Elo from raw votes, bootstrap 95% intervals.  # v2
 
 Reads votes from the Cloudflare vote store (ARENA_EXPORT_URL + ARENA_EXPORT_TOKEN),
 fits BT with ties counted as half-wins, writes docs/arena/data/ratings.json.
