@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voice arena - voice-router</title>
+<meta name="description" content="Blind A/B listening tests for TTS voices. Real API output, identities hidden until you vote.">
+<style>
+:root{--accent:#5e6ad2;--bad:#e5484d;--border:#e7e7e7;--faint:#a3a3a3;--good:#0e9f6e;--hairline:rgba(0,0,0,.08);--ink:#0a0a0a;--mut:#8a8a8a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.5}
+.wrap{max-width:760px;margin:0 auto;padding:48px 20px 96px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--hairline);font-size:14px}
+nav a{color:var(--ink);text-decoration:none;margin-left:16px}
+nav .brand{font-weight:600}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:8px}
+h1{font-size:32px;letter-spacing:-.02em;margin-bottom:12px}
+.sub{color:var(--mut);max-width:56ch;margin-bottom:32px}
+.sub code{font-size:13px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+@media(max-width:560px){.cards{grid-template-columns:1fr}}
+.card{border:1px solid var(--border);border-radius:12px;padding:20px}
+.card h2{font-size:15px;margin-bottom:4px}
+.card .who{font-family:ui-monospace,monospace;font-size:13px;color:var(--mut);min-height:20px;margin-bottom:12px}
+audio{width:100%;height:36px}
+.votes{display:flex;gap:12px;margin-bottom:32px}
+button{flex:1;padding:12px;border:1px solid var(--border);border-radius:10px;background:#fff;font-size:14px;cursor:pointer}
+button:hover{border-color:var(--ink)}
+button:disabled{opacity:.4;cursor:default}
+.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+.meta{font-size:13px;color:var(--mut);margin-bottom:32px}
+.panel{border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:32px}
+.panel h2{font-size:15px;margin-bottom:8px}
+.panel p{font-size:13px;color:var(--mut);margin-bottom:12px}
+input[type=email]{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;margin-bottom:12px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:8px 4px;border-bottom:1px solid var(--hairline)}
+th{font-size:12px;color:var(--mut);font-weight:500;text-transform:uppercase;letter-spacing:.06em}
+.mono{font-family:ui-monospace,monospace}
+.note{font-size:12px;color:var(--faint);margin-top:8px}
+footer{border-top:1px solid var(--hairline);padding:20px;font-size:12px;color:var(--mut);text-align:center}
+footer a{color:var(--mut)}
+</style>
+</head>
+<body>
+<nav><span class="brand">voice-router</span><span><a href="../">Leaderboard</a><a href="../methodology.html">Methodology</a></span></nav>
+<div class="wrap">
+<p class="eyebrow">Arena</p>
+<h1>Which voice sounds better?</h1>
+<p class="sub">Two clips, same sentence, different TTS providers. Names hidden until you vote. Every clip is real API output synthesized for this arena - the reference texts are the same FLEURS transcripts the <a href="../">leaderboard</a> measures. Rankings are Bradley-Terry Elo with bootstrap 95% intervals, recomputed from raw votes.</p>
+
+<div class="cards">
+  <div class="card"><h2>Clip A</h2><div class="who" id="whoA">&nbsp;</div><audio id="audioA" controls preload="none"></audio></div>
+  <div class="card"><h2>Clip B</h2><div class="who" id="whoB">&nbsp;</div><audio id="audioB" controls preload="none"></audio></div>
+</div>
+<div class="votes">
+  <button id="voteA" disabled>A sounds better</button>
+  <button id="voteTie" disabled>About the same</button>
+  <button id="voteB" disabled>B sounds better</button>
+</div>
+<p class="meta" id="roundMeta">Loading clips...</p>
+
+<div class="panel">
+  <h2>Rankings</h2>
+  <div id="rankings"><p>No published rankings yet - they appear after enough votes land. No estimates are shown in the meantime.</p></div>
+  <p class="note">Elo is recomputed from every raw vote; nothing is hand-set. Field mean is 1500 by construction.</p>
+</div>
+
+<div class="panel">
+  <h2>Get the report</h2>
+  <p>Rankings shift as votes come in. Leave an email and we send the updated arena report when it changes. Only used for that.</p>
+  <input type="email" id="email" placeholder="you@company.com" autocomplete="email">
+  <button class="primary" id="subscribe" style="width:100%">Send me the report</button>
+  <p class="note" id="subNote"></p>
+</div>
+</div>
+<footer>voice-router arena · votes stored against clips, never identities · <a href="https://github.com/DeepanshuPal/voice-router">source</a></footer>
+<script>
+const VOTE_ENDPOINT = "https://voice-router-arena.deepanshu-d59.workers.dev";
+let manifest=null, pair=null, voted=false;
+
+async function boot(){
+  try{ manifest = await (await fetch("manifest.json")).json(); }
+  catch(e){ document.getElementById("roundMeta").textContent="No arena clips generated yet."; return; }
+  newRound();
+}
+function pick(a){ return a[Math.floor(Math.random()*a.length)]; }
+function newRound(){
+  voted=false;
+  const clips=manifest.clips;
+  const provs=[...new Set(clips.map(c=>c.provider))];
+  if(provs.length<2){ document.getElementById("roundMeta").textContent="Need clips from at least two providers - only one wired so far."; return; }
+  const sample=pick([...new Set(clips.map(c=>c.sample))]);
+  const inSample=clips.filter(c=>c.sample===sample);
+  const a=pick(inSample);
+  let b=pick(inSample.filter(c=>c.provider!==a.provider));
+  pair={a,b,sample};
+  document.getElementById("audioA").src=a.file;
+  document.getElementById("audioB").src=b.file;
+  document.getElementById("whoA").innerHTML="&nbsp;";
+  document.getElementById("whoB").innerHTML="&nbsp;";
+  document.getElementById("roundMeta").textContent="Sentence "+sample+" · listen to both, then vote.";
+  const open = VOTE_ENDPOINT.length>0;
+  for(const id of ["voteA","voteTie","voteB"]){
+    const el=document.getElementById(id);
+    el.disabled=!open;
+    el.title=open?"":"voting opens when the vote store is live";
+  }
+  if(!open) document.getElementById("roundMeta").textContent+=" Voting is not wired yet - listen and compare, votes land when the store is live.";
+}
+async function vote(choice){
+  if(voted||!pair) return;
+  voted=true;
+  document.getElementById("whoA").textContent=pair.a.provider+" · "+pair.a.model;
+  document.getElementById("whoB").textContent=pair.b.provider+" · "+pair.b.model;
+  const body={sample:pair.sample,a:pair.a.provider,b:pair.b.provider,choice,ts:Date.now()};
+  try{
+    await fetch(VOTE_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
+    document.getElementById("roundMeta").textContent="Vote counted. Loading the next pair...";
+  }catch(e){
+    document.getElementById("roundMeta").textContent="Vote store unreachable - your vote was not saved.";
+  }
+  setTimeout(newRound,1800);
+}
+document.getElementById("voteA").onclick=()=>vote("a");
+document.getElementById("voteTie").onclick=()=>vote("tie");
+document.getElementById("voteB").onclick=()=>vote("b");
+document.getElementById("subscribe").onclick=async()=>{
+  const email=document.getElementById("email").value.trim();
+  const note=document.getElementById("subNote");
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ note.textContent="That does not look like an email address."; return; }
+  if(!VOTE_ENDPOINT){ note.textContent="Signup opens when the vote store is live."; return; }
+  try{
+    await fetch(VOTE_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({subscribe:email,ts:Date.now()})});
+    note.textContent="You're on the list.";
+  }catch(e){ note.textContent="Could not save that - try again later."; }
+};
+boot();
+</script>
+</body>
+</html>

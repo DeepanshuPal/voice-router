@@ -158,9 +158,9 @@ def aggregate_llm(payload: dict) -> list[dict]:
 # Providers we benchmark when keys exist. Ones missing from a run are listed
 # with the reason, so absence is stated rather than silent.
 KNOWN_TTS = {
-    "elevenlabs": "free tier key configured (10k credits/mo) - absent only if that run errored",
+    "elevenlabs": "API key works, but ElevenLabs disabled free-tier access on the account (anti-abuse flag, datacenter IP) - needs a paid plan",
     "openai-tts": "no free tier - needs a paid OpenAI account",
-    "cartesia": "signup pending, joins when a free key lands",
+    "cartesia": "signup not attempted yet",
     "deepgram-aura": "",
     "groq-tts": "",
 }
