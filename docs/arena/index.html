@@ -129,7 +129,7 @@ async function vote(choice){
   document.getElementById("whoB").textContent=pair.b.provider+" · "+pair.b.model;
   const body={sample:pair.sample,a:pair.a.provider,b:pair.b.provider,choice,ts:Date.now()};
   try{
-    await fetch(VOTE_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
+    await fetch(VOTE_ENDPOINT+"/vote",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
     document.getElementById("roundMeta").textContent="Vote counted. Loading the next pair...";
   }catch(e){
     document.getElementById("roundMeta").textContent="Vote store unreachable - your vote was not saved.";
@@ -145,7 +145,7 @@ document.getElementById("subscribe").onclick=async()=>{
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ note.textContent="That does not look like an email address."; return; }
   if(!VOTE_ENDPOINT){ note.textContent="Signup opens when the vote store is live."; return; }
   try{
-    await fetch(VOTE_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({subscribe:email,ts:Date.now()})});
+    await fetch(VOTE_ENDPOINT+"/subscribe",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({subscribe:email,ts:Date.now()})});
     note.textContent="You're on the list.";
   }catch(e){ note.textContent="Could not save that - try again later."; }
 };
