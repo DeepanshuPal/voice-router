@@ -2,6 +2,11 @@ name: arena elo
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/arena_elo.py'
+      - '.github/workflows/arena-elo.yml'
   schedule:
     - cron: '17 4 * * *'  # nightly, off the hour
 
