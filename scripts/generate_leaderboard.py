@@ -96,6 +96,79 @@ def aggregate(payload: dict) -> list[dict]:
     return out
 
 
+def aggregate_tts(payload: dict) -> list[dict]:
+    """One row per (provider, model): latency + cost, per-language breakdown."""
+    rows: dict[tuple[str, str], dict] = {}
+    for run in payload.get("tts_runs", []):
+        if run.get("status") != "ok":
+            continue
+        key = (run["provider"], run.get("model", ""))
+        row = rows.setdefault(key, {
+            "provider": run["provider"], "model": key[1],
+            "samples": 0, "chars": 0, "latencies": [], "cost": 0.0, "langs": {},
+        })
+        lang = run.get("language") or "en"
+        lrow = row["langs"].setdefault(lang, {"samples": 0, "latencies": []})
+        row["samples"] += 1
+        lrow["samples"] += 1
+        row["chars"] += run.get("chars") or 0
+        if run.get("latency_ms") is not None:
+            row["latencies"].append(run["latency_ms"])
+            lrow["latencies"].append(run["latency_ms"])
+        row["cost"] += run.get("cost_usd") or 0.0
+    out = []
+    for row in rows.values():
+        row["p50_ms"] = statistics.median(row["latencies"]) if row["latencies"] else None
+        row["cost_per_1k"] = (row["cost"] / row["chars"] * 1000) if row["chars"] else None
+        for lrow in row["langs"].values():
+            lrow["p50_ms"] = statistics.median(lrow["latencies"]) if lrow["latencies"] else None
+            del lrow["latencies"]
+        out.append(row)
+    out.sort(key=lambda r: (r["p50_ms"] or 1e9))
+    return out
+
+
+def aggregate_llm(payload: dict) -> list[dict]:
+    """One row per (provider, model): p50 latency, tokens/sec, cost."""
+    rows: dict[tuple[str, str], dict] = {}
+    for run in payload.get("llm_runs", []):
+        if run.get("status") != "ok":
+            continue
+        key = (run["provider"], run.get("model", ""))
+        row = rows.setdefault(key, {
+            "provider": run["provider"], "model": key[1],
+            "samples": 0, "latencies": [], "tps": [], "cost": 0.0,
+        })
+        row["samples"] += 1
+        if run.get("latency_ms") is not None:
+            row["latencies"].append(run["latency_ms"])
+        if run.get("tokens_per_s") is not None:
+            row["tps"].append(run["tokens_per_s"])
+        row["cost"] += run.get("cost_usd") or 0.0
+    out = []
+    for row in rows.values():
+        row["p50_ms"] = statistics.median(row["latencies"]) if row["latencies"] else None
+        row["avg_tps"] = (sum(row["tps"]) / len(row["tps"])) if row["tps"] else None
+        row["cost_per_call"] = (row["cost"] / row["samples"]) if row["samples"] else None
+        out.append(row)
+    out.sort(key=lambda r: (r["p50_ms"] or 1e9))
+    return out
+
+
+# Providers we benchmark when keys exist. Ones missing from a run are listed
+# with the reason, so absence is stated rather than silent.
+KNOWN_TTS = {
+    "elevenlabs": "free tier exists (10k credits/mo) - signup pending, joins next run",
+    "openai-tts": "no free tier - needs a paid OpenAI account",
+    "cartesia": "signup pending, joins when a free key lands",
+    "deepgram-aura": "",
+    "groq-tts": "",
+}
+KNOWN_LLM = {
+    "openrouter": "free models exist - key not wired into the run yet",
+}
+
+
 # ---------------------------------------------------------------- HTML helpers
 
 CSS = """
@@ -263,6 +336,8 @@ def footer(generated_at: str, source: str | None) -> str:
     </div>
     <div class="foot-links">
       <a href="{REPO_URL}" target="_blank" rel="noreferrer">{GITHUB_MARK} source</a>
+      <a href="data/leaderboard.json">json</a>
+      <a href="llms.txt">llms.txt</a>
       <span>MIT</span>
     </div>
   </div>
@@ -373,7 +448,95 @@ def bar_chart(title: str, hint: str, items: list[tuple[str, float, str]]) -> str
             f'<div class="hint">{esc(hint)}</div>{"".join(rows)}</div>')
 
 
-def render_index(rows: list[dict], sample: bool, generated_at: str, source: str, run_url: str | None = None) -> str:
+
+def render_tts_section(rows: list[dict]) -> str:
+    langs = sorted({lang for r in rows for lang in r["langs"]})
+    body_rows = []
+    for r in rows:
+        lang_cells = []
+        for lang in langs:
+            lrow = r["langs"].get(lang)
+            if not lrow or lrow.get("p50_ms") is None:
+                lang_cells.append("<td>&mdash;</td>")
+            else:
+                lang_cells.append(f'<td class="num">{fmt_ms(lrow["p50_ms"])}<div class="cellsub">n={lrow["samples"]}</div></td>')
+        body_rows.append(
+            "<tr>"
+            f"<td>{esc(r['provider'])}</td>"
+            f'<td class="mono" style="font-size:12.5px;color:var(--mut)">{esc(r["model"])}</td>'
+            f'<td class="num">{fmt_ms(r["p50_ms"])}</td>'
+            f'<td class="num">{("$" + format(r["cost_per_1k"], ".3f")) if r["cost_per_1k"] is not None else "&mdash;"}</td>'
+            f'<td class="num optcol">{r["samples"]}</td>'
+            + "".join(lang_cells) +
+            "</tr>"
+        )
+    ran = {r["provider"] for r in rows}
+    not_run = [f"<li><code>{esc(name)}</code> - {esc(why)}</li>"
+               for name, why in KNOWN_TTS.items() if name not in ran and why]
+    table = ""
+    if rows:
+        lang_headers = "".join(f"<th>{esc(lang)} p50</th>" for lang in langs)
+        table = ("<div class=\"card\"><table><thead><tr>"
+                 "<th>Provider</th><th>Model</th><th>p50 latency</th>"
+                 "<th>Cost/1k chars</th>"
+                 '<th class="optcol">Runs</th>' + lang_headers +
+                 "</tr></thead><tbody>" + "".join(body_rows) + "</tbody></table></div>")
+    not_run_html = (f'<p style="margin-top:12px;font-size:12.5px;color:var(--mut)">Not in this run:</p>'
+                    f'<ul style="margin-top:4px;font-size:12.5px;color:var(--mut);padding-left:20px">{"".join(not_run)}</ul>'
+                    if not_run else "")
+    empty = '<p style="font-size:13px;color:var(--mut)">No TTS provider keys in this run.</p>' if not rows else ""
+    return f"""
+<section>
+  <div class="sec-head">
+    <p class="type-label">text to speech</p>
+    <h2>TTS: speed and price, no quality score</h2>
+    <p>TTS quality is subjective - this board measures latency and metered cost only, and says so. Blind listening tests (an arena) are how quality gets measured honestly, and they are next. Synthesis input: 3 FLEURS reference transcripts per language, so both legs measure the same corpus. Cost is the provider's published per-character price over the characters actually synthesized.</p>
+  </div>
+  {table}{empty}{not_run_html}
+</section>
+"""
+
+
+def render_llm_section(rows: list[dict]) -> str:
+    body_rows = []
+    for r in rows:
+        body_rows.append(
+            "<tr>"
+            f"<td>{esc(r['provider'])}</td>"
+            f'<td class="mono" style="font-size:12.5px;color:var(--mut)">{esc(r["model"])}</td>'
+            f'<td class="num">{fmt_ms(r["p50_ms"])}</td>'
+            f'<td class="num">{format(r["avg_tps"], ".0f") if r["avg_tps"] is not None else "&mdash;"}</td>'
+            f'<td class="num">{("$" + format(r["cost_per_call"] * 1000, ".4f")) if r["cost_per_call"] is not None else "&mdash;"}</td>'
+            f'<td class="num optcol">{r["samples"]}</td>'
+            "</tr>"
+        )
+    ran = {r["provider"] for r in rows}
+    not_run = [f"<li><code>{esc(name)}</code> - {esc(why)}</li>"
+               for name, why in KNOWN_LLM.items() if name not in ran and why]
+    table = ""
+    if rows:
+        table = ("<div class=\"card\"><table><thead><tr>"
+                 "<th>Provider</th><th>Model</th><th>p50 latency</th>"
+                 "<th>tokens/sec</th><th>Cost/1k calls</th>"
+                 '<th class="optcol">Runs</th>'
+                 "</tr></thead><tbody>" + "".join(body_rows) + "</tbody></table></div>")
+    not_run_html = (f'<p style="margin-top:12px;font-size:12.5px;color:var(--mut)">Not in this run:</p>'
+                    f'<ul style="margin-top:4px;font-size:12.5px;color:var(--mut);padding-left:20px">{"".join(not_run)}</ul>'
+                    if not_run else "")
+    empty = '<p style="font-size:13px;color:var(--mut)">No LLM keys in this run.</p>' if not rows else ""
+    return f"""
+<section>
+  <div class="sec-head">
+    <p class="type-label">llm leg</p>
+    <h2>The LLM a voice turn waits on</h2>
+    <p>Fixed short customer-service prompts, one per board language, 120 max tokens out. Measured: p50 latency to a complete reply, output tokens/sec, metered cost. Not measured: answer quality - one-line support replies are a speed test, not an intelligence test.</p>
+  </div>
+  {table}{empty}{not_run_html}
+</section>
+"""
+
+
+def render_index(rows: list[dict], sample: bool, generated_at: str, source: str, run_url: str | None = None, tts_rows: list[dict] | None = None, llm_rows: list[dict] | None = None) -> str:
     banner = ""
     if sample:
         banner = ('<div class="banner">SAMPLE DATA - these numbers are synthetic and exist '
@@ -427,8 +590,8 @@ def render_index(rows: list[dict], sample: bool, generated_at: str, source: str,
 <div class="hero">
   <div>
     <p class="type-label">benchmarks</p>
-    <h1>STT leaderboard <span class="chip">measured, not marketed</span></h1>
-    <p class="hero-sub">Speech-to-text providers ranked by accuracy, latency and cost - every number out of a harness run on real audio. Full rules on the <a class="link-quiet" style="text-decoration:underline;text-decoration-color:#d4d4d4;text-underline-offset:3px" href="methodology.html">methodology page</a>.</p>
+    <h1>Voice AI leaderboard <span class="chip">measured, not marketed</span></h1>
+    <p class="hero-sub">Speech-to-text, text-to-speech and LLM providers ranked on measured runs - every number out of a harness, on real FLEURS audio and fixed prompts. Full rules on the <a class="link-quiet" style="text-decoration:underline;text-decoration-color:#d4d4d4;text-underline-offset:3px" href="methodology.html">methodology page</a>.</p>
   </div>
   <div class="hero-meta">
     <p>last run {esc(generated_at[:10])}{run_link}</p>
@@ -457,6 +620,8 @@ def render_index(rows: list[dict], sample: bool, generated_at: str, source: str,
     {bar_chart("p50 transcription latency", "all languages, lower is better", lat_items)}
   </div>
 </section>
+{render_tts_section(tts_rows or [])}
+{render_llm_section(llm_rows or [])}
 <div class="note">
   <p class="type-label">read these numbers like this</p>
   <p>Every run pushes the same FLEURS clips through each provider and records WER, latency and metered cost per sample - nothing is hand-edited or self-reported. A provider that does not support a language simply has no column entry. Clips, references, harness and raw <code>results.json</code> are all in the <a href="https://github.com/DeepanshuPal/voice-router" target="_blank" rel="noreferrer">repo</a>. Re-run it yourself: clone, add keys, run the harness.</p>
@@ -562,14 +727,33 @@ def main() -> None:
 
     sample = bool(payload.get("sample_data"))
     rows = aggregate(payload)
+    tts_rows = aggregate_tts(payload)
+    llm_rows = aggregate_llm(payload)
     run_url = payload.get("run_url")
     generated_at = payload.get("generated_at") or datetime.now(timezone.utc).isoformat(timespec="seconds")
 
     args.out.mkdir(parents=True, exist_ok=True)
-    (args.out / "index.html").write_text(render_index(rows, sample, generated_at, source.name, run_url))
+    (args.out / "index.html").write_text(
+        render_index(rows, sample, generated_at, source.name, run_url, tts_rows, llm_rows))
     (args.out / "methodology.html").write_text(render_methodology(sample, generated_at, run_url))
-    print(f"wrote {args.out}/index.html and {args.out}/methodology.html "
-          f"({len(rows)} rows, sample_data={sample})")
+
+    # Machine-readable surface: the same numbers, as JSON, served with the site.
+    data_dir = args.out / "data"
+    data_dir.mkdir(exist_ok=True)
+    (data_dir / "results.json").write_text(json.dumps(payload, indent=2))
+    board = {
+        "generated_at": generated_at,
+        "run_url": run_url,
+        "dataset": {
+            "name": "FLEURS", "license": "CC-BY-4.0",
+            "url": "https://huggingface.co/datasets/google/fleurs",
+            "clips_per_language": 15, "languages": sorted({l for r in rows for l in r["langs"]}),
+        },
+        "stt": rows, "tts": tts_rows, "llm": llm_rows,
+    }
+    (data_dir / "leaderboard.json").write_text(json.dumps(board, indent=2, default=str))
+    print(f"wrote {args.out}/index.html, methodology.html and data/ "
+          f"({len(rows)} stt rows, {len(tts_rows)} tts rows, {len(llm_rows)} llm rows, sample_data={sample})")
 
 
 if __name__ == "__main__":

@@ -33,6 +33,10 @@ class TTSProvider:
     def supports(self, language: str) -> bool:
         return "*" in self.spec.languages or language in self.spec.languages
 
+    def model_for(self, language: str) -> str:
+        """Model to use for a language; most providers run one multilingual model."""
+        return self.spec.models[0]
+
     async def synthesize(self, text: str, model: str, voice: str) -> bytes:
         raise NotImplementedError
 

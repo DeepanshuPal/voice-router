@@ -69,6 +69,18 @@ tts:
     default_latency_ms: 250
     languages: [en, es, hi, fr, de, pt, ja, ko, zh, it, nl, ru]
     env_key: CARTESIA_API_KEY
+  deepgram-aura:
+    models: [aura-2-thalia-en]   # voice is per-language; adapter maps lang -> voice
+    cost_per_1k_chars_usd: 0.03  # Aura-2 pay-as-you-go, deepgram.com/pricing
+    default_latency_ms: 250
+    languages: [en, es, de, fr, ja]
+    env_key: DEEPGRAM_API_KEY
+  groq-tts:
+    models: [canopylabs/orpheus-v1-english]
+    cost_per_1k_chars_usd: 0.022  # Orpheus English, per Groq launch coverage
+    default_latency_ms: 300
+    languages: [en]
+    env_key: GROQ_API_KEY
 
 # Mock providers are always available so the router runs with zero keys.
 # Remove them for production deploys.

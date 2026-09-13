@@ -42,6 +42,9 @@ jobs:
           GLADIA_API_KEY: ${{ secrets.GLADIA_API_KEY }}
           SPEECHMATICS_API_KEY: ${{ secrets.SPEECHMATICS_API_KEY }}
           REV_API_KEY: ${{ secrets.REV_API_KEY }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          CARTESIA_API_KEY: ${{ secrets.CARTESIA_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
 
       - name: Generate leaderboard site
         run: python scripts/generate_leaderboard.py

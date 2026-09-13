@@ -1,4 +1,4 @@
-"""Run the STT benchmark matrix across all sample languages and merge results.
+"""Run the benchmark matrix (STT + TTS + LLM legs) and merge results.
 
 Discovers languages from benchmarks/samples/<lang>-<n>.wav prefixes, runs the
 harness per language with matching references, and merges everything into one
@@ -26,6 +26,8 @@ RESULTS = ROOT / "benchmarks" / "results.json"
 import sys
 sys.path.insert(0, str(ROOT))
 from benchmarks.harness import run  # noqa: E402
+from benchmarks.tts_harness import run as tts_run  # noqa: E402
+from benchmarks.llm_harness import run as llm_run  # noqa: E402
 
 
 def languages() -> list[str]:
@@ -81,9 +83,31 @@ def main() -> None:
         print(f"[matrix] {lang}: " +
               ", ".join(f"{p}={s[lang]:.3f}" for p, s in scores.items() if lang in s))
 
+    # TTS leg: fixed FLEURS reference texts through every live TTS provider.
+    tts_runs = []
+    for lang in languages():
+        try:
+            payload = asyncio.run(tts_run(lang))
+            tts_runs += payload["runs"]
+            ok = sum(1 for r in payload["runs"] if r["status"] == "ok")
+            print(f"[matrix] tts {lang}: {ok}/{len(payload['runs'])} ok")
+        except SystemExit as e:
+            print(f"[matrix] tts {lang}: skipped ({e})")
+
+    # LLM leg: fixed support prompts through free-tier chat models.
+    try:
+        llm_payload = asyncio.run(llm_run())
+        llm_runs = llm_payload["runs"]
+        ok = sum(1 for r in llm_runs if r["status"] == "ok")
+        print(f"[matrix] llm: {ok}/{len(llm_runs)} ok")
+    except Exception as e:  # the LLM leg is optional - never kill the board over it
+        print(f"[matrix] llm: skipped ({e})")
+        llm_runs = []
+
     merged = {"sample_data": False,
               "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
               "scores": {"stt": scores}, "runs": runs,
+              "tts_runs": tts_runs, "llm_runs": llm_runs,
               "note": "regenerate with: python scripts/run_matrix.py"}
     url = ci_run_url()
     if url:

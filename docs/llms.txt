@@ -1,0 +1,26 @@
+# voice-router benchmarks
+
+> Open, reproducible benchmarks of voice AI providers: STT accuracy (WER/CER), TTS and LLM speed and cost, measured on real audio from the Google FLEURS corpus and fixed prompts. Every number comes out of a harness run - nothing is hand-edited or self-reported.
+
+## Pages
+
+- Leaderboard: https://deepanshupal.github.io/voice-router/
+- Methodology: https://deepanshupal.github.io/voice-router/methodology.html
+
+## Machine-readable data
+
+- Aggregated board rows (STT + TTS + LLM, with provenance): https://deepanshupal.github.io/voice-router/data/leaderboard.json
+- Raw harness output: https://deepanshupal.github.io/voice-router/data/results.json
+
+## How the numbers are made
+
+- Harness: benchmarks/harness.py (STT), benchmarks/tts_harness.py (TTS), benchmarks/llm_harness.py (LLM) in https://github.com/DeepanshuPal/voice-router (MIT)
+- STT dataset: Google FLEURS (CC-BY-4.0), https://huggingface.co/datasets/google/fleurs - 15 test clips per language, 6 languages (de, en, es, fr, hi, ja); ja scored with CER, the rest with WER
+- The board links the exact GitHub Actions run that produced its current numbers
+- Reproduce: clone the repo, add provider keys, run scripts/run_matrix.py
+
+## Caveats
+
+- FLEURS is clean read speech; real call audio scores worse for every provider. Rankings transfer, absolute numbers don't.
+- TTS and LLM legs measure speed and metered cost only - no quality score. TTS quality gets a blind listening arena; that is on the roadmap.
+- Providers with no free tier (no card required) are listed as not run rather than estimated.

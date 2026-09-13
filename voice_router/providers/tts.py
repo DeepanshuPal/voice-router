@@ -74,6 +74,55 @@ class CartesiaTTS(TTSProvider):
         return resp.content
 
 
+class DeepgramAuraTTS(TTSProvider):
+    """Deepgram Aura-2: the voice is part of the model name (aura-2-<voice>-<lang>)."""
+
+    LANG_VOICES = {
+        "en": "aura-2-thalia-en",
+        "es": "aura-2-agustina-es",
+        "de": "aura-2-aurelia-de",
+        "fr": "aura-2-agathe-fr",
+        "ja": "aura-2-ama-ja",
+    }
+
+    def model_for(self, language: str) -> str:
+        return self.LANG_VOICES.get(language, self.spec.models[0])
+
+    async def synthesize(self, text: str, model: str, voice: str) -> bytes:
+        key = os.environ.get(self.spec.env_key)
+        if not key:
+            raise ProviderUnavailable("DEEPGRAM_API_KEY not set")
+        async with httpx.AsyncClient(timeout=60) as client:
+            resp = await client.post(
+                "https://api.deepgram.com/v1/speak",
+                params={"model": model},
+                headers={"Authorization": f"Token {key}", "Content-Type": "application/json"},
+                json={"text": text},
+            )
+        if resp.status_code != 200:
+            raise ProviderError(f"deepgram-aura {resp.status_code}: {resp.text[:200]}")
+        return resp.content
+
+
+class GroqTTS(TTSProvider):
+    """Groq Orpheus TTS over the OpenAI-compatible speech endpoint (English)."""
+
+    async def synthesize(self, text: str, model: str, voice: str) -> bytes:
+        key = os.environ.get(self.spec.env_key)
+        if not key:
+            raise ProviderUnavailable("GROQ_API_KEY not set")
+        async with httpx.AsyncClient(timeout=60) as client:
+            resp = await client.post(
+                "https://api.groq.com/openai/v1/audio/speech",
+                headers={"Authorization": f"Bearer {key}"},
+                json={"model": model, "voice": "troy", "input": text,
+                      "response_format": "wav"},
+            )
+        if resp.status_code != 200:
+            raise ProviderError(f"groq-tts {resp.status_code}: {resp.text[:200]}")
+        return resp.content
+
+
 class MockTTS(TTSProvider):
     """Returns a playable sine-tone WAV so demos and tests need no keys."""
 
@@ -86,5 +135,7 @@ REGISTRY = {
     "elevenlabs": ElevenLabsTTS,
     "openai-tts": OpenAITTS,
     "cartesia": CartesiaTTS,
+    "deepgram-aura": DeepgramAuraTTS,
+    "groq-tts": GroqTTS,
     "mock-tts": MockTTS,
 }

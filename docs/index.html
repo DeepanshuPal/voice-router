@@ -137,8 +137,8 @@ footer{margin-top:80px;border-top:1px solid var(--hairline)}
 <div class="hero">
   <div>
     <p class="type-label">benchmarks</p>
-    <h1>STT leaderboard <span class="chip">measured, not marketed</span></h1>
-    <p class="hero-sub">Speech-to-text providers ranked by accuracy, latency and cost - every number out of a harness run on real audio. Full rules on the <a class="link-quiet" style="text-decoration:underline;text-decoration-color:#d4d4d4;text-underline-offset:3px" href="methodology.html">methodology page</a>.</p>
+    <h1>Voice AI leaderboard <span class="chip">measured, not marketed</span></h1>
+    <p class="hero-sub">Speech-to-text, text-to-speech and LLM providers ranked on measured runs - every number out of a harness, on real FLEURS audio and fixed prompts. Full rules on the <a class="link-quiet" style="text-decoration:underline;text-decoration-color:#d4d4d4;text-underline-offset:3px" href="methodology.html">methodology page</a>.</p>
   </div>
   <div class="hero-meta">
     <p>last run 2026-09-13</p>
@@ -167,6 +167,26 @@ footer{margin-top:80px;border-top:1px solid var(--hairline)}
     <div class="chart-card"><h3>p50 transcription latency</h3><div class="hint">all languages, lower is better</div><div class="bar-row"><div class="bar-label">deepgram (nova-3)</div><div class="bar-track"><div class="bar-fill" style="width:4.0%;background:var(--accent)"></div></div><div class="bar-val">509 ms</div></div><div class="bar-row"><div class="bar-label">groq-whisper (whisper-large-v3)</div><div class="bar-track"><div class="bar-fill" style="width:4.7%;background:#d4d4d4"></div></div><div class="bar-val">604 ms</div></div><div class="bar-row"><div class="bar-label">assemblyai (universal-3-5-pro)</div><div class="bar-track"><div class="bar-fill" style="width:37.0%;background:#d4d4d4"></div></div><div class="bar-val">4750 ms</div></div><div class="bar-row"><div class="bar-label">speechmatics (enhanced)</div><div class="bar-track"><div class="bar-fill" style="width:43.4%;background:#d4d4d4"></div></div><div class="bar-val">5570 ms</div></div><div class="bar-row"><div class="bar-label">gladia (v2)</div><div class="bar-track"><div class="bar-fill" style="width:45.8%;background:#d4d4d4"></div></div><div class="bar-val">5875 ms</div></div><div class="bar-row"><div class="bar-label">rev (machine)</div><div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#d4d4d4"></div></div><div class="bar-val">12826 ms</div></div></div>
   </div>
 </section>
+
+<section>
+  <div class="sec-head">
+    <p class="type-label">text to speech</p>
+    <h2>TTS: speed and price, no quality score</h2>
+    <p>TTS quality is subjective - this board measures latency and metered cost only, and says so. Blind listening tests (an arena) are how quality gets measured honestly, and they are next. Synthesis input: 3 FLEURS reference transcripts per language, so both legs measure the same corpus. Cost is the provider's published per-character price over the characters actually synthesized.</p>
+  </div>
+  <p style="font-size:13px;color:var(--mut)">No TTS provider keys in this run.</p><p style="margin-top:12px;font-size:12.5px;color:var(--mut)">Not in this run:</p><ul style="margin-top:4px;font-size:12.5px;color:var(--mut);padding-left:20px"><li><code>elevenlabs</code> - free tier exists (10k credits/mo) - signup pending, joins next run</li><li><code>openai-tts</code> - no free tier - needs a paid OpenAI account</li><li><code>cartesia</code> - signup pending, joins when a free key lands</li></ul>
+</section>
+
+
+<section>
+  <div class="sec-head">
+    <p class="type-label">llm leg</p>
+    <h2>The LLM a voice turn waits on</h2>
+    <p>Fixed short customer-service prompts, one per board language, 120 max tokens out. Measured: p50 latency to a complete reply, output tokens/sec, metered cost. Not measured: answer quality - one-line support replies are a speed test, not an intelligence test.</p>
+  </div>
+  <p style="font-size:13px;color:var(--mut)">No LLM keys in this run.</p><p style="margin-top:12px;font-size:12.5px;color:var(--mut)">Not in this run:</p><ul style="margin-top:4px;font-size:12.5px;color:var(--mut);padding-left:20px"><li><code>openrouter</code> - free models exist - key not wired into the run yet</li></ul>
+</section>
+
 <div class="note">
   <p class="type-label">read these numbers like this</p>
   <p>Every run pushes the same FLEURS clips through each provider and records WER, latency and metered cost per sample - nothing is hand-edited or self-reported. A provider that does not support a language simply has no column entry. Clips, references, harness and raw <code>results.json</code> are all in the <a href="https://github.com/DeepanshuPal/voice-router" target="_blank" rel="noreferrer">repo</a>. Re-run it yourself: clone, add keys, run the harness.</p>
@@ -181,6 +201,8 @@ footer{margin-top:80px;border-top:1px solid var(--hairline)}
     </div>
     <div class="foot-links">
       <a href="https://github.com/DeepanshuPal/voice-router" target="_blank" rel="noreferrer"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg> source</a>
+      <a href="data/leaderboard.json">json</a>
+      <a href="llms.txt">llms.txt</a>
       <span>MIT</span>
     </div>
   </div>
