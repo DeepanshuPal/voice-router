@@ -11,6 +11,9 @@ mock providers), the generator falls back to benchmarks/sample_results.json so
 the full loop renders end to end with zero provider keys. Sample data is always
 rendered behind a visible SAMPLE DATA banner - it is never presented as a real
 measurement.
+
+Design: same visual language as the am-i-cited site (Geist Sans/Mono, hairline
+borders, type labels, mono tabular numbers, #5e6ad2 accent), light mode.
 """
 
 from __future__ import annotations
@@ -28,6 +31,10 @@ DEFAULT_OUT = ROOT / "docs"
 
 LANG_NAMES = {"en": "English", "es": "Spanish", "hi": "Hindi", "fr": "French",
               "de": "German", "pt": "Portuguese", "ja": "Japanese", "zh": "Chinese"}
+
+GEIST_SANS = "https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-Variable.woff2"
+GEIST_MONO = "https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-mono/GeistMono-Variable.woff2"
+REPO_URL = "https://github.com/DeepanshuPal/voice-router"
 
 
 def load_payload(path: Path) -> dict:
@@ -92,41 +99,131 @@ def aggregate(payload: dict) -> list[dict]:
 # ---------------------------------------------------------------- HTML helpers
 
 CSS = """
-:root{color-scheme:dark}
+@font-face{font-family:'Geist Sans';src:url('%SANS%') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:'Geist Mono';src:url('%MONO%') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+:root{color-scheme:light;--hairline:rgba(0,0,0,.08);--border:#e7e7e7;--ink:#0a0a0a;--ink2:#404040;--mut:#8a8a8a;--faint:#a3a3a3;--accent:#5e6ad2;--accent-bright:#7c86e8;--good:#0e9f6e;--bad:#e5484d;--warn:#b45309}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#0d1117;color:#e6edf3;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;line-height:1.55;padding:0 16px 64px}
-a{color:#58a6ff;text-decoration:none}a:hover{text-decoration:underline}
-.wrap{max-width:960px;margin:0 auto}
-header{padding:32px 0 8px}
-h1{font-size:1.6rem;letter-spacing:-.01em}
-h1 a{color:#e6edf3}
-.sub{color:#8b949e;font-size:.95rem;margin-top:4px}
-.banner{background:#3d2e00;border:1px solid #9e6a03;color:#f0b72f;border-radius:8px;padding:10px 14px;margin:16px 0;font-size:.9rem;font-weight:600}
-.card{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:18px;margin-top:20px;overflow-x:auto}
-.card h2{font-size:1.05rem;margin-bottom:12px;color:#c9d1d9}
-table{width:100%;border-collapse:collapse;font-size:.9rem}
-th,td{padding:8px 10px;text-align:right;border-bottom:1px solid #21262d;white-space:nowrap}
+html{background:#fff;scroll-behavior:smooth}
+body{background:#fff;color:var(--ink);font-family:'Geist Sans',system-ui,-apple-system,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;min-height:100vh;display:flex;flex-direction:column}
+::selection{background:rgba(94,106,210,.25)}
+a{color:inherit;text-decoration:none}
+code,.mono{font-family:'Geist Mono',ui-monospace,monospace}
+.num{font-family:'Geist Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.wrap{width:100%;max-width:1152px;margin:0 auto;padding:0 24px}
+main{flex:1}
+.type-label{font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--mut)}
+.link-quiet{color:var(--ink2);transition:color .15s}
+.link-quiet:hover{color:var(--ink)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--hairline);background:rgba(255,255,255,.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:56px}
+.brand{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;letter-spacing:-.01em;white-space:nowrap}
+.brand-mark{display:flex;align-items:center;justify-content:center;width:20px;height:20px;border:1px solid #d4d4d4;border-radius:5px;background:#f5f5f5;flex:none}
+.brand-mark span{width:6px;height:6px;border-radius:9999px;background:var(--accent-bright)}
+.nav-links{display:flex;align-items:center;gap:2px;font-size:13px}
+.nav-links a{padding:6px 12px;border-radius:6px;color:var(--ink2);transition:color .15s,background .15s;white-space:nowrap}
+.nav-links a:hover{color:var(--ink);background:#f5f5f5}
+.nav-links a.active{color:var(--ink);font-weight:500}
+.gh-btn{display:flex;align-items:center;gap:6px;margin-left:8px;padding:6px 12px;border:1px solid var(--border);border-radius:6px;background:#fff;color:var(--ink);font-size:13px;transition:background .15s,border-color .15s}
+.gh-btn:hover{background:#fafafa;border-color:#d4d4d4}
+.gh-btn svg{width:14px;height:14px}
+
+/* hero */
+.hero{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;padding:56px 0 0}
+.hero h1{margin-top:12px;font-size:30px;font-weight:500;letter-spacing:-.02em;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.chip{display:inline-block;border:1px solid var(--border);background:#fafafa;border-radius:6px;padding:4px 8px;font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;font-weight:400;color:var(--mut);letter-spacing:0}
+.hero-sub{margin-top:8px;font-size:14px;color:var(--mut);max-width:560px}
+.hero-meta{text-align:right;font-family:'Geist Mono',ui-monospace,monospace;font-size:11.5px;line-height:1.7;color:var(--mut)}
+
+/* metric cards */
+.metrics{margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.metric{border:1px solid var(--border);border-radius:12px;background:#fff;padding:20px}
+.metric .v{margin-top:12px;font-family:'Geist Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:32px;line-height:1;letter-spacing:-.02em}
+.metric .s{margin-top:8px;font-size:12.5px;color:var(--mut)}
+
+/* sections */
+section{margin-top:56px}
+.sec-head{margin-bottom:20px}
+.sec-head h2{margin-top:8px;font-size:20px;font-weight:500;letter-spacing:-.01em}
+.sec-head p{margin-top:8px;max-width:640px;font-size:13px;line-height:1.6;color:var(--mut)}
+
+/* cards + tables */
+.card{border:1px solid var(--border);border-radius:12px;background:#fff;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{padding:12px 16px;text-align:right;border-bottom:1px solid var(--hairline);white-space:nowrap}
 th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:left}
-th{color:#8b949e;font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
-table.defs td{white-space:normal;vertical-align:top}
-tr:last-child td{border-bottom:none}
-.pill{display:inline-block;background:#1f6feb33;border:1px solid #1f6feb;color:#58a6ff;border-radius:999px;padding:1px 9px;font-size:.75rem;font-weight:600}
-.best{color:#3fb950;font-weight:700}
-.bar-row{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:.85rem}
-.bar-label{width:170px;color:#c9d1d9;flex:none;overflow:hidden;text-overflow:ellipsis}
-.bar-track{flex:1;background:#21262d;border-radius:4px;height:16px;overflow:hidden}
-.bar-fill{height:100%;border-radius:4px}
-.bar-val{width:110px;text-align:right;color:#8b949e;flex:none;font-variant-numeric:tabular-nums}
-footer{margin-top:32px;color:#8b949e;font-size:.8rem;border-top:1px solid #21262d;padding-top:16px}
-nav{margin-top:8px;font-size:.85rem}
+th{font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--mut);font-weight:400}
+td.num,td{color:var(--ink2)}
+td:first-child{color:var(--ink);font-weight:500}
+tbody tr{transition:background .12s}
+tbody tr:hover{background:#fafafa}
+tbody tr:last-child td{border-bottom:none}
+td .best,span.best{color:var(--good);font-weight:600}
+table.defs td{white-space:normal;vertical-align:top;line-height:1.6}
+table.defs td:first-child{font-family:'Geist Mono',ui-monospace,monospace;font-size:12.5px;font-weight:400;color:var(--ink)}
+
+/* sample banner */
+.banner{margin-top:32px;border:1px solid #fcd34d;background:#fffbeb;color:#92400e;border-radius:10px;padding:12px 16px;font-size:13px;font-weight:500}
+.banner a{text-decoration:underline;text-underline-offset:3px}
+
+/* bar charts */
+.charts{display:grid;grid-template-columns:1fr;gap:16px}
+.chart-card{border:1px solid var(--border);border-radius:12px;background:#fff;padding:20px}
+.chart-card h3{font-size:14px;font-weight:500;letter-spacing:-.01em;margin-bottom:4px}
+.chart-card .hint{font-size:12px;color:var(--faint);margin-bottom:16px}
+.bar-row{display:flex;align-items:center;gap:12px;margin:10px 0;font-size:13px}
+.bar-label{width:190px;color:var(--ink2);flex:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar-track{flex:1;background:#f0f0f0;border-radius:9999px;height:8px;overflow:hidden}
+.bar-fill{height:100%;border-radius:9999px}
+.bar-val{width:96px;text-align:right;color:var(--mut);flex:none;font-family:'Geist Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:12.5px}
+
+/* honesty / note card */
+.note{margin-top:56px;border:1px solid var(--border);border-radius:12px;background:#fafafa;padding:24px}
+.note p{margin-top:12px;max-width:760px;font-size:13.5px;line-height:1.65;color:var(--mut)}
+.note a{color:var(--ink2);text-decoration:underline;text-decoration-color:#d4d4d4;text-underline-offset:3px}
+
+/* methodology body copy */
+.prose p{margin-bottom:10px;font-size:13.5px;line-height:1.65;color:var(--ink2);max-width:760px}
+.prose code{font-size:12.5px;background:#f5f5f5;border:1px solid var(--hairline);border-radius:4px;padding:1px 5px}
+.prose pre{background:#fafafa;border:1px solid var(--border);border-radius:8px;padding:14px;font-family:'Geist Mono',ui-monospace,monospace;font-size:12.5px;overflow-x:auto;margin:10px 0;color:var(--ink2)}
+.card-pad{padding:24px}
+
+/* footer */
+footer{margin-top:80px;border-top:1px solid var(--hairline)}
+.foot-inner{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between;padding:40px 0}
+.foot-name{font-size:13px;color:var(--ink)}
+.foot-desc{margin-top:4px;max-width:380px;font-size:13px;line-height:1.6;color:var(--mut)}
+.foot-desc a{text-decoration:underline;text-decoration-color:#d4d4d4;text-underline-offset:3px;color:var(--ink2)}
+.foot-links{display:flex;align-items:center;gap:20px;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;color:var(--mut)}
+.foot-links a{display:flex;align-items:center;gap:6px;color:var(--mut);transition:color .15s}
+.foot-links a:hover{color:var(--ink)}
+.foot-links svg{width:12px;height:12px}
+.foot-meta{padding:0 0 24px;font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;color:var(--faint)}
+.foot-meta code{font-size:11px}
+
+@media(max-width:900px){.metrics{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){
   .optcol{display:none}
-  .bar-label{width:110px}.bar-val{width:84px;font-size:.78rem}
-  .card{padding:14px}
+  .hero{padding-top:40px}
+  .hero h1{font-size:24px}
+  .hero-meta{text-align:left}
+  .bar-label{width:120px;font-size:12px}
+  .bar-val{width:84px;font-size:11.5px}
+  .metric .v{font-size:26px}
+  th,td{padding:10px 12px}
 }
 """
 
-PALETTE = ["#58a6ff", "#3fb950", "#f0b72f", "#f778ba", "#76e3ea", "#d2a8ff", "#ffa657"]
+GITHUB_MARK = ('<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">'
+               '<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 '
+               "0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13"
+               "-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66"
+               ".07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15"
+               "-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 "
+               "2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 "
+               '2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 '
+               '2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>')
 
 
 def esc(s) -> str:
@@ -134,27 +231,63 @@ def esc(s) -> str:
             .replace('"', "&quot;"))
 
 
-def page(title: str, body: str) -> str:
+def css() -> str:
+    return CSS.replace("%SANS%", GEIST_SANS).replace("%MONO%", GEIST_MONO)
+
+
+def nav(active: str) -> str:
+    def link(href: str, label: str, key: str) -> str:
+        cls = ' class="active"' if active == key else ""
+        return f'<a href="{href}"{cls}>{label}</a>'
+    return f"""<div class="nav"><div class="wrap nav-inner">
+  <a class="brand" href="index.html"><span class="brand-mark"><span></span></span>voice-router</a>
+  <div class="nav-links">
+    {link("index.html", "Leaderboard", "index")}
+    {link("methodology.html", "Methodology", "methodology")}
+    <a class="gh-btn" href="{REPO_URL}" target="_blank" rel="noreferrer">{GITHUB_MARK}<span>Star</span></a>
+  </div>
+</div></div>"""
+
+
+def footer(generated_at: str, source: str | None) -> str:
+    meta = f"generated {esc(generated_at)}"
+    if source:
+        meta += (f" from <code>{esc(source)}</code> &middot; refresh: "
+                 f"<code>python scripts/generate_leaderboard.py</code>")
+    return f"""<footer><div class="wrap">
+  <div class="foot-inner">
+    <div>
+      <p class="foot-name">voice-router</p>
+      <p class="foot-desc">Open-source router for voice AI. Benchmarks STT providers per language on accuracy, latency and cost, then routes calls to the best one. Built on <a href="https://github.com/BerriAI/litellm" target="_blank" rel="noreferrer">LiteLLM</a> and <a href="https://github.com/pipecat-ai/pipecat" target="_blank" rel="noreferrer">Pipecat</a>.</p>
+    </div>
+    <div class="foot-links">
+      <a href="{REPO_URL}" target="_blank" rel="noreferrer">{GITHUB_MARK} source</a>
+      <span>MIT</span>
+    </div>
+  </div>
+  <div class="foot-meta">{meta}</div>
+</div></footer>"""
+
+
+def page(title: str, active: str, body: str, generated_at: str, source: str | None = None) -> str:
     return f"""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)} - voice-router benchmarks</title>
-<style>{CSS}</style>
+<meta name="description" content="STT providers ranked by accuracy, latency, and cost per language - measured on real audio, not marketed.">
+<style>{css()}</style>
 </head>
-<body><div class="wrap">
+<body>
+{nav(active)}
+<main><div class="wrap">
 {body}
-</div></body>
+</div></main>
+{footer(generated_at, source)}
+</body>
 </html>
 """
-
-
-def nav(active: str) -> str:
-    lb = "<b>Leaderboard</b>" if active == "index" else '<a href="index.html">Leaderboard</a>'
-    me = "<b>Methodology</b>" if active == "methodology" else '<a href="methodology.html">Methodology</a>'
-    gh = '<a href="https://github.com/DeepanshuPal/voice-router">GitHub</a>'
-    return f"<nav>{lb} &middot; {me} &middot; {gh}</nav>"
 
 
 def fmt_wer(w) -> str:
@@ -163,6 +296,10 @@ def fmt_wer(w) -> str:
 
 def fmt_cost(c) -> str:
     return "&mdash;" if c is None else f"${c:.4f}"
+
+
+def fmt_ms(ms) -> str:
+    return "&mdash;" if ms is None else f"{ms:.0f} ms"
 
 
 def render_table(rows: list[dict]) -> str:
@@ -178,27 +315,28 @@ def render_table(rows: list[dict]) -> str:
     body_rows = []
     for r in rows:
         score = r["score"]
-        cls = ' class="best"' if score is not None and score == best_score else ""
         score_cell = "&mdash;" if score is None else f"{score:.3f}"
-        p50 = r["p50_ms"]
-        p50_cell = "&mdash;" if p50 is None else f"{p50:.0f} ms"
+        if score is not None and score == best_score:
+            score_cell = f'<span class="best">{score_cell}</span>'
         lang_cells = []
         for lang in langs:
             lrow = r["langs"].get(lang)
             if not lrow or lrow["avg_wer"] is None:
                 lang_cells.append("<td>&mdash;</td>")
             else:
-                lcls = ' class="best"' if lrow["score"] is not None and lrow["score"] == best_by_lang.get(lang) else ""
-                lang_cells.append(f"<td{lcls}>{fmt_wer(lrow['avg_wer'])}</td>")
+                cell = fmt_wer(lrow["avg_wer"])
+                if lrow["score"] is not None and lrow["score"] == best_by_lang.get(lang):
+                    cell = f'<span class="best">{cell}</span>'
+                lang_cells.append(f"<td>{cell}</td>")
         body_rows.append(
             "<tr>"
             f"<td>{esc(r['provider'])}</td>"
-            f"<td>{esc(r['model'])}</td>"
-            f"<td{cls}>{score_cell}</td>"
-            f"<td>{fmt_wer(r['avg_wer'])}</td>"
-            f"<td>{p50_cell}</td>"
-            f'<td class="optcol">{fmt_cost(r["cost_per_min"])}</td>'
-            f'<td class="optcol">{r["samples"]}</td>'
+            f'<td class="mono" style="font-size:12.5px;color:var(--mut)">{esc(r["model"])}</td>'
+            f'<td class="num">{score_cell}</td>'
+            f'<td class="num">{fmt_wer(r["avg_wer"])}</td>'
+            f'<td class="num">{fmt_ms(r["p50_ms"])}</td>'
+            f'<td class="num optcol">{fmt_cost(r["cost_per_min"])}</td>'
+            f'<td class="num optcol">{r["samples"]}</td>'
             + "".join(lang_cells) +
             "</tr>"
         )
@@ -213,22 +351,23 @@ def render_table(rows: list[dict]) -> str:
     )
 
 
-def bar_chart(title: str, items: list[tuple[str, float, str]], color_offset: int = 0) -> str:
-    """items: (label, value, formatted value). Lower/higher agnostic - bar length
-    is proportional to the max value."""
+def bar_chart(title: str, hint: str, items: list[tuple[str, float, str]]) -> str:
+    """items: (label, value, formatted value), pre-sorted best-first. The best
+    bar gets the accent color; the rest stay neutral."""
     if not items:
         return ""
     peak = max(v for _, v, _ in items) or 1.0
     rows = []
     for i, (label, value, shown) in enumerate(items):
         pct = max(2.0, value / peak * 100)
-        color = PALETTE[(i + color_offset) % len(PALETTE)]
+        color = "var(--accent)" if i == 0 else "#d4d4d4"
         rows.append(
             f'<div class="bar-row"><div class="bar-label">{esc(label)}</div>'
             f'<div class="bar-track"><div class="bar-fill" style="width:{pct:.1f}%;background:{color}"></div></div>'
             f'<div class="bar-val">{esc(shown)}</div></div>'
         )
-    return f'<div class="card"><h2>{esc(title)}</h2>{"".join(rows)}</div>'
+    return (f'<div class="chart-card"><h3>{esc(title)}</h3>'
+            f'<div class="hint">{esc(hint)}</div>{"".join(rows)}</div>')
 
 
 def render_index(rows: list[dict], sample: bool, generated_at: str, source: str) -> str:
@@ -238,7 +377,34 @@ def render_index(rows: list[dict], sample: bool, generated_at: str, source: str)
                   "to demonstrate the format. They are not real measurements. "
                   'See <a href="methodology.html">methodology</a>.</div>')
 
-    # Charts compare providers on aggregate metrics - one bar per provider+model.
+    total_samples = sum(r["samples"] for r in rows)
+    n_providers = len(rows)
+    n_langs = len({lang for r in rows for lang in r["langs"]})
+
+    def best(key, reverse=False):
+        vals = [r for r in rows if r[key] is not None]
+        return (max if reverse else min)(vals, key=lambda r: r[key]) if vals else None
+
+    top = best("score", reverse=True)
+    bw = best("avg_wer")
+    bl = best("p50_ms")
+    bc = best("cost_per_min")
+
+    def metric(label, value, sub):
+        return (f'<div class="metric"><p class="type-label">{label}</p>'
+                f'<p class="v">{value}</p><p class="s">{sub}</p></div>')
+
+    metrics = '<div class="metrics">' + "".join([
+        metric("top score", f"{top['score']:.3f}" if top else "-",
+               f"{esc(top['provider'])} &middot; {esc(top['model'])}" if top else "no runs yet"),
+        metric("best wer", fmt_wer(bw["avg_wer"]) if bw else "-",
+               f"{esc(bw['provider'])} &middot; {esc(bw['model'])}" if bw else ""),
+        metric("fastest p50", fmt_ms(bl["p50_ms"]) if bl else "-",
+               f"{esc(bl['provider'])} &middot; {esc(bl['model'])}" if bl else ""),
+        metric("lowest cost", (f"${bc['cost_per_min']:.4f}" if bc else "-"),
+               f"per min &middot; {esc(bc['provider'])}" if bc else ""),
+    ]) + "</div>"
+
     wer_items = sorted(
         [(f"{r['provider']} ({r['model']})", r["avg_wer"], fmt_wer(r["avg_wer"]).replace("&mdash;", "n/a"))
          for r in rows if r["avg_wer"] is not None],
@@ -253,23 +419,44 @@ def render_index(rows: list[dict], sample: bool, generated_at: str, source: str)
         key=lambda x: -x[1])
 
     body = f"""
-<header>
-  <h1><a href="https://github.com/DeepanshuPal/voice-router">voice-router</a> benchmarks</h1>
-  <div class="sub">STT providers ranked by accuracy, latency, and cost - measured, not marketed.</div>
-  {nav("index")}
-</header>
+<div class="hero">
+  <div>
+    <p class="type-label">benchmarks</p>
+    <h1>STT leaderboard <span class="chip">measured, not marketed</span></h1>
+    <p class="hero-sub">Speech-to-text providers ranked by accuracy, latency and cost - every number out of a harness run on real audio. Full rules on the <a class="link-quiet" style="text-decoration:underline;text-decoration-color:#d4d4d4;text-underline-offset:3px" href="methodology.html">methodology page</a>.</p>
+  </div>
+  <div class="hero-meta">
+    <p>last run {esc(generated_at[:10])}</p>
+    <p>{total_samples} runs &middot; {n_providers} providers &middot; {n_langs} languages</p>
+  </div>
+</div>
 {banner}
-<div class="card"><h2>Leaderboard - one row per provider/model, WER per language</h2>{render_table(rows)}</div>
-{bar_chart("Overall score - all languages (higher is better)", score_items, 3)}
-{bar_chart("Word error rate - all languages (lower is better)", wer_items)}
-{bar_chart("p50 transcription latency - all languages (lower is better)", lat_items, 2)}
-<footer>
-  Generated {esc(generated_at)} from <code>{esc(source)}</code> &middot;
-  refresh: <code>python scripts/generate_leaderboard.py</code> &middot;
-  how this is measured: <a href="methodology.html">methodology</a>
-</footer>
+{metrics}
+<section>
+  <div class="sec-head">
+    <p class="type-label">leaderboard</p>
+    <h2>One row per provider, WER per language</h2>
+    <p>Score blends per-language accuracy into the number the router's benchmark strategy routes on. Green marks the best in each column.</p>
+  </div>
+  <div class="card">{render_table(rows)}</div>
+</section>
+<section>
+  <div class="sec-head">
+    <p class="type-label">head to head</p>
+    <h2>Same audio, every provider</h2>
+  </div>
+  <div class="charts">
+    {bar_chart("Overall score", "all languages, higher is better", score_items)}
+    {bar_chart("Word error rate", "all languages, lower is better", wer_items)}
+    {bar_chart("p50 transcription latency", "all languages, lower is better", lat_items)}
+  </div>
+</section>
+<div class="note">
+  <p class="type-label">read these numbers like this</p>
+  <p>Every run pushes the same clips through each provider and records WER, latency and metered cost per sample - nothing is hand-edited or self-reported. A provider that does not support a language simply has no column entry. Re-run it yourself: clone the repo, add keys, run the harness.</p>
+</div>
 """
-    return page("Leaderboard", body)
+    return page("Leaderboard", "index", body, generated_at, source)
 
 
 def render_methodology(sample: bool, generated_at: str) -> str:
@@ -279,15 +466,20 @@ def render_methodology(sample: bool, generated_at: str) -> str:
         if sample else ""
     )
     body = f"""
-<header>
-  <h1>Methodology</h1>
-  <div class="sub">How the voice-router benchmark numbers are produced.</div>
-  {nav("methodology")}
-</header>
+<div class="hero">
+  <div>
+    <p class="type-label">methodology</p>
+    <h1>How the numbers are made</h1>
+    <p class="hero-sub">Every figure on the leaderboard comes out of a harness run on real audio. Nothing is hand-edited.</p>
+  </div>
+</div>
 {note}
-<div class="card"><h2>What we measure</h2>
-<p style="margin-bottom:8px">Every run pushes the same audio samples through each configured STT provider and records, per sample:</p>
-<table class="defs">
+<section>
+  <div class="sec-head">
+    <p class="type-label">metrics</p>
+    <h2>What we measure</h2>
+  </div>
+  <div class="card"><table class="defs">
 <thead><tr><th style="text-align:left">Metric</th><th style="text-align:left">Definition</th></tr></thead>
 <tbody>
 <tr><td style="text-align:left">WER</td><td style="text-align:left">Word error rate against a reference transcript (edit distance on word sequences). CER for character-based languages is on the roadmap.</td></tr>
@@ -296,24 +488,48 @@ def render_methodology(sample: bool, generated_at: str) -> str:
 <tr><td style="text-align:left">Score</td><td style="text-align:left">1 - WER when reference transcripts exist, otherwise inverse latency. This is the score the router's <code>benchmark</code> strategy routes on.</td></tr>
 </tbody></table>
 </div>
-<div class="card"><h2>How samples are run</h2>
-<p style="margin-bottom:8px">Samples are short <code>.wav</code> clips per language in <code>benchmarks/samples/</code>, with same-named reference transcripts in <code>benchmarks/references/</code>. The harness (<code>benchmarks/harness.py</code>) sends every sample to every provider that supports the language, in the same process, back to back:</p>
-<pre style="background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:12px;font-size:.85rem;overflow-x:auto">python -m benchmarks.harness --samples benchmarks/samples \\
+</section>
+<section>
+  <div class="sec-head">
+    <p class="type-label">harness</p>
+    <h2>How samples are run</h2>
+  </div>
+  <div class="card card-pad prose">
+<p>Samples are short <code>.wav</code> clips per language in <code>benchmarks/samples/</code>, with same-named reference transcripts in <code>benchmarks/references/</code>. The harness (<code>benchmarks/harness.py</code>) sends every sample to every provider that supports the language, in the same process, back to back:</p>
+<pre>python -m benchmarks.harness --samples benchmarks/samples \\
     --references benchmarks/references --language en</pre>
-<p style="margin-top:8px">Results land in <code>benchmarks/results.json</code>; this site is regenerated from that file. Nothing is hand-edited: if a number is on the leaderboard, it came out of a harness run.</p>
-</div>
-<div class="card"><h2>Where the audio comes from</h2>
+<p>Results land in <code>benchmarks/results.json</code>; this site is regenerated from that file. Nothing is hand-edited: if a number is on the leaderboard, it came out of a harness run.</p>
+  </div>
+</section>
+<section>
+  <div class="sec-head">
+    <p class="type-label">audio</p>
+    <h2>Where the audio comes from</h2>
+  </div>
+  <div class="card card-pad prose">
 <p>The current sample set is real human speech from Google's public FLEURS evaluation corpus (CC-BY-4.0) - 15 test-split clips per language for English (en_us), Spanish (es_419), Hindi (hi_in), French (fr_fr), German (de_de), and Japanese (ja_jp), normalized to 16 kHz mono PCM. Clips are 4-14 seconds long, picked at even intervals across the test split for speaker diversity. Reference transcripts are FLEURS' normalized transcriptions. No synthetic or TTS-generated audio is used. Clips and references are committed in <code>benchmarks/samples/</code> and <code>benchmarks/references/</code> so anyone can rerun the exact matrix.</p>
-</div>
-<div class="card"><h2>Refresh cadence</h2>
+  </div>
+</section>
+<section>
+  <div class="sec-head">
+    <p class="type-label">cadence</p>
+    <h2>Refresh cadence</h2>
+  </div>
+  <div class="card card-pad prose">
 <p>A GitHub Action regenerates the site on every push that touches <code>benchmarks/</code> and on a weekly schedule, because provider quality drifts. Anyone can reproduce the numbers: clone the repo, add provider keys, run the harness.</p>
-</div>
-<div class="card"><h2>Sample data policy</h2>
+  </div>
+</section>
+<section>
+  <div class="sec-head">
+    <p class="type-label">honesty</p>
+    <h2>Sample data policy</h2>
+  </div>
+  <div class="card card-pad prose">
 <p>Before the first real multi-provider run, the site renders <code>benchmarks/sample_results.json</code> - synthetic numbers that exist only to demonstrate the format. Sample data is always shown behind a visible SAMPLE DATA banner and is never presented as a real measurement. The moment a real run lands in <code>benchmarks/results.json</code>, it replaces the sample data automatically.</p>
-</div>
-<footer>Generated {esc(generated_at)} &middot; <a href="index.html">back to the leaderboard</a></footer>
+  </div>
+</section>
 """
-    return page("Methodology", body)
+    return page("Methodology", "methodology", body, generated_at)
 
 
 def main() -> None:
