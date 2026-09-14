@@ -1,0 +1,21 @@
+{
+  "name": "FLEURS paired endpoint corpus v1",
+  "description": "Twelve real FLEURS utterances, each evaluated once complete and once cut at a deterministic word/audio boundary. Derived incomplete examples are labeled, not presented as recorded conversational turns.",
+  "source": "https://huggingface.co/datasets/google/fleurs",
+  "license": "CC-BY-4.0",
+  "split_ratio": 0.55,
+  "samples": [
+    {"id":"en-1","language":"en","audio":"benchmarks/samples/en-1.wav","reference":"benchmarks/references/en-1.txt"},
+    {"id":"en-2","language":"en","audio":"benchmarks/samples/en-2.wav","reference":"benchmarks/references/en-2.txt"},
+    {"id":"en-3","language":"en","audio":"benchmarks/samples/en-3.wav","reference":"benchmarks/references/en-3.txt"},
+    {"id":"en-4","language":"en","audio":"benchmarks/samples/en-4.wav","reference":"benchmarks/references/en-4.txt"},
+    {"id":"en-5","language":"en","audio":"benchmarks/samples/en-5.wav","reference":"benchmarks/references/en-5.txt"},
+    {"id":"en-6","language":"en","audio":"benchmarks/samples/en-6.wav","reference":"benchmarks/references/en-6.txt"},
+    {"id":"hi-1","language":"hi","audio":"benchmarks/samples/hi-1.wav","reference":"benchmarks/references/hi-1.txt"},
+    {"id":"hi-2","language":"hi","audio":"benchmarks/samples/hi-2.wav","reference":"benchmarks/references/hi-2.txt"},
+    {"id":"hi-3","language":"hi","audio":"benchmarks/samples/hi-3.wav","reference":"benchmarks/references/hi-3.txt"},
+    {"id":"hi-4","language":"hi","audio":"benchmarks/samples/hi-4.wav","reference":"benchmarks/references/hi-4.txt"},
+    {"id":"hi-5","language":"hi","audio":"benchmarks/samples/hi-5.wav","reference":"benchmarks/references/hi-5.txt"},
+    {"id":"hi-6","language":"hi","audio":"benchmarks/samples/hi-6.wav","reference":"benchmarks/references/hi-6.txt"}
+  ]
+}
