@@ -41,6 +41,7 @@ jobs:
           SMALLEST_API_KEY: ${{ secrets.SMALLEST_API_KEY }}
           HUME_API_KEY: ${{ secrets.HUME_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          BENCHMARK_REGION: github-actions-ubuntu-us
 
       - name: Generate leaderboard site
         run: python scripts/generate_leaderboard.py

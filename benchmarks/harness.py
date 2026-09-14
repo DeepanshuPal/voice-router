@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import json
+import os
 import time
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -97,18 +98,13 @@ def cer(reference: str, hypothesis: str) -> float:
 CHAR_ERROR_LANGS = {"ja", "zh", "ko", "th"}
 
 
-async def run(samples: Path, references: Path | None, language: str, out: Path) -> dict:
+async def run(samples: Path, references: Path | None, language: str, out: Path, repeats: int = 5) -> dict:
     cfg = load_config()
     providers = build_providers(cfg)["stt"]
     wavs = sorted(samples.glob("*.wav"))
     if not wavs:
         raise SystemExit(f"no .wav samples in {samples} - drop real clips there, "
                          "or run scripts/make_samples.py for synthetic ones")
-
-    # Several providers here are async job APIs (upload, submit, poll), so a
-    # strictly serial matrix takes hours. Run sample x provider pairs with a
-    # small semaphore; latency is still measured per call, wall clock.
-    sem = asyncio.Semaphore(6)
 
     async def one(wav: Path, name: str, adapter) -> dict:
         audio = wav.read_bytes()
@@ -117,34 +113,38 @@ async def run(samples: Path, references: Path | None, language: str, out: Path) 
             ref_file = references / (wav.stem + ".txt")
             ref = ref_file.read_text().strip() if ref_file.exists() else None
         model = adapter.spec.models[0]
-        async with sem:
-            start = time.perf_counter()
-            try:
-                text = await adapter.transcribe(audio, model, language)
-                latency = (time.perf_counter() - start) * 1000
-                metric = "cer" if language in CHAR_ERROR_LANGS else "wer"
-                err = cer(ref, text) if metric == "cer" else wer(ref, text, language)
-                return {
-                    "sample": wav.name, "provider": name, "model": model,
-                    "language": language,
-                    "audio_s": round(len(audio) / (16000 * 2), 2),
-                    "latency_ms": round(latency, 1),
-                    "cost_usd": adapter.spec.unit_cost(len(audio) / (16000 * 2 * 60)),
-                    "wer": round(err, 4) if ref else None,
-                    "reference": ref, "hypothesis": text,
-                    "metric": metric,
-                    "status": "ok",
-                }
-            except ProviderError as e:
-                return {"sample": wav.name, "provider": name, "model": model,
-                        "language": language,
-                        "status": "error", "detail": str(e)[:200]}
+        start = time.perf_counter()
+        try:
+            text = await adapter.transcribe(audio, model, language)
+            latency = (time.perf_counter() - start) * 1000
+            metric = "cer" if language in CHAR_ERROR_LANGS else "wer"
+            err = cer(ref, text) if metric == "cer" else wer(ref, text, language)
+            protocol = ("async_batch" if name in {"assemblyai", "gladia", "speechmatics", "rev"}
+                        else "sync_batch")
+            return {
+                "sample": wav.name, "provider": name, "model": model,
+                "language": language,
+                "audio_s": round(len(audio) / (16000 * 2), 2),
+                "latency_ms": round(latency, 1),
+                "cost_usd": adapter.spec.unit_cost(len(audio) / (16000 * 2 * 60)),
+                "wer": round(err, 4) if ref else None,
+                "reference": ref, "hypothesis": text,
+                "metric": metric, "protocol": protocol, "status": "ok",
+            }
+        except ProviderError as e:
+            return {"sample": wav.name, "provider": name, "model": model,
+                    "language": language, "status": "error", "detail": str(e)[:200]}
 
-    tasks = [one(wav, name, adapter)
-             for wav in wavs
-             for name, adapter in providers.items()
-             if adapter.supports(language)]
-    runs = list(await asyncio.gather(*tasks))
+    # Deliberately serial: concurrency changes queueing and free-tier behavior.
+    runs = []
+    for wav in wavs:
+        for name, adapter in providers.items():
+            if not adapter.supports(language):
+                continue
+            for repeat in range(repeats):
+                row = await one(wav, name, adapter)
+                row["repeat"] = repeat + 1
+                runs.append(row)
 
     # Score per provider: 1 - WER when references exist, else inverse latency.
     scores: dict[str, dict[str, float]] = {"stt": {}}
@@ -160,7 +160,13 @@ async def run(samples: Path, references: Path | None, language: str, out: Path) 
             score = 1 / (1 + sum(r["latency_ms"] for r in ok) / len(ok) / 1000)
         scores["stt"][name] = {language: round(score, 4)}
 
-    payload = {"sample_data": False,
+    region = os.environ.get("BENCHMARK_REGION")
+    if not region:
+        raise SystemExit("BENCHMARK_REGION is required; latency runs need a pinned, recorded runner region")
+    payload = {"sample_data": False, "measurement": {
+                   "runner_region": region, "execution": "serial",
+                   "repeats_per_clip": repeats,
+                   "latency_publication": "withheld pending protocol-aware median/IQR aggregation"},
                "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
                "scores": scores, "runs": runs,
                "note": "regenerate with: python -m benchmarks.harness --samples benchmarks/samples"}
@@ -182,9 +188,10 @@ def main():
     ap.add_argument("--references", type=Path, default=None)
     ap.add_argument("--language", default="en")
     ap.add_argument("--out", type=Path, default=RESULTS_PATH)
+    ap.add_argument("--repeats", type=int, default=5)
     args = ap.parse_args()
 
-    payload = asyncio.run(run(args.samples, args.references, args.language, args.out))
+    payload = asyncio.run(run(args.samples, args.references, args.language, args.out, args.repeats))
     print(f"wrote {args.out}\n")
     print(render_leaderboard(payload))
 
