@@ -44,6 +44,12 @@ stt:
     default_latency_ms: 15000
     languages: [en, es, hi, fr, de, ja]
     env_key: SPEECHMATICS_API_KEY
+  cartesia-stt:
+    models: [ink-whisper]
+    cost_per_minute_usd: 0.0067  # Ink-2: 3 credits/s; 1 credit ~ $0.000037 (docs.cartesia.ai/pricing)
+    default_latency_ms: 800
+    languages: [en, es, hi, fr, de, ja]
+    env_key: CARTESIA_API_KEY
   rev:
     models: [machine]
     cost_per_minute_usd: 0.005
@@ -75,6 +81,12 @@ tts:
     default_latency_ms: 250
     languages: [en, es, de, fr, ja]
     env_key: DEEPGRAM_API_KEY
+  rime:
+    models: [mistv2]   # coda used for hi/ja via model_for(); adapter maps lang -> model+voice
+    cost_per_1k_chars_usd: 0.04  # Arcana/coda tier $40/M chars; Mist is $30/M (rime.ai/pricing)
+    default_latency_ms: 300
+    languages: [en, es, fr, de, hi, ja]
+    env_key: RIME_API_KEY
   groq-tts:
     models: [canopylabs/orpheus-v1-english]
     cost_per_1k_chars_usd: 0.022  # Orpheus English, per Groq launch coverage

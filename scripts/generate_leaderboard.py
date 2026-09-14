@@ -157,12 +157,46 @@ def aggregate_llm(payload: dict) -> list[dict]:
 
 # Providers we benchmark when keys exist. Ones missing from a run are listed
 # with the reason, so absence is stated rather than silent.
+# Full provider sweep target: every name on Speko's public benchmark
+# (benchmarks.speko.ai, checked 2026-09-14) plus the major clouds. Each is
+# either in the run with real numbers or listed here with the honest reason.
+KNOWN_STT = {
+    "deepgram": "",
+    "assemblyai": "",
+    "gladia": "",
+    "speechmatics": "",
+    "rev": "",
+    "groq-whisper": "",
+    "cartesia-stt": "",
+    "openai-whisper": "no free tier - GPT-4o/GPT-4o-mini Transcribe, GPT Live Transcribe and Whisper-1 all need a paid OpenAI account",
+    "elevenlabs-scribe": "ElevenLabs disabled free-tier API access on the account (anti-abuse flag, datacenter IP) - Scribe v2 needs a paid plan",
+    "smallest-pulse": "Speko-listed (Pulse) - signup queued, free tier not verified yet",
+    "xai-grok-stt": "Speko-listed (Grok STT) - signup not attempted yet",
+    "inworld-stt": "Speko-listed (Realtime STT-1) - signup not attempted yet",
+    "alibaba-qwen3-asr": "Speko-listed (Qwen3-ASR) - signup not attempted yet",
+    "modulate-velma": "Speko-listed (Velma 2) - signup not attempted yet",
+    "soniox": "Speko-listed (stt-rt-v5) - signup not attempted yet",
+    "gradium": "Speko-listed (Gradium ASR) - signup not attempted yet",
+    "google-chirp": "Chirp 3 needs a billed Google Cloud account (card required) - excluded by the $0/no-card rule",
+    "gemini-transcribe": "Speko-listed (Gemini 3.5 Transcribe Live) - signup not attempted yet",
+    "azure-speech": "Azure signup requires a credit card - excluded by the $0/no-card rule",
+    "aws-transcribe": "AWS signup requires a credit card - excluded by the $0/no-card rule",
+    "deepgram-flux": "Flux is streaming-only - this harness measures batch transcription, so a number would not be comparable",
+}
 KNOWN_TTS = {
     "elevenlabs": "API key works, but ElevenLabs disabled free-tier access on the account (anti-abuse flag, datacenter IP) - needs a paid plan",
     "openai-tts": "no free tier - needs a paid OpenAI account",
-    "cartesia": "signup not attempted yet",
+    "cartesia": "",
     "deepgram-aura": "",
     "groq-tts": "",
+    "rime": "",
+    "sarvam": "signup works (no card), but no free credits landed on the account (balance Rs 0, API returns 402) - needs paid credits",
+    "hume": "signup not attempted yet",
+    "smallest": "signup not attempted yet",
+    "play.ht": "signup not attempted yet",
+    "azure-speech": "Azure signup requires a credit card - excluded by the $0/no-card rule",
+    "google-cloud-tts": "needs a billed Google Cloud account (card required) - excluded by the $0/no-card rule",
+    "aws-polly": "AWS signup requires a credit card - excluded by the $0/no-card rule",
 }
 KNOWN_LLM = {
     "openrouter": "free models exist - key not wired into the run yet",
@@ -379,6 +413,16 @@ def fmt_ms(ms) -> str:
     return "&mdash;" if ms is None else f"{ms:.0f} ms"
 
 
+def not_run_html(rows: list[dict]) -> str:
+    ran = {r["provider"] for r in rows}
+    items = [f"<li><code>{esc(name)}</code> - {esc(why)}</li>"
+             for name, why in KNOWN_STT.items() if name not in ran and why]
+    if not items:
+        return ""
+    return ('<p style="margin-top:12px;font-size:12.5px;color:var(--mut)">Not in this run:</p>'
+            f'<ul style="margin-top:4px;font-size:12.5px;color:var(--mut);padding-left:20px">{"".join(items)}</ul>')
+
+
 def render_table(rows: list[dict]) -> str:
     langs = sorted({lang for r in rows for lang in r["langs"]})
     best_score = max((r["score"] for r in rows if r["score"] is not None), default=None)
@@ -427,6 +471,7 @@ def render_table(rows: list[dict]) -> str:
         '<th class="optcol">Cost/min</th><th class="optcol">Runs</th>'
         + lang_headers +
         "</tr></thead><tbody>" + "".join(body_rows) + "</tbody></table>"
+        + not_run_html(rows)
     )
 
 

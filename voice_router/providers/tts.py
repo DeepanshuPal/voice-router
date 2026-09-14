@@ -1,4 +1,4 @@
-"""TTS adapters: ElevenLabs, OpenAI, Cartesia, and a zero-key mock."""
+"""TTS adapters: ElevenLabs, OpenAI, Cartesia, Rime, Deepgram Aura, Groq Orpheus, and a zero-key mock."""
 
 from __future__ import annotations
 
@@ -123,6 +123,51 @@ class GroqTTS(TTSProvider):
         return resp.content
 
 
+class RimeTTS(TTSProvider):
+    """Rime: mistv2 for en/es/fr/de, coda for hi/ja.
+
+    coda ignores audioFormat and streams raw PCM s16le 16 kHz back; wrap it in
+    a WAV header so clips stay playable. mistv2 returns JSON with base64 audio.
+    """
+
+    BASE = "https://users.rime.ai/v1/rime-tts"
+    LANG_MAP = {"en": "eng", "es": "spa", "fr": "fra", "de": "ger", "hi": "hin", "ja": "jpn"}
+    SPEAKER = {"mistv2": "astra", "coda": "adeline"}
+
+    def model_for(self, language: str) -> str:
+        # The language rides in the model string ("coda-hin") because the
+        # synthesize() contract does not pass language separately.
+        base = "coda" if language in ("hi", "ja") else "mistv2"
+        return f"{base}-{self.LANG_MAP.get(language, 'eng')}"
+
+    async def synthesize(self, text: str, model: str, voice: str) -> bytes:
+        key = os.environ.get(self.spec.env_key)
+        if not key:
+            raise ProviderUnavailable("RIME_API_KEY not set")
+        base, _, lang = model.rpartition("-")
+        async with httpx.AsyncClient(timeout=60) as client:
+            resp = await client.post(
+                self.BASE,
+                headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+                json={"speaker": self.SPEAKER.get(base, "astra"), "text": text,
+                      "modelId": base, "lang": lang,
+                      "audioFormat": "mp3", "sampleRate": 16000},
+            )
+        if resp.status_code != 200:
+            raise ProviderError(f"rime {resp.status_code}: {resp.text[:200]}")
+        if "json" in resp.headers.get("content-type", ""):
+            import base64
+            return base64.b64decode(resp.json()["audioContent"])
+        import io, wave
+        buf = io.BytesIO()
+        with wave.open(buf, "wb") as w:
+            w.setnchannels(1)
+            w.setsampwidth(2)
+            w.setframerate(16000)
+            w.writeframes(resp.content)
+        return buf.getvalue()
+
+
 class MockTTS(TTSProvider):
     """Returns a playable sine-tone WAV so demos and tests need no keys."""
 
@@ -137,5 +182,6 @@ REGISTRY = {
     "cartesia": CartesiaTTS,
     "deepgram-aura": DeepgramAuraTTS,
     "groq-tts": GroqTTS,
+    "rime": RimeTTS,
     "mock-tts": MockTTS,
 }

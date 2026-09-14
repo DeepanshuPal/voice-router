@@ -1,5 +1,5 @@
 """STT adapters: Deepgram, OpenAI Whisper, Groq Whisper, AssemblyAI, Gladia,
-Speechmatics, Rev AI, and a zero-key mock."""
+Speechmatics, Rev AI, Cartesia Ink, and a zero-key mock."""
 
 from __future__ import annotations
 
@@ -203,6 +203,27 @@ class RevSTT(STTProvider):
 
 
 
+class CartesiaSTT(STTProvider):
+    """Ink-Whisper batch STT: multipart POST, JSON transcript back."""
+
+    BASE = "https://api.cartesia.ai/stt"
+
+    async def transcribe(self, audio: bytes, model: str, language: str) -> str:
+        key = os.environ.get(self.spec.env_key)
+        if not key:
+            raise ProviderUnavailable("CARTESIA_API_KEY not set")
+        async with httpx.AsyncClient(timeout=60) as client:
+            resp = await client.post(
+                self.BASE,
+                headers={"X-API-Key": key, "Cartesia-Version": "2025-04-16"},
+                data={"model": model, "language": language},
+                files={"file": ("audio.wav", audio, "audio/wav")},
+            )
+        if resp.status_code != 200:
+            raise ProviderError(f"cartesia-stt {resp.status_code}: {resp.text[:200]}")
+        return resp.json()["text"]
+
+
 class MockSTT(STTProvider):
     """Always-on provider so the routing path runs end to end with no keys."""
 
@@ -216,6 +237,7 @@ REGISTRY = {
     "gladia": GladiaSTT,
     "speechmatics": SpeechmaticsSTT,
     "rev": RevSTT,
+    "cartesia-stt": CartesiaSTT,
     "openai-whisper": OpenAISTT,
     "groq-whisper": GroqSTT,
     "mock-stt": MockSTT,
