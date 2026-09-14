@@ -1,9 +1,6 @@
 name: code-switching STT
 
 on:
-  schedule:
-    # Daily after the main matrix; API quotas make push-triggered runs unsafe.
-    - cron: "47 3 * * *"
   workflow_dispatch:
 
 permissions:

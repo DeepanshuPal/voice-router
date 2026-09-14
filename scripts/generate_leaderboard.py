@@ -598,172 +598,38 @@ def render_llm_section(rows: list[dict]) -> str:
 
 
 def render_index(rows: list[dict], sample: bool, generated_at: str, source: str, run_url: str | None = None, tts_rows: list[dict] | None = None, llm_rows: list[dict] | None = None) -> str:
-    banner = ""
-    if sample:
-        banner = ('<div class="banner">SAMPLE DATA - these numbers are synthetic and exist '
-                  "to demonstrate the format. They are not real measurements. "
-                  'See <a href="methodology.html">methodology</a>.</div>')
-
-    total_samples = sum(r["samples"] for r in rows)
-    n_providers = len(rows)
-    n_langs = len({lang for r in rows for lang in r["langs"]})
-    run_link = (f' &middot; <a class="link-quiet" style="text-decoration:underline;text-decoration-color:#d4d4d4;text-underline-offset:3px" '
-                f'href="{esc(run_url)}" target="_blank" rel="noreferrer">action run</a>' if run_url else "")
-
-    def best(key, reverse=False):
-        vals = [r for r in rows if r[key] is not None]
-        return (max if reverse else min)(vals, key=lambda r: r[key]) if vals else None
-
-    top = best("score", reverse=True)
-    bw = best("avg_wer")
-    bl = best("p50_ms")
-    bc = best("cost_per_min")
-
-    def metric(label, value, sub):
-        return (f'<div class="metric"><p class="type-label">{label}</p>'
-                f'<p class="v">{value}</p><p class="s">{sub}</p></div>')
-
-    metrics = '<div class="metrics">' + "".join([
-        metric("top score", f"{top['score']:.3f}" if top else "-",
-               f"{esc(top['provider'])} &middot; {esc(top['model'])}" if top else "no runs yet"),
-        metric("best wer", fmt_wer(bw["avg_wer"]) if bw else "-",
-               f"{esc(bw['provider'])} &middot; {esc(bw['model'])}" if bw else ""),
-        metric("fastest p50", fmt_ms(bl["p50_ms"]) if bl else "-",
-               f"{esc(bl['provider'])} &middot; {esc(bl['model'])}" if bl else ""),
-        metric("lowest cost", (f"${bc['cost_per_min']:.4f}" if bc else "-"),
-               f"per min &middot; {esc(bc['provider'])}" if bc else ""),
-    ]) + "</div>"
-
-    wer_items = sorted(
-        [(f"{r['provider']} ({r['model']})", r["avg_wer"], fmt_wer(r["avg_wer"]).replace("&mdash;", "n/a"))
-         for r in rows if r["avg_wer"] is not None],
-        key=lambda x: x[1])
-    lat_items = sorted(
-        [(f"{r['provider']} ({r['model']})", r["p50_ms"], f"{r['p50_ms']:.0f} ms")
-         for r in rows if r["p50_ms"] is not None],
-        key=lambda x: x[1])
-    score_items = sorted(
-        [(f"{r['provider']} ({r['model']})", r["score"], f"{r['score']:.3f}")
-         for r in rows if r["score"] is not None],
-        key=lambda x: -x[1])
-
+    """Correction state: keep receipts visible, withdraw invalid measurements."""
     body = f"""
 <div class="hero">
   <div>
-    <p class="type-label">benchmarks</p>
-    <h1>Voice AI leaderboard <span class="chip">measured, not marketed</span></h1>
-    <p class="hero-sub">Speech-to-text, text-to-speech and LLM providers ranked on measured runs - every number out of a harness, on real FLEURS audio and fixed prompts. Full rules on the <a class="link-quiet" style="text-decoration:underline;text-decoration-color:#d4d4d4;text-underline-offset:3px" href="methodology.html">methodology page</a>.</p>
-  </div>
-  <div class="hero-meta">
-    <p>last run {esc(generated_at[:10])}{run_link}</p>
-    <p>{total_samples} runs &middot; {n_providers} providers &middot; {n_langs} languages</p>
-    <p>dataset: <a class="link-quiet" style="text-decoration:underline;text-decoration-color:#d4d4d4;text-underline-offset:3px" href="https://huggingface.co/datasets/google/fleurs" target="_blank" rel="noreferrer">Google FLEURS</a> &middot; 15 clips/language</p>
+    <p class="type-label">measurement correction</p>
+    <h1>Voice AI leaderboard <span class="chip">under re-measurement</span></h1>
+    <p class="hero-sub">We withdrew the accuracy and latency rankings on 15 September 2026 after an adversarial review found defects in text normalization, WER aggregation and latency instrumentation. No replacement number will be published until the corrected harness is independently stress-tested.</p>
   </div>
 </div>
-{banner}
-{metrics}
+<div class="banner">NUMBERS WITHDRAWN - the 13-14 September accuracy and latency tables are not reliable for provider comparison. <a href="methodology.html#changelog">Read the correction and rebuild plan.</a></div>
 <section>
-  <div class="sec-head">
-    <p class="type-label">leaderboard</p>
-    <h2>One row per provider, WER per language (CER for ja)</h2>
-    <p>Score blends per-language accuracy into the number the router's benchmark strategy routes on. Green marks the best in each column. Every language cell averages 15 real FLEURS clips (n=15 under each number); the runs column is the provider total. Receipts on the <a class="link-quiet" style="text-decoration:underline;text-decoration-color:#d4d4d4;text-underline-offset:3px" href="methodology.html">methodology page</a>.</p>
-  </div>
-  <div class="card">{render_table(rows)}</div>
+  <div class="sec-head"><p class="type-label">status</p><h2>What remains valid</h2><p>The committed FLEURS audio, reference transcripts, provider adapters and raw historical run receipts remain available for audit. Public rankings are withheld. Cost figures and provider availability notes are also being re-reviewed before they return.</p></div>
+  <div class="card card-pad prose"><p><strong>Accuracy rebuild:</strong> Whisper paper normalization applied symmetrically, corpus-level edit rate, and an adversarial punctuation/casing/numeric equivalence suite.</p><p><strong>Latency rebuild:</strong> serial calls, adaptive polling, pinned region, at least five repeats, median plus IQR, and separate sync versus async reporting. TTS will distinguish time to first audio byte from batch completion.</p></div>
 </section>
-<section>
-  <div class="sec-head">
-    <p class="type-label">head to head</p>
-    <h2>Same audio, every provider</h2>
-  </div>
-  <div class="charts">
-    {bar_chart("Overall score", "all languages, higher is better", score_items)}
-    {bar_chart("Word error rate", "all languages, lower is better", wer_items)}
-    {bar_chart("p50 transcription latency", "all languages, lower is better", lat_items)}
-  </div>
-</section>
-{render_tts_section(tts_rows or [])}
-{render_llm_section(llm_rows or [])}
-<div class="note">
-  <p class="type-label">read these numbers like this</p>
-  <p>Every run pushes the same FLEURS clips through each provider and records WER, latency and metered cost per sample - nothing is hand-edited or self-reported. A provider that does not support a language simply has no column entry. Clips, references, harness and raw <code>results.json</code> are all in the <a href="https://github.com/DeepanshuPal/voice-router" target="_blank" rel="noreferrer">repo</a>. Re-run it yourself: clone, add keys, run the harness.</p>
-</div>
 """
-    return page("Leaderboard", "index", body, generated_at, source)
+    return page("Leaderboard correction", "index", body, generated_at, source)
 
 
 def render_methodology(sample: bool, generated_at: str, run_url: str | None = None) -> str:
-    note = (
-        '<div class="banner">The current leaderboard shows SAMPLE DATA - synthetic numbers '
-        "demonstrating the format while real provider runs are being collected.</div>"
-        if sample else ""
-    )
-    body = f"""
-<div class="hero">
-  <div>
-    <p class="type-label">methodology</p>
-    <h1>How the numbers are made</h1>
-    <p class="hero-sub">Every figure on the leaderboard comes out of a harness run on real audio. Nothing is hand-edited.</p>
-  </div>
-</div>
-{note}
-<section>
-  <div class="sec-head">
-    <p class="type-label">metrics</p>
-    <h2>What we measure</h2>
-  </div>
-  <div class="card"><table class="defs">
-<thead><tr><th style="text-align:left">Metric</th><th style="text-align:left">Definition</th></tr></thead>
-<tbody>
-<tr><td style="text-align:left">WER / CER</td><td style="text-align:left">Word error rate against a reference transcript (edit distance on word sequences). Languages without whitespace-delimited words (ja, zh, ko, th) are scored with character error rate instead - word error rate is meaningless there.</td></tr>
-<tr><td style="text-align:left">p50 latency</td><td style="text-align:left">Median wall-clock time per transcription call, in milliseconds.</td></tr>
-<tr><td style="text-align:left">Cost/min</td><td style="text-align:left">Effective USD per audio minute, from the provider's metered pricing over the audio actually processed.</td></tr>
-<tr><td style="text-align:left">Score</td><td style="text-align:left">1 - WER when reference transcripts exist, otherwise inverse latency. This is the score the router's <code>benchmark</code> strategy routes on.</td></tr>
-</tbody></table>
-</div>
-</section>
-<section>
-  <div class="sec-head">
-    <p class="type-label">harness</p>
-    <h2>How samples are run</h2>
-  </div>
-  <div class="card card-pad prose">
-<p>Samples are short <code>.wav</code> clips per language in <code>benchmarks/samples/</code>, with same-named reference transcripts in <code>benchmarks/references/</code>. The harness (<code>benchmarks/harness.py</code>) sends every sample to every provider that supports the language, in the same process, back to back:</p>
-<pre>python -m benchmarks.harness --samples benchmarks/samples \\
-    --references benchmarks/references --language en</pre>
-<p>Results land in <code>benchmarks/results.json</code>; this site is regenerated from that file. Nothing is hand-edited: if a number is on the leaderboard, it came out of a harness run.</p>
-  </div>
-</section>
-<section>
-  <div class="sec-head">
-    <p class="type-label">audio</p>
-    <h2>Where the audio comes from</h2>
-  </div>
-  <div class="card card-pad prose">
-<p>The sample set is real human speech from <a href="https://huggingface.co/datasets/google/fleurs" target="_blank" rel="noreferrer">FLEURS</a> (CC-BY-4.0) - Google's Few-shot Learning Evaluation of Universal Representations of Speech corpus (<a href="https://arxiv.org/abs/2205.12446" target="_blank" rel="noreferrer">paper</a>). FLEURS is the standard open benchmark for multilingual speech: 102 languages, roughly 12 hours of speech per language, n-way parallel sentences built on the FLoRes-101 translation set. It is the evaluation OpenAI's Whisper paper reported its multilingual numbers on, which is what makes it the common ruler here.</p>
-<p>We use 15 test-split clips per language for English (en_us), Spanish (es_419), Hindi (hi_in), French (fr_fr), German (de_de) and Japanese (ja_jp) - 90 clips per provider, 540 runs per full board. Clips are 4-14 seconds, picked at even intervals across the test split for speaker diversity, normalized to 16 kHz mono PCM. Reference transcripts are FLEURS' normalized transcriptions. No synthetic or TTS-generated audio. Clips and references are committed in <code>benchmarks/samples/</code> and <code>benchmarks/references/</code> so anyone can rerun the exact matrix.</p>
-<p>Know the limits: FLEURS is clean, read speech - single speakers, quiet conditions, short utterances. That makes it the right common ruler, but it does not measure telephony noise, heavy accents, crosstalk or bad microphones. Every provider scores worse on real call audio than on this board. Treat these numbers as a ranking, not a promise.</p>
-  </div>
-</section>
-<section>
-  <div class="sec-head">
-    <p class="type-label">cadence</p>
-    <h2>Refresh cadence</h2>
-  </div>
-  <div class="card card-pad prose">
-<p>A GitHub Action regenerates the site on every push that touches <code>benchmarks/</code> and on a weekly schedule, because provider quality drifts. The leaderboard links the exact Action run that produced its current numbers. Anyone can reproduce them: clone the repo, add provider keys, run the harness.</p>
-  </div>
-</section>
-<section>
-  <div class="sec-head">
-    <p class="type-label">honesty</p>
-    <h2>Sample data policy</h2>
-  </div>
-  <div class="card card-pad prose">
-<p>Before the first real multi-provider run, the site renders <code>benchmarks/sample_results.json</code> - synthetic numbers that exist only to demonstrate the format. Sample data is always shown behind a visible SAMPLE DATA banner and is never presented as a real measurement. The moment a real run lands in <code>benchmarks/results.json</code>, it replaces the sample data automatically.</p>
-  </div>
-</section>
+    body = """
+<div class="hero"><div><p class="type-label">methodology</p><h1>Measurement correction log</h1><p class="hero-sub">Public numbers are claims. When the method fails review, the numbers come down first.</p></div></div>
+<section id="changelog"><div class="sec-head"><p class="type-label">15 September 2026</p><h2>Accuracy and latency rankings withdrawn</h2></div>
+<div class="card card-pad prose">
+<p><strong>Defect 1 - text normalization.</strong> The 13-14 September STT board compared lowercase whitespace tokens without the Whisper paper normalizer. FLEURS references are bare lowercase text while providers often return casing, punctuation, contractions or formatted numbers. Content-equivalent output could be penalized. The published overall WER spread was 9.4%-17.2%; those values and derived scores are withdrawn, not silently replaced.</p>
+<p><strong>Defect 2 - aggregation.</strong> The board averaged per-clip WER, over-weighting short utterances. The rebuild uses corpus WER: total token edits divided by total reference tokens, after identical normalization of reference and hypothesis.</p>
+<p><strong>Defect 3 - latency instrumentation.</strong> Four async adapters polled at fixed four-second intervals while calls ran under six-way concurrency on an unspecified GitHub runner. Published STT p50s included polling and contention artifacts: between two runs, Groq moved 418ms to 755ms and Deepgram 460ms to 546ms while their WERs were unchanged. All STT and LLM latency rankings are withdrawn.</p>
+<p><strong>Defect 4 - TTS metric.</strong> Full synthesis wall clock was labeled as conversational latency. Streaming TTS must report time to first audio byte. Batch-only providers must be labeled "full-synthesis wall clock (batch)" and cannot imply conversational responsiveness. All TTS latency rankings are withdrawn pending this split.</p>
+<p><strong>Rebuild gate.</strong> Serial execution; adaptive polling from 250ms with backoff; pinned region recorded in JSON; at least five repeats per clip; median and interquartile range; sync and async methods separated; TTFB for streaming TTS; and an explicit adversarial review whose job is to break the measurement before publication.</p>
+</div></section>
+<section><div class="sec-head"><p class="type-label">corpus</p><h2>Inputs and receipts</h2></div><div class="card card-pad prose"><p>The source corpus remains Google FLEURS test audio (CC-BY-4.0), 15 clips each in English, Spanish, Hindi, French, German and Japanese. Historical raw results remain in the repository for audit but are not endorsed rankings.</p></div></section>
 """
-    return page("Methodology", "methodology", body, generated_at)
+    return page("Methodology correction", "methodology", body, generated_at)
 
 
 def main() -> None:

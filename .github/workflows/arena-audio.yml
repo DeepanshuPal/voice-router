@@ -2,11 +2,6 @@ name: arena audio
 
 on:
   workflow_dispatch:
-  schedule:
-    # Nightly, after the leaderboard run. Synthesis burns provider free-tier
-    # quota, so this does not run on push; use workflow_dispatch on demand.
-    - cron: "41 3 * * *"
-
 permissions:
   contents: write
 

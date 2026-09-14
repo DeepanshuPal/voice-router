@@ -1,11 +1,6 @@
 name: leaderboard
 
 on:
-  schedule:
-    # Nightly refresh - provider quality drifts. Full matrix burns provider
-    # free-tier quota, so it does not run on push; use workflow_dispatch for
-    # an on-demand refresh.
-    - cron: "23 2 * * *"
   workflow_dispatch:
 
 permissions:
