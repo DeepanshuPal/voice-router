@@ -1,4 +1,4 @@
-"""Arena audio generator: synthesize the shared reference texts through every
+"""Arena audio generator: synthesize the shared reference texts through every  # rerun triggers: rime key now in secrets
 live TTS provider and save the clips the blind A/B arena plays.
 
 Clips are real API output, written to docs/arena/audio/<provider>/<sample>.<ext>

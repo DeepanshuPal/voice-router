@@ -1,4 +1,4 @@
-"""Run the benchmark matrix (STT + TTS + LLM legs) and merge results.
+"""Run the benchmark matrix (STT + TTS + LLM legs) and merge results.  # rerun triggers: rime key now in secrets
 
 Discovers languages from benchmarks/samples/<lang>-<n>.wav prefixes, runs the
 harness per language with matching references, and merges everything into one
