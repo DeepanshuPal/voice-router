@@ -17,6 +17,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import json
+import statistics
 
 from voice_router.config import load_config
 from voice_router.providers.base import ProviderError
@@ -25,6 +26,26 @@ from voice_router.providers.registry import build_providers
 ROOT = Path(__file__).resolve().parent.parent
 REFERENCES = ROOT / "benchmarks" / "references"
 SAMPLES_PER_LANG = 3  # <lang>-1..3.txt - small on purpose: free tiers are tight
+
+
+def timing_summary(runs: list[dict]) -> list[dict]:
+    groups: dict[tuple[str, str], list[dict]] = {}
+    for row in runs:
+        if row.get("status") == "ok":
+            groups.setdefault((row["provider"], row["protocol"]), []).append(row)
+    out = []
+    for (provider, protocol), rows in groups.items():
+        def stats(key: str):
+            vals = [r[key] for r in rows if r.get(key) is not None]
+            if len(vals) < 5: return None
+            q1, _, q3 = statistics.quantiles(vals, n=4, method="inclusive")
+            return {"median_ms": round(statistics.median(vals), 1), "q1_ms": round(q1, 1),
+                    "q3_ms": round(q3, 1), "iqr_ms": round(q3-q1, 1), "n": len(vals)}
+        out.append({"provider": provider, "protocol": protocol,
+                    "ttfb": stats("ttfb_ms"),
+                    "full_synthesis_wall_clock_batch": stats("full_synthesis_wall_clock_ms") if protocol == "batch" else None,
+                    "stream_completion": stats("full_synthesis_wall_clock_ms") if protocol != "batch" else None})
+    return sorted(out, key=lambda r:(r["protocol"],r["provider"]))
 
 
 async def run(language: str, samples_per_lang: int = SAMPLES_PER_LANG, repeats: int = 5) -> dict:
@@ -65,7 +86,8 @@ async def run(language: str, samples_per_lang: int = SAMPLES_PER_LANG, repeats: 
                 runs.append(await one(stem, text, name, adapter, repeat))
 
     return {"generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-            "runs": runs}
+            "execution": "serial", "repeats_per_clip": repeats,
+            "timing_summary": timing_summary(runs), "runs": runs}
 
 
 def main():

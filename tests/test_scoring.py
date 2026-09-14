@@ -17,3 +17,15 @@ def test_corpus_wer_weights_reference_tokens_not_utterances():
                                  'alpha beta gamma delta epsilon zeta eta theta iota')]
     assert corpus_error_rate(pairs, 'en') == 0.1
     assert sum(wer(a, b) for a, b in pairs) / 2 == 0.5
+
+
+def test_latency_summary_separates_protocols_and_reports_iqr():
+    from benchmarks.harness import latency_summary
+    runs=[]
+    for protocol, values in [('sync_batch',[10,20,30,40,50]),('async_batch',[100,200,300,400,500])]:
+        runs += [{'provider':'p','protocol':protocol,'status':'ok','latency_ms':v} for v in values]
+    rows=latency_summary(runs)
+    assert len(rows)==2
+    assert {r['protocol'] for r in rows}=={'sync_batch','async_batch'}
+    assert {r['median_ms'] for r in rows}=={30,300}
+    assert all(r['iqr_ms']>0 for r in rows)

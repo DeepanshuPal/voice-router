@@ -15,6 +15,7 @@ import argparse
 import asyncio
 import json
 import os
+import statistics
 import time
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -98,6 +99,24 @@ def cer(reference: str, hypothesis: str) -> float:
 CHAR_ERROR_LANGS = {"ja", "zh", "ko", "th"}
 
 
+def latency_summary(runs: list[dict]) -> list[dict]:
+    """Protocol-separated median and IQR; never blend sync and async calls."""
+    groups: dict[tuple[str, str], list[float]] = {}
+    for row in runs:
+        if row.get("status") == "ok" and row.get("latency_ms") is not None:
+            groups.setdefault((row["provider"], row["protocol"]), []).append(row["latency_ms"])
+    out = []
+    for (provider, protocol), values in groups.items():
+        if len(values) < 5:
+            continue
+        q1, _, q3 = statistics.quantiles(values, n=4, method="inclusive")
+        out.append({"provider": provider, "protocol": protocol, "n": len(values),
+                    "median_ms": round(statistics.median(values), 1),
+                    "q1_ms": round(q1, 1), "q3_ms": round(q3, 1),
+                    "iqr_ms": round(q3 - q1, 1)})
+    return sorted(out, key=lambda r: (r["protocol"], r["provider"]))
+
+
 async def run(samples: Path, references: Path | None, language: str, out: Path, repeats: int = 5) -> dict:
     cfg = load_config()
     providers = build_providers(cfg)["stt"]
@@ -168,7 +187,7 @@ async def run(samples: Path, references: Path | None, language: str, out: Path, 
                    "repeats_per_clip": repeats,
                    "latency_publication": "withheld pending protocol-aware median/IQR aggregation"},
                "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-               "scores": scores, "runs": runs,
+               "scores": scores, "latency_summary": latency_summary(runs), "runs": runs,
                "note": "regenerate with: python -m benchmarks.harness --samples benchmarks/samples"}
     out.write_text(json.dumps(payload, indent=2))
     return payload
