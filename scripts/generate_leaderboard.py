@@ -194,7 +194,7 @@ KNOWN_TTS = {
     "rime": "",
     "smallest-tts": "",
     "sarvam": "signup works (no card), but no free credits landed on the account (balance Rs 0, API returns 402) - needs paid credits",
-    "hume": "Speko-listed (octave-2, octave-1) - signup queued",
+    "hume": "",
     "play.ht": "signup queued",
     "soniox-tts": "Speko-listed (tts-rt-v1, tts-rt-v2) - same as STT: signup works, zero free balance, API 402 without funds (verified 2026-09-14)",
     "gemini-tts": "Speko-listed (gemini-3.1-flash-tts-preview) - Google AI Studio key is free without a card; queued",

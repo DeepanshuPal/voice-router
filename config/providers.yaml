@@ -99,6 +99,12 @@ tts:
     default_latency_ms: 250
     languages: [en, es, fr, de, hi, ja]
     env_key: SMALLEST_API_KEY
+  hume:
+    models: [octave-2]   # Octave 2 needs an explicit voice; adapter maps lang -> Hume library voice
+    cost_per_1k_chars_usd: 0.05  # $50/M chars usage rate; free tier 10k chars/mo (hume.ai/pricing)
+    default_latency_ms: 400
+    languages: [en, es, fr, de, hi, ja]
+    env_key: HUME_API_KEY
   groq-tts:
     models: [canopylabs/orpheus-v1-english]
     cost_per_1k_chars_usd: 0.022  # Orpheus English, per Groq launch coverage

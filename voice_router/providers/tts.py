@@ -1,4 +1,4 @@
-"""TTS adapters: ElevenLabs, OpenAI, Cartesia, Rime, Deepgram Aura, Groq Orpheus, Smallest Lightning, and a zero-key mock."""
+"""TTS adapters: ElevenLabs, OpenAI, Cartesia, Rime, Deepgram Aura, Groq Orpheus, Smallest Lightning, Hume Octave, and a zero-key mock."""
 
 from __future__ import annotations
 
@@ -209,6 +209,43 @@ class SmallestTTS(TTSProvider):
         return resp.content
 
 
+class HumeTTS(TTSProvider):
+    """Hume Octave 2: per-language Hume library voices, base64 WAV in JSON.
+
+    Octave 2 requires an explicit voice (unlike Octave 1, which generates
+    one). Voices from GET /v0/tts/voices?provider=HUME_AI, filtered to
+    compatible_octave_models including "2" (2026-09-14). Language rides in
+    the model string ("octave-2-hi") because synthesize() gets no language.
+    """
+
+    BASE = "https://api.hume.ai/v0/tts"
+    VOICE = {"en": "Colton Rivers", "es": "Spanish Instructor",
+             "fr": "Mika the Musician", "de": "Anna",
+             "hi": "Priya", "ja": "Akira"}
+
+    def model_for(self, language: str) -> str:
+        return f"{self.spec.models[0]}-{language}"
+
+    async def synthesize(self, text: str, model: str, voice: str) -> bytes:
+        key = os.environ.get(self.spec.env_key)
+        if not key:
+            raise ProviderUnavailable("HUME_API_KEY not set")
+        base, _, lang = model.rpartition("-")
+        async with httpx.AsyncClient(timeout=60) as client:
+            resp = await client.post(
+                self.BASE,
+                headers={"X-Hume-Api-Key": key, "Content-Type": "application/json"},
+                json={"utterances": [{"text": text,
+                                      "voice": {"name": self.VOICE.get(lang, "Colton Rivers"),
+                                                "provider": "HUME_AI"}}],
+                      "version": "2", "format": {"type": "wav"}},
+            )
+        if resp.status_code != 200:
+            raise ProviderError(f"hume {resp.status_code}: {resp.text[:200]}")
+        import base64
+        return base64.b64decode(resp.json()["generations"][0]["audio"])
+
+
 class MockTTS(TTSProvider):
     """Returns a playable sine-tone WAV so demos and tests need no keys."""
 
@@ -225,5 +262,6 @@ REGISTRY = {
     "groq-tts": GroqTTS,
     "rime": RimeTTS,
     "smallest-tts": SmallestTTS,
+    "hume": HumeTTS,
     "mock-tts": MockTTS,
 }
