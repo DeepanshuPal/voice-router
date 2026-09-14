@@ -76,7 +76,7 @@ tts:
     languages: [en, es, hi, fr, de, pt, ja, ko, zh, it, nl, ru]
     env_key: OPENAI_API_KEY
   cartesia:
-    models: [sonic-2, sonic-turbo]
+    models: [sonic-3.6, sonic-3.5]
     cost_per_1k_chars_usd: 0.037
     default_latency_ms: 250
     languages: [en, es, hi, fr, de, pt, ja, ko, zh, it, nl, ru]
