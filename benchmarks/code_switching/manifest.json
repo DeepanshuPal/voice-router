@@ -1,0 +1,119 @@
+{
+  "dataset": "MUCS-Hinglish",
+  "dataset_url": "https://huggingface.co/datasets/dianavdavidson/MUCS-Hinglish",
+  "source_split": "test",
+  "source_shard": "data/test-00000-of-00002.parquet",
+  "license": "CC-BY-4.0",
+  "selection": "First 12 distinct-speaker rows in source order with >=3 English words, >=3 Devanagari words, and English ratio 0.20-0.60; deterministic fallback fills only if fewer than 12 speakers qualify.",
+  "audio": "16 kHz mono PCM WAV",
+  "samples": [
+    {
+      "id": "hinglish-1",
+      "source_segment_id": "103085_w5Jyq3XMbb3WwiKQ_0000",
+      "speaker_id": "103085",
+      "duration_s": 8.28,
+      "english_words": 5,
+      "devanagari_words": 14,
+      "english_ratio": 0.2632
+    },
+    {
+      "id": "hinglish-2",
+      "source_segment_id": "103725_UO5ZLDtkc8QMi9Hk_0000",
+      "speaker_id": "103725",
+      "duration_s": 6.55,
+      "english_words": 5,
+      "devanagari_words": 7,
+      "english_ratio": 0.4167
+    },
+    {
+      "id": "hinglish-3",
+      "source_segment_id": "118638_nJfFvNUB8tQkaGgp_0007",
+      "speaker_id": "118638",
+      "duration_s": 10.55,
+      "english_words": 4,
+      "devanagari_words": 15,
+      "english_ratio": 0.2105
+    },
+    {
+      "id": "hinglish-4",
+      "source_segment_id": "124478_x8iijxWeCf26KNpC_0000",
+      "speaker_id": "124478",
+      "duration_s": 7.28,
+      "english_words": 7,
+      "devanagari_words": 8,
+      "english_ratio": 0.4667
+    },
+    {
+      "id": "hinglish-5",
+      "source_segment_id": "133511_swLUjPHatcTk0wf8_0051",
+      "speaker_id": "133511",
+      "duration_s": 5.55,
+      "english_words": 4,
+      "devanagari_words": 10,
+      "english_ratio": 0.2857
+    },
+    {
+      "id": "hinglish-6",
+      "source_segment_id": "137494_fpL6MBSZsci9dyAn_0004",
+      "speaker_id": "137494",
+      "duration_s": 4.55,
+      "english_words": 4,
+      "devanagari_words": 6,
+      "english_ratio": 0.4
+    },
+    {
+      "id": "hinglish-7",
+      "source_segment_id": "146881_TkzR0GrQyK0vSTuj_0012",
+      "speaker_id": "146881",
+      "duration_s": 9.55,
+      "english_words": 4,
+      "devanagari_words": 9,
+      "english_ratio": 0.3077
+    },
+    {
+      "id": "hinglish-8",
+      "source_segment_id": "161768_ZQC2TFqLsvNDq9bP_0006",
+      "speaker_id": "161768",
+      "duration_s": 3.55,
+      "english_words": 3,
+      "devanagari_words": 4,
+      "english_ratio": 0.4286
+    },
+    {
+      "id": "hinglish-9",
+      "source_segment_id": "270589_FV8hkymGWcy53lrf_0002",
+      "speaker_id": "270589",
+      "duration_s": 9.55,
+      "english_words": 6,
+      "devanagari_words": 13,
+      "english_ratio": 0.3158
+    },
+    {
+      "id": "hinglish-10",
+      "source_segment_id": "318923_NhV290ew2hDJfVqc_0000",
+      "speaker_id": "318923",
+      "duration_s": 7.55,
+      "english_words": 6,
+      "devanagari_words": 6,
+      "english_ratio": 0.5
+    },
+    {
+      "id": "hinglish-11",
+      "source_segment_id": "323507_HgEJsLGKNWSFl8T7_0000",
+      "speaker_id": "323507",
+      "duration_s": 6.55,
+      "english_words": 6,
+      "devanagari_words": 13,
+      "english_ratio": 0.3158
+    },
+    {
+      "id": "hinglish-12",
+      "source_segment_id": "347099_K5BlLYB9ynemLTVa_0000",
+      "speaker_id": "347099",
+      "duration_s": 6.28,
+      "english_words": 4,
+      "devanagari_words": 11,
+      "english_ratio": 0.2667
+    }
+  ]
+}
