@@ -122,3 +122,7 @@ GET  /v1/telemetry              per-call latency/cost/outcome stats
 ## License
 
 MIT
+
+## Architecture
+
+Voice Router is a realtime local-sidecar routing data plane; the public benchmark supplies policy evidence. See [the architecture decision](docs/architecture.md).
