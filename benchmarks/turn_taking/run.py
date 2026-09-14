@@ -111,7 +111,7 @@ class SmartTurn:
                                 padding="max_length", max_length=n, truncation=True,
                                 do_normalize=True)
         features = inputs.input_features.astype(np.float32)
-        prob = float(self.session.run(None, {"input_features": features})[0][0])
+        prob = float(self.session.run(None, {"input_features": features})[0].flatten()[0])
         return prob > 0.5, prob
 
 

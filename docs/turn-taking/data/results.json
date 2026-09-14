@@ -1,0 +1,753 @@
+{
+  "generated_at": "2026-09-14T22:33:47+00:00",
+  "sample_data": false,
+  "runtime": {
+    "device": "CPU",
+    "note": "One warm-up, then wall-clock inference per example."
+  },
+  "corpus": {
+    "name": "FLEURS paired endpoint corpus v1",
+    "description": "Twelve real FLEURS utterances, each evaluated once complete and once cut at a deterministic word/audio boundary. Derived incomplete examples are labeled, not presented as recorded conversational turns.",
+    "source": "https://huggingface.co/datasets/google/fleurs",
+    "license": "CC-BY-4.0",
+    "split_ratio": 0.55,
+    "source_samples": 12,
+    "paired_examples": 24
+  },
+  "results": [
+    {
+      "provider": "Pipecat",
+      "model": "Smart Turn v3.2 CPU",
+      "input_type": "audio",
+      "languages": [
+        "en",
+        "hi"
+      ],
+      "samples": 24,
+      "accuracy": 0.7917,
+      "end_recall": 1.0,
+      "false_cutoff_rate": 0.4167,
+      "p50_inference_ms": 52.881,
+      "confusion": {
+        "tp": 12,
+        "tn": 7,
+        "fp": 5,
+        "fn": 0
+      },
+      "runs": [
+        {
+          "id": "en-1-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.975929,
+          "inference_ms": 61.746
+        },
+        {
+          "id": "en-1-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": true,
+          "probability": 0.519683,
+          "inference_ms": 57.213
+        },
+        {
+          "id": "en-2-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.889684,
+          "inference_ms": 53.979
+        },
+        {
+          "id": "en-2-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 0.00751,
+          "inference_ms": 52.477
+        },
+        {
+          "id": "en-3-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.98426,
+          "inference_ms": 52.506
+        },
+        {
+          "id": "en-3-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": true,
+          "probability": 0.988007,
+          "inference_ms": 53.508
+        },
+        {
+          "id": "en-4-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.99013,
+          "inference_ms": 52.977
+        },
+        {
+          "id": "en-4-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 0.071746,
+          "inference_ms": 59.878
+        },
+        {
+          "id": "en-5-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.985989,
+          "inference_ms": 52.894
+        },
+        {
+          "id": "en-5-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 0.020634,
+          "inference_ms": 53.009
+        },
+        {
+          "id": "en-6-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.889684,
+          "inference_ms": 53.055
+        },
+        {
+          "id": "en-6-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 0.33859,
+          "inference_ms": 52.604
+        },
+        {
+          "id": "hi-1-complete",
+          "language": "hi",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.966036,
+          "inference_ms": 59.074
+        },
+        {
+          "id": "hi-1-prefix",
+          "language": "hi",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 0.122458,
+          "inference_ms": 52.868
+        },
+        {
+          "id": "hi-2-complete",
+          "language": "hi",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.958947,
+          "inference_ms": 52.29
+        },
+        {
+          "id": "hi-2-prefix",
+          "language": "hi",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 0.012469,
+          "inference_ms": 52.129
+        },
+        {
+          "id": "hi-3-complete",
+          "language": "hi",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.969707,
+          "inference_ms": 51.93
+        },
+        {
+          "id": "hi-3-prefix",
+          "language": "hi",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": true,
+          "probability": 0.728036,
+          "inference_ms": 51.909
+        },
+        {
+          "id": "hi-4-complete",
+          "language": "hi",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.983637,
+          "inference_ms": 51.348
+        },
+        {
+          "id": "hi-4-prefix",
+          "language": "hi",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": true,
+          "probability": 0.980147,
+          "inference_ms": 51.392
+        },
+        {
+          "id": "hi-5-complete",
+          "language": "hi",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.98426,
+          "inference_ms": 51.133
+        },
+        {
+          "id": "hi-5-prefix",
+          "language": "hi",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 0.35645,
+          "inference_ms": 51.978
+        },
+        {
+          "id": "hi-6-complete",
+          "language": "hi",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.980147,
+          "inference_ms": 60.293
+        },
+        {
+          "id": "hi-6-prefix",
+          "language": "hi",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": true,
+          "probability": 0.987037,
+          "inference_ms": 62.632
+        }
+      ]
+    },
+    {
+      "provider": "LiveKit",
+      "model": "turn-detector v1.2.2-en",
+      "input_type": "text",
+      "languages": [
+        "en"
+      ],
+      "samples": 12,
+      "accuracy": 0.9167,
+      "end_recall": 1.0,
+      "false_cutoff_rate": 0.1667,
+      "p50_inference_ms": 6.53,
+      "confusion": {
+        "tp": 6,
+        "tn": 5,
+        "fp": 1,
+        "fn": 0
+      },
+      "runs": [
+        {
+          "id": "en-1-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.651726,
+          "inference_ms": 10.241
+        },
+        {
+          "id": "en-1-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 9e-06,
+          "inference_ms": 5.379
+        },
+        {
+          "id": "en-2-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.835226,
+          "inference_ms": 10.914
+        },
+        {
+          "id": "en-2-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 2.3e-05,
+          "inference_ms": 6.689
+        },
+        {
+          "id": "en-3-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.675069,
+          "inference_ms": 6.735
+        },
+        {
+          "id": "en-3-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": true,
+          "probability": 0.177413,
+          "inference_ms": 4.902
+        },
+        {
+          "id": "en-4-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.536072,
+          "inference_ms": 6.006
+        },
+        {
+          "id": "en-4-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 0.00316,
+          "inference_ms": 4.234
+        },
+        {
+          "id": "en-5-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.793447,
+          "inference_ms": 11.778
+        },
+        {
+          "id": "en-5-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 0.006967,
+          "inference_ms": 6.372
+        },
+        {
+          "id": "en-6-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.570973,
+          "inference_ms": 8.416
+        },
+        {
+          "id": "en-6-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 0.012942,
+          "inference_ms": 5.798
+        }
+      ]
+    },
+    {
+      "provider": "LiveKit",
+      "model": "turn-detector v0.4.1-intl",
+      "input_type": "text",
+      "languages": [
+        "en",
+        "hi"
+      ],
+      "samples": 24,
+      "accuracy": 0.7917,
+      "end_recall": 0.9167,
+      "false_cutoff_rate": 0.3333,
+      "p50_inference_ms": 90.759,
+      "confusion": {
+        "tp": 11,
+        "tn": 8,
+        "fp": 4,
+        "fn": 1
+      },
+      "runs": [
+        {
+          "id": "en-1-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": false,
+          "probability": 0.001933,
+          "inference_ms": 67.311
+        },
+        {
+          "id": "en-1-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 5e-05,
+          "inference_ms": 47.996
+        },
+        {
+          "id": "en-2-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.181374,
+          "inference_ms": 86.67
+        },
+        {
+          "id": "en-2-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 2.7e-05,
+          "inference_ms": 57.456
+        },
+        {
+          "id": "en-3-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.118699,
+          "inference_ms": 53.305
+        },
+        {
+          "id": "en-3-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": true,
+          "probability": 0.130434,
+          "inference_ms": 42.838
+        },
+        {
+          "id": "en-4-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.110518,
+          "inference_ms": 59.092
+        },
+        {
+          "id": "en-4-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": true,
+          "probability": 0.197647,
+          "inference_ms": 45.43
+        },
+        {
+          "id": "en-5-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.097593,
+          "inference_ms": 91.844
+        },
+        {
+          "id": "en-5-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 7.9e-05,
+          "inference_ms": 59.232
+        },
+        {
+          "id": "en-6-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.434976,
+          "inference_ms": 70.704
+        },
+        {
+          "id": "en-6-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": true,
+          "probability": 0.039962,
+          "inference_ms": 51.542
+        },
+        {
+          "id": "hi-1-complete",
+          "language": "hi",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.099715,
+          "inference_ms": 153.444
+        },
+        {
+          "id": "hi-1-prefix",
+          "language": "hi",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 0.018038,
+          "inference_ms": 89.674
+        },
+        {
+          "id": "hi-2-complete",
+          "language": "hi",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.568045,
+          "inference_ms": 196.491
+        },
+        {
+          "id": "hi-2-prefix",
+          "language": "hi",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 0.008681,
+          "inference_ms": 124.967
+        },
+        {
+          "id": "hi-3-complete",
+          "language": "hi",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.847412,
+          "inference_ms": 294.945
+        },
+        {
+          "id": "hi-3-prefix",
+          "language": "hi",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 0.001043,
+          "inference_ms": 155.515
+        },
+        {
+          "id": "hi-4-complete",
+          "language": "hi",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.736624,
+          "inference_ms": 198.252
+        },
+        {
+          "id": "hi-4-prefix",
+          "language": "hi",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 0.005061,
+          "inference_ms": 111.191
+        },
+        {
+          "id": "hi-5-complete",
+          "language": "hi",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.378044,
+          "inference_ms": 176.266
+        },
+        {
+          "id": "hi-5-prefix",
+          "language": "hi",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 0.011485,
+          "inference_ms": 114.636
+        },
+        {
+          "id": "hi-6-complete",
+          "language": "hi",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.781511,
+          "inference_ms": 149.846
+        },
+        {
+          "id": "hi-6-prefix",
+          "language": "hi",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": true,
+          "probability": 0.68179,
+          "inference_ms": 92.974
+        }
+      ]
+    },
+    {
+      "provider": "TurnSense",
+      "model": "SmolLM2-135M quantized",
+      "input_type": "text",
+      "languages": [
+        "en"
+      ],
+      "samples": 12,
+      "accuracy": 0.75,
+      "end_recall": 1.0,
+      "false_cutoff_rate": 0.5,
+      "p50_inference_ms": 433.059,
+      "confusion": {
+        "tp": 6,
+        "tn": 3,
+        "fp": 3,
+        "fn": 0
+      },
+      "runs": [
+        {
+          "id": "en-1-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.688308,
+          "inference_ms": 451.661
+        },
+        {
+          "id": "en-1-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 0.324548,
+          "inference_ms": 433.322
+        },
+        {
+          "id": "en-2-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.68921,
+          "inference_ms": 414.656
+        },
+        {
+          "id": "en-2-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 0.321611,
+          "inference_ms": 442.507
+        },
+        {
+          "id": "en-3-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.686608,
+          "inference_ms": 432.796
+        },
+        {
+          "id": "en-3-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": true,
+          "probability": 0.646835,
+          "inference_ms": 441.276
+        },
+        {
+          "id": "en-4-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.650483,
+          "inference_ms": 441.617
+        },
+        {
+          "id": "en-4-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": true,
+          "probability": 0.61289,
+          "inference_ms": 479.875
+        },
+        {
+          "id": "en-5-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.726615,
+          "inference_ms": 404.429
+        },
+        {
+          "id": "en-5-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": false,
+          "probability": 0.343514,
+          "inference_ms": 410.195
+        },
+        {
+          "id": "en-6-complete",
+          "language": "en",
+          "kind": "complete",
+          "expected_end": true,
+          "predicted_end": true,
+          "probability": 0.689376,
+          "inference_ms": 402.781
+        },
+        {
+          "id": "en-6-prefix",
+          "language": "en",
+          "kind": "derived-prefix",
+          "expected_end": false,
+          "predicted_end": true,
+          "probability": 0.68639,
+          "inference_ms": 399.207
+        }
+      ]
+    }
+  ]
+}
