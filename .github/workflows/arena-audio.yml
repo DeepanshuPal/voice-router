@@ -2,12 +2,10 @@ name: arena audio
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'benchmarks/arena_audio.py'
-      - 'benchmarks/references/**'
-      - '.github/workflows/arena-audio.yml'
+  schedule:
+    # Nightly, after the leaderboard run. Synthesis burns provider free-tier
+    # quota, so this does not run on push; use workflow_dispatch on demand.
+    - cron: "41 3 * * *"
 
 permissions:
   contents: write

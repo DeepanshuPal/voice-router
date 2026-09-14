@@ -1,16 +1,11 @@
 name: leaderboard
 
 on:
-  push:
-    paths:
-      - "benchmarks/**"
-      - "scripts/generate_leaderboard.py"
-      - "voice_router/providers/**"
-      - "config/providers.yaml"
-      - ".github/workflows/leaderboard.yml"
   schedule:
-    # Weekly refresh - provider quality drifts.
-    - cron: "17 4 * * 1"
+    # Nightly refresh - provider quality drifts. Full matrix burns provider
+    # free-tier quota, so it does not run on push; use workflow_dispatch for
+    # an on-demand refresh.
+    - cron: "23 2 * * *"
   workflow_dispatch:
 
 permissions:
