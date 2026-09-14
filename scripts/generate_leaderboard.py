@@ -165,7 +165,7 @@ KNOWN_STT = {
     "assemblyai": "",
     "gladia": "",
     "speechmatics": "",
-    "rev": "",
+    "rev": "free credit exhausted - API returns 'Insufficient credit balance' as of the 2026-09-14 run (was green on 2026-09-12/13)",
     "groq-whisper": "",
     "cartesia-stt": "",
     "openai-whisper": "no free tier - GPT-4o/GPT-4o-mini Transcribe, GPT Live Transcribe and Whisper-1 all need a paid OpenAI account",

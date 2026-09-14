@@ -132,7 +132,12 @@ class RimeTTS(TTSProvider):
 
     BASE = "https://users.rime.ai/v1/rime-tts"
     LANG_MAP = {"en": "eng", "es": "spa", "fr": "fra", "de": "ger", "hi": "hin", "ja": "jpn"}
-    SPEAKER = {"mistv2": "astra", "coda": "adeline"}
+    # Voices are per (model, language) - astra only exists for mistv2/eng.
+    # From https://users.rime.ai/data/voices/all-v2.json (2026-09-14).
+    SPEAKER = {
+        "mistv2": {"eng": "abbie", "spa": "diego", "fra": "alois", "ger": "amalia"},
+        "coda": {"eng": "adeline", "hin": "nadi", "jpn": "akari"},
+    }
 
     def model_for(self, language: str) -> str:
         # The language rides in the model string ("coda-hin") because the
@@ -149,7 +154,7 @@ class RimeTTS(TTSProvider):
             resp = await client.post(
                 self.BASE,
                 headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
-                json={"speaker": self.SPEAKER.get(base, "astra"), "text": text,
+                json={"speaker": self.SPEAKER.get(base, {}).get(lang, "abbie"), "text": text,
                       "modelId": base, "lang": lang,
                       "audioFormat": "mp3", "sampleRate": 16000},
             )
