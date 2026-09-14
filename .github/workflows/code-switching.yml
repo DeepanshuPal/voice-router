@@ -1,0 +1,42 @@
+name: code-switching STT
+
+on:
+  schedule:
+    # Daily after the main matrix; API quotas make push-triggered runs unsafe.
+    - cron: "47 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+concurrency:
+  group: code-switching-stt
+  cancel-in-progress: false
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Run Hinglish provider matrix
+        run: python -m benchmarks.code_switching.run
+        env:
+          DEEPGRAM_API_KEY: ${{ secrets.DEEPGRAM_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          ASSEMBLYAI_API_KEY: ${{ secrets.ASSEMBLYAI_API_KEY }}
+          GLADIA_API_KEY: ${{ secrets.GLADIA_API_KEY }}
+          SPEECHMATICS_API_KEY: ${{ secrets.SPEECHMATICS_API_KEY }}
+          REV_API_KEY: ${{ secrets.REV_API_KEY }}
+          CARTESIA_API_KEY: ${{ secrets.CARTESIA_API_KEY }}
+          SMALLEST_API_KEY: ${{ secrets.SMALLEST_API_KEY }}
+      - name: Commit measured results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add benchmarks/code_switching/results.json
+          git diff --cached --quiet || git commit -m "chore: refresh Hinglish benchmark"
+          git pull --rebase -X theirs origin main
+          git push
