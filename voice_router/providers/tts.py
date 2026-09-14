@@ -3,10 +3,30 @@
 from __future__ import annotations
 
 import os
+import time
 
 import httpx
 
-from .base import ProviderError, ProviderUnavailable, TTSProvider, sine_wav
+from .base import ProviderError, ProviderUnavailable, TTSProvider, TTSTiming, sine_wav
+
+async def _stream_audio(method_url: str, *, headers: dict, json: dict, params: dict | None = None,
+                        error_name: str) -> TTSTiming:
+    started = time.perf_counter()
+    chunks: list[bytes] = []
+    ttfb_ms = None
+    async with httpx.AsyncClient(timeout=60) as client:
+        async with client.stream("POST", method_url, headers=headers, json=json, params=params) as resp:
+            if resp.status_code != 200:
+                body = (await resp.aread()).decode(errors="replace")
+                raise ProviderError(f"{error_name} {resp.status_code}: {body[:200]}")
+            async for chunk in resp.aiter_bytes():
+                if chunk:
+                    if ttfb_ms is None:
+                        ttfb_ms = (time.perf_counter() - started) * 1000
+                    chunks.append(chunk)
+    return TTSTiming(audio=b"".join(chunks), protocol="streaming_http",
+                     ttfb_ms=ttfb_ms, completion_ms=(time.perf_counter() - started) * 1000)
+
 
 # Default voices per provider when the caller passes an OpenAI-style name.
 VOICE_MAP = {
@@ -17,6 +37,14 @@ VOICE_MAP = {
 
 
 class ElevenLabsTTS(TTSProvider):
+    async def synthesize_timed(self, text: str, model: str, voice: str) -> TTSTiming:
+        key = os.environ.get(self.spec.env_key)
+        if not key: raise ProviderUnavailable("ELEVENLABS_API_KEY not set")
+        voice_id = VOICE_MAP["elevenlabs"] if voice == "alloy" else voice
+        return await _stream_audio(f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/stream",
+            headers={"xi-api-key": key, "Content-Type": "application/json"},
+            json={"text": text, "model_id": model}, error_name="elevenlabs")
+
     async def synthesize(self, text: str, model: str, voice: str) -> bytes:
         key = os.environ.get(self.spec.env_key)
         if not key:
@@ -34,6 +62,13 @@ class ElevenLabsTTS(TTSProvider):
 
 
 class OpenAITTS(TTSProvider):
+    async def synthesize_timed(self, text: str, model: str, voice: str) -> TTSTiming:
+        key = os.environ.get(self.spec.env_key)
+        if not key: raise ProviderUnavailable("OPENAI_API_KEY not set")
+        return await _stream_audio("https://api.openai.com/v1/audio/speech",
+            headers={"Authorization": f"Bearer {key}"},
+            json={"model": model, "voice": voice, "input": text, "response_format": "wav"}, error_name="openai")
+
     async def synthesize(self, text: str, model: str, voice: str) -> bytes:
         key = os.environ.get(self.spec.env_key)
         if not key:
@@ -50,6 +85,15 @@ class OpenAITTS(TTSProvider):
 
 
 class CartesiaTTS(TTSProvider):
+    async def synthesize_timed(self, text: str, model: str, voice: str) -> TTSTiming:
+        key = os.environ.get(self.spec.env_key)
+        if not key: raise ProviderUnavailable("CARTESIA_API_KEY not set")
+        return await _stream_audio("https://api.cartesia.ai/tts/bytes",
+            headers={"X-API-Key": key, "Cartesia-Version": "2024-06-10", "Content-Type": "application/json"},
+            json={"model_id": model, "transcript": text,
+                  "voice": {"mode": "id", "id": VOICE_MAP["cartesia"] if voice == "alloy" else voice},
+                  "output_format": {"container": "wav", "encoding": "pcm_s16le", "sample_rate": 16000}}, error_name="cartesia")
+
     async def synthesize(self, text: str, model: str, voice: str) -> bytes:
         key = os.environ.get(self.spec.env_key)
         if not key:
@@ -75,6 +119,13 @@ class CartesiaTTS(TTSProvider):
 
 
 class DeepgramAuraTTS(TTSProvider):
+    async def synthesize_timed(self, text: str, model: str, voice: str) -> TTSTiming:
+        key = os.environ.get(self.spec.env_key)
+        if not key: raise ProviderUnavailable("DEEPGRAM_API_KEY not set")
+        return await _stream_audio("https://api.deepgram.com/v1/speak",
+            headers={"Authorization": f"Token {key}", "Content-Type": "application/json"},
+            params={"model": model}, json={"text": text}, error_name="deepgram-aura")
+
     """Deepgram Aura-2: the voice is part of the model name (aura-2-<voice>-<lang>)."""
 
     LANG_VOICES = {

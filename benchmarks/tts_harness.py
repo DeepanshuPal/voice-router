@@ -27,7 +27,7 @@ REFERENCES = ROOT / "benchmarks" / "references"
 SAMPLES_PER_LANG = 3  # <lang>-1..3.txt - small on purpose: free tiers are tight
 
 
-async def run(language: str, samples_per_lang: int = SAMPLES_PER_LANG) -> dict:
+async def run(language: str, samples_per_lang: int = SAMPLES_PER_LANG, repeats: int = 5) -> dict:
     cfg = load_config()
     providers = build_providers(cfg)["tts"]
     texts = []
@@ -38,33 +38,32 @@ async def run(language: str, samples_per_lang: int = SAMPLES_PER_LANG) -> dict:
     if not texts:
         raise SystemExit(f"no reference texts for {language} in {REFERENCES}")
 
-    sem = asyncio.Semaphore(3)
-
-    async def one(stem: str, text: str, name: str, adapter) -> dict:
+    async def one(stem: str, text: str, name: str, adapter, repeat: int) -> dict:
         model = adapter.model_for(language)
-        async with sem:
-            start = time.perf_counter()
-            try:
-                audio = await adapter.synthesize(text, model, "alloy")
-                latency = (time.perf_counter() - start) * 1000
-                return {
-                    "sample": stem, "provider": name, "model": model,
-                    "language": language, "chars": len(text),
-                    "latency_ms": round(latency, 1),
-                    "audio_bytes": len(audio),
-                    "cost_usd": adapter.spec.unit_cost(len(text) / 1000),
-                    "status": "ok",
-                }
-            except ProviderError as e:
-                return {"sample": stem, "provider": name, "model": model,
-                        "language": language, "chars": len(text),
-                        "status": "error", "detail": str(e)[:200]}
+        try:
+            timing = await adapter.synthesize_timed(text, model, "alloy")
+            return {
+                "sample": stem, "provider": name, "model": model,
+                "language": language, "chars": len(text), "repeat": repeat,
+                "protocol": timing.protocol, "ttfb_ms": round(timing.ttfb_ms, 1) if timing.ttfb_ms is not None else None,
+                "full_synthesis_wall_clock_ms": round(timing.completion_ms, 1),
+                "audio_bytes": len(timing.audio),
+                "cost_usd": adapter.spec.unit_cost(len(text) / 1000), "status": "ok",
+            }
+        except ProviderError as e:
+            return {"sample": stem, "provider": name, "model": model,
+                    "language": language, "chars": len(text), "repeat": repeat,
+                    "status": "error", "detail": str(e)[:200]}
 
-    tasks = [one(stem, text, name, adapter)
-             for stem, text in texts
-             for name, adapter in providers.items()
-             if adapter.supports(language)]
-    runs = list(await asyncio.gather(*tasks))
+    # Serial by design. Streaming TTFB and batch completion are never blended.
+    runs = []
+    for stem, text in texts:
+        for name, adapter in providers.items():
+            if not adapter.supports(language):
+                continue
+            for repeat in range(1, repeats + 1):
+                runs.append(await one(stem, text, name, adapter, repeat))
+
     return {"generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "runs": runs}
 
@@ -73,8 +72,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--language", default="en")
     ap.add_argument("--out", type=Path, default=None)
+    ap.add_argument("--repeats", type=int, default=5)
     args = ap.parse_args()
-    payload = asyncio.run(run(args.language))
+    payload = asyncio.run(run(args.language, repeats=args.repeats))
     ok = sum(1 for r in payload["runs"] if r["status"] == "ok")
     print(f"{args.language}: {ok}/{len(payload['runs'])} ok")
     if args.out:

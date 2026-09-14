@@ -3,6 +3,17 @@
 from __future__ import annotations
 
 from ..config import ProviderSpec
+from dataclasses import dataclass
+import time
+
+
+@dataclass(frozen=True)
+class TTSTiming:
+    audio: bytes
+    protocol: str
+    ttfb_ms: float | None
+    completion_ms: float
+
 
 
 class ProviderError(Exception):
@@ -39,6 +50,13 @@ class TTSProvider:
 
     async def synthesize(self, text: str, model: str, voice: str) -> bytes:
         raise NotImplementedError
+
+    async def synthesize_timed(self, text: str, model: str, voice: str) -> TTSTiming:
+        """Default for batch-only or not-yet-stream-instrumented adapters."""
+        started = time.perf_counter()
+        audio = await self.synthesize(text, model, voice)
+        elapsed = (time.perf_counter() - started) * 1000
+        return TTSTiming(audio=audio, protocol="batch", ttfb_ms=None, completion_ms=elapsed)
 
 
 def sine_wav(seconds: float = 0.6, freq: float = 440.0, rate: int = 16000) -> bytes:
