@@ -36,7 +36,7 @@ The subscription floor is much lower than the total operating cost because most 
 | B. Full market-relevant STT + TTS set | **$64/mo** | **at least $5**, plus undisclosed xAI/Soniox/Modulate/Nari/Maya entry terms | **$200-$300** | Adds the self-serve paid floors that actually unlock breadth: Inworld Creator $25, Gradium XS $13, Speechify Starter $10 and MiniMax Audio Starter $5. Most other providers are $0-base pay-as-you-go. |
 | C. Speko-parity surface, including LLM and S2S providers | **$64/mo** | **at least $15**, plus the undisclosed balances above | **$300-$500** | LLM serverless providers mostly add usage, not subscriptions. Cerebras publicly starts self-serve payment at $10; OpenAI prepaid starts at $5. The upper envelope leaves room for repeated streaming runs, reruns after harness failures, and models priced per token rather than per minute. |
 
-**Planning recommendation:** treat **$300 as the realistic first-month benchmark wallet**, not as a $300 subscription stack. The known recurring plan floor for broad coverage is about **$67/month**; the rest should remain capped variable credit. A full 5-repeat, multilingual streaming run should be costed from the final corpus duration and prompt/character counts before purchase. The current stop condition still prevents running it.
+**Planning recommendation:** treat **$300 as the realistic first-month benchmark wallet**, not as a $300 subscription stack. The known recurring plan floor for broad coverage is **$64/month**; the rest should remain capped variable credit. A full 5-repeat, multilingual streaming run should be costed from the final corpus duration and prompt/character counts before purchase. The current stop condition still prevents running it.
 
 ### Provider-by-provider minimums
 
