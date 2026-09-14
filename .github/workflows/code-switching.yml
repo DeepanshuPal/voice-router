@@ -32,11 +32,13 @@ jobs:
           REV_API_KEY: ${{ secrets.REV_API_KEY }}
           CARTESIA_API_KEY: ${{ secrets.CARTESIA_API_KEY }}
           SMALLEST_API_KEY: ${{ secrets.SMALLEST_API_KEY }}
+      - name: Generate public page
+        run: python scripts/generate_code_switching.py
       - name: Commit measured results
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add benchmarks/code_switching/results.json
+          git add benchmarks/code_switching/results.json docs/code-switching
           git diff --cached --quiet || git commit -m "chore: refresh Hinglish benchmark"
           git pull --rebase -X theirs origin main
           git push
