@@ -664,21 +664,17 @@ def main() -> None:
         render_index(rows, sample, generated_at, source.name, run_url, tts_rows, llm_rows))
     (args.out / "methodology.html").write_text(render_methodology(sample, generated_at, run_url))
 
-    # Machine-readable surface: the same numbers, as JSON, served with the site.
+    # Correction state: do not publish historical performance numbers through
+    # machine-readable endpoints. Git history retains the audit receipts.
     data_dir = args.out / "data"
     data_dir.mkdir(exist_ok=True)
-    (data_dir / "results.json").write_text(json.dumps(payload, indent=2))
-    board = {
-        "generated_at": generated_at,
-        "run_url": run_url,
-        "dataset": {
-            "name": "FLEURS", "license": "CC-BY-4.0",
-            "url": "https://huggingface.co/datasets/google/fleurs",
-            "clips_per_language": 15, "languages": sorted({l for r in rows for l in r["langs"]}),
-        },
-        "stt": rows, "tts": tts_rows, "llm": llm_rows,
-    }
-    (data_dir / "leaderboard.json").write_text(json.dumps(board, indent=2, default=str))
+    for withdrawn in (data_dir / "results.json", data_dir / "leaderboard.json"):
+        withdrawn.unlink(missing_ok=True)
+    (data_dir / "status.json").write_text(json.dumps({
+        "status": "withdrawn", "date": "2026-09-15",
+        "reason": "measurement defects under correction",
+        "methodology": "../methodology.html#changelog",
+    }, indent=2))
     print(f"wrote {args.out}/index.html, methodology.html and data/ "
           f"({len(rows)} stt rows, {len(tts_rows)} tts rows, {len(llm_rows)} llm rows, sample_data={sample})")
 

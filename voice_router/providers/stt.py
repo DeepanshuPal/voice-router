@@ -12,6 +12,17 @@ import json
 from .base import ProviderError, ProviderUnavailable, STTProvider
 
 
+async def _adaptive_poll_delays(timeout_s: float = 180.0):
+    """Yield after adaptive waits: 250ms initially, capped at 4s."""
+    delay = 0.25
+    elapsed = 0.0
+    while elapsed < timeout_s:
+        await asyncio.sleep(delay)
+        elapsed += delay
+        yield elapsed
+        delay = min(delay * 1.7, 4.0)
+
+
 class DeepgramSTT(STTProvider):
     BASE = "https://api.deepgram.com/v1/listen"
 
@@ -91,8 +102,7 @@ class AssemblyAISTT(STTProvider):
             if sub.status_code != 200:
                 raise ProviderError(f"assemblyai submit {sub.status_code}: {sub.text[:150]}")
             tid = sub.json()["id"]
-            for _ in range(45):
-                await asyncio.sleep(4)
+            async for _ in _adaptive_poll_delays():
                 d = (await client.get(f"{self.BASE}/transcript/{tid}",
                                       headers={"Authorization": key})).json()
                 if d["status"] == "completed":
@@ -123,8 +133,7 @@ class GladiaSTT(STTProvider):
             if sub.status_code not in (200, 201):
                 raise ProviderError(f"gladia submit {sub.status_code}: {sub.text[:150]}")
             result_url = sub.json()["result_url"]
-            for _ in range(45):
-                await asyncio.sleep(4)
+            async for _ in _adaptive_poll_delays():
                 d = (await client.get(result_url, headers=h)).json()
                 if d.get("status") == "done":
                     return d["result"]["transcription"]["full_transcript"]
@@ -153,8 +162,7 @@ class SpeechmaticsSTT(STTProvider):
             if sub.status_code not in (200, 201):
                 raise ProviderError(f"speechmatics submit {sub.status_code}: {sub.text[:150]}")
             jid = sub.json()["id"]
-            for _ in range(45):
-                await asyncio.sleep(4)
+            async for _ in _adaptive_poll_delays():
                 st = (await client.get(f"{self.BASE}/{jid}", headers=h)).json()
                 if st["job"]["status"] == "done":
                     t = await client.get(f"{self.BASE}/{jid}/transcript", headers=h,
@@ -183,8 +191,7 @@ class RevSTT(STTProvider):
             if sub.status_code not in (200, 201):
                 raise ProviderError(f"rev submit {sub.status_code}: {sub.text[:150]}")
             jid = sub.json()["id"]
-            for _ in range(45):
-                await asyncio.sleep(4)
+            async for _ in _adaptive_poll_delays():
                 st = (await client.get(f"{self.BASE}/{jid}", headers=h)).json()
                 if st["status"] == "transcribed":
                     t = await client.get(f"{self.BASE}/{jid}/transcript",
