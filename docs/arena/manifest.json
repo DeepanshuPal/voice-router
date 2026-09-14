@@ -1,7 +1,112 @@
 {
-  "generated_at": "2026-09-13T23:17:58.421688+00:00",
+  "generated_at": "2026-09-14T15:08:59.670068+00:00",
   "language": "en",
   "clips": [
+    {
+      "provider": "cartesia",
+      "model": "sonic-2",
+      "sample": "en-1",
+      "file": "audio/cartesia/en-1.wav",
+      "chars": 99
+    },
+    {
+      "provider": "cartesia",
+      "model": "sonic-2",
+      "sample": "en-10",
+      "file": "audio/cartesia/en-10.wav",
+      "chars": 139
+    },
+    {
+      "provider": "cartesia",
+      "model": "sonic-2",
+      "sample": "en-11",
+      "file": "audio/cartesia/en-11.wav",
+      "chars": 105
+    },
+    {
+      "provider": "cartesia",
+      "model": "sonic-2",
+      "sample": "en-12",
+      "file": "audio/cartesia/en-12.wav",
+      "chars": 75
+    },
+    {
+      "provider": "cartesia",
+      "model": "sonic-2",
+      "sample": "en-13",
+      "file": "audio/cartesia/en-13.wav",
+      "chars": 91
+    },
+    {
+      "provider": "cartesia",
+      "model": "sonic-2",
+      "sample": "en-14",
+      "file": "audio/cartesia/en-14.wav",
+      "chars": 128
+    },
+    {
+      "provider": "cartesia",
+      "model": "sonic-2",
+      "sample": "en-15",
+      "file": "audio/cartesia/en-15.wav",
+      "chars": 42
+    },
+    {
+      "provider": "cartesia",
+      "model": "sonic-2",
+      "sample": "en-2",
+      "file": "audio/cartesia/en-2.wav",
+      "chars": 182
+    },
+    {
+      "provider": "cartesia",
+      "model": "sonic-2",
+      "sample": "en-3",
+      "file": "audio/cartesia/en-3.wav",
+      "chars": 119
+    },
+    {
+      "provider": "cartesia",
+      "model": "sonic-2",
+      "sample": "en-4",
+      "file": "audio/cartesia/en-4.wav",
+      "chars": 96
+    },
+    {
+      "provider": "cartesia",
+      "model": "sonic-2",
+      "sample": "en-5",
+      "file": "audio/cartesia/en-5.wav",
+      "chars": 169
+    },
+    {
+      "provider": "cartesia",
+      "model": "sonic-2",
+      "sample": "en-6",
+      "file": "audio/cartesia/en-6.wav",
+      "chars": 98
+    },
+    {
+      "provider": "cartesia",
+      "model": "sonic-2",
+      "sample": "en-7",
+      "file": "audio/cartesia/en-7.wav",
+      "chars": 66
+    },
+    {
+      "provider": "cartesia",
+      "model": "sonic-2",
+      "sample": "en-8",
+      "file": "audio/cartesia/en-8.wav",
+      "chars": 56
+    },
+    {
+      "provider": "cartesia",
+      "model": "sonic-2",
+      "sample": "en-9",
+      "file": "audio/cartesia/en-9.wav",
+      "chars": 251
+    },
     {
       "provider": "deepgram-aura",
       "model": "aura-2-thalia-en",
@@ -145,6 +250,13 @@
     {
       "provider": "groq-tts",
       "model": "canopylabs/orpheus-v1-english",
+      "sample": "en-14",
+      "file": "audio/groq-tts/en-14.wav",
+      "chars": 128
+    },
+    {
+      "provider": "groq-tts",
+      "model": "canopylabs/orpheus-v1-english",
       "sample": "en-15",
       "file": "audio/groq-tts/en-15.wav",
       "chars": 42
@@ -152,9 +264,23 @@
     {
       "provider": "groq-tts",
       "model": "canopylabs/orpheus-v1-english",
-      "sample": "en-8",
-      "file": "audio/groq-tts/en-8.wav",
-      "chars": 56
+      "sample": "en-2",
+      "file": "audio/groq-tts/en-2.wav",
+      "chars": 182
+    },
+    {
+      "provider": "groq-tts",
+      "model": "canopylabs/orpheus-v1-english",
+      "sample": "en-3",
+      "file": "audio/groq-tts/en-3.wav",
+      "chars": 119
+    },
+    {
+      "provider": "groq-tts",
+      "model": "canopylabs/orpheus-v1-english",
+      "sample": "en-4",
+      "file": "audio/groq-tts/en-4.wav",
+      "chars": 96
     }
   ]
 }
