@@ -1,4 +1,4 @@
-"""TTS adapters: ElevenLabs, OpenAI, Cartesia, Rime, Deepgram Aura, Groq Orpheus, and a zero-key mock."""
+"""TTS adapters: ElevenLabs, OpenAI, Cartesia, Rime, Deepgram Aura, Groq Orpheus, Smallest Lightning, and a zero-key mock."""
 
 from __future__ import annotations
 
@@ -173,6 +173,42 @@ class RimeTTS(TTSProvider):
         return buf.getvalue()
 
 
+class SmallestTTS(TTSProvider):
+    """Smallest AI Lightning v3.1 Pro: per-language curated voices.
+
+    The standard v3.1 pool region-gates languages; the Pro pool serves
+    en/es/de/fr/hi/ja on a free account. Voice IDs from
+    docs.smallest.ai/.../voices-languages (2026-09-14).
+    """
+
+    BASE = "https://api.smallest.ai/waves/v1/tts"
+    VOICE = {"en": "kaitlyn", "es": "martina", "de": "hanna",
+             "fr": "manon", "hi": "meher", "ja": "aria"}
+
+    def model_for(self, language: str) -> str:
+        # Language rides in the model string: "lightning_v3.1_pro-de".
+        return f"{self.spec.models[0]}-{language}"
+
+    async def synthesize(self, text: str, model: str, voice: str) -> bytes:
+        key = os.environ.get(self.spec.env_key)
+        if not key:
+            raise ProviderUnavailable("SMALLEST_API_KEY not set")
+        base, _, lang = model.rpartition("-")
+        async with httpx.AsyncClient(timeout=60) as client:
+            resp = await client.post(
+                self.BASE,
+                headers={"Authorization": f"Bearer {key}",
+                         "Content-Type": "application/json",
+                         "Accept": "audio/wav"},
+                json={"text": text, "voice_id": self.VOICE.get(lang, "kaitlyn"),
+                      "model": base, "language": lang,
+                      "sample_rate": 16000, "output_format": "wav"},
+            )
+        if resp.status_code != 200:
+            raise ProviderError(f"smallest-tts {resp.status_code}: {resp.text[:200]}")
+        return resp.content
+
+
 class MockTTS(TTSProvider):
     """Returns a playable sine-tone WAV so demos and tests need no keys."""
 
@@ -188,5 +224,6 @@ REGISTRY = {
     "deepgram-aura": DeepgramAuraTTS,
     "groq-tts": GroqTTS,
     "rime": RimeTTS,
+    "smallest-tts": SmallestTTS,
     "mock-tts": MockTTS,
 }

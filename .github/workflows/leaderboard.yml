@@ -46,6 +46,7 @@ jobs:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           CARTESIA_API_KEY: ${{ secrets.CARTESIA_API_KEY }}
           RIME_API_KEY: ${{ secrets.RIME_API_KEY }}
+          SMALLEST_API_KEY: ${{ secrets.SMALLEST_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
 
       - name: Generate leaderboard site

@@ -1,5 +1,5 @@
 """STT adapters: Deepgram, OpenAI Whisper, Groq Whisper, AssemblyAI, Gladia,
-Speechmatics, Rev AI, Cartesia Ink, and a zero-key mock."""
+Speechmatics, Rev AI, Cartesia Ink, Smallest Pulse, and a zero-key mock."""
 
 from __future__ import annotations
 
@@ -224,6 +224,28 @@ class CartesiaSTT(STTProvider):
         return resp.json()["text"]
 
 
+class SmallestSTT(STTProvider):
+    """Smallest AI Pulse: raw-bytes POST, JSON transcript back."""
+
+    BASE = "https://api.smallest.ai/waves/v1/stt/"
+
+    async def transcribe(self, audio: bytes, model: str, language: str) -> str:
+        key = os.environ.get(self.spec.env_key)
+        if not key:
+            raise ProviderUnavailable("SMALLEST_API_KEY not set")
+        async with httpx.AsyncClient(timeout=60) as client:
+            resp = await client.post(
+                self.BASE,
+                params={"model": model, "language": language},
+                headers={"Authorization": f"Bearer {key}",
+                         "Content-Type": "application/octet-stream"},
+                content=audio,
+            )
+        if resp.status_code != 200:
+            raise ProviderError(f"smallest-stt {resp.status_code}: {resp.text[:200]}")
+        return resp.json()["transcription"]
+
+
 class MockSTT(STTProvider):
     """Always-on provider so the routing path runs end to end with no keys."""
 
@@ -238,6 +260,7 @@ REGISTRY = {
     "speechmatics": SpeechmaticsSTT,
     "rev": RevSTT,
     "cartesia-stt": CartesiaSTT,
+    "smallest-stt": SmallestSTT,
     "openai-whisper": OpenAISTT,
     "groq-whisper": GroqSTT,
     "mock-stt": MockSTT,

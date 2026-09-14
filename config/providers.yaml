@@ -50,6 +50,12 @@ stt:
     default_latency_ms: 800
     languages: [en, es, hi, fr, de, ja]
     env_key: CARTESIA_API_KEY
+  smallest-stt:
+    models: [pulse]
+    cost_per_minute_usd: 0.0035  # Pulse pre-recorded, smallest.ai/pricing/models
+    default_latency_ms: 800
+    languages: [en, es, hi, fr, de, ja]
+    env_key: SMALLEST_API_KEY
   rev:
     models: [machine]
     cost_per_minute_usd: 0.005
@@ -87,6 +93,12 @@ tts:
     default_latency_ms: 300
     languages: [en, es, fr, de, hi, ja]
     env_key: RIME_API_KEY
+  smallest-tts:
+    models: [lightning_v3.1_pro]   # per-language Pro voices; adapter maps lang -> voice
+    cost_per_1k_chars_usd: 0.0175  # v3.1 Pro $0.175/10k chars, smallest.ai/pricing/models
+    default_latency_ms: 250
+    languages: [en, es, fr, de, hi, ja]
+    env_key: SMALLEST_API_KEY
   groq-tts:
     models: [canopylabs/orpheus-v1-english]
     cost_per_1k_chars_usd: 0.022  # Orpheus English, per Groq launch coverage
