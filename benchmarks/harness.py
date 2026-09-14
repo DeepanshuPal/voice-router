@@ -15,12 +15,15 @@ import argparse
 import asyncio
 import json
 import time
+from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 
 from voice_router.config import load_config
 from voice_router.providers.base import ProviderError, sine_wav
 from voice_router.providers.registry import build_providers
+from whisper_normalizer.basic import BasicTextNormalizer
+from whisper_normalizer.english import EnglishTextNormalizer
 
 RESULTS_PATH = Path(__file__).resolve().parent / "results.json"
 
@@ -37,9 +40,44 @@ def _edit_rate(ref: list, hyp: list) -> float:
     return d[len(hyp)] / len(ref)
 
 
-def wer(reference: str, hypothesis: str) -> float:
-    """Classic word error rate via edit distance on word sequences."""
-    return _edit_rate(reference.lower().split(), hypothesis.lower().split())
+_ENGLISH_NORMALIZER = EnglishTextNormalizer()
+_BASIC_NORMALIZER = BasicTextNormalizer()
+
+
+def normalize_for_scoring(text: str, language: str = "en") -> str:
+    """Whisper-paper normalization, applied symmetrically before scoring.
+
+    EnglishTextNormalizer handles punctuation, casing, numbers and common
+    contractions. Whisper's multilingual BasicTextNormalizer is used for other
+    whitespace-tokenized languages; CER languages are normalized in cer().
+    """
+    normalizer = _ENGLISH_NORMALIZER if language == "en" else _BASIC_NORMALIZER
+    return " ".join(normalizer(text).split())
+
+
+def wer(reference: str, hypothesis: str, language: str = "en") -> float:
+    """Normalized word error rate for one utterance.
+
+    Aggregate leaderboard scores use corpus_error_rate(), not an unweighted
+    mean of these per-utterance values.
+    """
+    return _edit_rate(normalize_for_scoring(reference, language).split(),
+                      normalize_for_scoring(hypothesis, language).split())
+
+
+def corpus_error_rate(pairs: list[tuple[str, str]], language: str) -> float:
+    """Total edit distance divided by total normalized reference units."""
+    ref_units, total_edits = 0, 0
+    for reference, hypothesis in pairs:
+        if language in CHAR_ERROR_LANGS:
+            ref = list("".join(_BASIC_NORMALIZER(reference).split()))
+            hyp = list("".join(_BASIC_NORMALIZER(hypothesis).split()))
+        else:
+            ref = normalize_for_scoring(reference, language).split()
+            hyp = normalize_for_scoring(hypothesis, language).split()
+        ref_units += len(ref)
+        total_edits += _edit_rate(ref, hyp) * len(ref)
+    return total_edits / ref_units if ref_units else 0.0
 
 
 def cer(reference: str, hypothesis: str) -> float:
@@ -50,8 +88,8 @@ def cer(reference: str, hypothesis: str) -> float:
     transcript with different phrase spacing scores WER 1.0. CER is the
     standard metric there.
     """
-    ref = list("".join(reference.lower().split()))
-    hyp = list("".join(hypothesis.lower().split()))
+    ref = list("".join(_BASIC_NORMALIZER(reference).split()))
+    hyp = list("".join(_BASIC_NORMALIZER(hypothesis).split()))
     return _edit_rate(ref, hyp)
 
 
@@ -85,7 +123,7 @@ async def run(samples: Path, references: Path | None, language: str, out: Path) 
                 text = await adapter.transcribe(audio, model, language)
                 latency = (time.perf_counter() - start) * 1000
                 metric = "cer" if language in CHAR_ERROR_LANGS else "wer"
-                err = cer(ref, text) if metric == "cer" else wer(ref, text)
+                err = cer(ref, text) if metric == "cer" else wer(ref, text, language)
                 return {
                     "sample": wav.name, "provider": name, "model": model,
                     "language": language,
@@ -93,6 +131,7 @@ async def run(samples: Path, references: Path | None, language: str, out: Path) 
                     "latency_ms": round(latency, 1),
                     "cost_usd": adapter.spec.unit_cost(len(audio) / (16000 * 2 * 60)),
                     "wer": round(err, 4) if ref else None,
+                    "reference": ref, "hypothesis": text,
                     "metric": metric,
                     "status": "ok",
                 }
@@ -113,8 +152,10 @@ async def run(samples: Path, references: Path | None, language: str, out: Path) 
         ok = [r for r in runs if r["provider"] == name and r["status"] == "ok"]
         if not ok:
             continue
-        if any(r["wer"] is not None for r in ok):
-            score = 1 - sum(r["wer"] or 0 for r in ok) / len(ok)
+        scored = [r for r in ok if r.get("reference") is not None]
+        if scored:
+            score = 1 - corpus_error_rate(
+                [(r["reference"], r["hypothesis"]) for r in scored], language)
         else:
             score = 1 / (1 + sum(r["latency_ms"] for r in ok) / len(ok) / 1000)
         scores["stt"][name] = {language: round(score, 4)}

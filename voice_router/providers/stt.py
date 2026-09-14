@@ -22,7 +22,8 @@ class DeepgramSTT(STTProvider):
         async with httpx.AsyncClient(timeout=30) as client:
             resp = await client.post(
                 self.BASE,
-                params={"model": model, "language": language},
+                params={"model": model, "language": language,
+                        "punctuate": "true", "smart_format": "false"},
                 headers={"Authorization": f"Token {key}", "Content-Type": "audio/wav"},
                 content=audio,
             )

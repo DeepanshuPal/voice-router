@@ -4,3 +4,4 @@ httpx>=0.27
 pydantic>=2.6
 PyYAML>=6.0
 python-multipart>=0.0.9
+whisper-normalizer==0.1.15
