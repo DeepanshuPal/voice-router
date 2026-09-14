@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T15:08:59.670068+00:00",
+  "generated_at": "2026-09-14T15:10:47.183803+00:00",
   "language": "en",
   "clips": [
     {
@@ -210,6 +210,111 @@
       "model": "aura-2-thalia-en",
       "sample": "en-9",
       "file": "audio/deepgram-aura/en-9.mp3",
+      "chars": 251
+    },
+    {
+      "provider": "rime",
+      "model": "mistv2-eng",
+      "sample": "en-1",
+      "file": "audio/rime/en-1.mp3",
+      "chars": 99
+    },
+    {
+      "provider": "rime",
+      "model": "mistv2-eng",
+      "sample": "en-10",
+      "file": "audio/rime/en-10.mp3",
+      "chars": 139
+    },
+    {
+      "provider": "rime",
+      "model": "mistv2-eng",
+      "sample": "en-11",
+      "file": "audio/rime/en-11.mp3",
+      "chars": 105
+    },
+    {
+      "provider": "rime",
+      "model": "mistv2-eng",
+      "sample": "en-12",
+      "file": "audio/rime/en-12.mp3",
+      "chars": 75
+    },
+    {
+      "provider": "rime",
+      "model": "mistv2-eng",
+      "sample": "en-13",
+      "file": "audio/rime/en-13.mp3",
+      "chars": 91
+    },
+    {
+      "provider": "rime",
+      "model": "mistv2-eng",
+      "sample": "en-14",
+      "file": "audio/rime/en-14.mp3",
+      "chars": 128
+    },
+    {
+      "provider": "rime",
+      "model": "mistv2-eng",
+      "sample": "en-15",
+      "file": "audio/rime/en-15.mp3",
+      "chars": 42
+    },
+    {
+      "provider": "rime",
+      "model": "mistv2-eng",
+      "sample": "en-2",
+      "file": "audio/rime/en-2.mp3",
+      "chars": 182
+    },
+    {
+      "provider": "rime",
+      "model": "mistv2-eng",
+      "sample": "en-3",
+      "file": "audio/rime/en-3.mp3",
+      "chars": 119
+    },
+    {
+      "provider": "rime",
+      "model": "mistv2-eng",
+      "sample": "en-4",
+      "file": "audio/rime/en-4.mp3",
+      "chars": 96
+    },
+    {
+      "provider": "rime",
+      "model": "mistv2-eng",
+      "sample": "en-5",
+      "file": "audio/rime/en-5.mp3",
+      "chars": 169
+    },
+    {
+      "provider": "rime",
+      "model": "mistv2-eng",
+      "sample": "en-6",
+      "file": "audio/rime/en-6.mp3",
+      "chars": 98
+    },
+    {
+      "provider": "rime",
+      "model": "mistv2-eng",
+      "sample": "en-7",
+      "file": "audio/rime/en-7.mp3",
+      "chars": 66
+    },
+    {
+      "provider": "rime",
+      "model": "mistv2-eng",
+      "sample": "en-8",
+      "file": "audio/rime/en-8.mp3",
+      "chars": 56
+    },
+    {
+      "provider": "rime",
+      "model": "mistv2-eng",
+      "sample": "en-9",
+      "file": "audio/rime/en-9.mp3",
       "chars": 251
     },
     {
