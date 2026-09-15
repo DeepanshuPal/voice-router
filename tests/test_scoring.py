@@ -82,3 +82,44 @@ async def test_gladia_non_json_poll_becomes_provider_error(monkeypatch):
     spec=ProviderSpec("gladia","stt",["v2"],"GLADIA_API_KEY",languages=["en"])
     with pytest.raises(ProviderError, match="gladia poll 502"):
         await GladiaSTT(spec).transcribe(b"wav","v2","en")
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize(
+    "adapter_name,spec,responses,error",
+    [
+        ("AssemblyAISTT", ("assemblyai", ["universal-2"], "ASSEMBLYAI_API_KEY"),
+         [
+             (200, {"upload_url": "https://audio.invalid/a"}),
+             (200, {"id": "job"}),
+             (502, None),
+         ], "assemblyai poll 502"),
+        ("SpeechmaticsSTT", ("speechmatics", ["enhanced"], "SPEECHMATICS_API_KEY"),
+         [(201, {"id": "job"}), (502, None)], "speechmatics poll 502"),
+        ("RevSTT", ("rev", ["machine"], "REV_API_KEY"),
+         [(201, {"id": "job"}), (502, None)], "rev poll 502"),
+    ],
+)
+async def test_async_stt_poll_http_error_becomes_provider_error(
+        monkeypatch, adapter_name, spec, responses, error):
+    import httpx
+    from voice_router.config import ProviderSpec
+    from voice_router.providers.base import ProviderError
+    from voice_router.providers import stt
+
+    queue = iter(httpx.Response(code, json=body) if body is not None
+                 else httpx.Response(code, text="upstream unavailable")
+                 for code, body in responses)
+    class Client:
+        async def __aenter__(self): return self
+        async def __aexit__(self, *args): pass
+        async def post(self, *args, **kwargs): return next(queue)
+        async def get(self, *args, **kwargs): return next(queue)
+    async def no_wait(*args, **kwargs):
+        yield 0
+    name, models, env_key = spec
+    monkeypatch.setenv(env_key, "test")
+    monkeypatch.setattr("voice_router.providers.stt.httpx.AsyncClient", lambda **kwargs: Client())
+    monkeypatch.setattr("voice_router.providers.stt._adaptive_poll_delays", no_wait)
+    adapter = getattr(stt, adapter_name)(ProviderSpec(name, "stt", models, env_key, languages=["en"]))
+    with pytest.raises(ProviderError, match=error):
+        await adapter.transcribe(b"wav", models[0], "en")
