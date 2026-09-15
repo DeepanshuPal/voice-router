@@ -229,11 +229,19 @@ class AssemblyAISTT(STTProvider):
                 raise ProviderError(f"assemblyai submit {sub.status_code}: {sub.text[:150]}")
             tid = sub.json()["id"]
             async for _ in _adaptive_poll_delays():
-                d = (await client.get(f"{self.BASE}/transcript/{tid}",
-                                      headers={"Authorization": key})).json()
-                if d["status"] == "completed":
+                poll = await client.get(f"{self.BASE}/transcript/{tid}",
+                                        headers={"Authorization": key})
+                if poll.status_code != 200:
+                    detail = poll.text[:150].replace("\n", " ")
+                    raise ProviderError(f"assemblyai poll {poll.status_code}: {detail}")
+                try:
+                    d = poll.json()
+                except ValueError as exc:
+                    detail = poll.text[:150].replace("\n", " ")
+                    raise ProviderError(f"assemblyai poll returned non-JSON: {detail}") from exc
+                if d.get("status") == "completed":
                     return d["text"]
-                if d["status"] == "error":
+                if d.get("status") == "error":
                     raise ProviderError(f"assemblyai: {d.get('error', '')[:150]}")
         raise ProviderError("assemblyai: poll timeout")
 
@@ -299,12 +307,21 @@ class SpeechmaticsSTT(STTProvider):
                 raise ProviderError(f"speechmatics submit {sub.status_code}: {sub.text[:150]}")
             jid = sub.json()["id"]
             async for _ in _adaptive_poll_delays():
-                st = (await client.get(f"{self.BASE}/{jid}", headers=h)).json()
-                if st["job"]["status"] == "done":
+                poll = await client.get(f"{self.BASE}/{jid}", headers=h)
+                if poll.status_code != 200:
+                    detail = poll.text[:150].replace("\n", " ")
+                    raise ProviderError(f"speechmatics poll {poll.status_code}: {detail}")
+                try:
+                    st = poll.json()
+                except ValueError as exc:
+                    detail = poll.text[:150].replace("\n", " ")
+                    raise ProviderError(f"speechmatics poll returned non-JSON: {detail}") from exc
+                status = st.get("job", {}).get("status")
+                if status == "done":
                     t = await client.get(f"{self.BASE}/{jid}/transcript", headers=h,
                                          params={"format": "txt"})
                     return t.text.strip()
-                if st["job"]["status"] == "rejected":
+                if status == "rejected":
                     raise ProviderError(f"speechmatics rejected: {str(st['job'])[:150]}")
         raise ProviderError("speechmatics: poll timeout")
 
@@ -329,8 +346,16 @@ class RevSTT(STTProvider):
                 raise ProviderError(f"rev submit {sub.status_code}: {sub.text[:150]}")
             jid = sub.json()["id"]
             async for _ in _adaptive_poll_delays():
-                st = (await client.get(f"{self.BASE}/{jid}", headers=h)).json()
-                if st["status"] == "transcribed":
+                poll = await client.get(f"{self.BASE}/{jid}", headers=h)
+                if poll.status_code != 200:
+                    detail = poll.text[:150].replace("\n", " ")
+                    raise ProviderError(f"rev poll {poll.status_code}: {detail}")
+                try:
+                    st = poll.json()
+                except ValueError as exc:
+                    detail = poll.text[:150].replace("\n", " ")
+                    raise ProviderError(f"rev poll returned non-JSON: {detail}") from exc
+                if st.get("status") == "transcribed":
                     t = await client.get(f"{self.BASE}/{jid}/transcript",
                                          headers={**h, "Accept": "text/plain"})
                     import re
@@ -342,7 +367,7 @@ class RevSTT(STTProvider):
                         elif line.strip():
                             parts.append(line.strip())
                     return " ".join(parts)
-                if st["status"] == "failed":
+                if st.get("status") == "failed":
                     raise ProviderError(f"rev failed: {str(st.get('failure_detail'))[:150]}")
         raise ProviderError("rev: poll timeout")
 
