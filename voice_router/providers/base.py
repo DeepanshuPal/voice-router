@@ -52,6 +52,8 @@ class ProviderUnavailable(ProviderError):
 
 
 class STTProvider:
+    protocol = "sync_batch"
+
     def __init__(self, spec: ProviderSpec):
         self.spec = spec
         self.name = spec.name

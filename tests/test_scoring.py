@@ -1,3 +1,4 @@
+import pytest
 from benchmarks.harness import corpus_error_rate, normalize_for_scoring, wer
 
 
@@ -23,9 +24,35 @@ def test_latency_summary_separates_protocols_and_reports_iqr():
     from benchmarks.harness import latency_summary
     runs=[]
     for protocol, values in [('sync_batch',[10,20,30,40,50]),('async_batch',[100,200,300,400,500])]:
-        runs += [{'provider':'p','protocol':protocol,'status':'ok','latency_ms':v} for v in values]
+        runs += [{'provider':'p','protocol':protocol,'status':'ok','request_to_completion_ms':v} for v in values]
     rows=latency_summary(runs)
     assert len(rows)==2
     assert {r['protocol'] for r in rows}=={'sync_batch','async_batch'}
     assert {r['median_ms'] for r in rows}=={30,300}
     assert all(r['iqr_ms']>0 for r in rows)
+
+
+def test_adapter_declares_protocol_instead_of_harness_name_guess():
+    from voice_router.providers.stt import AssemblyAISTT, DeepgramSTT, DeepgramFluxSTT
+    assert AssemblyAISTT.protocol == "async_batch"
+    assert DeepgramSTT.protocol == "sync_batch"
+    assert DeepgramFluxSTT.protocol == "streaming_websocket"
+
+@pytest.mark.asyncio
+async def test_stt_harness_rejects_fewer_than_five_repeats(tmp_path):
+    from benchmarks.harness import run
+    import pytest
+    with pytest.raises(SystemExit, match="at least five"):
+        await run(tmp_path, None, "en", tmp_path / "out.json", repeats=4)
+
+@pytest.mark.asyncio
+async def test_tts_harness_rejects_fewer_than_five_repeats():
+    from benchmarks.tts_harness import run
+    import pytest
+    with pytest.raises(SystemExit, match="at least five"):
+        await run("en", repeats=4)
+
+def test_legacy_ambiguous_latency_field_is_not_summarized():
+    from benchmarks.harness import latency_summary
+    runs=[{'provider':'p','protocol':'sync_batch','status':'ok','latency_ms':v} for v in range(5)]
+    assert latency_summary(runs) == []

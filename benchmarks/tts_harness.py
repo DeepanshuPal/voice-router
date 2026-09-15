@@ -42,13 +42,18 @@ def timing_summary(runs: list[dict]) -> list[dict]:
             return {"median_ms": round(statistics.median(vals), 1), "q1_ms": round(q1, 1),
                     "q3_ms": round(q3, 1), "iqr_ms": round(q3-q1, 1), "n": len(vals)}
         out.append({"provider": provider, "protocol": protocol,
-                    "ttfb": stats("ttfb_ms"),
-                    "full_synthesis_wall_clock_batch": stats("full_synthesis_wall_clock_ms") if protocol == "batch" else None,
-                    "stream_completion": stats("full_synthesis_wall_clock_ms") if protocol != "batch" else None})
+                    "time_to_first_nonempty_audio_chunk": stats("ttfb_ms"),
+                    "full-synthesis wall clock (batch)": stats("full_synthesis_wall_clock_ms") if protocol == "batch" else None,
+                    "stream_completion_wall_clock": stats("full_synthesis_wall_clock_ms") if protocol != "batch" else None})
     return sorted(out, key=lambda r:(r["protocol"],r["provider"]))
 
 
 async def run(language: str, samples_per_lang: int = SAMPLES_PER_LANG, repeats: int = 5) -> dict:
+    if repeats < 5:
+        raise SystemExit("measurement artifacts require at least five repeats per text")
+    region = __import__("os").environ.get("BENCHMARK_REGION")
+    if not region:
+        raise SystemExit("BENCHMARK_REGION is required")
     cfg = load_config()
     providers = build_providers(cfg)["tts"]
     texts = []
@@ -86,6 +91,10 @@ async def run(language: str, samples_per_lang: int = SAMPLES_PER_LANG, repeats: 
                 runs.append(await one(stem, text, name, adapter, repeat))
 
     return {"generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            "measurement": {"runner_region": region, "execution": "serial",
+                            "repeats_per_clip": repeats,
+                            "streaming_ttfb_boundary": "first non-empty audio body chunk",
+                            "batch_metric_label": "full-synthesis wall clock (batch)"},
             "execution": "serial", "repeats_per_clip": repeats,
             "timing_summary": timing_summary(runs), "runs": runs}
 

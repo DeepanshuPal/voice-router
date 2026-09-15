@@ -49,6 +49,7 @@ class DeepgramSTT(STTProvider):
 
 
 class DeepgramFluxSTT(STTProvider):
+    protocol = "streaming_websocket"
     """Deepgram Flux over its required Listen v2 WebSocket endpoint.
 
     WAV input is decoded to PCM and sent in 80 ms chunks at realtime pace.
@@ -207,6 +208,7 @@ class GroqSTT(STTProvider):
 
 class AssemblyAISTT(STTProvider):
     """Async API: upload, submit, poll."""
+    protocol = "async_batch"
 
     BASE = "https://api.assemblyai.com/v2"
 
@@ -238,6 +240,7 @@ class AssemblyAISTT(STTProvider):
 
 class GladiaSTT(STTProvider):
     """Async API: upload, pre-recorded job, poll result_url."""
+    protocol = "async_batch"
 
     BASE = "https://api.gladia.io/v2"
 
@@ -268,6 +271,7 @@ class GladiaSTT(STTProvider):
 
 class SpeechmaticsSTT(STTProvider):
     """Batch API v2: multipart submit, poll, fetch txt transcript."""
+    protocol = "async_batch"
 
     BASE = "https://asr.api.speechmatics.com/v2/jobs"
 
@@ -299,6 +303,7 @@ class SpeechmaticsSTT(STTProvider):
 
 class RevSTT(STTProvider):
     """Async API: multipart submit, poll, fetch text/plain transcript."""
+    protocol = "async_batch"
 
     BASE = "https://api.rev.ai/speechtotext/v1/jobs"
 

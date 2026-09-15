@@ -103,14 +103,15 @@ def latency_summary(runs: list[dict]) -> list[dict]:
     """Protocol-separated median and IQR; never blend sync and async calls."""
     groups: dict[tuple[str, str], list[float]] = {}
     for row in runs:
-        if row.get("status") == "ok" and row.get("latency_ms") is not None:
-            groups.setdefault((row["provider"], row["protocol"]), []).append(row["latency_ms"])
+        if row.get("status") == "ok" and row.get("request_to_completion_ms") is not None:
+            groups.setdefault((row["provider"], row["protocol"]), []).append(row["request_to_completion_ms"])
     out = []
     for (provider, protocol), values in groups.items():
         if len(values) < 5:
             continue
         q1, _, q3 = statistics.quantiles(values, n=4, method="inclusive")
         out.append({"provider": provider, "protocol": protocol, "n": len(values),
+                    "metric": "request-to-completion wall clock",
                     "median_ms": round(statistics.median(values), 1),
                     "q1_ms": round(q1, 1), "q3_ms": round(q3, 1),
                     "iqr_ms": round(q3 - q1, 1)})
@@ -118,6 +119,8 @@ def latency_summary(runs: list[dict]) -> list[dict]:
 
 
 async def run(samples: Path, references: Path | None, language: str, out: Path, repeats: int = 5) -> dict:
+    if repeats < 5:
+        raise SystemExit("measurement artifacts require at least five repeats per clip")
     cfg = load_config()
     providers = build_providers(cfg)["stt"]
     wavs = sorted(samples.glob("*.wav"))
@@ -138,13 +141,12 @@ async def run(samples: Path, references: Path | None, language: str, out: Path, 
             latency = (time.perf_counter() - start) * 1000
             metric = "cer" if language in CHAR_ERROR_LANGS else "wer"
             err = cer(ref, text) if metric == "cer" else wer(ref, text, language)
-            protocol = ("async_batch" if name in {"assemblyai", "gladia", "speechmatics", "rev"}
-                        else "sync_batch")
+            protocol = adapter.protocol
             return {
                 "sample": wav.name, "provider": name, "model": model,
                 "language": language,
                 "audio_s": round(len(audio) / (16000 * 2), 2),
-                "latency_ms": round(latency, 1),
+                "request_to_completion_ms": round(latency, 1),
                 "cost_usd": adapter.spec.unit_cost(len(audio) / (16000 * 2 * 60)),
                 "wer": round(err, 4) if ref else None,
                 "reference": ref, "hypothesis": text,
@@ -176,7 +178,7 @@ async def run(samples: Path, references: Path | None, language: str, out: Path, 
             score = 1 - corpus_error_rate(
                 [(r["reference"], r["hypothesis"]) for r in scored], language)
         else:
-            score = 1 / (1 + sum(r["latency_ms"] for r in ok) / len(ok) / 1000)
+            score = 1 / (1 + sum(r["request_to_completion_ms"] for r in ok) / len(ok) / 1000)
         scores["stt"][name] = {language: round(score, 4)}
 
     region = os.environ.get("BENCHMARK_REGION")
@@ -185,6 +187,8 @@ async def run(samples: Path, references: Path | None, language: str, out: Path, 
     payload = {"sample_data": False, "measurement": {
                    "runner_region": region, "execution": "serial",
                    "repeats_per_clip": repeats,
+                   "batch_timing_metric": "request-to-completion wall clock",
+                   "async_polling_schedule": {"initial_ms": 250, "multiplier": 1.7, "cap_ms": 4000},
                    "latency_publication": "withheld pending protocol-aware median/IQR aggregation"},
                "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
                "scores": scores, "latency_summary": latency_summary(runs), "runs": runs,
