@@ -9,8 +9,8 @@
 
 ## Machine-readable data
 
-- Aggregated board rows (STT + TTS + LLM, with provenance): https://deepanshupal.github.io/voice-router/data/leaderboard.json
-- Raw harness output: https://deepanshupal.github.io/voice-router/data/results.json
+- Machine-readable performance endpoints are withdrawn while the corrected harness awaits an adversarial review bound to the exact result artifact.
+- Correction status: https://deepanshupal.github.io/voice-router/data/status.json
 
 ## How the numbers are made
 

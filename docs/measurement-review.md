@@ -45,6 +45,7 @@ The corrected harness pieces are implemented but have not produced a public arti
 - Streaming STT has its own event contract and harness. Deepgram Flux is the first implementation, using Listen v2 WebSocket, realtime-paced 80 ms PCM chunks, and client-observed connection, partial, stable-partial, final, and completion timestamps.
 - TTS records first non-empty audio chunk separately from completion and labels batch completion independently.
 - No provider run, result review, or publication approval has occurred. The current disposition below still controls.
+- The executable gate requires a review file bound to the exact artifact SHA-256, an approved disposition, reviewer/date/commit provenance, and the full attack checklist. See `docs/measurement-review-template.json`.
 
 Deepgram protocol references checked on 15 September 2026: [Flux quickstart](https://developers.deepgram.com/docs/flux/quickstart), [Listen v2 reference](https://developers.deepgram.com/reference/speech-to-text/listen-flux), and [CloseStream](https://developers.deepgram.com/docs/flux/close-stream).
 

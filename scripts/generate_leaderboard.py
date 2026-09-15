@@ -640,7 +640,17 @@ def main() -> None:
                     help="fallback sample data (default: benchmarks/sample_results.json)")
     ap.add_argument("--out", type=Path, default=DEFAULT_OUT,
                     help="output directory for the static site (default: docs/)")
+    ap.add_argument("--review", type=Path, default=None,
+                    help="adversarial review JSON bound to --results; without it, render withdrawal only")
     args = ap.parse_args()
+
+    if args.review:
+        from scripts.verify_publication_gate import verify
+        verify(args.results, args.review)
+    elif args.results.exists():
+        candidate = load_payload(args.results)
+        if has_real_runs(candidate):
+            print("real results are unapproved; rendering withdrawal state only")
 
     source = args.results
     payload = load_payload(args.results) if args.results.exists() else {}
