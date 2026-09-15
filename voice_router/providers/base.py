@@ -3,8 +3,35 @@
 from __future__ import annotations
 
 from ..config import ProviderSpec
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 import time
+
+
+@dataclass(frozen=True)
+class StreamingSTTEvent:
+    """One observable event from a streaming recognition session.
+
+    ``elapsed_ms`` is measured at the client from immediately before the
+    connection attempt. Provider audio timestamps stay in ``provider_data``
+    and must never be substituted for client-observed latency.
+    """
+
+    kind: str
+    elapsed_ms: float
+    transcript: str = ""
+    provider_data: dict = field(default_factory=dict)
+
+
+@dataclass(frozen=True)
+class StreamingSTTResult:
+    transcript: str
+    protocol: str
+    events: tuple[StreamingSTTEvent, ...]
+    audio_duration_ms: float
+    completion_ms: float
+
+    def first_ms(self, kind: str) -> float | None:
+        return next((event.elapsed_ms for event in self.events if event.kind == kind), None)
 
 
 @dataclass(frozen=True)
@@ -34,6 +61,12 @@ class STTProvider:
 
     async def transcribe(self, audio: bytes, model: str, language: str) -> str:
         raise NotImplementedError
+
+    async def transcribe_streaming(
+        self, audio: bytes, model: str, language: str
+    ) -> StreamingSTTResult:
+        """Run a real paced stream, or reject when the adapter is batch-only."""
+        raise ProviderUnavailable(f"{self.name} does not implement streaming STT")
 
 
 class TTSProvider:

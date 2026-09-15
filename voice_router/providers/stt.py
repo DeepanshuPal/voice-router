@@ -4,12 +4,17 @@ Speechmatics, Rev AI, Cartesia Ink, Smallest Pulse, and a zero-key mock."""
 from __future__ import annotations
 
 import asyncio
+import io
 import os
+import time
+import wave
+from urllib.parse import urlencode
 
 import httpx
 import json
 
-from .base import ProviderError, ProviderUnavailable, STTProvider
+from .base import (ProviderError, ProviderUnavailable, STTProvider,
+                   StreamingSTTEvent, StreamingSTTResult)
 
 
 async def _adaptive_poll_delays(timeout_s: float = 180.0):
@@ -41,6 +46,125 @@ class DeepgramSTT(STTProvider):
         if resp.status_code != 200:
             raise ProviderError(f"deepgram {resp.status_code}: {resp.text[:200]}")
         return resp.json()["results"]["channels"][0]["alternatives"][0]["transcript"]
+
+
+class DeepgramFluxSTT(STTProvider):
+    """Deepgram Flux over its required Listen v2 WebSocket endpoint.
+
+    WAV input is decoded to PCM and sent in 80 ms chunks at realtime pace.
+    Timing events are client-observed. An ``Update`` becomes ``stable_partial``
+    only after the same non-empty transcript appears twice consecutively; this
+    avoids pretending every mutable partial is stable.
+    """
+
+    BASE = "wss://api.deepgram.com/v2/listen"
+    CHUNK_MS = 80
+
+    @staticmethod
+    def _pcm(audio: bytes) -> tuple[bytes, int, int]:
+        try:
+            with wave.open(io.BytesIO(audio), "rb") as wav:
+                if wav.getsampwidth() != 2 or wav.getnchannels() != 1:
+                    raise ProviderError("deepgram-flux requires mono 16-bit PCM WAV")
+                rate = wav.getframerate()
+                return wav.readframes(wav.getnframes()), rate, wav.getnframes()
+        except (wave.Error, EOFError) as exc:
+            raise ProviderError(f"deepgram-flux invalid WAV: {exc}") from exc
+
+    async def transcribe(self, audio: bytes, model: str, language: str) -> str:
+        return (await self.transcribe_streaming(audio, model, language)).transcript
+
+    async def transcribe_streaming(
+        self, audio: bytes, model: str, language: str
+    ) -> StreamingSTTResult:
+        key = os.environ.get(self.spec.env_key)
+        if not key:
+            raise ProviderUnavailable("DEEPGRAM_API_KEY not set")
+        try:
+            import websockets
+        except ImportError as exc:
+            raise ProviderUnavailable("websockets dependency is not installed") from exc
+
+        pcm, rate, frames = self._pcm(audio)
+        flux_model = model or ("flux-general-en" if language == "en" else "flux-general-multi")
+        params: list[tuple[str, str]] = [
+            ("model", flux_model), ("encoding", "linear16"),
+            ("sample_rate", str(rate)),
+        ]
+        if flux_model == "flux-general-multi" and language:
+            params.append(("language_hint", language))
+        url = f"{self.BASE}?{urlencode(params)}"
+        started = time.perf_counter()
+        events: list[StreamingSTTEvent] = []
+        final = ""
+        last_update = None
+        stable_emitted = False
+        bytes_per_chunk = max(2, int(rate * 2 * self.CHUNK_MS / 1000))
+
+        try:
+            async with websockets.connect(
+                url, additional_headers={"Authorization": f"Token {key}"},
+                open_timeout=15, close_timeout=10, max_size=8 * 1024 * 1024,
+            ) as ws:
+                events.append(StreamingSTTEvent(
+                    "connection_open", (time.perf_counter() - started) * 1000))
+
+                async def send_audio():
+                    target = time.perf_counter()
+                    for offset in range(0, len(pcm), bytes_per_chunk):
+                        chunk = pcm[offset:offset + bytes_per_chunk]
+                        if chunk:
+                            await ws.send(chunk)
+                        target += self.CHUNK_MS / 1000
+                        await asyncio.sleep(max(0, target - time.perf_counter()))
+                    await ws.send(json.dumps({"type": "CloseStream"}))
+
+                sender = asyncio.create_task(send_audio())
+                try:
+                    async for raw in ws:
+                        if isinstance(raw, bytes):
+                            continue
+                        message = json.loads(raw)
+                        if message.get("type") != "TurnInfo":
+                            continue
+                        event_name = message.get("event", "Update")
+                        transcript = (message.get("transcript") or "").strip()
+                        elapsed = (time.perf_counter() - started) * 1000
+                        kind = {
+                            "EagerEndOfTurn": "eager_end_of_turn",
+                            "TurnResumed": "turn_resumed",
+                            "EndOfTurn": "final",
+                            "StartOfTurn": "start_of_turn",
+                        }.get(event_name, "partial")
+                        if transcript and kind == "partial":
+                            if not any(e.kind == "first_partial" for e in events):
+                                events.append(StreamingSTTEvent("first_partial", elapsed, transcript))
+                            if transcript == last_update and not stable_emitted:
+                                events.append(StreamingSTTEvent("stable_partial", elapsed, transcript))
+                                stable_emitted = True
+                            last_update = transcript
+                        events.append(StreamingSTTEvent(
+                            kind, elapsed, transcript,
+                            {k: message[k] for k in ("event", "turn_index",
+                             "audio_window_start", "audio_window_end",
+                             "end_of_turn_confidence", "sequence_id") if k in message},
+                        ))
+                        if kind == "final" and transcript:
+                            final = transcript
+                finally:
+                    await sender
+        except ProviderError:
+            raise
+        except Exception as exc:
+            raise ProviderError(f"deepgram-flux stream failed: {str(exc)[:180]}") from exc
+
+        completion = (time.perf_counter() - started) * 1000
+        if not final:
+            final = next((e.transcript for e in reversed(events) if e.transcript), "")
+        return StreamingSTTResult(
+            transcript=final, protocol="streaming_websocket", events=tuple(events),
+            audio_duration_ms=frames / rate * 1000, completion_ms=completion,
+        )
 
 
 class OpenAISTT(STTProvider):
@@ -263,6 +387,7 @@ class MockSTT(STTProvider):
 
 REGISTRY = {
     "deepgram": DeepgramSTT,
+    "deepgram-flux": DeepgramFluxSTT,
     "assemblyai": AssemblyAISTT,
     "gladia": GladiaSTT,
     "speechmatics": SpeechmaticsSTT,

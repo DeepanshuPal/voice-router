@@ -18,6 +18,7 @@ dependencies = [
     "PyYAML>=6.0",
     "python-multipart>=0.0.9",
     "whisper-normalizer==0.1.15",
+    "websockets>=13.0",
 ]
 
 [project.optional-dependencies]

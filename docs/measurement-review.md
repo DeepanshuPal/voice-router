@@ -37,6 +37,17 @@
 - Confirm methodology changelog describes any changed prior claim.
 - Record reviewer, artifact commit, review date, attacks attempted and disposition.
 
+## Implementation status
+
+The corrected harness pieces are implemented but have not produced a public artifact:
+
+- Batch STT runs serially with five repeats, records runner region, and keeps synchronous and asynchronous protocols separate.
+- Streaming STT has its own event contract and harness. Deepgram Flux is the first implementation, using Listen v2 WebSocket, realtime-paced 80 ms PCM chunks, and client-observed connection, partial, stable-partial, final, and completion timestamps.
+- TTS records first non-empty audio chunk separately from completion and labels batch completion independently.
+- No provider run, result review, or publication approval has occurred. The current disposition below still controls.
+
+Deepgram protocol references checked on 15 September 2026: [Flux quickstart](https://developers.deepgram.com/docs/flux/quickstart), [Listen v2 reference](https://developers.deepgram.com/reference/speech-to-text/listen-flux), and [CloseStream](https://developers.deepgram.com/docs/flux/close-stream).
+
 ## Current disposition
 
 **15 September 2026: REJECTED / WITHDRAWN.** Historical STT/TTS/LLM accuracy and latency artifacts fail the gate because provider hypotheses, normalization parity, protocol-aware repeated timing and a pinned runner region were absent. The 24-example derived-prefix turn-taking board also fails ecological-validity review and remains offline.

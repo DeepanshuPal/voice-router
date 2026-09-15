@@ -13,6 +13,12 @@ stt:
     default_latency_ms: 300
     languages: [en, es, hi, fr, de, pt, ja, ko, zh, it, nl, ru]
     env_key: DEEPGRAM_API_KEY
+  deepgram-flux:
+    models: [flux-general-en, flux-general-multi]
+    cost_per_minute_usd: 0.0077
+    default_latency_ms: 300
+    languages: [en, es, hi, fr, de, pt, ja, ko, zh, it, nl, ru]
+    env_key: DEEPGRAM_API_KEY
   openai-whisper:
     models: [whisper-1, gpt-4o-transcribe]
     cost_per_minute_usd: 0.006
