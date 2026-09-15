@@ -56,3 +56,29 @@ def test_legacy_ambiguous_latency_field_is_not_summarized():
     from benchmarks.harness import latency_summary
     runs=[{'provider':'p','protocol':'sync_batch','status':'ok','latency_ms':v} for v in range(5)]
     assert latency_summary(runs) == []
+
+@pytest.mark.asyncio
+async def test_gladia_non_json_poll_becomes_provider_error(monkeypatch):
+    import httpx
+    from voice_router.config import ProviderSpec
+    from voice_router.providers.base import ProviderError
+    from voice_router.providers.stt import GladiaSTT
+
+    responses = iter([
+        httpx.Response(200, json={"audio_url": "https://audio.invalid/a"}),
+        httpx.Response(201, json={"result_url": "https://result.invalid/r"}),
+        httpx.Response(502, text="upstream unavailable"),
+    ])
+    class Client:
+        async def __aenter__(self): return self
+        async def __aexit__(self, *args): pass
+        async def post(self, *args, **kwargs): return next(responses)
+        async def get(self, *args, **kwargs): return next(responses)
+    async def no_wait(*args, **kwargs):
+        yield 0
+    monkeypatch.setenv("GLADIA_API_KEY", "test")
+    monkeypatch.setattr("voice_router.providers.stt.httpx.AsyncClient", lambda **kwargs: Client())
+    monkeypatch.setattr("voice_router.providers.stt._adaptive_poll_delays", no_wait)
+    spec=ProviderSpec("gladia","stt",["v2"],"GLADIA_API_KEY",languages=["en"])
+    with pytest.raises(ProviderError, match="gladia poll 502"):
+        await GladiaSTT(spec).transcribe(b"wav","v2","en")

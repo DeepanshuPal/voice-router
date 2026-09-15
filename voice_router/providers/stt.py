@@ -261,7 +261,15 @@ class GladiaSTT(STTProvider):
                 raise ProviderError(f"gladia submit {sub.status_code}: {sub.text[:150]}")
             result_url = sub.json()["result_url"]
             async for _ in _adaptive_poll_delays():
-                d = (await client.get(result_url, headers=h)).json()
+                poll = await client.get(result_url, headers=h)
+                if poll.status_code != 200:
+                    detail = poll.text[:150].replace("\n", " ")
+                    raise ProviderError(f"gladia poll {poll.status_code}: {detail}")
+                try:
+                    d = poll.json()
+                except ValueError as exc:
+                    detail = poll.text[:150].replace("\n", " ")
+                    raise ProviderError(f"gladia poll returned non-JSON: {detail}") from exc
                 if d.get("status") == "done":
                     return d["result"]["transcription"]["full_transcript"]
                 if d.get("status") == "error":
