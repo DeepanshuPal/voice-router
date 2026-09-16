@@ -282,15 +282,20 @@ class HumeTTS(TTSProvider):
         if not key:
             raise ProviderUnavailable("HUME_API_KEY not set")
         base, _, lang = model.rpartition("-")
+        payload={"utterances": [{"text": text,
+                                  "voice": {"name": self.VOICE.get(lang, "Colton Rivers"),
+                                            "provider": "HUME_AI"}}],
+                 "version": "2", "format": {"type": "wav"}}
         async with httpx.AsyncClient(timeout=60) as client:
-            resp = await client.post(
-                self.BASE,
-                headers={"X-Hume-Api-Key": key, "Content-Type": "application/json"},
-                json={"utterances": [{"text": text,
-                                      "voice": {"name": self.VOICE.get(lang, "Colton Rivers"),
-                                                "provider": "HUME_AI"}}],
-                      "version": "2", "format": {"type": "wav"}},
-            )
+            for attempt in range(4):
+                resp = await client.post(self.BASE,
+                    headers={"X-Hume-Api-Key": key, "Content-Type": "application/json"},
+                    json=payload)
+                if resp.status_code != 429 or attempt == 3:
+                    break
+                retry_after=resp.headers.get("retry-after")
+                delay=float(retry_after) if retry_after and retry_after.replace(".", "", 1).isdigit() else 2 ** attempt
+                await __import__("asyncio").sleep(min(delay, 30))
         if resp.status_code != 200:
             raise ProviderError(f"hume {resp.status_code}: {resp.text[:200]}")
         import base64
