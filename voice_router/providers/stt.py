@@ -6,6 +6,7 @@ from __future__ import annotations
 import asyncio
 import io
 import os
+import struct
 import time
 import wave
 from urllib.parse import urlencode
@@ -63,13 +64,44 @@ class DeepgramFluxSTT(STTProvider):
 
     @staticmethod
     def _pcm(audio: bytes) -> tuple[bytes, int, int]:
+        """Decode the benchmark WAVs to the linear16 stream Flux requires.
+
+        FLEURS clips are IEEE-float WAV (format 3), which Python's ``wave``
+        module rejects. Parse that small RIFF surface directly and quantize
+        float samples instead of rejecting every otherwise-valid clip.
+        """
         try:
-            with wave.open(io.BytesIO(audio), "rb") as wav:
-                if wav.getsampwidth() != 2 or wav.getnchannels() != 1:
-                    raise ProviderError("deepgram-flux requires mono 16-bit PCM WAV")
-                rate = wav.getframerate()
-                return wav.readframes(wav.getnframes()), rate, wav.getnframes()
-        except (wave.Error, EOFError) as exc:
+            if len(audio) < 12 or audio[:4] != b"RIFF" or audio[8:12] != b"WAVE":
+                raise ValueError("missing RIFF/WAVE header")
+            chunks: dict[bytes, bytes] = {}
+            offset = 12
+            while offset + 8 <= len(audio):
+                name = audio[offset:offset + 4]
+                size = struct.unpack_from("<I", audio, offset + 4)[0]
+                start, end = offset + 8, offset + 8 + size
+                if end > len(audio):
+                    raise ValueError(f"truncated {name.decode(errors='replace')} chunk")
+                chunks.setdefault(name, audio[start:end])
+                offset = end + (size & 1)
+            fmt, data = chunks.get(b"fmt "), chunks.get(b"data")
+            if fmt is None or data is None or len(fmt) < 16:
+                raise ValueError("missing fmt or data chunk")
+            audio_format, channels, rate, _, block_align, bits = struct.unpack_from("<HHIIHH", fmt)
+            if channels != 1:
+                raise ValueError("Flux requires mono WAV")
+            if audio_format == 1 and bits == 16:
+                pcm = data
+            elif audio_format == 3 and bits in (32, 64):
+                width = bits // 8
+                code = "f" if bits == 32 else "d"
+                count = len(data) // width
+                samples = struct.unpack(f"<{count}{code}", data[:count * width])
+                pcm = struct.pack(f"<{count}h", *(max(-32768, min(32767, round(x * 32767))) for x in samples))
+            else:
+                raise ValueError(f"unsupported WAV format {audio_format}/{bits}-bit")
+            frames = len(data) // block_align
+            return pcm, rate, frames
+        except (ValueError, struct.error) as exc:
             raise ProviderError(f"deepgram-flux invalid WAV: {exc}") from exc
 
     async def transcribe(self, audio: bytes, model: str, language: str) -> str:
