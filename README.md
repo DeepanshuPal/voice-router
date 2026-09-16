@@ -63,8 +63,8 @@ Pin a provider anytime with `"model": "deepgram:nova-3"` instead of `auto`. Ever
 
 | capability | providers shipped                        | key env var           |
 |------------|------------------------------------------|-----------------------|
-| STT        | Deepgram, OpenAI Whisper, Groq Whisper   | `DEEPGRAM_API_KEY`, `OPENAI_API_KEY`, `GROQ_API_KEY` |
-| TTS        | ElevenLabs, OpenAI, Cartesia             | `ELEVENLABS_API_KEY`, `OPENAI_API_KEY`, `CARTESIA_API_KEY` |
+| STT        | Deepgram, Groq, AssemblyAI, Gladia, Speechmatics, Rev, Cartesia, Smallest, OpenAI | `DEEPGRAM_API_KEY`, `OPENAI_API_KEY`, `GROQ_API_KEY` |
+| TTS        | ElevenLabs, OpenAI, Cartesia, Deepgram Aura, Rime, Smallest, Hume, Groq | `ELEVENLABS_API_KEY`, `OPENAI_API_KEY`, `CARTESIA_API_KEY` |
 | LLM        | anything LiteLLM routes (optional extra) | provider-specific     |
 
 Adding a provider = one config block + one small class implementing `transcribe()` or `synthesize()`. See `voice_router/providers/stt.py` for the pattern.
@@ -86,6 +86,10 @@ Every number on the public board traces back to a file in this repo:
 1. `benchmarks/harness.py` pushes real audio through every configured provider - 15 test-split clips per language from Google's [FLEURS](https://huggingface.co/datasets/google/fleurs) corpus, committed in `benchmarks/samples/` with reference transcripts in `benchmarks/references/` - and records WER (CER for ja/zh/ko/th), p50 latency and metered cost per clip.
 2. `scripts/run_matrix.py` runs that matrix for every language and merges it into `benchmarks/results.json`. Nothing is hand-edited; when a provider can't run, the cell is empty instead of estimated.
 3. A GitHub Action (`.github/workflows/leaderboard.yml`) re-runs the matrix on every `benchmarks/` push and weekly, then `scripts/generate_leaderboard.py` renders the site. The board links the exact Action run that produced its current numbers.
+
+## What the corrected run says
+
+The latest artifact shows the central routing tradeoff: AssemblyAI led mean STT accuracy (0.963) but completed in about 3.06s median, while Groq averaged 0.936 at about 407ms. See [the routing analysis](docs/routing-tradeoffs.md) for per-language policy and protocol caveats.
 
 ## Public leaderboard
 
