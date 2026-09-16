@@ -53,3 +53,20 @@ def test_flux_wav_decoder_accepts_committed_fleurs_format():
     audio = (Path(__file__).parent.parent / "benchmarks" / "samples" / "en-1.wav").read_bytes()
     pcm, rate, frames = DeepgramFluxSTT._pcm(audio)
     assert rate == 16000 and frames > 0 and len(pcm) == frames * 2
+
+@pytest.mark.asyncio
+async def test_arena_requires_allowlist_and_preserves_existing_clips(tmp_path, monkeypatch):
+    import benchmarks.arena_audio as arena
+    from voice_router.config import ProviderSpec
+    from voice_router.providers.base import TTSProvider
+    class Fake(TTSProvider):
+        async def synthesize(self, text, model, voice): return b"RIFFfake"
+    refs=tmp_path/"refs"; refs.mkdir(); (refs/"en-1.txt").write_text("hello")
+    out=tmp_path/"arena"/"audio"; out.mkdir(parents=True)
+    manifest=out.parent/"manifest.json"
+    manifest.write_text('{"language":"en","clips":[{"provider":"fake","model":"m","sample":"en-1","file":"audio/fake/en-1.wav","chars":5}]}')
+    monkeypatch.setattr(arena,"REFERENCES",refs); monkeypatch.setattr(arena,"OUT",out); monkeypatch.setattr(arena,"MANIFEST",manifest)
+    adapter=Fake(ProviderSpec("fake","tts",["m"],"",languages=["en"]))
+    monkeypatch.setattr(arena,"build_providers",lambda cfg:{"tts":{"fake":adapter}})
+    result=await arena.run(["fake"],missing_only=True)
+    assert len(result["clips"])==1
