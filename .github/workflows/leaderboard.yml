@@ -2,6 +2,11 @@ name: leaderboard
 
 on:
   workflow_dispatch:
+    inputs:
+      skip_cartesia:
+        description: "Exclude Cartesia from this run (free monthly credits ~90% exhausted)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -36,7 +41,8 @@ jobs:
           SPEECHMATICS_API_KEY: ${{ secrets.SPEECHMATICS_API_KEY }}
           REV_API_KEY: ${{ secrets.REV_API_KEY }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
-          CARTESIA_API_KEY: ${{ secrets.CARTESIA_API_KEY }}
+          CARTESIA_API_KEY: ${{ github.event.inputs.skip_cartesia == true && '' || secrets.CARTESIA_API_KEY }}
+          CARTESIA_SKIP_REASON: ${{ github.event.inputs.skip_cartesia == true && 'free monthly credits ~90% exhausted as of 2026-09-15; excluded from this run' || '' }}
           RIME_API_KEY: ${{ secrets.RIME_API_KEY }}
           SMALLEST_API_KEY: ${{ secrets.SMALLEST_API_KEY }}
           HUME_API_KEY: ${{ secrets.HUME_API_KEY }}
@@ -45,6 +51,9 @@ jobs:
 
       - name: Generate leaderboard site
         run: python scripts/generate_leaderboard.py
+        env:
+          # Labels Cartesia as not-run on the board when this run skipped it.
+          CARTESIA_SKIP_REASON: ${{ github.event.inputs.skip_cartesia == true && 'free monthly credits ~90% exhausted as of 2026-09-15; excluded from this run' || '' }}
 
       - name: Guard against clobbering real results
         # If this run produced no real (non-mock) provider rows, keep the

@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import statistics
 from datetime import datetime, timezone
 from pathlib import Path
@@ -216,6 +217,13 @@ KNOWN_TTS = {
 KNOWN_LLM = {
     "openrouter": "free models exist - key not wired into the run yet",
 }
+
+# Runs dispatched with skip_cartesia set pass CARTESIA_SKIP_REASON so the
+# board states why Cartesia is absent instead of dropping it silently.
+_cartesia_why = os.environ.get("CARTESIA_SKIP_REASON", "")
+if _cartesia_why:
+    KNOWN_STT["cartesia-stt"] = _cartesia_why
+    KNOWN_TTS["cartesia"] = _cartesia_why
 
 
 # ---------------------------------------------------------------- HTML helpers
