@@ -18,7 +18,7 @@ jobs:
           python-version: "3.12"
       - run: pip install -r requirements.txt pytest pytest-asyncio numpy
       - run: python -m compileall -q voice_router benchmarks scripts
-      - run: pytest -q
+      - run: python -m pytest -q
       - name: Import providers and validate config
         run: |
           python - <<'PY'
