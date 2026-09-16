@@ -126,3 +126,6 @@ MIT
 ## Architecture
 
 Voice Router is a realtime local-sidecar routing data plane; the public benchmark supplies policy evidence. See [the architecture decision](docs/architecture.md).
+
+
+<!-- Refresh repository contributor metadata. -->
