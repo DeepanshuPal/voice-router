@@ -1,7 +1,9 @@
 import io
+import struct
 import wave
 
 import pytest
+from pathlib import Path
 
 from voice_router.config import ProviderSpec
 from voice_router.providers.base import STTProvider, ProviderUnavailable, StreamingSTTEvent, StreamingSTTResult
@@ -31,3 +33,23 @@ async def test_batch_adapter_rejects_streaming_instead_of_faking_it():
 def test_flux_wav_decoder_requires_mono_16bit_and_preserves_duration():
     pcm,rate,frames=DeepgramFluxSTT._pcm(wav_bytes())
     assert rate==16000 and frames==1600 and len(pcm)==3200
+
+
+def float_wav_bytes(samples=(0.0, 0.5, -0.5), rate=16000):
+    data = struct.pack(f"<{len(samples)}f", *samples)
+    fmt = struct.pack("<HHIIHH", 3, 1, rate, rate * 4, 4, 32) + b"\x00\x00"
+    return (b"RIFF" + struct.pack("<I", 4 + 8 + len(fmt) + 8 + len(data)) + b"WAVE" +
+            b"fmt " + struct.pack("<I", len(fmt)) + fmt +
+            b"data" + struct.pack("<I", len(data)) + data)
+
+
+def test_flux_wav_decoder_converts_ieee_float_to_linear16():
+    pcm, rate, frames = DeepgramFluxSTT._pcm(float_wav_bytes())
+    assert rate == 16000 and frames == 3
+    assert struct.unpack("<3h", pcm) == (0, 16384, -16384)
+
+
+def test_flux_wav_decoder_accepts_committed_fleurs_format():
+    audio = (Path(__file__).parent.parent / "benchmarks" / "samples" / "en-1.wav").read_bytes()
+    pcm, rate, frames = DeepgramFluxSTT._pcm(audio)
+    assert rate == 16000 and frames > 0 and len(pcm) == frames * 2
