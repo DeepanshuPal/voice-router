@@ -139,3 +139,21 @@ async def test_llm_harness_rejects_fewer_than_five_repeats():
     from benchmarks.llm_harness import run
     with pytest.raises(SystemExit, match='at least five'):
         await run(repeats=4)
+
+@pytest.mark.asyncio
+async def test_stt_harness_records_transport_failure_instead_of_aborting(tmp_path, monkeypatch):
+    from benchmarks.harness import run
+    from voice_router.config import ProviderSpec
+    from voice_router.providers.base import STTProvider
+    class Broken(STTProvider):
+        async def transcribe(self, *args):
+            raise TimeoutError('network stalled')
+    samples=tmp_path/'samples'; refs=tmp_path/'refs'; samples.mkdir(); refs.mkdir()
+    (samples/'en-1.wav').write_bytes(b'RIFF')
+    (refs/'en-1.txt').write_text('hello')
+    adapter=Broken(ProviderSpec('broken','stt',['m'],'',languages=['en']))
+    monkeypatch.setattr('benchmarks.harness.build_providers', lambda cfg:{'stt':{'broken':adapter}})
+    monkeypatch.setenv('BENCHMARK_REGION','test-region')
+    payload=await run(samples,refs,'en',tmp_path/'out.json')
+    assert len(payload['runs'])==5
+    assert all(r['status']=='error' and 'TimeoutError' in r['detail'] for r in payload['runs'])

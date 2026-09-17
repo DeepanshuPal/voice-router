@@ -76,10 +76,11 @@ async def run(language: str, samples_per_lang: int = SAMPLES_PER_LANG, repeats: 
                 "audio_bytes": len(timing.audio),
                 "cost_usd": adapter.spec.unit_cost(len(text) / 1000), "status": "ok",
             }
-        except ProviderError as e:
+        except Exception as e:
             return {"sample": stem, "provider": name, "model": model,
                     "language": language, "chars": len(text), "repeat": repeat,
-                    "status": "error", "detail": str(e)[:200]}
+                    "status": "error",
+                    "detail": f"{type(e).__name__}: {e}"[:200]}
 
     # Serial by design. Streaming TTFB and batch completion are never blended.
     runs = []

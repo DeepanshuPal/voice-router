@@ -152,9 +152,10 @@ async def run(samples: Path, references: Path | None, language: str, out: Path, 
                 "reference": ref, "hypothesis": text,
                 "metric": metric, "protocol": protocol, "status": "ok",
             }
-        except ProviderError as e:
+        except Exception as e:
             return {"sample": wav.name, "provider": name, "model": model,
-                    "language": language, "status": "error", "detail": str(e)[:200]}
+                    "language": language, "status": "error",
+                    "detail": f"{type(e).__name__}: {e}"[:200]}
 
     # Deliberately serial: concurrency changes queueing and free-tier behavior.
     runs = []
