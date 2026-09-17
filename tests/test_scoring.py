@@ -123,3 +123,19 @@ async def test_async_stt_poll_http_error_becomes_provider_error(
     adapter = getattr(stt, adapter_name)(ProviderSpec(name, "stt", models, env_key, languages=["en"]))
     with pytest.raises(ProviderError, match=error):
         await adapter.transcribe(b"wav", models[0], "en")
+
+def test_provider_allowlist_filters_both_capabilities(monkeypatch):
+    from voice_router.config import load_config
+    from voice_router.providers.registry import build_providers
+    monkeypatch.setenv('GROQ_API_KEY', 'x')
+    monkeypatch.setenv('HUME_API_KEY', 'x')
+    monkeypatch.setenv('BENCHMARK_PROVIDER_ALLOWLIST', 'groq-whisper,hume')
+    providers = build_providers(load_config())
+    assert set(providers['stt']) == {'groq-whisper'}
+    assert set(providers['tts']) == {'hume'}
+
+@pytest.mark.asyncio
+async def test_llm_harness_rejects_fewer_than_five_repeats():
+    from benchmarks.llm_harness import run
+    with pytest.raises(SystemExit, match='at least five'):
+        await run(repeats=4)

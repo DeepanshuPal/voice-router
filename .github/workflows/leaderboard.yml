@@ -3,10 +3,10 @@ name: leaderboard
 on:
   workflow_dispatch:
     inputs:
-      skip_cartesia:
-        description: "Exclude Cartesia from this run (free monthly credits ~90% exhausted)"
-        type: boolean
-        default: false
+      provider_allowlist:
+        description: "Comma-separated zero-cost providers to re-measure"
+        type: string
+        default: "groq-whisper,groq-tts,hume,deepgram,deepgram-flux,deepgram-aura,rime,smallest-stt,smallest-tts"
 
 permissions:
   contents: write
@@ -32,9 +32,6 @@ jobs:
         # keeps the SAMPLE DATA banner; add DEEPGRAM_API_KEY / GROQ_API_KEY /
         # OPENAI_API_KEY as repo secrets for real measurements.
         run: |
-          if [[ "${{ inputs.skip_cartesia }}" == "true" ]]; then
-            unset CARTESIA_API_KEY
-          fi
           python scripts/run_matrix.py
         env:
           DEEPGRAM_API_KEY: ${{ secrets.DEEPGRAM_API_KEY }}
@@ -46,18 +43,15 @@ jobs:
           REV_API_KEY: ${{ secrets.REV_API_KEY }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           CARTESIA_API_KEY: ${{ secrets.CARTESIA_API_KEY }}
-          CARTESIA_SKIP_REASON: ${{ inputs.skip_cartesia && 'free monthly credits ~90% exhausted as of 2026-09-15; excluded from this run' || '' }}
           RIME_API_KEY: ${{ secrets.RIME_API_KEY }}
           SMALLEST_API_KEY: ${{ secrets.SMALLEST_API_KEY }}
           HUME_API_KEY: ${{ secrets.HUME_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           BENCHMARK_REGION: github-actions-ubuntu-us
+          BENCHMARK_PROVIDER_ALLOWLIST: ${{ inputs.provider_allowlist }}
 
-      - name: Generate leaderboard site
+      - name: Keep public site withdrawn until reviewed
         run: python scripts/generate_leaderboard.py
-        env:
-          # Labels Cartesia as not-run on the board when this run skipped it.
-          CARTESIA_SKIP_REASON: ${{ inputs.skip_cartesia && 'free monthly credits ~90% exhausted as of 2026-09-15; excluded from this run' || '' }}
 
       - name: Guard against clobbering real results
         # If this run produced no real (non-mock) provider rows, keep the

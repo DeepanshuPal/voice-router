@@ -69,21 +69,24 @@ async def one(client: httpx.AsyncClient, label: str, model: str, key: str,
                 "status": "error", "detail": str(e)[:160]}
 
 
-async def run() -> dict:
+async def run(repeats: int = 5) -> dict:
+    if repeats < 5:
+        raise SystemExit("measurement artifacts require at least five repeats per prompt")
     runs = []
     async with httpx.AsyncClient(timeout=60) as client:
         for label, model, env_key, pin, pout in MODELS:
             key = os.environ.get(env_key)
             if not key:
                 continue
-            sem = asyncio.Semaphore(2)
-
-            async def gated(lg: str, pr: str) -> dict:
-                async with sem:
-                    return await one(client, label, model, key, lg, pr, pin, pout)
-
-            runs += list(await asyncio.gather(*(gated(lg, pr) for lg, pr in PROMPTS.items())))
+            # Serial by design: concurrency changes queueing and free-tier behavior.
+            for lang, prompt in PROMPTS.items():
+                for repeat in range(1, repeats + 1):
+                    row = await one(client, label, model, key, lang, prompt, pin, pout)
+                    row.update({"repeat": repeat, "protocol": "sync_batch"})
+                    runs.append(row)
     return {"generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            "measurement": {"execution": "serial", "repeats_per_clip": repeats,
+                            "runner_region": os.environ.get("BENCHMARK_REGION")},
             "runs": runs}
 
 

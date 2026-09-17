@@ -25,7 +25,7 @@ RESULTS = ROOT / "benchmarks" / "results.json"
 
 import sys
 sys.path.insert(0, str(ROOT))
-from benchmarks.harness import run  # noqa: E402
+from benchmarks.harness import run, latency_summary  # noqa: E402
 from benchmarks.tts_harness import run as tts_run  # noqa: E402
 from benchmarks.llm_harness import run as llm_run  # noqa: E402
 
@@ -104,9 +104,15 @@ def main() -> None:
         print(f"[matrix] llm: skipped ({e})")
         llm_runs = []
 
+    repeats = 5
     merged = {"sample_data": False,
+              "measurement": {"runner_region": os.environ.get("BENCHMARK_REGION"),
+                              "execution": "serial", "repeats_per_clip": repeats,
+                              "normalizer": "openai-whisper-normalizer",
+                              "accuracy_aggregation": "corpus edit rate",
+                              "protocols_reported_separately": True},
               "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-              "scores": {"stt": scores}, "runs": runs,
+              "scores": {"stt": scores}, "latency_summary": latency_summary(runs), "runs": runs,
               "tts_runs": tts_runs, "llm_runs": llm_runs,
               "note": "regenerate with: python scripts/run_matrix.py"}
     url = ci_run_url()
