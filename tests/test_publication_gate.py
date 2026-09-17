@@ -18,3 +18,11 @@ def test_gate_rejects_stale_review_after_artifact_change(tmp_path):
 def test_gate_rejects_missing_attack_and_stream_events(tmp_path):
  p,r=valid(); p['runs'][0]['events']=[]; r['attacks_attempted'].remove('streaming_event_validation'); a,review=write(tmp_path,p,r)
  with pytest.raises(SystemExit,match='missing review attacks'): verify(a,review)
+
+def test_reviewed_generator_publishes_only_bound_artifact(tmp_path):
+ import subprocess
+ p,r=valid(); a,review=write(tmp_path,p,r); out=tmp_path/'site'
+ subprocess.run(['python','scripts/generate_leaderboard.py','--results',str(a),'--review',str(review),'--out',str(out)],check=True)
+ assert 'reviewed subset' in (out/'index.html').read_text().lower()
+ assert json.loads((out/'data/status.json').read_text())['status']=='reviewed-subset'
+ assert json.loads((out/'data/results.json').read_text())['runs'][0]['provider']=='p'

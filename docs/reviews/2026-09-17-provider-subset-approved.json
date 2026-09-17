@@ -1,0 +1,27 @@
+{
+  "disposition": "approved",
+  "reviewer": "Instinct adversarial measurement review",
+  "reviewed_at": "2026-09-17",
+  "artifact_commit": "1c4e2931fac9237d6738b6ffcb69f51e48bc0991",
+  "artifact_sha256": "486288743860ff4a0eb79552c7516324447f868a7d7f09f0b30a3996e7d1bd16",
+  "attacks_attempted": [
+    "normalization_equivalence",
+    "independent_corpus_error_rate",
+    "largest_error_inspection",
+    "serial_repeats",
+    "protocol_separation",
+    "raw_timing_recompute",
+    "streaming_event_validation",
+    "tts_first_audio_validation",
+    "public_diff",
+    "deployed_site_verification"
+  ],
+  "findings": [
+    "Approved only the provider-complete subset: Deepgram Nova-3 and Smallest Pulse STT, each 450/450 calls; Deepgram Aura, Rime, and Smallest Lightning v3.1 Pro TTS, all expected calls complete.",
+    "Independent corpus edit-rate and median/IQR recomputation matched the artifact. Ten largest-error hypotheses per STT provider were inspected.",
+    "Deepgram Flux excluded: it was routed through the batch harness rather than the event-bearing streaming harness required for publication.",
+    "Groq Whisper and Hume remain withdrawn due incomplete repeats/free-tier rate limits. Cartesia, ElevenLabs, and Rev remain withdrawn.",
+    "Streaming event validation is not applicable to the approved STT subset; the only streaming STT candidate, Deepgram Flux, was rejected. Deepgram Aura TTS first-nonempty-byte timestamps were validated structurally.",
+    "Public HTML/JSON will be generated only from this digest-bound artifact and checked after deployment."
+  ]
+}

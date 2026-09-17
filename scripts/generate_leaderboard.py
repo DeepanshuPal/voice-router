@@ -605,6 +605,52 @@ def render_llm_section(rows: list[dict]) -> str:
 """
 
 
+def render_approved_index(payload: dict, source: str) -> str:
+    scores = payload.get("scores", {}).get("stt", {})
+    summaries = {(r["provider"], r["protocol"]): r for r in payload.get("latency_summary", [])}
+    langs = sorted({lang for values in scores.values() for lang in values})
+    body_rows = []
+    for provider, values in sorted(scores.items(), key=lambda item: -sum(item[1].values()) / len(item[1])):
+        protocols = sorted({r["protocol"] for r in payload.get("runs", []) if r["provider"] == provider and r.get("status") == "ok"})
+        protocol = protocols[0] if len(protocols) == 1 else "mixed"
+        timing = summaries[(provider, protocol)]
+        cells = "".join(f'<td class="num">{(1-values[lang])*100:.1f}%</td>' for lang in langs)
+        body_rows.append(f'<tr><td>{esc(provider)}</td><td class="mono">{esc(protocol)}</td><td class="num">{timing["median_ms"]:.1f} ms</td><td class="num">{timing["iqr_ms"]:.1f} ms</td>{cells}</tr>')
+    headers = "".join(f'<th>{esc(lang)} {"CER" if lang in {"ja", "zh", "ko", "th"} else "WER"}</th>' for lang in langs)
+    def timing_summary(runs):
+        groups = {}
+        for row in runs:
+            if row.get("status") == "ok": groups.setdefault((row["provider"], row["protocol"]), []).append(row)
+        result=[]
+        for (provider, protocol), rows in groups.items():
+            def stats(key):
+                vals=[r[key] for r in rows if r.get(key) is not None]
+                if len(vals)<5: return None
+                q1, _, q3 = statistics.quantiles(vals, n=4, method="inclusive")
+                return {"median_ms":round(statistics.median(vals),1),"iqr_ms":round(q3-q1,1),"n":len(vals)}
+            result.append({"provider":provider,"protocol":protocol,"time_to_first_nonempty_audio_chunk":stats("ttfb_ms"),"full-synthesis wall clock (batch)":stats("full_synthesis_wall_clock_ms") if protocol=="batch" else None,"stream_completion_wall_clock":stats("full_synthesis_wall_clock_ms") if protocol!="batch" else None})
+        return result
+    tts = []
+    for row in timing_summary(payload.get("tts_runs", [])):
+        first = row.get("time_to_first_nonempty_audio_chunk")
+        batch = row.get("full-synthesis wall clock (batch)")
+        complete = row.get("stream_completion_wall_clock")
+        if first:
+            metric, stat = "time to first non-empty audio byte", first
+        elif batch:
+            metric, stat = "full-synthesis wall clock (batch)", batch
+        else:
+            metric, stat = "stream completion wall clock", complete
+        tts.append(f'<tr><td>{esc(row["provider"])}</td><td class="mono">{esc(row["protocol"])}</td><td>{esc(metric)}</td><td class="num">{stat["median_ms"]:.1f} ms</td><td class="num">{stat["iqr_ms"]:.1f} ms</td><td class="num">{stat["n"]}</td></tr>')
+    body = f"""
+<div class="hero"><div><p class="type-label">corrected measurement</p><h1>Voice AI leaderboard <span class="chip">reviewed subset</span></h1><p class="hero-sub">Provider columns return only after a complete corrected run and digest-bound adversarial review. Paid-tier and incomplete providers remain withdrawn.</p></div></div>
+<div class="banner">REVIEWED SUBSET - Deepgram Nova-3 and Smallest Pulse STT; Deepgram Aura, Rime and Smallest Lightning v3.1 Pro TTS. Groq Whisper, Hume, Deepgram Flux, Cartesia, ElevenLabs and Rev remain withdrawn.</div>
+<section><div class="sec-head"><p class="type-label">speech to text</p><h2>Corrected corpus accuracy and protocol-separated latency</h2><p>Whisper normalization is applied symmetrically. Accuracy is corpus edit rate. Latency is serial request-to-completion wall clock from five repeats per clip in a pinned runner region.</p></div><div class="card"><table><thead><tr><th>Provider</th><th>Protocol</th><th>Median</th><th>IQR</th>{headers}</tr></thead><tbody>{''.join(body_rows)}</tbody></table></div></section>
+<section><div class="sec-head"><p class="type-label">text to speech</p><h2>Corrected TTS timing</h2><p>Streaming reports first non-empty audio byte. Batch providers report full-synthesis wall clock and are not presented as conversational latency.</p></div><div class="card"><table><thead><tr><th>Provider</th><th>Protocol</th><th>Metric</th><th>Median</th><th>IQR</th><th>Runs</th></tr></thead><tbody>{''.join(tts)}</tbody></table></div></section>
+"""
+    return page("Reviewed leaderboard", "index", body, payload.get("generated_at", ""), source)
+
+
 def render_index(rows: list[dict], sample: bool, generated_at: str, source: str, run_url: str | None = None, tts_rows: list[dict] | None = None, llm_rows: list[dict] | None = None) -> str:
     """Correction state: keep receipts visible, withdraw invalid measurements."""
     body = f"""
@@ -652,9 +698,14 @@ def main() -> None:
                     help="adversarial review JSON bound to --results; without it, render withdrawal only")
     args = ap.parse_args()
 
+    approved = False
     if args.review:
-        from scripts.verify_publication_gate import verify
+        try:
+            from scripts.verify_publication_gate import verify
+        except ModuleNotFoundError:
+            from verify_publication_gate import verify
         verify(args.results, args.review)
+        approved = True
     elif args.results.exists():
         candidate = load_payload(args.results)
         if has_real_runs(candidate):
@@ -679,20 +730,20 @@ def main() -> None:
 
     args.out.mkdir(parents=True, exist_ok=True)
     (args.out / "index.html").write_text(
+        render_approved_index(payload, source.name) if approved else
         render_index(rows, sample, generated_at, source.name, run_url, tts_rows, llm_rows))
     (args.out / "methodology.html").write_text(render_methodology(sample, generated_at, run_url))
 
-    # Correction state: do not publish historical performance numbers through
-    # machine-readable endpoints. Git history retains the audit receipts.
     data_dir = args.out / "data"
     data_dir.mkdir(exist_ok=True)
-    for withdrawn in (data_dir / "results.json", data_dir / "leaderboard.json"):
-        withdrawn.unlink(missing_ok=True)
-    (data_dir / "status.json").write_text(json.dumps({
-        "status": "withdrawn", "date": "2026-09-15",
-        "reason": "measurement defects under correction",
-        "methodology": "../methodology.html#changelog",
-    }, indent=2))
+    if approved:
+        (data_dir / "results.json").write_text(json.dumps(payload, indent=2) + "\n")
+        (data_dir / "leaderboard.json").write_text(json.dumps({"status":"reviewed-subset","scores":payload.get("scores",{}),"latency_summary":payload.get("latency_summary",[]),"publication_scope":payload.get("publication_scope",{})}, indent=2) + "\n")
+        (data_dir / "status.json").write_text(json.dumps({"status":"reviewed-subset","date":"2026-09-17","review":"../reviews/2026-09-17-provider-subset-approved.json"}, indent=2) + "\n")
+    else:
+        for withdrawn in (data_dir / "results.json", data_dir / "leaderboard.json"):
+            withdrawn.unlink(missing_ok=True)
+        (data_dir / "status.json").write_text(json.dumps({"status":"withdrawn","date":"2026-09-15","reason":"measurement defects under correction","methodology":"../methodology.html#changelog"}, indent=2) + "\n")
     print(f"wrote {args.out}/index.html, methodology.html and data/ "
           f"({len(rows)} stt rows, {len(tts_rows)} tts rows, {len(llm_rows)} llm rows, sample_data={sample})")
 

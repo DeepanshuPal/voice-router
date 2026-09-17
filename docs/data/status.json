@@ -1,6 +1,5 @@
 {
-  "status": "withdrawn",
-  "date": "2026-09-15",
-  "reason": "measurement defects under correction",
-  "methodology": "../methodology.html#changelog"
+  "status": "reviewed-subset",
+  "date": "2026-09-17",
+  "review": "../reviews/2026-09-17-provider-subset-approved.json"
 }

@@ -1,0 +1,64 @@
+{
+  "status": "reviewed-subset",
+  "scores": {
+    "stt": {
+      "deepgram": {
+        "de": 0.9293,
+        "en": 0.9658,
+        "es": 0.9697,
+        "fr": 0.9272,
+        "hi": 0.8555,
+        "ja": 0.9391
+      },
+      "smallest-stt": {
+        "de": 0.9327,
+        "en": 0.9623,
+        "es": 0.9865,
+        "fr": 0.9188,
+        "hi": 0.9606,
+        "ja": 0.8321
+      }
+    }
+  },
+  "latency_summary": [
+    {
+      "provider": "deepgram",
+      "protocol": "sync_batch",
+      "n": 450,
+      "metric": "request-to-completion wall clock",
+      "median_ms": 628.8,
+      "q1_ms": 425.6,
+      "q3_ms": 765.3,
+      "iqr_ms": 339.7
+    },
+    {
+      "provider": "smallest-stt",
+      "protocol": "sync_batch",
+      "n": 450,
+      "metric": "request-to-completion wall clock",
+      "median_ms": 537.1,
+      "q1_ms": 468.6,
+      "q3_ms": 1344.7,
+      "iqr_ms": 876.1
+    }
+  ],
+  "publication_scope": {
+    "stt": [
+      "deepgram",
+      "smallest-stt"
+    ],
+    "tts": [
+      "deepgram-aura",
+      "rime",
+      "smallest-tts"
+    ],
+    "withdrawn": [
+      "groq-whisper",
+      "hume",
+      "deepgram-flux",
+      "cartesia",
+      "elevenlabs",
+      "rev"
+    ]
+  }
+}

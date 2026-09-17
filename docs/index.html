@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Leaderboard correction - voice-router benchmarks</title>
+<title>Reviewed leaderboard - voice-router benchmarks</title>
 <meta name="description" content="STT providers ranked by accuracy, latency, and cost per language - measured on real audio, not marketed.">
 <style>
 @font-face{font-family:'Geist Sans';src:url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-Variable.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
@@ -135,18 +135,10 @@ footer{margin-top:80px;border-top:1px solid var(--hairline)}
 </div></div>
 <main><div class="wrap">
 
-<div class="hero">
-  <div>
-    <p class="type-label">measurement correction</p>
-    <h1>Voice AI leaderboard <span class="chip">under re-measurement</span></h1>
-    <p class="hero-sub">We withdrew the accuracy and latency rankings on 15 September 2026 after an adversarial review found defects in text normalization, WER aggregation and latency instrumentation. No replacement number will be published until the corrected harness is independently stress-tested.</p>
-  </div>
-</div>
-<div class="banner">NUMBERS WITHDRAWN - the 13-14 September accuracy and latency tables are not reliable for provider comparison. <a href="methodology.html#changelog">Read the correction and rebuild plan.</a></div>
-<section>
-  <div class="sec-head"><p class="type-label">status</p><h2>What remains valid</h2><p>The committed FLEURS audio, reference transcripts, provider adapters and raw historical run receipts remain available for audit. Public rankings are withheld. Cost figures and provider availability notes are also being re-reviewed before they return.</p></div>
-  <div class="card card-pad prose"><p><strong>Accuracy rebuild:</strong> Whisper paper normalization applied symmetrically, corpus-level edit rate, and an adversarial punctuation/casing/numeric equivalence suite.</p><p><strong>Latency rebuild:</strong> serial calls, adaptive polling, pinned region, at least five repeats, median plus IQR, and separate sync versus async reporting. TTS will distinguish time to first audio byte from batch completion.</p></div>
-</section>
+<div class="hero"><div><p class="type-label">corrected measurement</p><h1>Voice AI leaderboard <span class="chip">reviewed subset</span></h1><p class="hero-sub">Provider columns return only after a complete corrected run and digest-bound adversarial review. Paid-tier and incomplete providers remain withdrawn.</p></div></div>
+<div class="banner">REVIEWED SUBSET - Deepgram Nova-3 and Smallest Pulse STT; Deepgram Aura, Rime and Smallest Lightning v3.1 Pro TTS. Groq Whisper, Hume, Deepgram Flux, Cartesia, ElevenLabs and Rev remain withdrawn.</div>
+<section><div class="sec-head"><p class="type-label">speech to text</p><h2>Corrected corpus accuracy and protocol-separated latency</h2><p>Whisper normalization is applied symmetrically. Accuracy is corpus edit rate. Latency is serial request-to-completion wall clock from five repeats per clip in a pinned runner region.</p></div><div class="card"><table><thead><tr><th>Provider</th><th>Protocol</th><th>Median</th><th>IQR</th><th>de WER</th><th>en WER</th><th>es WER</th><th>fr WER</th><th>hi WER</th><th>ja CER</th></tr></thead><tbody><tr><td>smallest-stt</td><td class="mono">sync_batch</td><td class="num">537.1 ms</td><td class="num">876.1 ms</td><td class="num">6.7%</td><td class="num">3.8%</td><td class="num">1.3%</td><td class="num">8.1%</td><td class="num">3.9%</td><td class="num">16.8%</td></tr><tr><td>deepgram</td><td class="mono">sync_batch</td><td class="num">628.8 ms</td><td class="num">339.7 ms</td><td class="num">7.1%</td><td class="num">3.4%</td><td class="num">3.0%</td><td class="num">7.3%</td><td class="num">14.4%</td><td class="num">6.1%</td></tr></tbody></table></div></section>
+<section><div class="sec-head"><p class="type-label">text to speech</p><h2>Corrected TTS timing</h2><p>Streaming reports first non-empty audio byte. Batch providers report full-synthesis wall clock and are not presented as conversational latency.</p></div><div class="card"><table><thead><tr><th>Provider</th><th>Protocol</th><th>Metric</th><th>Median</th><th>IQR</th><th>Runs</th></tr></thead><tbody><tr><td>deepgram-aura</td><td class="mono">streaming_http</td><td>time to first non-empty audio byte</td><td class="num">316.0 ms</td><td class="num">84.0 ms</td><td class="num">75</td></tr><tr><td>rime</td><td class="mono">batch</td><td>full-synthesis wall clock (batch)</td><td class="num">834.8 ms</td><td class="num">1629.2 ms</td><td class="num">90</td></tr><tr><td>smallest-tts</td><td class="mono">batch</td><td>full-synthesis wall clock (batch)</td><td class="num">1175.6 ms</td><td class="num">585.8 ms</td><td class="num">90</td></tr></tbody></table></div></section>
 
 </div></main>
 <footer><div class="wrap">
@@ -162,7 +154,7 @@ footer{margin-top:80px;border-top:1px solid var(--hairline)}
       <span>MIT</span>
     </div>
   </div>
-  <div class="foot-meta">generated 2026-09-17T17:30:25+00:00 from <code>results.json</code> &middot; refresh: <code>python scripts/generate_leaderboard.py</code></div>
+  <div class="foot-meta">generated 2026-09-17T17:30:25+00:00 from <code>reviewed-results-2026-09-17.json</code> &middot; refresh: <code>python scripts/generate_leaderboard.py</code></div>
 </div></footer>
 </body>
 </html>
