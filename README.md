@@ -93,7 +93,7 @@ The latest artifact shows the central routing tradeoff: AssemblyAI led mean STT 
 
 ## Public leaderboard
 
-Harness results are rendered into a static leaderboard: **https://deepanshupal.github.io/voice-router/** - WER, p50 latency, and effective cost per minute, per provider, per language, measured on 90 FLEURS clips per provider, with the [methodology](https://deepanshupal.github.io/voice-router/methodology.html) published alongside. Until the first real multi-provider run, it shows clearly-labeled sample data so the format is visible.
+Harness results are rendered into a static leaderboard: https://deepanshupal.github.io/voice-router/ - WER, p50 latency, and effective cost per minute, per provider, per language, measured on 90 FLEURS clips per provider, with the [methodology](https://deepanshupal.github.io/voice-router/methodology.html) published alongside. Until the first real multi-provider run, it shows clearly-labeled sample data so the format is visible.
 
 The site is plain HTML in `docs/`, served by GitHub Pages from the `main` branch - no build step and no separate `gh-pages` branch to drift away from the data that generates it. Regenerate after any harness run (a GitHub Action also does this on every `benchmarks/` push and weekly):
 
