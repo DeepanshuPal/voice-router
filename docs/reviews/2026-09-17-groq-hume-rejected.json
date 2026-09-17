@@ -1,0 +1,25 @@
+{
+  "disposition": "rejected",
+  "reviewer": "Instinct adversarial measurement review",
+  "reviewed_at": "2026-09-17",
+  "artifact_commit": "b6c5cc5576245a469f005a28822041e00b0de047",
+  "artifact_sha256": "7255193e0585ba8c20a12f472258c8cdfed684f5b26990e8705d18748a2ac3c1",
+  "attacks_attempted": [
+    "normalization_equivalence",
+    "independent_corpus_error_rate",
+    "largest_error_inspection",
+    "serial_repeats",
+    "protocol_separation",
+    "raw_timing_recompute",
+    "tts_first_audio_validation",
+    "public_diff",
+    "deployed_site_verification"
+  ],
+  "findings": [
+    "REJECT: Groq Whisper completed only 102/450 calls; 348 failed, mostly free-tier 429 rate limits. Only 8/90 clips have all five successful repeats.",
+    "REJECT: Hume completed 66/90 TTS calls; 24 failed with free-tier 429 quota violations.",
+    "PASS SUBSET: Groq TTS completed 15/15 English batch calls. Correct label is full-synthesis wall clock (batch), median 1514.6 ms, IQR 501.6 ms.",
+    "PASS SUBSET: Groq LLM completed 60/60 serial calls with five repeats, but LLM publication remains outside this STT/TTS review.",
+    "Public site remained withdrawn and machine-readable status remained withdrawn."
+  ]
+}
