@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T21:18:01.646225+00:00",
+  "generated_at": "2026-09-17T13:49:46.400733+00:00",
   "language": "en",
   "clips": [
     {
@@ -288,6 +288,34 @@
       "sample": "en-5",
       "file": "audio/groq-tts/en-5.wav",
       "chars": 169
+    },
+    {
+      "provider": "groq-tts",
+      "model": "canopylabs/orpheus-v1-english",
+      "sample": "en-6",
+      "file": "audio/groq-tts/en-6.wav",
+      "chars": 98
+    },
+    {
+      "provider": "groq-tts",
+      "model": "canopylabs/orpheus-v1-english",
+      "sample": "en-7",
+      "file": "audio/groq-tts/en-7.wav",
+      "chars": 66
+    },
+    {
+      "provider": "groq-tts",
+      "model": "canopylabs/orpheus-v1-english",
+      "sample": "en-8",
+      "file": "audio/groq-tts/en-8.wav",
+      "chars": 56
+    },
+    {
+      "provider": "groq-tts",
+      "model": "canopylabs/orpheus-v1-english",
+      "sample": "en-9",
+      "file": "audio/groq-tts/en-9.wav",
+      "chars": 251
     },
     {
       "provider": "hume",
